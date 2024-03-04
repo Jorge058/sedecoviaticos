@@ -411,7 +411,11 @@ console.log(camposArray)
   document.getElementById('alimentacionDinero').value;
   document.getElementById('hotelDinero').value;
 
+
+
 }
+
+
 
 /********************************************* */
 /******************    VALUES FORM */
@@ -441,3 +445,69 @@ let placasVehiculo = document.getElementById('placasInput').value;
 /* Dinero */
 let alimentacionDinero = document.getElementById('alimentacionDinero').value;
 let hotelDinero = document.getElementById('hotelDinero').value;
+let totalDinero = document.getElementById('totalDinero').value
+let combustibleDinero = document.getElementById('combustibleDinero').value
+let peajesDinero = document.getElementById('peajesDinero').value
+let pasajesDinero = document.getElementById('pasajesDinero').value
+let totalDinero1  = document.getElementById('totalDinero1').value
+
+// Variable para autosumas
+let inputs1 = document.querySelectorAll('.suma1')
+let inputs2 = document.querySelectorAll('.suma2')
+
+const comisionMenu = document.querySelector('.comisionMenu')
+const btnComisionsi = document.querySelector('.btnComisionsi')
+const btnComisionno = document.querySelector('.btnComisionno')
+
+
+
+
+//Evento para la suma
+inputs1.forEach(input => {
+  input.addEventListener("change", sumaAlimentos);
+});
+
+//FUNCTION TO GET THE TOTAL AMOUNT
+function sumaAlimentos() {
+  let contador=0
+  inputs1.forEach(input => contador+= parseInt(input.value)
+  )
+  document.getElementById('totalDinero').value=contador;
+}
+
+//Evento para la suma dos
+inputs2.forEach(input=>{
+  input.addEventListener('change', sumaGastos);
+})
+
+function sumaGastos() {
+  let contador = 0
+  inputs2.forEach(input => contador+= parseInt(input.value))
+  document.getElementById('totalDinero1').value = contador
+}
+
+//Evento para despkegar menu o ocultarlo
+  btnComisionsi.addEventListener('click', ()=>{
+    comisionMenu.style.display = "block";
+
+    inputs2.forEach(inputs => {
+      inputs.value = ""
+    });
+    document.getElementById('totalDinero1').value = "" 
+
+    /* document.getElementById('combustibleDinero').value = ""
+    document.getElementById('peajesDinero').value = ""
+    document.getElementById('pasajesDinero').value =""
+    document.getElementById('totalDinero1').value = "" */
+
+  });
+
+  btnComisionno.addEventListener('click', ()=>{
+    comisionMenu.style.display = "none";
+
+    inputs2.forEach(inputs=>{
+      inputs.value = 0
+    })
+    document.getElementById('totalDinero1').value = 0
+  })
+

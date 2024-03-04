@@ -255,7 +255,12 @@ section#hero{
 
 
   /* Estilo para la seccion de recibos */
-  
+  .tab.recibo div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
+
   .tab.recibo p{
     align-items: center;
     justify-content: center;
@@ -266,6 +271,18 @@ section#hero{
   .tab.recibo span{
     background-color: transparent;
   }
+  .btnComisionsi{
+    color: white;
+    background-color: #4A001F;
+    border-radius: 10px;
+    width: 100px;
+}
+.btnComisionno{
+  color: white;
+  background-color: #4A001F;
+  border-radius: 10px;
+  width: 100px;
+}
 
 /*Estilos para botones de pds*/
   .buttonPDFGenerator{
@@ -274,11 +291,24 @@ section#hero{
     border-radius: 10px;
   }
 
+/* Estilos para la seccion comision*/
+
+.tab.comision p{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.tab.comision span{
+  background-color: transparent;
+}
+
+
   /*   ICON PDF */
   .icons {
     display: inline-block;
     margin: 0 auto;
-}
+  }
   .icon {
     display: inline-block;
     width: 40px;

@@ -205,12 +205,29 @@
                     <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
                 </div>
                 
-                <div class="tab recibo">Recibo:
-                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon" oninput="this.className = ''"></p>
-                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero" class="input-with-icon" oninput="this.className = ''"></p>
+                <div class="tab recibo">Gastos de comisión
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero" class="input-with-icon" oninput="this.className = ''" disabled></p>
+                    
+                    <br>
+                    <h4>Agregar gastos de traslado</h4>
+                    <div class="botones">
+                        <p><button type="button" class="btnComisionsi">Si</button></p>
+                        <p><button type="button" class="btnComisionno">No</button></p>
+                    </div>
+                    <div class="comisionMenu" style="display: none;">
+                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Combustible" id="combustibleDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
+                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Peajes" id="peajesDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
+                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Pasajes" id="pasajesDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
+                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero1" class="input-with-icon" oninput="this.className = ''" disabled></p>
+                    </div> 
+                </div>
+
+                <div class="tab recibo">Recibo
+                    
                 </div>
                 
-
                 <div class="tab">Comprobacion:
                     <br>
                     <div class="icon icon--pdf">
@@ -219,14 +236,14 @@
                     <p><button type="button" class="buttonPDFGenerator" id="generatonBtn" onclick="">Generar Recibo</button></p>
                     <p></p><button type="button" class="buttonPDFGenerator" id="generatonBtn" onclick="">Generar Comprobación</button></p>
                 </div>
-                
+
                 <div style="overflow:auto; padding-top: 0.5rem;">
                     <div style="float:right;">
                         <button type="button" id="loadCookiesBtn" onclick="loadCookies()">Rellenar Campos</button>
                         <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
                     </div>
-                </div>
+                </div> 
 
                 <!-- Circles which indicates the steps of the form: -->
                 <div style="text-align:center;margin-top:40px;">
@@ -261,12 +278,12 @@
         <li class="list-inline-item">
         <br>
         <a href="https://www.facebook.com/gobmichoacan/" target="_blank"><i
-       class="fab fa-2x fa-facebook"></i></a>&nbsp;&nbsp;
+        class="fab fa-2x fa-facebook"></i></a>&nbsp;&nbsp;
         </li>
         <li class="list-inline-item">
         <br>
         <a href="https://www.instagram.com/gobmichoacan/?hl=es" target="_blank"><i
-       class="fab fa-2x fa-instagram"></i></a>&nbsp;&nbsp;
+        class="fab fa-2x fa-instagram"></i></a>&nbsp;&nbsp;
         </li>
         <li class="list-inline-item">
         <br>

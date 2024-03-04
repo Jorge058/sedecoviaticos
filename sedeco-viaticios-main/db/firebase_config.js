@@ -34,7 +34,7 @@ const firebaseConfig = {
         snapshot.docs.forEach((doc) => {
             autosArr.push({ ...doc.data(), id: doc.id})
 
-            console.log(doc.data().marca)
+            //console.log(doc.data().marca)
 
             //MARCA ARRAY
                 marcaAuto.push(doc.data().marca)   
@@ -42,8 +42,8 @@ const firebaseConfig = {
 
         marcaAuto =  [...new Set(marcaAuto)]
         addSelectMarca(marcaAuto)
-        console.log(autosArr)
-        console.log(marcaAuto)
+        //console.log(autosArr)
+       // console.log(marcaAuto)
     })
 
     .catch(err => {
@@ -76,7 +76,7 @@ export { query, orderBy, limit, where, onSnapshot };
       addSelectTipo(document.getElementById("marcaVehiculo"));
 
       function addSelectTipo (marca) {
-        console.log("functrion1")
+      
         marca.addEventListener("change", function(e) {
           console.log("onchangeeeed")
           let select = document.getElementById('marcaVehiculo');
