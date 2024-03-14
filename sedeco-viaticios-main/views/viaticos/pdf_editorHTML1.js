@@ -1,31 +1,30 @@
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
-          /* Comision */
-          let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
-          let numeroOficio = document.getElementById('numOficio').value;
-          let fechaDocumento = document.getElementById('documentDate').value;
-          let lugarComision = document.getElementById('inputCiudades').value;
-          
-          /* USUARIO */
-          let nombreUsuario = document.getElementById('nombreUsuario').value;
-          let cargoUsuario = document.getElementById('cargoUsuario').value;
-          
-          let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
-          let descripcionDetalles = document.getElementById('descripcionDetalles').value;
-          let fechaInicio = document.getElementById('fechaInicio').value;
-          let fechaFinal = document.getElementById('fechaFinal').value;
-          
-          /*  Vehiculo  */
-          let tipoVehiculo = document.getElementById('vehicleInput').value;
-          let marcaVehiculo = document.getElementById('marcaVehiculo').value;
-          let modeloVehiculo = document.getElementById('modeloAuto').value;
-          let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
-          let placasVehiculo = document.getElementById('placasInput').value;
-          
-          /* Dinero */
-          let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-          let hotelDinero = document.getElementById('hotelDinero').value;
     
-          
+        /* Comision */
+        let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
+        let numeroOficio = document.getElementById('numOficio').value;
+        let fechaDocumento = document.getElementById('documentDate').value;
+        let lugarComision = document.getElementById('inputCiudades').value;
+        
+        /* USUARIO */
+        let nombreUsuario = document.getElementById('nombreUsuario').value;
+        let cargoUsuario = document.getElementById('cargoUsuario').value;
+        
+        let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
+        let descripcionDetalles = document.getElementById('descripcionDetalles').value;
+        let fechaInicio = document.getElementById('fechaInicio').value;
+        let fechaFinal = document.getElementById('fechaFinal').value;
+        
+        /*  Vehiculo  */
+        let tipoVehiculo = document.getElementById('vehicleInput').value;
+        let marcaVehiculo = document.getElementById('marcaVehiculo').value;
+        let modeloVehiculo = document.getElementById('modeloAuto').value;
+        let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
+        let placasVehiculo = document.getElementById('placasInput').value;
+
+        /* Dinero */
+        let alimentacionDinero = document.getElementById('alimentacionDinero').value;
+        let hotelDinero = document.getElementById('hotelDinero').value;
     
     // FORMATO 1 HTML
     
@@ -50,10 +49,9 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
         const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
         return wordnumber[numero-1]
     }
-   
     //******************* *********/
-console.log(fechaDocumento)
-
+//console.log(fechaDocumento)
+//Rellenado de primer oficio 
 
 iframe.contentWindow.document.getElementById("f1-UnidadResponsable").innerHTML = unidadResponsable;
 iframe.contentWindow.document.getElementById("f1-NumeroOficio").innerHTML = numeroOficio + "/" + year;
@@ -108,6 +106,47 @@ localStorage.setItem("Campos", string);
 
 });
 
+//Llenado de oficio 2
+document.querySelector('#generadorPDF2').addEventListener('click', function () {
+
+    /* Comision */
+    let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
+    let numeroOficio = document.getElementById('numOficio').value;
+    let fechaDocumento = document.getElementById('documentDate').value;
+    let lugarComision = document.getElementById('inputCiudades').value;
+    
+    /* USUARIO */
+    let nombreUsuario = document.getElementById('nombreUsuario').value;
+    let cargoUsuario = document.getElementById('cargoUsuario').value;
+    
+    let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
+    let descripcionDetalles = document.getElementById('descripcionDetalles').value;
+    let fechaInicio = document.getElementById('fechaInicio').value;
+    let fechaFinal = document.getElementById('fechaFinal').value;
+    
+    /*  Vehiculo  */
+    let tipoVehiculo = document.getElementById('vehicleInput').value;
+    let marcaVehiculo = document.getElementById('marcaVehiculo').value;
+    let modeloVehiculo = document.getElementById('modeloAuto').value;
+    let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
+    let placasVehiculo = document.getElementById('placasInput').value;
+
+    /* Dinero */
+    let alimentacionDinero = document.getElementById('alimentacionDinero').value;
+    let hotelDinero = document.getElementById('hotelDinero').value;
+
+    //Obtenemos el iframe para mandarle los datos
+    const iframe2 = document.getElementById("frame2");
+
+    //Envio de informacion al documento 2
+    iframe2.contentWindow.document.getElementById('UR').innerHTML = unidadResponsable;
+
+    
+
+    let wspFrame = document.getElementById('frame2').contentWindow;
+        wspFrame.focus();
+        wspFrame.print();
+})
 
 
 

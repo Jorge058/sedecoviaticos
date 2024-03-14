@@ -496,12 +496,12 @@ function sumaGastos() {
     document.getElementById('totalDinero1').value = "" 
 
     /* document.getElementById('combustibleDinero').value = ""
-    document.getElementById('peajesDinero').value = ""
-    document.getElementById('pasajesDinero').value =""
+    document.getElementById('peajesDinero').value = "" 
+    document.getElementById('pasajesDinero').value = ""
     document.getElementById('totalDinero1').value = "" */
 
   });
-
+  //Evento para darle vaores en 0 al document 
   btnComisionno.addEventListener('click', ()=>{
     comisionMenu.style.display = "none";
 

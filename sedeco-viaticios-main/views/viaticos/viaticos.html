@@ -115,6 +115,7 @@
 
                 <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
                 </div>
+
                 
                 <div class="tab">Usuario
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
@@ -209,7 +210,13 @@
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero" class="input-with-icon" oninput="this.className = ''" disabled></p>
+                    <br>
+                    Gastos 2
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero2" class="input-with-icon suma1" oninput="this.className = ''"></p>
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero2" class="input-with-icon suma1" oninput="this.className = ''"></p>
+                    <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero2" class="input-with-icon" oninput="this.className = ''" disabled></p>
                     
+
                     <br>
                     <h4>Agregar gastos de traslado</h4>
                     <div class="botones">
@@ -224,17 +231,18 @@
                     </div> 
                 </div>
 
-                <div class="tab recibo">Recibo
-                    
-                </div>
                 
                 <div class="tab">Comprobacion:
                     <br>
+                    <iframe
+                        id="frame2"
+                        style=""
+                        src="../viaticos/Solo Recibo html.html"
+                    ></iframe>
                     <div class="icon icon--pdf">
                         <i title="pdf"></i>
                     </div>
-                    <p><button type="button" class="buttonPDFGenerator" id="generatonBtn" onclick="">Generar Recibo</button></p>
-                    <p></p><button type="button" class="buttonPDFGenerator" id="generatonBtn" onclick="">Generar Comprobación</button></p>
+                    <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Generar Recibo</button></p>
                 </div>
 
                 <div style="overflow:auto; padding-top: 0.5rem;">
