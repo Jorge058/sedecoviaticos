@@ -94,7 +94,7 @@
                 <h1>Oficio de Comision</h1>
                 <h3>Oficio</h3>
                 <!-- One "tab" for each step in the form: -->
-                <div class="tab autocomplete">Detalles del oficio
+                <div class="tab ">Detalles del oficio
                 <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
                 <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
                     <option value="" disabled selected hidden>Unidad Responsable</option>              
@@ -112,8 +112,7 @@
 
                 <p><input placeholder="Numero de Oficio" type="number" id="numOficio" oninput="this.className = ''"></p>
                 <p><input placeholder="Fecha del Oficio" type="text" id="documentDate" onfocus="(this.type='date')"></p>
-
-                <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
+                
                 </div>
 
                 
@@ -121,9 +120,19 @@
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
                     <p><input placeholder="Cargo" id="cargoUsuario" style="text-transform: capitalize;"></p>
                     <p><textarea placeholder="Descripcion detallada actividades" id="descripcionDetalles" class="bigText" oninput="this.className = ''"></textarea></p>
+                  
+                </div>
+
+                <div class="tab autocomplete">Comision
+                    
+
                     <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
-                    <p class="middleInputWidth"> Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
+                    <p class="middleInputWidth" style=""> Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
                     <p><input type="number" placeholder="Duracion Dias" disabled="true" id="duracionDias"></p>
+
+                    <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
+
+                    <hr>
                 </div>
                 
                 <div class="tab">Vehiculo
