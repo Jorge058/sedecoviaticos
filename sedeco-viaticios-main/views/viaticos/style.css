@@ -445,19 +445,22 @@ div.table-title {
   border-collapse: collapse;
   height: 320px;
   margin: auto;
-  max-width: 600px;
+ /* max-width: 600px;
+  width: 100%; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    */
   padding: 2px;
-  width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  
+
   animation: float 5s infinite;
 }
 
 th {
-  color: #d5dde5;
-  background: #008DDA;
+  color: black;
+  background: #ffffff;
   border-bottom: 4px solid #9ea7af;
   border-right: 1px solid #343a45;
-  font-size: 2.4vh;
+  font-size: 2vh;
   font-weight: 100;
   padding: 0.2rem 1.5rem;
   text-align: left;

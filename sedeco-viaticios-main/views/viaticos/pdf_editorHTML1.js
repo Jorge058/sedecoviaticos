@@ -46,7 +46,7 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
     }
 
     function numeroALetra(numero){
-        const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
+        const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"];
         return wordnumber[numero-1]
     }
     //******************* *********/
