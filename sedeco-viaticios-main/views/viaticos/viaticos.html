@@ -214,6 +214,48 @@
                     </div>
                     <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
                 </div>
+
+                <div class="tab">
+
+                    <table class="table-fill">
+                        <thead>
+                        <tr>
+                        <th class="text-left" width="50%">LUGAR (ES) DE LA COMISIÓN</th>
+                        <th class="text-left">FECHA (S)</th>
+                        <th class="text-left">ALIMENTACIÓN</th>
+                        <th class="text-left">HOSPEDAJE</th>
+                        <th class="text-left">TOTAL</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="table-hover" id="tabla-main"> 
+                        
+                        <tr>
+                        <td id="ID1">ID001</td>
+                        <td class="text-left"><a href="#" id="vespertino1" onclick="showtime(this.id)">Israel Hernández Arana</a></td>
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
+                        <td class="text-center"><textarea onblur="observa(this.id)" id="observaciones1" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
+                      </tr> 
+
+                      <tr>
+                        <td id="ID1">ID001</td>
+                        <td class="text-left"><a href="#" id="vespertino1" onclick="showtime(this.id)">Israel Hernández Arana</a></td>
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
+                        <td class="text-center"><textarea onblur="observa(this.id)" id="observaciones1" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
+                      </tr> 
+
+                      <tr>
+                        <td id="ID1"></td>
+                        <td>SUMAS</td>
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td>
+                        <td class="text-center"><textarea onblur="reparar(this.id)" id="reparaciones1" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td>  
+                        <td class="text-center"><textarea onblur="observa(this.id)" id="observaciones1" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
+                      </tr> 
+                    </tbody>
+                </table>
+                </div>
                 
                 <div class="tab recibo">Gastos de comisión
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
@@ -348,6 +390,7 @@
     <script src="../../js/index.js"></script>
     <script src="viaticos.js"></script>
     <script type="module" src="/db/firebase_config.js"></script>
+    <script type="module" src="../../db/firebase_config.js"></script>
     <!--<script src="pdf_editor.js"></script> -->
     <script src="pdf_editorHTML1.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script> -->
