@@ -121,19 +121,19 @@
                     <p><input placeholder="Cargo" id="cargoUsuario" style="text-transform: capitalize;"></p>
                     <p><textarea placeholder="Descripcion detallada actividades" id="descripcionDetalles" class="bigText" oninput="this.className = ''"></textarea></p>
                   
-                </div>
+                </div >
 
                 <div class="tab autocomplete">Comision
                     
-
+                    <div style="">
                     <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
                     <p class="middleInputWidth" style=""> Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
                     <p hidden><input type="number" placeholder="Duracion Dias" disabled="true" id="duracionDias"></p>
 
                     <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
 
-                    <button id="BtnAgregarComision" style="margin-top: 2vh;">Agregar</button>
-
+                    <button  type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
+                </div>
                     <hr>
 
                     <table class="table-fill">
@@ -150,8 +150,8 @@
                         <tbody class="table-hover" id="tabla-main"> 
                         
                         <tr>
-                        <td id="ShowCiudad1">Morelia</td>
-                        <td class="text-left"><a href="#" id="" onclick="">Del 5 al 6 de enero de 2024</a></td>
+                        <td id="ShowCiudad1"></td>
+                        <td class="text-left"><a href="#" id="ShowFecha1" onclick=""> </a></td>
                         <td class="text-center"><textarea onblur="" id="ShowAlimentacion1" name="fecha1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
                         <td class="text-center"><textarea onblur="" id="ShowHospedaje1" name="alimentacion1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
                         <td class="text-center"><textarea onblur="" id="ShowTotal1" name="hospedaje1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
@@ -174,6 +174,8 @@
                       </tr> 
                     </tbody>
                 </table>
+
+                <hr>
                 
                 </div>
                 

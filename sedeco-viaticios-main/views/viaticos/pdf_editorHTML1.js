@@ -1,3 +1,5 @@
+
+
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
     
         /* Comision */
@@ -49,33 +51,8 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
         const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"];
         return wordnumber[numero-1]
     }
-    //******************* *********/
-//console.log(fechaDocumento)
-//Rellenado de primer oficio 
 
-iframe.contentWindow.document.getElementById("f1-UnidadResponsable").innerHTML = unidadResponsable;
-iframe.contentWindow.document.getElementById("f1-NumeroOficio").innerHTML = numeroOficio + "/" + year;
-iframe.contentWindow.document.getElementById("f1-FechaOficio").innerHTML = new Date(fechaDocumento).toLocaleDateString('es-mx', {  year:"numeric", month:"long", day:"numeric"})
-iframe.contentWindow.document.getElementById("f1-NombreUsuario").innerHTML = mayusculas(nombreUsuario);
-iframe.contentWindow.document.getElementById("f1-CargoUsuario").innerHTML = mayusculas(cargoUsuario);
-iframe.contentWindow.document.getElementById("f1-DuracionDias").innerHTML = duracionDias;
-iframe.contentWindow.document.getElementById("f1-DuracionDiasLetra").innerHTML = numeroALetra(duracionDias) +" días";
-iframe.contentWindow.document.getElementById("f1-DescripcionDetalles").innerHTML = descripcionDetalles;
-iframe.contentWindow.document.getElementById("f1-DescripcionDetalles2").innerHTML = descripcionDetalles;
-iframe.contentWindow.document.getElementById("f1-LugarComision").innerHTML = lugarComision;
-iframe.contentWindow.document.getElementById("f1-FechasComision").innerHTML = "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', { day:"numeric"}) +" al "+ new Date(fechaFinal).toLocaleDateString('es-mx', {  month:"long", day:"numeric"}) +" de "+ new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
-
-iframe.contentWindow.document.getElementById("f1-TipoVehiculo").innerHTML = tipoVehiculo;
-iframe.contentWindow.document.getElementById("f1-MarcaVehiculo").innerHTML = marcaVehiculo;
-iframe.contentWindow.document.getElementById("f1-ModeloVehiculo").innerHTML = modeloVehiculo;
-iframe.contentWindow.document.getElementById("f1-AnioVehiculo").innerHTML = modeloAnioVehiculo;
-iframe.contentWindow.document.getElementById("f1-PlacasVehiculo").innerHTML = placasVehiculo;
-
-iframe.contentWindow.document.getElementById("f1-NombreUsuario2").innerHTML = mayusculas(nombreUsuario);
-iframe.contentWindow.document.getElementById("f1-CargoUsuario2").innerHTML = mayusculas(cargoUsuario);
-
-
-//SAVE IN LOCALSTORAGE  
+    //SAVE IN LOCALSTORAGE  
 // BOTON RELLENAR CAMPOS  GUARDAR CAmpos
 let todosCampos = [
     unidadResponsable,
@@ -97,6 +74,32 @@ let todosCampos = [
         ]
 let string = JSON.stringify(todosCampos);
 localStorage.setItem("Campos", string);
+    //******************* *********/
+//console.log(fechaDocumento)
+//Rellenado de primer oficio 
+
+iframe.contentWindow.document.getElementById("f1-UnidadResponsable").innerHTML = unidadResponsable;
+iframe.contentWindow.document.getElementById("f1-NumeroOficio").innerHTML = numeroOficio + "/" + year;
+iframe.contentWindow.document.getElementById("f1-FechaOficio").innerHTML = new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+iframe.contentWindow.document.getElementById("f1-NombreUsuario").innerHTML = mayusculas(nombreUsuario);
+iframe.contentWindow.document.getElementById("f1-CargoUsuario").innerHTML = mayusculas(cargoUsuario);
+iframe.contentWindow.document.getElementById("f1-DuracionDias").innerHTML = duracionDias;
+iframe.contentWindow.document.getElementById("f1-DuracionDiasLetra").innerHTML = numeroALetra(duracionDias) +" días";
+iframe.contentWindow.document.getElementById("f1-DescripcionDetalles").innerHTML = descripcionDetalles;
+iframe.contentWindow.document.getElementById("f1-DescripcionDetalles2").innerHTML = descripcionDetalles;
+iframe.contentWindow.document.getElementById("f1-LugarComision").innerHTML = lugarComision;
+iframe.contentWindow.document.getElementById("f1-FechasComision").innerHTML = "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "+ new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+ new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
+
+iframe.contentWindow.document.getElementById("f1-TipoVehiculo").innerHTML = tipoVehiculo;
+iframe.contentWindow.document.getElementById("f1-MarcaVehiculo").innerHTML = marcaVehiculo;
+iframe.contentWindow.document.getElementById("f1-ModeloVehiculo").innerHTML = modeloVehiculo;
+iframe.contentWindow.document.getElementById("f1-AnioVehiculo").innerHTML = modeloAnioVehiculo;
+iframe.contentWindow.document.getElementById("f1-PlacasVehiculo").innerHTML = placasVehiculo;
+
+iframe.contentWindow.document.getElementById("f1-NombreUsuario2").innerHTML = mayusculas(nombreUsuario);
+iframe.contentWindow.document.getElementById("f1-CargoUsuario2").innerHTML = mayusculas(cargoUsuario);
+
+
 
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR

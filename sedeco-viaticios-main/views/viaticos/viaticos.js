@@ -511,3 +511,41 @@ function sumaGastos() {
     document.getElementById('totalDinero1').value = 0
   })
 
+
+
+/************************************************** */
+  // TABLA COMISION
+
+  //Button ADD
+document.querySelector('#BtnAgregarComision').addEventListener('click', function () {
+  let fechaInicio = document.getElementById('fechaInicio').value;
+  let fechaFinal = document.getElementById('fechaFinal').value;
+  let lugarComision = document.getElementById('inputCiudades').value;
+
+
+ 
+
+  //Add
+  document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+
+  if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
+    
+    document.getElementById('ShowFecha1').innerHTML = 
+    "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
+   + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+    new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+ }
+
+ else {
+   document.getElementById('ShowFecha1').innerHTML = 
+   "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
+   + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+    new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+ }
+
+ //Blank
+ document.getElementById('fechaInicio').value ='';
+ document.getElementById('fechaFinal').value='';
+ document.getElementById('inputCiudades').value='';
+
+})
