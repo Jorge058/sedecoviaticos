@@ -518,34 +518,141 @@ function sumaGastos() {
 
   //Button ADD
 document.querySelector('#BtnAgregarComision').addEventListener('click', function () {
+
   let fechaInicio = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   let lugarComision = document.getElementById('inputCiudades').value;
 
+  //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
+  if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
+    document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+  
+    if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
+      
+      document.getElementById('ShowFecha1').innerHTML = 
+      "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
+      + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+    }
 
- 
+    else {
+      document.getElementById('ShowFecha1').innerHTML = 
+      "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
+      + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+        new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+    }
 
-  //Add
-  document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+} else if(document.getElementById('ShowCiudad1').innerHTML != '' && document.getElementById('ShowFecha1').innerHTML != ''){
+
+  document.getElementById('ShowCiudad2').innerHTML = lugarComision;
+  document.getElementById('BtnAgregarComision').disabled = true;
+  document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
+  document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
+
 
   if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
-    
-    document.getElementById('ShowFecha1').innerHTML = 
+      
+    document.getElementById('ShowFecha2').innerHTML = 
     "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
-   + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+    + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
     new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
- }
+  }
 
- else {
-   document.getElementById('ShowFecha1').innerHTML = 
-   "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
-   + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-    new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
- }
-
+  else {
+    document.getElementById('ShowFecha2').innerHTML = 
+    "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
+    + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+  }
+}
  //Blank
- document.getElementById('fechaInicio').value ='';
- document.getElementById('fechaFinal').value='';
- document.getElementById('inputCiudades').value='';
-
+document.getElementById('fechaInicio').value ='';
+document.getElementById('fechaFinal').value='';
+document.getElementById('inputCiudades').value='';
 })
+
+/*Funcion para limpiar los espacios */
+document.querySelector('#btnLimpiarC').addEventListener('click',function () {
+  event.preventDefault()
+  document.getElementById('ShowCiudad1').innerHTML = ''
+  document.getElementById('ShowFecha1').innerHTML = ''
+  document.getElementById('ShowCiudad2').innerHTML = ''
+  document.getElementById('ShowFecha2').innerHTML = ''
+
+  /*Comprobamos que los espacios esten en blanco para volver a activar el boton */
+  if (document.getElementById('ShowCiudad1').innerHTML === '' ) {
+    document.getElementById('BtnAgregarComision').disabled = false
+    document.getElementById('BtnAgregarComision').style.backgroundColor = "#4A001F"
+    document.getElementById('BtnAgregarComision').style.cursor = "pointer"
+  } 
+})
+
+/*Funcion para realizar la autosuma de todos los campos al hacer click */
+//Primera fila
+var campo1 = document.getElementById("ShowAlimentacion1");
+var campo2 = document.getElementById("ShowHospedaje1");
+var resultado = document.getElementById("ShowTotal1");
+var campo3 = document.getElementById("ShowAlimentacion2");
+var campo4 = document.getElementById("ShowHospedaje2");
+var resultado2 = document.getElementById("ShowTotal2");
+var resultado3 = document.getElementById("alimentosT");
+var resultado4 = document.getElementById("hospedajeT");
+var resultado5 = document.getElementById("ShowTotal3");
+
+
+campo1.addEventListener("input", calcularSuma);
+campo2.addEventListener("input", calcularSuma);
+
+function calcularSuma() {
+  var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(campo2.value) || 0;
+
+  var suma = valor1 + valor2;
+
+  resultado.value = suma;
+}
+//Segunda fila
+campo3.addEventListener("input", calcularSuma2);
+campo4.addEventListener("input", calcularSuma2);
+
+function calcularSuma2() {
+  var valor1 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(campo4.value) || 0;
+
+  var suma = valor1 + valor2;
+
+  resultado2.value = suma;
+}
+//Primer columna
+campo1.addEventListener("input", calcularSuma3);
+campo3.addEventListener("input", calcularSuma3);
+
+function calcularSuma3() {
+  var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(campo3.value) || 0;
+
+  var suma = valor1 + valor2;
+
+  resultado3.value = suma;
+}
+
+//Segunda columna 
+campo2.addEventListener("input", calcularSuma4);
+campo4.addEventListener("input", calcularSuma4);
+
+function calcularSuma4() {
+  var valor1 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(campo4.value) || 0;
+
+  var suma = valor1 + valor2;
+
+  resultado4.value = suma;
+}
+//Total
+
+
+
+
+
+
+

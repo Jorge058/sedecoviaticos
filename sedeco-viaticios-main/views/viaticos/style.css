@@ -289,6 +289,7 @@ section#hero{
     color: white;
     background-color: #4A001F;
     border-radius: 10px;
+
   }
 
 /* Estilos para la seccion comision*/
@@ -302,6 +303,32 @@ section#hero{
 .tab.comision span{
   background-color: transparent;
 }
+
+/*Estilos para la comision*/
+.fechas{
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+.btnAgregar{
+  color: white;
+  background-color: #4A001F;
+  border-radius: 10px;
+  margin-top: 2%;
+  padding: 0.5%;
+  width: 20%;
+}
+
+.btnLimpiarC{
+  color: white;
+  background-color: #4A001F;
+  border-radius: 10px;
+  margin-top: 2%;
+  padding: 0.5%;
+  width: 20%;
+}
+
 
 
   /*   ICON PDF */
@@ -545,6 +572,10 @@ th.text-right {
 
 td.text-left {
   text-align: left;
+}
+
+td.text-left a{
+  color: #666b85;
 }
 
 td.text-center {

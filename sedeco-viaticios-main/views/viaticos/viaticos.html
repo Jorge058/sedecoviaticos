@@ -120,61 +120,62 @@
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
                     <p><input placeholder="Cargo" id="cargoUsuario" style="text-transform: capitalize;"></p>
                     <p><textarea placeholder="Descripcion detallada actividades" id="descripcionDetalles" class="bigText" oninput="this.className = ''"></textarea></p>
-                  
                 </div >
 
                 <div class="tab autocomplete">Comision
-                    
-                    <div style="">
-                    <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
-                    <p class="middleInputWidth" style=""> Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
-                    <p hidden><input type="number" placeholder="Duracion Dias" disabled="true" id="duracionDias"></p>
-
-                    <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
-
-                    <button  type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
-                </div>
+                    <div class="datos">
+                        <div class="fechas">
+                            <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
+                            <p class="middleInputWidth" > Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
+                            <p hidden><input type="number" placeholder="Duracion Dias" disabled="true" id="duracionDias"></p>
+                        </div>
+                        <br>
+                        <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
+                        <br>
+                        <button class="btnAgregar" type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
+                    </div>
                     <hr>
-
                     <table class="table-fill">
                         <thead>
-                        <tr>
-                        <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
-                        <th class="text-left">FECHA (S)</th>
-                        <th class="text-left">ALIMENTACIÓN</th>
-                        <th class="text-left">HOSPEDAJE</th>
-                        <th class="text-left">TOTAL</th>
-                        </tr>
+                            <tr>
+                            <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
+                            <th class="text-left">FECHA (S)</th>
+                            <th class="text-left">ALIMENTACIÓN</th>
+                            <th class="text-left">HOSPEDAJE</th>
+                            <th class="text-left">TOTAL</th>
+                            </tr>
                         </thead>
 
-                        <tbody class="table-hover" id="tabla-main"> 
+                    <tbody class="table-hover" id="tabla-main"> 
                         
                         <tr>
-                        <td id="ShowCiudad1"></td>
-                        <td class="text-left"><a href="#" id="ShowFecha1" onclick=""> </a></td>
-                        <td class="text-center"><textarea onblur="" id="ShowAlimentacion1" name="fecha1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
-                        <td class="text-center"><textarea onblur="" id="ShowHospedaje1" name="alimentacion1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
-                        <td class="text-center"><textarea onblur="" id="ShowTotal1" name="hospedaje1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
-                      </tr> 
+                            <td id="ShowCiudad1"></td>
+                            <td class="text-left"><a href="#" id="ShowFecha1" onclick=""></a></td>
+                            <td class="text-center"><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;"></input></td> 
+                            <td class="text-center"><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;"></input></td> 
+                            <td class="text-center"><input type="number" onblur="" id="ShowTotal1" name="hospedaje1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled>  </input></td> 
+                        </tr> 
 
-                      <tr>
-                        <td id="ShowCiudad2"></td>
-                        <td class="text-left"><a href="#" id="ShowFecha2" onclick=""></a></td>
-                        <td class="text-center"><textarea onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
-                        <td class="text-center"><textarea onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td> 
-                        <td class="text-center"><textarea onblur="" id="ShowTotal2" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
-                      </tr> 
+                        <tr>
+                            <td id="ShowCiudad2"></td>
+                            <td class="text-left"><a href="#" id="ShowFecha2" onclick=""></a></td>
+                            <td class="text-center"><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;"></input></td> 
+                            <td class="text-center"><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;"></input></td> 
+                            <td class="text-center"><input type="number" onblur="" id="ShowTotal2" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled></input></td> 
+                        </tr> 
 
-                      <tr>
-                        <td id=""></td>
-                        <td>SUMAS</td>
-                        <td class="text-center"><textarea onblur="" id="ShowAlimentacion3" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td>
-                        <td class="text-center"><textarea onblur="" id="ShowHospedaje3" name="alimentos" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;">      </textarea></td>  
-                        <td class="text-center"><textarea onblur="" id="ShowTotal3" name="hospedaje" style=" background: transparent; border: none; width: 100%; height: 100%; font-size:small;">  </textarea></td> 
-                      </tr> 
+                        <tr>
+                            <td id=""></td>
+                            <td>SUMAS</td>
+                            <td class="text-center"><input type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled></input></td>
+                            <td class="text-center"><input type="number" onblur="" id="hospedajeT" name="alimentos" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled></input></td>  
+                            <td class="text-center"><input type="number" onblur="" id="ShowTotal3" name="hospedaje" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled></input></td> 
+                        </tr> 
                     </tbody>
                 </table>
 
+                <button class="btnLimpiarC" id="btnLimpiarC">Limpiar campos</button>
+                
                 <hr>
                 
                 </div>
