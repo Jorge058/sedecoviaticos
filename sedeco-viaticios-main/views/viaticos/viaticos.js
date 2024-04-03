@@ -521,7 +521,12 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
-    document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+      document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+
+    //Blank
+      document.getElementById('fechaInicio').value ='';
+      document.getElementById('fechaFinal').value='';
+      document.getElementById('inputCiudades').value='';
   
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
       
@@ -546,6 +551,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
 
 
+  
   if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
       
     document.getElementById('ShowFecha2').innerHTML = 
@@ -561,10 +567,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
   }
 }
- //Blank
-document.getElementById('fechaInicio').value ='';
-document.getElementById('fechaFinal').value='';
-document.getElementById('inputCiudades').value='';
+ 
 })
 
 /*Funcion para limpiar los espacios */

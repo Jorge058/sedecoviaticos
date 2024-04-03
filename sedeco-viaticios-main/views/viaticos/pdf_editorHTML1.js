@@ -88,8 +88,8 @@ let string = JSON.stringify(todosCampos);
 localStorage.setItem("Campos", string);
     //******************* *********/
 //console.log(fechaDocumento)
-//Rellenado de primer oficio 
 
+//Rellenado de primer oficio 
 iframe.contentWindow.document.getElementById("f1-UnidadResponsable").innerHTML = unidadResponsable;
 iframe.contentWindow.document.getElementById("f1-NumeroOficio").innerHTML = numeroOficio + "/" + year;
 iframe.contentWindow.document.getElementById("f1-FechaOficio").innerHTML = new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
@@ -137,11 +137,24 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let numeroOficio = document.getElementById('numOficio').value;
     let fechaDocumento = document.getElementById('documentDate').value;
     let lugarComision = document.getElementById('inputCiudades').value;
-    
+    let Fecha1 = document.getElementById('ShowFecha1').textContent;
+    let Fecha2 = document.getElementById('ShowFecha2').textContent;
+    let lugarComision1 = document.getElementById('ShowCiudad1').textContent;
+    let lugarComision2 = document.getElementById('ShowCiudad2').textContent || '';
+    let ShowAlimentacion1 = document.getElementById('ShowAlimentacion1').value;
+    let ShowAlimentacion2 = document.getElementById('ShowAlimentacion2').value;
+    let ShowHospedaje1 = document.getElementById('ShowHospedaje1').value;
+    let ShowHospedaje2 = document.getElementById('ShowHospedaje2').value;
+    let resultado = document.getElementById("ShowTotal1").value
+    let resultado2 = document.getElementById("ShowTotal2").value
+    let resultado3 = document.getElementById("alimentosT").value
+    let resultado4 = document.getElementById("hospedajeT").value
+    let resultado5 = document.getElementById("ShowTotal3").value
+
     /* USUARIO */
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
-    
+
     let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
     let descripcionDetalles = document.getElementById('descripcionDetalles').value;
     let fechaInicio = document.getElementById('fechaInicio').value;
@@ -155,14 +168,28 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let placasVehiculo = document.getElementById('placasInput').value;
 
     /* Dinero */
-    let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-    let hotelDinero = document.getElementById('hotelDinero').value;
+    //let alimentacionDinero = document.getElementById('alimentacionDinero').value;
+    //let hotelDinero = document.getElementById('hotelDinero').value;
 
     //Obtenemos el iframe para mandarle los datos
     const iframe2 = document.getElementById("frame2");
 
     //Envio de informacion al documento 2
     iframe2.contentWindow.document.getElementById('UR').innerHTML = unidadResponsable;
+    iframe2.contentWindow.document.getElementById("f2_fecha1").innerHTML = Fecha1;
+    iframe2.contentWindow.document.getElementById("f2_lugar1").innerHTML = lugarComision1;
+    iframe2.contentWindow.document.getElementById("f2_fecha2").innerHTML = Fecha2;
+    iframe2.contentWindow.document.getElementById("f2_lugar2").innerHTML = lugarComision2;
+    iframe2.contentWindow.document.getElementById("f2_alimentacion1").innerHTML = ShowAlimentacion1;
+    iframe2.contentWindow.document.getElementById("f2_hospedaje1").innerHTML = ShowHospedaje1;
+    iframe2.contentWindow.document.getElementById("f2_resultado").innerHTML = resultado;
+
+    iframe2.contentWindow.document.getElementById("f2_alimentacion2").innerHTML = ShowAlimentacion2;
+    iframe2.contentWindow.document.getElementById("f2_hospedaje2").innerHTML = ShowHospedaje2;
+    iframe2.contentWindow.document.getElementById("f2_resultado2").innerHTML = resultado2;
+    iframe2.contentWindow.document.getElementById("f2_resultado3").innerHTML = resultado3;
+    iframe2.contentWindow.document.getElementById("f2_resultado4").innerHTML = resultado4;
+    iframe2.contentWindow.document.getElementById("f2_resultado5").innerHTML = resultado5;
 
     
 
