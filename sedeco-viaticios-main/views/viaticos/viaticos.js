@@ -408,8 +408,8 @@ console.log(camposArray)
   document.getElementById('placasInput').value = camposArray[15];
 
 /* Dinero */
-  document.getElementById('alimentacionDinero').value;
-  document.getElementById('hotelDinero').value;
+ // document.getElementById('alimentacionDinero').value;
+ // document.getElementById('hotelDinero').value;
 
 
 
@@ -443,13 +443,13 @@ let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
 let placasVehiculo = document.getElementById('placasInput').value;
 
 /* Dinero */
-let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-let hotelDinero = document.getElementById('hotelDinero').value;
-let totalDinero = document.getElementById('totalDinero').value
-let combustibleDinero = document.getElementById('combustibleDinero').value
-let peajesDinero = document.getElementById('peajesDinero').value
-let pasajesDinero = document.getElementById('pasajesDinero').value
-let totalDinero1  = document.getElementById('totalDinero1').value
+//let alimentacionDinero = document.getElementById('alimentacionDinero').value;
+//let hotelDinero = document.getElementById('hotelDinero').value;
+//let totalDinero = document.getElementById('totalDinero').value
+//let combustibleDinero = document.getElementById('combustibleDinero').value
+//let peajesDinero = document.getElementById('peajesDinero').value
+//let pasajesDinero = document.getElementById('pasajesDinero').value
+//let totalDinero1  = document.getElementById('totalDinero1').value
 
 // Variable para autosumas
 let inputs1 = document.querySelectorAll('.suma1')
@@ -487,6 +487,7 @@ function sumaGastos() {
 }
 
 //Evento para despkegar menu o ocultarlo
+/*
   btnComisionsi.addEventListener('click', ()=>{
     comisionMenu.style.display = "block";
 
@@ -494,11 +495,6 @@ function sumaGastos() {
       inputs.value = ""
     });
     document.getElementById('totalDinero1').value = "" 
-
-    /* document.getElementById('combustibleDinero').value = ""
-    document.getElementById('peajesDinero').value = "" 
-    document.getElementById('pasajesDinero').value = ""
-    document.getElementById('totalDinero1').value = "" */
 
   });
   //Evento para darle vaores en 0 al document 
@@ -599,9 +595,27 @@ var resultado3 = document.getElementById("alimentosT");
 var resultado4 = document.getElementById("hospedajeT");
 var resultado5 = document.getElementById("ShowTotal3");
 
-
+//primera fila
 campo1.addEventListener("input", calcularSuma);
 campo2.addEventListener("input", calcularSuma);
+
+//Segunda fila
+campo3.addEventListener("input", calcularSuma2);
+campo4.addEventListener("input", calcularSuma2);
+
+//Primer columna
+campo1.addEventListener("input", calcularSuma3);
+campo3.addEventListener("input", calcularSuma3);
+
+//Segunda columna 
+campo2.addEventListener("input", calcularSuma4);
+campo4.addEventListener("input", calcularSuma4);
+
+campo1.addEventListener('input',sumaToltal)
+campo2.addEventListener('input',sumaToltal)
+campo3.addEventListener('input',sumaToltal)
+campo4.addEventListener('input',sumaToltal)
+
 
 function calcularSuma() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
@@ -611,42 +625,35 @@ function calcularSuma() {
 
   resultado.value = suma;
 }
-//Segunda fila
-campo3.addEventListener("input", calcularSuma2);
-campo4.addEventListener("input", calcularSuma2);
 
 function calcularSuma2() {
   var valor1 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo4.value) || 0;
-
   var suma = valor1 + valor2;
-
   resultado2.value = suma;
 }
-//Primer columna
-campo1.addEventListener("input", calcularSuma3);
-campo3.addEventListener("input", calcularSuma3);
+
 
 function calcularSuma3() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo3.value) || 0;
-
   var suma = valor1 + valor2;
-
   resultado3.value = suma;
 }
-
-//Segunda columna 
-campo2.addEventListener("input", calcularSuma4);
-campo4.addEventListener("input", calcularSuma4);
 
 function calcularSuma4() {
   var valor1 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo4.value) || 0;
-
   var suma = valor1 + valor2;
-
   resultado4.value = suma;
+}
+
+function sumaToltal(){
+  let total1 = parseFloat(document.getElementById('ShowTotal1').value || 0)
+  let total2 = parseFloat(document.getElementById('ShowTotal2').value || 0)
+
+  let sumaTotal = total1+total2
+  document.getElementById('ShowTotal3').value = sumaTotal
 }
 //Total
 

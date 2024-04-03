@@ -2,20 +2,32 @@
 
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
     
-        /* Comision */
+        /* Documento */
         let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
         let numeroOficio = document.getElementById('numOficio').value;
         let fechaDocumento = document.getElementById('documentDate').value;
-        let lugarComision = document.getElementById('inputCiudades').value;
+
+    /* COMISION */
+        let lugarComision1 = document.getElementById('ShowCiudad1').textContent;
+        let lugarComision2 = document.getElementById('ShowCiudad2').textContent || '';
+
+
+        let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
+        let descripcionDetalles = document.getElementById('descripcionDetalles').value;
+
+        let fechaInicio1 = document.getElementById('fechaInicio').value;
+        let fechaFinal1 = document.getElementById('fechaFinal').value;
+
+        let Fecha1 = document.getElementById('ShowFecha1').textContent;
+        let Fecha2 = document.getElementById('ShowFecha2').textContent;
+
+        //let fechaInicio2 = document.getElementById('fechaInicio').value || '' ;
+        //let fechaFinal2 = document.getElementById('fechaFinal').value || '';
         
         /* USUARIO */
         let nombreUsuario = document.getElementById('nombreUsuario').value;
         let cargoUsuario = document.getElementById('cargoUsuario').value;
-        
-        let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
-        let descripcionDetalles = document.getElementById('descripcionDetalles').value;
-        let fechaInicio = document.getElementById('fechaInicio').value;
-        let fechaFinal = document.getElementById('fechaFinal').value;
+           
         
         /*  Vehiculo  */
         let tipoVehiculo = document.getElementById('vehicleInput').value;
@@ -25,8 +37,8 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
         let placasVehiculo = document.getElementById('placasInput').value;
 
         /* Dinero */
-        let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-        let hotelDinero = document.getElementById('hotelDinero').value;
+
+
     
     // FORMATO 1 HTML
     
@@ -63,9 +75,9 @@ let todosCampos = [
     duracionDias,
     numeroALetra(duracionDias),
     descripcionDetalles,
-    lugarComision,
-    fechaInicio,
-    fechaFinal,
+    lugarComision1,
+    fechaInicio1,
+    fechaFinal1,
     tipoVehiculo,
     marcaVehiculo,
     modeloVehiculo,
@@ -87,8 +99,16 @@ iframe.contentWindow.document.getElementById("f1-DuracionDias").innerHTML = dura
 iframe.contentWindow.document.getElementById("f1-DuracionDiasLetra").innerHTML = numeroALetra(duracionDias) +" días";
 iframe.contentWindow.document.getElementById("f1-DescripcionDetalles").innerHTML = descripcionDetalles;
 iframe.contentWindow.document.getElementById("f1-DescripcionDetalles2").innerHTML = descripcionDetalles;
-iframe.contentWindow.document.getElementById("f1-LugarComision").innerHTML = lugarComision;
-iframe.contentWindow.document.getElementById("f1-FechasComision").innerHTML = "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "+ new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+ new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
+
+
+iframe.contentWindow.document.getElementById("f1-LugarComision").innerHTML = lugarComision1;
+iframe.contentWindow.document.getElementById("f1-LugarComision2").innerHTML = lugarComision2;
+//iframe.contentWindow.document.getElementById("f1-FechasComision").innerHTML = "Del "+ new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "+ new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+ new Date(fechaFinal1).toLocaleDateString('es-mx', { year:"numeric"});
+iframe.contentWindow.document.getElementById("f1-FechasComision").innerHTML = Fecha1;
+iframe.contentWindow.document.getElementById("f1-FechaComision2").innerHTML = Fecha2;
+
+//iframe.contentWindow.document.getElementById("f1-LugarComision2").innerHTML = lugarComision;
+//iframe.contentWindow.document.getElementById("f1-FechasComision2").innerHTML = "Del "+ new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "+ new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+ new Date(fechaFinal1).toLocaleDateString('es-mx', { year:"numeric"});
 
 iframe.contentWindow.document.getElementById("f1-TipoVehiculo").innerHTML = tipoVehiculo;
 iframe.contentWindow.document.getElementById("f1-MarcaVehiculo").innerHTML = marcaVehiculo;
