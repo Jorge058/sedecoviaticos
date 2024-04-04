@@ -510,6 +510,13 @@ function sumaGastos() {
 
 
 /************************************************** */
+// Bloquear calendario picker 2 - no pueda seleccionar fechas antes de inicio
+document.getElementById("fechaInicio").addEventListener("input", function(){
+  let today = new Date().toISOString().split('T')[0]
+  document.getElementById("fechaFinal").setAttribute('min',  document.getElementById("fechaInicio").value)
+});
+
+
   // TABLA COMISION
 
   //Button ADD
@@ -524,9 +531,9 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
 
     //Blank
-      document.getElementById('fechaInicio').value ='';
-      document.getElementById('fechaFinal').value='';
-      document.getElementById('inputCiudades').value='';
+      document.getElementById('fechaInicio').value =' ';
+      document.getElementById('fechaFinal').value=' ';
+      document.getElementById('inputCiudades').value=' ';
   
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
       
@@ -626,14 +633,14 @@ function calcularSuma() {
 
   var suma = valor1 + valor2;
 
-  resultado.value = suma;
+  resultado.textContent = suma;
 }
 
 function calcularSuma2() {
   var valor1 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo4.value) || 0;
   var suma = valor1 + valor2;
-  resultado2.value = suma;
+  resultado2.textContent = suma;
 }
 
 
@@ -641,22 +648,22 @@ function calcularSuma3() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo3.value) || 0;
   var suma = valor1 + valor2;
-  resultado3.value = suma;
+  resultado3.textContent = suma;
 }
 
 function calcularSuma4() {
   var valor1 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo4.value) || 0;
   var suma = valor1 + valor2;
-  resultado4.value = suma;
+  resultado4.textContent = suma;
 }
 
 function sumaToltal(){
-  let total1 = parseFloat(document.getElementById('ShowTotal1').value || 0)
-  let total2 = parseFloat(document.getElementById('ShowTotal2').value || 0)
+  let total1 = parseFloat(document.getElementById('ShowTotal1').textContent || 0)
+  let total2 = parseFloat(document.getElementById('ShowTotal2').textContent || 0)
 
   let sumaTotal = total1+total2
-  document.getElementById('ShowTotal3').value = sumaTotal
+  document.getElementById('ShowTotal3').textContent = sumaTotal
 }
 //Total
 
