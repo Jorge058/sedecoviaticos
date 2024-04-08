@@ -145,11 +145,11 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let ShowAlimentacion2 = document.getElementById('ShowAlimentacion2').value;
     let ShowHospedaje1 = document.getElementById('ShowHospedaje1').value;
     let ShowHospedaje2 = document.getElementById('ShowHospedaje2').value;
-    let resultado = document.getElementById("ShowTotal1").value
-    let resultado2 = document.getElementById("ShowTotal2").value
-    let resultado3 = document.getElementById("alimentosT").value
-    let resultado4 = document.getElementById("hospedajeT").value
-    let resultado5 = document.getElementById("ShowTotal3").value
+    let resultado = document.getElementById("ShowTotal1").textContent
+    let resultado2 = document.getElementById("ShowTotal2").textContent
+    let resultado3 = document.getElementById("alimentosT").textContent
+    let resultado4 = document.getElementById("hospedajeT").textContent
+    let resultado5 = document.getElementById("ShowTotal3").textContent
 
     /* USUARIO */
     let nombreUsuario = document.getElementById('nombreUsuario').value;
@@ -175,7 +175,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     const iframe2 = document.getElementById("frame2");
 
     //Envio de informacion al documento 2
-    iframe2.contentWindow.document.getElementById('UR').innerHTML = unidadResponsable;
+    iframe2.contentWindow.document.getElementById('f2_uRes').innerHTML = unidadResponsable;
     iframe2.contentWindow.document.getElementById("f2_fecha1").innerHTML = Fecha1;
     iframe2.contentWindow.document.getElementById("f2_lugar1").innerHTML = lugarComision1;
     iframe2.contentWindow.document.getElementById("f2_fecha2").innerHTML = Fecha2;
@@ -190,7 +190,14 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_resultado3").innerHTML = resultado3;
     iframe2.contentWindow.document.getElementById("f2_resultado4").innerHTML = resultado4;
     iframe2.contentWindow.document.getElementById("f2_resultado5").innerHTML = resultado5;
+    iframe2.contentWindow.document.getElementById("f2_cantidadF").innerHTML = resultado5;
 
+    iframe2.contentWindow.document.getElementById("f2_lugarC").innerHTML = lugarComision1;
+    iframe2.contentWindow.document.getElementById("f2_detalles").innerHTML = descripcionDetalles;
+    iframe2.contentWindow.document.getElementById("f2_nOficio").innerHTML = numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
+    iframe2.contentWindow.document.getElementById("f2_fechaD").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+    iframe2.contentWindow.document.getElementById("f2_diasD").innerHTML = duracionDias;
+    
     
 
     let wspFrame = document.getElementById('frame2').contentWindow;

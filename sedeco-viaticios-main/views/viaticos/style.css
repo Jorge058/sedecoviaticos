@@ -99,13 +99,13 @@ section#hero{
   
   /* Mark the steps that are finished and valid: */
   .step.finish {
-    background-color: #04AA6D;
+    background-color: #4A001F;
   }
 
 
   /*    BUTTONS PREVIOUS & NEXT */
   #nextBtn {
-    background-color: #04aa6da7;
+    background-color: #4A001F;
     color: #fff !important;
     padding: 0.5rem 1rem;   
     border: none;
@@ -118,7 +118,7 @@ section#hero{
   #nextBtn:hover {
     /* scale: 1.05; */
     color: #fff;
-    background-color: #028c59a7;
+    opacity: 0.5;
 }
 
   #nextBtn:active {
@@ -126,10 +126,11 @@ section#hero{
 }
 
 #prevBtn {
-  background-color: #F77263; 
-  color: #fff !important;
+  border-width: 1px;
+  background-color: white; 
+  border-color: #4A001F;
+  color: #4A001F !important;
   padding: 0.5rem 1rem;   
-  border: none;
   outline: none;
   border-radius: 10px;
   font-size:  1rem;
@@ -139,7 +140,7 @@ section#hero{
 #prevBtn:hover {
   /* scale: 1.05; */
   color: #fff;
-  background-color: #f75d4c;
+  opacity: 0.5;
 }
 
 #prevBtn:active {
