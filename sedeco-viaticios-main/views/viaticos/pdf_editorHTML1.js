@@ -1,4 +1,17 @@
+function mayusculas(palabra) {
+    const mySentence = palabra;
+    const words = mySentence.split(" ");
 
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+    return words.join(" ");
+}
+
+function numeroALetra(numero){
+    const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"];
+    return wordnumber[numero-1]
+}
 
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
     
@@ -49,23 +62,9 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
     const d = new Date();
     let year = d.getFullYear();
 
-    function mayusculas(palabra) {
-        const mySentence = palabra;
-        const words = mySentence.split(" ");
-
-        for (let i = 0; i < words.length; i++) {
-            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-            }
-        return words.join(" ");
-    }
-
-    function numeroALetra(numero){
-        const wordnumber= ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"];
-        return wordnumber[numero-1]
-    }
+  
 
     //SAVE IN LOCALSTORAGE  
-// BOTON RELLENAR CAMPOS  GUARDAR CAmpos
 let todosCampos = [
     unidadResponsable,
     numeroOficio,
@@ -82,7 +81,8 @@ let todosCampos = [
     marcaVehiculo,
     modeloVehiculo,
     modeloAnioVehiculo,
-    placasVehiculo
+    placasVehiculo,
+    pageTab=4
         ]
 let string = JSON.stringify(todosCampos);
 localStorage.setItem("Campos", string);
@@ -224,6 +224,32 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let wspFrame = document.getElementById('frame2').contentWindow;
         wspFrame.focus();
         wspFrame.print();
+
+
+//SAVE IN LOCALSTORAGE  
+    
+let todosCampos = [
+    unidadResponsable,
+    numeroOficio,
+    fechaDocumento,
+    mayusculas(nombreUsuario),
+    mayusculas(cargoUsuario),
+    duracionDias,
+    numeroALetra(duracionDias),
+    descripcionDetalles,
+    lugarComision1,
+    fechaInicio,
+    fechaFinal,
+    tipoVehiculo,
+    marcaVehiculo,
+    modeloVehiculo,
+    modeloAnioVehiculo,
+    placasVehiculo,
+    pageTab=5
+        ]
+let string = JSON.stringify(todosCampos);
+localStorage.setItem("Campos", string);
+    //******************* *********/
 })
 
 

@@ -155,6 +155,7 @@ function nextPrev(n) {
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
+  //if (!validateForm()) return false;
   // Hide the current tab:
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
@@ -384,6 +385,10 @@ let retString = localStorage.getItem("Campos")
 // Retrieved array
 let camposArray = JSON.parse(retString)
 console.log(camposArray)
+
+
+// Go to page n with nextPrev(n)
+nextPrev(camposArray[16])
 
 //LLENADO A MANO
   document.getElementById('idUnidadAdministrativa').value = camposArray[0];
