@@ -151,33 +151,31 @@
                         <tr>
                             <td id="ShowCiudad1"></td>
                             <td class="text-left"><a href="#" id="ShowFecha1" onclick=""></a></td>
-                            <td class="text-center"><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></td> 
-                            <td class="text-center"><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></td> 
-                            <td class="text-center"><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''>  </a></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''>  </a></p></td> 
                         </tr> 
 
                         <tr>
                             <td id="ShowCiudad2"></td>
                             <td class="text-left"><a href="#" id="ShowFecha2" onclick=""></a></td>
-                            <td class="text-center"><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></td> 
-                            <td class="text-center"><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></td> 
-                            <td class="text-center"><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
                         </tr> 
 
                         <tr>
                             <td id=""></td>
                             <td>SUMAS</td>
-                            <td class="text-center"><a type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>
-                            <td class="text-center"><a type="number" onblur="" id="hospedajeT" name="alimentos" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>  
-                            <td class="text-center"><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></td> 
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></p></td>
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hospedajeT" name="alimentos" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></p></td>  
+                            <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
                         </tr> 
                     </tbody>
                 </table>
 
                 <button class="btnLimpiarC" id="btnLimpiarC">Limpiar campos</button>
-                
                 <hr>
-                
                 </div>
                 
                 <div class="tab">Vehiculo
@@ -247,43 +245,51 @@
                 </p>
                 </div>
 
-
-                 
-              
-
-                <div class="tab">
-                    <iframe
-                        id="frame1"
-                        style=""
-                        src="Formato Viaticos 1.htm"
-                    ></iframe>
-                    <div class="icons">
-                        <div class="icon icon--pdf">
-                            <i title="pdf"></i>
-                        </div>
-                        <p><button type="button" class="buttonPDFGenerator" id="btn-GenerarPDF1" onclick="">Descargar Oficio</button></p>
-                    </div>
-                    <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
-                </div>
-
-               
-        
-                
-                <div class="tab">Comprobacion:
-                    <br>
-                    <iframe
-                        id="frame2"
-                        style=""
-                        src="../viaticos/Solo Recibo html.html"
-                    ></iframe>
-                    <div class="icon icon--pdf">
-                        <i title="pdf"></i>
-                    </div>
-                    <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Generar Recibo</button></p>
-                </div>
-
-
                 <div class="tab recibo">Gastos de Gas y Peaje
+                    
+                    <table class="table-fill">
+                        <thead>
+                            <tr>
+                            <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
+                            <th class="text-left">FECHA (S)</th>
+                            <th class="text-left">COMBUSTIBLE</th>
+                            <th class="text-left">PEAJES</th>
+                            <th class="text-left">PASAJES</th>
+                            <th class="text-left">TOTAL</th>
+                            </tr>
+                        </thead>
+
+                    <tbody class="table-hover" id="tabla-main"> 
+                        
+                        <tr>
+                            <td id="sC1"></td>
+                            <td class="text-left"><a href="#" id="sF1" onclick=""></a></td>
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowComb1" name="comb1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPeajes1" name="peajes1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPasajes1" name="pasajes1" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;"  value=0></input></p></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero" name="tot1" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                        </tr> 
+
+                        <tr>
+                            <td id="sC2"></td>
+                            <td class="text-left"><a href="#" id="sF2" onclick=""></a></td>
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowComb2" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPeajes2" name="peajes2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPasajes2" name="pasajes2" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;"  value=0></input></p></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero2" name="tot2" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                        </tr> 
+
+                        <tr>
+                            <td id=""></td>
+                            <td></td>
+                            <td class="text-center"><a type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>
+                            <td class="text-center"><a type="number" onblur="" id="hospedajeT" name="alimentos" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>  
+                            <td class="text-center"><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style=" background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''>SUMAS</a></td> 
+                            <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="tot3" name="hospedaje" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+
+                        </tr> 
+                    </tbody>
+                </table>
                     <!--
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
                     <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
@@ -302,12 +308,35 @@
                         <p><button type="button" class="btnComisionno">No</button></p>
                     </div>
                     -->
-                    <div class="comisionMenu" style="">
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Combustible" id="combustibleDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Peajes" id="peajesDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Pasajes" id="pasajesDinero" class="input-with-icon suma2" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero1" class="input-with-icon" oninput="this.className = ''" disabled></p>
-                    </div> 
+                    
+                </div>
+
+                <div class="tab">
+                    <iframe
+                        id="frame1"
+                        style=""
+                        src="Formato Viaticos 1.htm"
+                    ></iframe>
+                    <div class="icons">
+                        <div class="icon icon--pdf">
+                            <i title="pdf"></i>
+                        </div>
+                        <p><button type="button" class="buttonPDFGenerator" id="btn-GenerarPDF1" onclick="">Descargar Oficio</button></p>
+                    </div>
+                    <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
+                </div>
+
+                <div class="tab">Comprobacion:
+                    <br>
+                    <iframe
+                        id="frame2"
+                        style=""
+                        src="../viaticos/Solo Recibo html.html"
+                    ></iframe>
+                    <div class="icon icon--pdf">
+                        <i title="pdf"></i>
+                    </div>
+                    <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Generar Recibo</button></p>
                 </div>
 
                 <div style="overflow:auto; padding-top: 0.5rem;">
@@ -333,7 +362,6 @@
 
     <footer>
         <div class="container footer-main" style="border-top-style: ridge;">
-    
         <div class="row">
         <div class="col-lg-4 text-center">
         <div class="footer-logo">
@@ -365,13 +393,12 @@
         <li class="list-inline-item">
         <br>
         <a href="https://open.spotify.com/user/rr3zgtpveoxmy02i5t9bj9l7z"
-       target="_blank"><i class="fab fa-2x fa-spotify"></i></a>&nbsp;&nbsp;
+        target="_blank"><i class="fab fa-2x fa-spotify"></i></a>&nbsp;&nbsp;
         </li>
         </ul>
         <!-- Footer Links -->
-       <p>Correo institucional </p>
-       <a href="#">Informatica.sedeco@gmail.com</a><br>
-       
+        <p>Correo institucional </p>
+        <a href="#">Informatica.sedeco@gmail.com</a><br>
         <a href="https://wa.me/7581008128">¿Ayuda? Comunicate</a> <br>
         </div>
         <div class="col-lg-4 text-center">
@@ -394,7 +421,7 @@
         </div>
         </div>
         </div>
-       </footer>
+    </footer>
 
     <script src="https://www.michoacan.gob.mx/cdn/js/jquery3.6.0.min.js"></script>
     <script src="https://www.michoacan.gob.mx/cdn/js/bootstrap.js"></script>

@@ -269,9 +269,21 @@ section#hero{
     width: 100%;
   }
 
+  .tab.autocomplete p#signo{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .tab.autocomplete span{
+    background-color: transparent;
+  }
+
   .tab.recibo span{
     background-color: transparent;
   }
+
   .btnComisionsi{
     color: white;
     background-color: #4A001F;

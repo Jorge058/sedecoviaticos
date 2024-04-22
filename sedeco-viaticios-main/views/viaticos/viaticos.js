@@ -448,26 +448,73 @@ let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
 let placasVehiculo = document.getElementById('placasInput').value;
 
 /* Dinero */
-//let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-//let hotelDinero = document.getElementById('hotelDinero').value;
-//let totalDinero = document.getElementById('totalDinero').value
-//let combustibleDinero = document.getElementById('combustibleDinero').value
-//let peajesDinero = document.getElementById('peajesDinero').value
-//let pasajesDinero = document.getElementById('pasajesDinero').value
-//let totalDinero1  = document.getElementById('totalDinero1').value
+
+let com1 = document.getElementById("ShowComb1");
+let peaj1  = document.getElementById("ShowPeajes1");
+let pas1  = document.getElementById("ShowPasajes1");
+let tot1  = document.getElementById("totalDinero");
+
+let com2  = document.getElementById("ShowComb2");
+let peaj2  = document.getElementById("ShowPeajes2");
+let pas2  = document.getElementById("ShowPasajes2");
+let tot2  = document.getElementById("totalDinero2");
+
+com1.addEventListener("input", calSuma);
+peaj1.addEventListener("input", calSuma);
+pas1.addEventListener("input", calSuma);
+
+function calSuma() {
+  var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(peaj1.value) || 0;
+  var valor3 = parseFloat(pas1.value) || 0;
+
+  var suma = valor1 + valor2 + valor3;
+
+  tot1.textContent = suma;
+}
+
+com2.addEventListener("input", calSuma2);
+peaj2.addEventListener("input", calSuma2);
+pas2.addEventListener("input", calSuma2);
+
+function calSuma2() {
+  var valor1 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(peaj2.value) || 0;
+  var valor3 = parseFloat(pas2.value) || 0;
+
+  var suma = valor1 + valor2 + valor3;
+
+  tot2.textContent = suma;
+}
+com1.addEventListener("input", sumaTot);
+peaj1.addEventListener("input", sumaTot);
+pas1.addEventListener("input", sumaTot);
+com2.addEventListener("input", sumaTot);
+peaj2.addEventListener("input", sumaTot);
+pas2.addEventListener("input", sumaTot);
+
+function sumaTot(){
+  var total1 = parseFloat(document.getElementById('totalDinero').textContent || 0)
+  var total2 = parseFloat(document.getElementById('totalDinero2').textContent || 0)
+
+  let sumaTotal = total1 + total2
+  document.getElementById('tot3').textContent = sumaTotal
+}
 
 // Variable para autosumas
-let inputs1 = document.querySelectorAll('.suma1')
-let inputs2 = document.querySelectorAll('.suma2')
+/* let inputs1 = document.querySelectorAll('.suma1')
+let inputs2 = document.querySelectorAll('.suma2') */
 
-const comisionMenu = document.querySelector('.comisionMenu')
+/* const comisionMenu = document.querySelector('.comisionMenu')
 const btnComisionsi = document.querySelector('.btnComisionsi')
-const btnComisionno = document.querySelector('.btnComisionno')
+const btnComisionno = document.querySelector('.btnComisionno') */
+
+//Sumas variables
 
 
 
 
-//Evento para la suma
+/* //Evento para la suma
 inputs1.forEach(input => {
   input.addEventListener("change", sumaAlimentos);
 });
@@ -489,7 +536,7 @@ function sumaGastos() {
   let contador = 0
   inputs2.forEach(input => contador+= parseInt(input.value))
   document.getElementById('totalDinero1').value = contador
-}
+} */
 
 //Evento para despkegar menu o ocultarlo
 /*
@@ -534,6 +581,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+      document.getElementById('sC1').innerHTML = lugarComision;
+
 
     //Blank
       document.getElementById('fechaInicio').value ='';
@@ -546,6 +595,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
       new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+
+    document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
     }
 
     else {
@@ -553,11 +604,16 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
         new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+
+    document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
+
     }
 
 } else if(document.getElementById('ShowCiudad1').innerHTML != '' && document.getElementById('ShowFecha1').innerHTML != ''){
 
   document.getElementById('ShowCiudad2').innerHTML = lugarComision;
+  document.getElementById('sC2').innerHTML = lugarComision;
+
   document.getElementById('BtnAgregarComision').disabled = true;
   document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
@@ -570,6 +626,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
     "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
     + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
     new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+
+    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML
   }
 
   else {
@@ -577,9 +635,11 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
     "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
     + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
       new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+
+    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML
+
   }
 }
- 
 })
 
 /*Funcion para limpiar los espacios */
