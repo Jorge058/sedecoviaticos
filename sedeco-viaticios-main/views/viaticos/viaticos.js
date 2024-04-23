@@ -1,3 +1,18 @@
+/*
+//Ejemplo usar numero a letra
+import { NumberAsString  } from '../../js/numberAsString' ;
+
+const addCommas = (value = 0, fixed = 0) => value.toFixed(fixed).replace(/./g, (c, i, a) => {
+  return i && c !== '.' && ((a.length - i) % 3) === 0 ? ',' + c : c;
+});
+
+
+  console.log('-----------------------');
+  console.log(addCommas(1789));
+  console.log(NumberAsString(1789));
+
+/*
+
 const ciudadesMich = [
   "Acuitzio",
   "Aguililla",
