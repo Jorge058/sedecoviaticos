@@ -447,59 +447,7 @@ let submodeloVehiculo = document.getElementById('submodeloVehiculo').value;
 let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
 let placasVehiculo = document.getElementById('placasInput').value;
 
-/* Dinero */
 
-let com1 = document.getElementById("ShowComb1");
-let peaj1  = document.getElementById("ShowPeajes1");
-let pas1  = document.getElementById("ShowPasajes1");
-let tot1  = document.getElementById("totalDinero");
-
-let com2  = document.getElementById("ShowComb2");
-let peaj2  = document.getElementById("ShowPeajes2");
-let pas2  = document.getElementById("ShowPasajes2");
-let tot2  = document.getElementById("totalDinero2");
-
-com1.addEventListener("input", calSuma);
-peaj1.addEventListener("input", calSuma);
-pas1.addEventListener("input", calSuma);
-
-function calSuma() {
-  var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj1.value) || 0;
-  var valor3 = parseFloat(pas1.value) || 0;
-
-  var suma = valor1 + valor2 + valor3;
-
-  tot1.textContent = suma;
-}
-
-com2.addEventListener("input", calSuma2);
-peaj2.addEventListener("input", calSuma2);
-pas2.addEventListener("input", calSuma2);
-
-function calSuma2() {
-  var valor1 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj2.value) || 0;
-  var valor3 = parseFloat(pas2.value) || 0;
-
-  var suma = valor1 + valor2 + valor3;
-
-  tot2.textContent = suma;
-}
-com1.addEventListener("input", sumaTot);
-peaj1.addEventListener("input", sumaTot);
-pas1.addEventListener("input", sumaTot);
-com2.addEventListener("input", sumaTot);
-peaj2.addEventListener("input", sumaTot);
-pas2.addEventListener("input", sumaTot);
-
-function sumaTot(){
-  var total1 = parseFloat(document.getElementById('totalDinero').textContent || 0)
-  var total2 = parseFloat(document.getElementById('totalDinero2').textContent || 0)
-
-  let sumaTotal = total1 + total2
-  document.getElementById('tot3').textContent = sumaTotal
-}
 
 // Variable para autosumas
 /* let inputs1 = document.querySelectorAll('.suma1')
@@ -699,6 +647,7 @@ function calcularSuma() {
   var suma = valor1 + valor2;
 
   resultado.textContent = suma;
+  
 }
 
 function calcularSuma2() {
@@ -714,6 +663,8 @@ function calcularSuma3() {
   var valor2 = parseFloat(campo3.value) || 0;
   var suma = valor1 + valor2;
   resultado3.textContent = suma;
+  //enviamos la suma al tercer documento
+  document.getElementById('alS').textContent = suma;
 }
 
 function calcularSuma4() {
@@ -721,6 +672,8 @@ function calcularSuma4() {
   var valor2 = parseFloat(campo4.value) || 0;
   var suma = valor1 + valor2;
   resultado4.textContent = suma;
+  document.getElementById('hS').textContent = suma;
+
 }
 
 function sumaToltal(){
@@ -730,7 +683,240 @@ function sumaToltal(){
   let sumaTotal = total1+total2
   document.getElementById('ShowTotal3').textContent = sumaTotal
 }
-//Total
+
+/* Dinero */
+
+let com1 = document.getElementById("ShowComb1");
+let peaj1  = document.getElementById("ShowPeajes1");
+let pas1  = document.getElementById("ShowPasajes1");
+let tot1  = document.getElementById("totalDinero");
+
+let com2  = document.getElementById("ShowComb2");
+let peaj2  = document.getElementById("ShowPeajes2");
+let pas2  = document.getElementById("ShowPasajes2");
+let tot2  = document.getElementById("totalDinero2");
+
+
+com1.addEventListener("input", calSuma);
+peaj1.addEventListener("input", calSuma);
+pas1.addEventListener("input", calSuma);
+
+function calSuma() {
+  var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(peaj1.value) || 0;
+  var valor3 = parseFloat(pas1.value) || 0;
+
+  var suma = valor1 + valor2 + valor3;
+
+  tot1.textContent = suma;
+}
+
+com2.addEventListener("input", calSuma2);
+peaj2.addEventListener("input", calSuma2);
+pas2.addEventListener("input", calSuma2);
+
+function calSuma2() {
+  var valor1 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(peaj2.value) || 0;
+  var valor3 = parseFloat(pas2.value) || 0;
+
+  var suma = valor1 + valor2 + valor3;
+
+  tot2.textContent = suma;
+}
+
+//Calculamos suma de combustible para el tercer documento
+com1.addEventListener("input", sumaComb);
+com2.addEventListener("input", sumaComb);
+
+function sumaComb() {
+  var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(com2.value) || 0;
+
+  var suma = valor1 + valor2;
+  document.getElementById('comS').textContent = suma
+}
+
+//Calculamos suma de peajes para el tercer documento
+peaj1.addEventListener("input", sumaPeaj);
+peaj2.addEventListener("input", sumaPeaj);
+
+function sumaPeaj() {
+  var valor1 = parseFloat(peaj1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(peaj2.value) || 0;
+
+  var suma = valor1 + valor2;
+  document.getElementById('peS').textContent = suma
+}
+
+//Calculamos suma de pasajes para el tercer documento
+pas1.addEventListener("input", sumaPas);
+pas2.addEventListener("input", sumaPas);
+
+function sumaPas() {
+  var valor1 = parseFloat(pas1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor2 = parseFloat(pas2.value) || 0;
+
+  var suma = valor1 + valor2;
+  document.getElementById('paS').textContent = suma
+}
+
+com1.addEventListener("input", sumaTot);
+peaj1.addEventListener("input", sumaTot);
+pas1.addEventListener("input", sumaTot);
+com2.addEventListener("input", sumaTot);
+peaj2.addEventListener("input", sumaTot);
+pas2.addEventListener("input", sumaTot);
+
+
+function sumaTot(){
+  var total1 = parseFloat(document.getElementById('totalDinero').textContent || 0)
+  var total2 = parseFloat(document.getElementById('totalDinero2').textContent || 0)
+
+  let sumaTotal = total1 + total2
+  document.getElementById('tot3').textContent = sumaTotal
+}
+
+//SUMAS PARA EL DCUMENTO 3
+
+//Anticipado
+let alimentoC  = document.getElementById("alS");
+let hospedajeC  = document.getElementById("hS");
+let peajeC  = document.getElementById("peS");
+let combustibleC  = document.getElementById("comS");
+let pasajeC  = document.getElementById("paS");
+let sumaC  = document.getElementById("sumaS");
+
+
+//Devengado
+let alimentoD  = document.getElementById("aldev");
+let hospedajeD  = document.getElementById("hdev");
+let peajeD = document.getElementById("pedev");
+let combustibleD = document.getElementById("comdev");
+let pasajeD = document.getElementById("padev");
+let otrosD = document.getElementById("otrodev");
+let sumaD = document.getElementById("sumadev");
+
+
+//Suma para el Anticipo
+alimentoD.addEventListener('input', sumaAnt)
+
+function sumaAnt(){
+  var total1 = parseFloat(alimentoC.textContent || 0)
+  var total2 = parseFloat(hospedajeC.textContent || 0)
+  var total3 = parseFloat(peajeC.textContent || 0)
+  var total4 = parseFloat(combustibleC.textContent || 0)
+  var total5 = parseFloat(pasajeC.textContent || 0)
+
+  let suma = total1 + total2 + total3 + total4 + total5
+  document.getElementById('sumaS').textContent = suma
+}
+
+//Suma para el devengado total 
+alimentoD.addEventListener('input', sumaDev)
+hospedajeD.addEventListener('input', sumaDev)
+peajeD.addEventListener('input', sumaDev)
+combustibleD.addEventListener('input', sumaDev)
+pasajeD.addEventListener('input', sumaDev)
+otrosD.addEventListener('input', sumaDev)
+
+function sumaDev(){
+  var total1 = parseFloat(alimentoD.value || 0)
+  var total2 = parseFloat(hospedajeD.value || 0)
+  var total3 = parseFloat(peajeD.value || 0)
+  var total4 = parseFloat(combustibleD.value || 0)
+  var total5 = parseFloat(pasajeD.value || 0)
+  var total6 = parseFloat(otrosD.value || 0)
+
+  let suma = total1 + total2 + total3 + total4 + total5+ total6
+  document.getElementById('sumadev').textContent = suma
+}
+
+//Diferencia de alimentaion suma
+alimentoD.addEventListener('input', alimDif)
+
+function alimDif(){
+  var total1 = parseFloat(alimentoC.textContent || 0)
+  var total2 = parseFloat(alimentoD.value || 0)
+
+  let suma = total2 - total1
+  document.getElementById('aldif').textContent = suma
+}
+
+//Diferencia de hospedaje
+hospedajeD.addEventListener('input', hospDif)
+
+function hospDif(){
+  var total1 = parseFloat(hospedajeC.textContent || 0)
+  var total2 = parseFloat(hospedajeD.value || 0)
+
+  let suma = total2 - total1
+  document.getElementById('hdif').textContent = suma
+}
+
+//Diferencia de peaje
+peajeD.addEventListener('input', peajeDif)
+
+function peajeDif(){
+  var total1 = parseFloat(peajeC.textContent || 0)
+  var total2 = parseFloat(peajeD.value || 0)
+
+  let suma = total2 - total1
+  document.getElementById('pedif').textContent = suma
+}
+
+//Diferencia de combustible
+combustibleD.addEventListener('input', comDif)
+
+function comDif(){
+  var total1 = parseFloat(combustibleC.textContent || 0)
+  var total2 = parseFloat(combustibleD.value || 0)
+
+  let suma = total2 - total1
+  document.getElementById('comdif').textContent = suma
+}
+
+//Diferencia de pasajes
+pasajeD.addEventListener('input', pasDif)
+
+function pasDif(){
+  var total1 = parseFloat(pasajeC.textContent || 0)
+  var total2 = parseFloat(pasajeD.value || 0)
+
+  let suma = total2 - total1
+  document.getElementById('padif').textContent = suma
+}
+
+//Diferencia de otros
+otrosD.addEventListener('input', otrosDif)
+
+function otrosDif(){
+  var total1= parseFloat(otrosD.value || 0)
+  document.getElementById('otrodif').textContent = total1
+}
+//Diferencia de la suma
+alimentoD.addEventListener('input', sumaDif)
+hospedajeD.addEventListener('input', sumaDif)
+peajeD.addEventListener('input', sumaDif)
+combustibleD.addEventListener('input', sumaDif)
+pasajeD.addEventListener('input', sumaDif)
+otrosD.addEventListener('input', sumaDif)
+
+function sumaDif(){
+  var total1 = parseFloat(sumaC.textContent || 0)
+  var total2 = parseFloat(sumaD.textContent || 0)
+
+  let suma = total2 - total1
+  document.getElementById('sumaTotal').textContent = suma
+}
+
+
+
+
+
+
+
+
 
 
 

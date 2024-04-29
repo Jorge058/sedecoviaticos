@@ -264,7 +264,7 @@
                             </tr>
                         </thead>
 
-                    <tbody class="table-hover" id="tabla-main"> 
+                        <tbody class="table-hover" id="tabla-main"> 
                         
                         <tr>
                             <td id="sC1"></td>
@@ -344,6 +344,64 @@
                     <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Generar Recibo</button></p>
                 </div>
 
+                <div class="tab gastosC ">"GASTOS DE COMISION"
+                    <table class="table-fill">
+                        <thead>
+                            <tr>
+                                <th class="text-center">CONCEPTO</th>
+                                <th class="text-center">ANTICIPADO</th>
+                                <th class="text-center">DEVENGADO</th>
+                                <th class="text-center">DIFRENCIAS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-hover" id="tabla-main"> 
+                            <tr>
+                                <td>ALIMENTACION</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="" type="number" onblur="" id="aldev" name="comb1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="aldif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+                            <tr>
+                                <td>HOSPEDAJE</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="hdev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hdif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+                            <tr>
+                                <td>PEAJES</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="peS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="pedev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="pedif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+                            <tr>
+                                <td>COMBUSTIBLE</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="comdev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comdif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+                            <tr>
+                                <td>PASAJES</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="paS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="padev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="padif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                </tr> 
+                            <tr>
+                                <td>OTROS</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otroS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="otrodev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otrodif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+                            <tr>
+                                <td>SUMA</td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a class="suma2" type="number" onblur="" id="sumadev" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></a></P></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaTotal" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                            </tr> 
+
+                        </tbody>
+                </table>
+                </div>
+
                 <div style="overflow:auto; padding-top: 0.5rem;">
                     <div style="float:right;">
                         <button type="button" id="loadCookiesBtn" onclick="loadCookies()">Rellenar Campos</button>
@@ -356,6 +414,7 @@
                 <div style="text-align:center;margin-top:40px;">
                     <span class="step"></span>
                     <span class="step"></span>    
+                    <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
