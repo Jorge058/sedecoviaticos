@@ -99,27 +99,41 @@
                 <h1>Oficio de Comision</h1>
                 <h3>Oficio</h3>
                 <!-- One "tab" for each step in the form: -->
-                <div class="tab ">Detalles del oficio
-                <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
-                <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
-                    <option value="" disabled selected hidden>Unidad Responsable</option>              
-                    <option value="Dirección de Inversiones"> Dirección de Inversiones                         </option>
-                    <option value="Dirección de Desarrollo Empresarial y Economía Social"> Dirección de Desarrollo Empresarial y Economía Social           </option>
-                    <option value="Dirección de Mejora Regulatoria"> Dirección de Mejora Regulatoria           </option>
-                    <option value="Dirección de Comercialización"> Dirección de Comercialización               </option>
-                    <option value="Dirección de Empleo Digno"> Dirección de Empleo Digno                       </option>
-                    <option value="Dirección de Gestión de Fondos y Proyectos"> Dirección de Gestión de Fondos y Proyectos  </option>
-                    <option value="Dirección de Previsión Social"> Dirección de Previsión Social    </option>
-                    <option value="Delegación Administrativa"> Delegación Administrativa           </option>
-                    <option value="Tecnica">Tecnica</option>
-                    <option value="Oficina del Secretario"> Oficina del Secretario</option>
-                </select></p>
+                    <div class="tab ">Detalles del oficio
+                    <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
+                    <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
+                        <option value="" disabled selected hidden>Unidad Responsable</option>              
+                        <option value="Dirección de Inversiones"> Dirección de Inversiones                         </option>
+                        <option value="Dirección de Desarrollo Empresarial y Economía Social"> Dirección de Desarrollo Empresarial y Economía Social           </option>
+                        <option value="Dirección de Mejora Regulatoria"> Dirección de Mejora Regulatoria           </option>
+                        <option value="Dirección de Comercialización"> Dirección de Comercialización               </option>
+                        <option value="Dirección de Empleo Digno"> Dirección de Empleo Digno                       </option>
+                        <option value="Dirección de Gestión de Fondos y Proyectos"> Dirección de Gestión de Fondos y Proyectos  </option>
+                        <option value="Dirección de Previsión Social"> Dirección de Previsión Social    </option>
+                        <option value="Delegación Administrativa"> Delegación Administrativa           </option>
+                        <option value="Tecnica">Tecnica</option>
+                        <option value="Oficina del Secretario"> Oficina del Secretario</option>
+                        </select>
+                    </p>
 
-                <p><input placeholder="Numero de Oficio" type="number" id="numOficio" oninput="this.className = ''"></p>
-                <p><input placeholder="Fecha del Oficio" type="text" id="documentDate" onfocus="(this.type='date')"></p>
-                
+                    <p>
+                        <select id="nombrecargoUr"  name="nombrecargoUr" required="">    
+                            <option value="" disabled selected hidden>Nombre del titular de la UR</option>              
+                            <option value="Dra. Mariana Gudiño Paredes">Dra. Mariana Gudiño Paredes</option>
+                            <option value="Lic. Claudio Méndez Fernández">Lic. Claudio Méndez Fernández</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <select id="cargoUr" class="" name="cargoUr" required="">    
+                            <option value="" disabled selected hidden>Cargo del titular de la UR</option>              
+                            <option value="Delegada administrativa">Delegada Administrativa</option>
+                            <option value="Secretario de Desarrollo Económico">Secretario de Desarrollo Económico</option>
+                        </select>
+                    </p>
+                    <p><input placeholder="Numero de Oficio" type="number" id="numOficio" oninput="this.className = ''"></p>
+                    <p><input placeholder="Fecha del Oficio" type="text" id="documentDate" onfocus="(this.type='date')"></p>
                 </div>
-
                 
                 <div class="tab">Usuario
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
@@ -316,7 +330,7 @@
                     
                 </div>
 
-                <div class="tab">
+                <div class="tab">OFICIO
                     <iframe
                         id="frame1"
                         style=""
@@ -331,7 +345,7 @@
                     <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
                 </div>
 
-                <div class="tab">Comprobacion:
+                <div class="tab">RECIBO
                     <br>
                     <iframe
                         id="frame2"
@@ -341,7 +355,7 @@
                     <div class="icon icon--pdf">
                         <i title="pdf"></i>
                     </div>
-                    <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Generar Recibo</button></p>
+                    <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Descargar Recibo</button></p>
                 </div>
 
                 <div class="tab gastosC ">"GASTOS DE COMISION"
@@ -402,6 +416,21 @@
                 </table>
                 </div>
 
+                <div class="tab">
+                    COMPROBACIÓN
+                    <iframe
+                        id="frame3"
+                        style=""
+                        src="../viaticos/Comprobacion.html"
+                    ></iframe>
+                    <div class="icons">
+                        <div class="icon icon--pdf">
+                            <i title="pdf"></i>
+                        </div>
+                        <p><button type="button" class="buttonPDFGenerator" id="generadorPDF3" onclick="">Descargar comprobación</button></p>
+                    </div>
+                </div>
+
                 <div style="overflow:auto; padding-top: 0.5rem;">
                     <div style="float:right;">
                         <button type="button" id="loadCookiesBtn" onclick="loadCookies()">Rellenar Campos</button>
@@ -414,6 +443,7 @@
                 <div style="text-align:center;margin-top:40px;">
                     <span class="step"></span>
                     <span class="step"></span>    
+                    <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>

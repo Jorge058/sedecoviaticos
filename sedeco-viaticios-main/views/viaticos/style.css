@@ -294,7 +294,6 @@ section#hero{
   .tab.gastosC span{
     background-color: transparent;
   }
-  
 
   .btnComisionsi{
     color: white;
@@ -314,11 +313,9 @@ section#hero{
     color: white;
     background-color: #4A001F;
     border-radius: 10px;
-
   }
 
 /* Estilos para la seccion comision*/
-
 .tab.comision p{
   align-items: center;
   justify-content: center;
@@ -353,8 +350,6 @@ section#hero{
   padding: 0.5%;
   width: 20%;
 }
-
-
 
   /*   ICON PDF */
   .icons {
@@ -392,8 +387,6 @@ section#hero{
   .icon--pdf i::before {
     content: '☵';
  }
-
- 
  
   .icon i {
     position: absolute;
@@ -448,6 +441,12 @@ section#hero{
   height: 0px;
   border: 0px;
 }
+#frame3 {
+  width: 100%;
+  height: 0px;
+  border: 0px;
+}
+
 
 /*
 #frame1 {
