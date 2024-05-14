@@ -18,9 +18,9 @@ const firebaseConfig = {
 
   //HTML
   const tabladriver= document.getElementById('tabla-driver');
-// Print Table
-tabladriver.innerHTML = '';
-let cont = 1;
+  // Print Table
+  tabladriver.innerHTML = '';
+
 
   //*********************************************** */
   // GET ALL
@@ -28,17 +28,20 @@ let cont = 1;
   const q = query(collection(db, "oficios"), where("persona_area", "==", 'financieros'), );
 
   const querySnapshot = await getDocs(q);
-  console.log(querySnapshot)
+  //console.log(querySnapshot)
+  let allData = []
+  let cont = 1;
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
 
-   
+     //save into object locally
+      allData.push(doc.data());
         // doc.data() is never undefined for query doc snapshots
     
         tabladriver.innerHTML += ` <tr>
         <th scope="row" class="text-center">${cont}</th>
-        <td >${doc.data().oficio_numero}</td>
+        <td class="text-center">${doc.data().oficio_numero}</td>
         <td >${doc.data().persona_nombre}</td>
         <td class="text-center">${doc.data().oficio_fecha}</td>
         <td class="text-center">${doc.data().oficio_lugar_comision}</td>
@@ -46,7 +49,7 @@ let cont = 1;
           
         <td class="text-center"> <div class="btn-group">
         <button class="btn btn-sm btn-warning w-50" type="button" 
-        onclick="loadViaticos('${doc.id}'">
+        onclick="loadViaticos('${cont-1}')">
           <i class="fa fa-folder-open" aria-hidden="true"></i>
         </button>
         <button class="btn btn-sm w-50 btn-danger" type="button"  
@@ -57,20 +60,26 @@ let cont = 1;
       </tr>`
 
       cont++;
-  
   });
 
-export {querySnapshot}
-
-  function eliminarD (id) {
-    console.log(id)
-  }
-
-
+  console.log(allData)
 
 /************************************************** */
+function loadViaticos(id) {
+    console.log(allData[id])
+  }
 
+  function eliminarD(id){
 
+      console.error("Error removing document: ", error);
+
+   
+    //myModal2.hide()
+   
+  }
+  
+
+//export {querySnapshot}
 /* 
 auto_año
 "2009"
