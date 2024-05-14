@@ -29,7 +29,7 @@ const firebaseConfig = {
 
   const querySnapshot = await getDocs(q);
   //console.log(querySnapshot)
-  let allData = []
+  export let allData = []
   let cont = 1;
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
@@ -64,9 +64,11 @@ const firebaseConfig = {
 
   console.log(allData)
 
+
 /************************************************** */
 function loadViaticos(id) {
-    console.log(allData[id])
+    //console.log(allData[id])
+    console.log(id)
   }
 
   function eliminarD(id){
@@ -78,7 +80,7 @@ function loadViaticos(id) {
    
   }
   
-
+loadViaticos(2)
 //export {querySnapshot}
 /* 
 auto_año
