@@ -920,7 +920,8 @@ function sumaDif(){
 
 function resetFormulario () {
   let formToReset = document.getElementById('regForm');
-  formToReset.addEventListener('click', (e) => {
+  let loadDataBtn = document.getElementById('loadDataBtn')
+  loadDataBtn.addEventListener('click', (e) => {
     e.preventDefault();
     formToReset.reset();
  });
