@@ -136,10 +136,14 @@ function showTab(n) {
     } else {
       document.getElementById("loadCookiesBtn").style.display = "none";
     }
+
+    //Button "Crear nuevo" shows
+    document.getElementById("loadDataBtn").style.display = "inline";
  
   } else {
     document.getElementById("prevBtn").style.display = "inline";
-    document.getElementById("loadCookiesBtn").style.display = "none";
+    document.getElementById("loadCookiesBtn").style.display = "none"; 
+    document.getElementById("loadDataBtn").style.display = "none";
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
@@ -914,7 +918,14 @@ function sumaDif(){
 
 
 
-
+function resetFormulario () {
+  let formToReset = document.getElementById('regForm');
+  formToReset.addEventListener('click', (e) => {
+    e.preventDefault();
+    formToReset.reset();
+ });
+  nextPrev(1);
+}
 
 
 

@@ -148,7 +148,7 @@ section#hero{
 }
 
 
-#loadCookiesBtn {
+.loadCookiesBtn {
   background-color: #0697B8;
   color: #fff !important;
   padding: 0.5rem 1rem;   
@@ -159,13 +159,13 @@ section#hero{
   font-weight: bold;
   cursor: pointer;
 }
-#loadCookiesBtn:hover {
+.loadCookiesBtn:hover {
   /* scale: 1.05; */
   color: #fff;
   background-color: #0583a0; 
 }
 
-#loadCookiesBtn:active {
+.loadCookiesBtn:active {
   scale: 0.95;
 }
 
