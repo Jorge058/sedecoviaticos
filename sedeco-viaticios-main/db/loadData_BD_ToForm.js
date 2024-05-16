@@ -27,6 +27,31 @@ document.getElementById("ShowTotal3").textContent=              allData[this.id]
 document.getElementById('nombreUsuario').value=                 allData[this.id].persona_nombre;
 document.getElementById('cargoUsuario').value=                  allData[this.id].persona_cargo;
 
+document.getElementById('descripcionDetalles').value =  allData[this.id].persona_descripcion_actividades;
+document.getElementById('fechaFinal').value =           allData[this.id].oficio_fecha_final;
+  
+document.getElementById('vehicleInput').value = allData[this.id].auto_tipo;
+document.getElementById('marcaVehiculo').value = allData[this.id].auto_marca;
+document.getElementById('modeloAuto').value = allData[this.id].auto_modelo;
+document.getElementById('modeloAnio').value = allData[this.id].auto_año;
+document.getElementById('placasInput').value = allData[this.id].placasVehiculo;
+
+document.getElementById('ShowComb1').value = allData[this.id].recibo_combustible;
+document.getElementById('ShowPeajes1').value = allData[this.id].recibo_peajes;
+document.getElementById('ShowPasajes1').value = allData[this.id].recibo_pasajes;
+
+document.getElementById('ShowComb2').value = allData[this.id].recibo_combustible_2;
+document.getElementById('ShowPeajes2').value = allData[this.id].recibo_peajes_2;
+document.getElementById('ShowPasajes2').value = allData[this.id].recibo_pasajes_2;
+
+document.getElementById('aldev').value = allData[this.id].devengado_alimentacion;
+document.getElementById('hdev').value = allData[this.id].devengado_hospedaje;
+document.getElementById('pedev').value = allData[this.id].devengado_peajes;
+document.getElementById('comdev').value = allData[this.id].devengado_combustible;
+document.getElementById('padev').value = allData[this.id].devengado_pasajes;
+document.getElementById('otrodev').value = allData[this.id].devengado_otros;
+document.getElementById('sumadev').textContent = allData[this.id].devengado_total;
+
 
 nextPrev(1)
 /*

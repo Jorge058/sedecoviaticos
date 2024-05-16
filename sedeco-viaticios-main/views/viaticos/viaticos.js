@@ -537,9 +537,9 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
 
     //Blank
-      document.getElementById('fechaInicio').value ='';
+      /* document.getElementById('fechaInicio').value ='';
       document.getElementById('fechaFinal').value='';
-      document.getElementById('inputCiudades').value='';
+      document.getElementById('inputCiudades').value=''; */
   
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
       
