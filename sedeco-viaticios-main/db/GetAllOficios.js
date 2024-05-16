@@ -48,17 +48,16 @@ const firebaseConfig = {
         
           
         <td class="text-center"> <div class="btn-group">
-        <button class="btn btn-sm btn-warning w-50" type="button" 
-        onclick="loadViaticos('${cont-1}')">
+        <button class="btn btn-sm btn-warning w-50 BtnCargarData" type="button" 
+          id=${cont-1} ">
           <i class="fa fa-folder-open" aria-hidden="true"></i>
         </button>
-        <button class="btn btn-sm w-50 btn-danger" type="button"  
-        onclick="eliminarD('${doc.id}')" >
-          <i class="fa fa-trash-o" aria-hidden="true"><i class="fas fa-trash-alt"></i>
-        </button>
+        
       </div> </td>
       </tr>`
 
+      //52 onclick="loadViaticos('${cont-1}')">
+   
       cont++;
   });
 
@@ -66,6 +65,8 @@ const firebaseConfig = {
 
 
 /************************************************** */
+
+/*
 function loadViaticos(id) {
     //console.log(allData[id])
     console.log(id)
@@ -80,7 +81,7 @@ function loadViaticos(id) {
    
   }
   
-loadViaticos(2)
+*/
 //export {querySnapshot}
 /* 
 auto_año
