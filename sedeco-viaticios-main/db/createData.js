@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
-import { getDocs, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
+import { getDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
 import { } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -104,8 +104,14 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
 
 async function addDocumentAsync(data,numeroOficio) {
     try {
-      const docRef = await setDoc(doc(db, "oficios", "Oficio_"+`${numeroOficio}`), data);
-      console.log('Exito');
+      const docSnap = await getDoc(doc(db, "oficios", "Oficio_" + `${numeroOficio}`));
+      if (docSnap.exists()) {
+          console.log('El documento ya existe en la base de datos');
+      } else {
+          // El documento no existe, entonces lo agregamos
+          const docRef = await setDoc(doc(db, "oficios", "Oficio_" + `${numeroOficio}`), data);
+          console.log('Documento agregado con éxito');
+      }
     } catch (e) {
       console.error('Error adding document: ', e);
     }
