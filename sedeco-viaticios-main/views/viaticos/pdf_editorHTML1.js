@@ -1,3 +1,164 @@
+
+function Unidades(num){
+
+    switch(num)
+    {
+        case 1: return "UN";
+        case 2: return "DOS";
+        case 3: return "TRES";
+        case 4: return "CUATRO";
+        case 5: return "CINCO";
+        case 6: return "SEIS";
+        case 7: return "SIETE";
+        case 8: return "OCHO";
+        case 9: return "NUEVE";
+    }
+
+    return "";
+}//Unidades()
+
+function Decenas(num){
+
+    let decena = Math.floor(num/10);
+    let unidad = num - (decena * 10);
+
+    switch(decena)
+    {
+        case 1:
+            switch(unidad)
+            {
+                case 0: return "DIEZ";
+                case 1: return "ONCE";
+                case 2: return "DOCE";
+                case 3: return "TRECE";
+                case 4: return "CATORCE";
+                case 5: return "QUINCE";
+                default: return "DIECI" + Unidades(unidad);
+            }
+        case 2:
+            switch(unidad)
+            {
+                case 0: return "VEINTE";
+                default: return "VEINTI" + Unidades(unidad);
+            }
+        case 3: return DecenasY("TREINTA", unidad);
+        case 4: return DecenasY("CUARENTA", unidad);
+        case 5: return DecenasY("CINCUENTA", unidad);
+        case 6: return DecenasY("SESENTA", unidad);
+        case 7: return DecenasY("SETENTA", unidad);
+        case 8: return DecenasY("OCHENTA", unidad);
+        case 9: return DecenasY("NOVENTA", unidad);
+        case 0: return Unidades(unidad);
+    }
+}//Unidades()
+
+function DecenasY(strSin, numUnidades) {
+    if (numUnidades > 0)
+    return strSin + " Y " + Unidades(numUnidades)
+
+    return strSin;
+}//DecenasY()
+
+function Centenas(num) {
+    let centenas = Math.floor(num / 100);
+    let decenas = num - (centenas * 100);
+
+    switch(centenas)
+    {
+        case 1:
+            if (decenas > 0)
+                return "CIENTO " + Decenas(decenas);
+            return "CIEN";
+        case 2: return "DOSCIENTOS " + Decenas(decenas);
+        case 3: return "TRESCIENTOS " + Decenas(decenas);
+        case 4: return "CUATROCIENTOS " + Decenas(decenas);
+        case 5: return "QUINIENTOS " + Decenas(decenas);
+        case 6: return "SEISCIENTOS " + Decenas(decenas);
+        case 7: return "SETECIENTOS " + Decenas(decenas);
+        case 8: return "OCHOCIENTOS " + Decenas(decenas);
+        case 9: return "NOVECIENTOS " + Decenas(decenas);
+    }
+
+    return Decenas(decenas);
+}//Centenas()
+
+function Seccion(num, divisor, strSingular, strPlural) {
+    let cientos = Math.floor(num / divisor)
+    let resto = num - (cientos * divisor)
+
+    let letras = "";
+
+    if (cientos > 0)
+        if (cientos > 1)
+            letras = Centenas(cientos) + " " + strPlural;
+        else
+            letras = strSingular;
+
+    if (resto > 0)
+        letras += "";
+
+    return letras;
+}//Seccion()
+
+function Miles(num) {
+    let divisor = 1000;
+    let cientos = Math.floor(num / divisor)
+    let resto = num - (cientos * divisor)
+
+    let strMiles = Seccion(num, divisor, "UN MIL", "MIL");
+    let strCentenas = Centenas(resto);
+
+    if(strMiles == "")
+        return strCentenas;
+
+    return strMiles + " " + strCentenas;
+}//Miles()
+
+function Millones(num) {
+    let divisor = 1000000;
+    let cientos = Math.floor(num / divisor)
+    let resto = num - (cientos * divisor)
+
+    let strMillones = Seccion(num, divisor, "UN MILLON DE", "MILLONES DE");
+    let strMiles = Miles(resto);
+
+    if(strMillones == "")
+        return strMiles;
+
+    return strMillones + " " + strMiles;
+}//Millones()
+
+function NumeroALetras(num) {
+    var data = {
+        numero: num,
+        enteros: Math.floor(num),
+        centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
+        letrasCentavos: "",
+        letrasMonedaPlural: 'MX',//"PESOS", 'Dólares', 'Bolívares', 'etcs'
+        letrasMonedaSingular: 'MX', //"PESO", 'Dólar', 'Bolivar', 'etc'
+
+        letrasMonedaCentavoPlural: "CENTAVOS",
+        letrasMonedaCentavoSingular: "CENTAVO"
+    };
+
+    if (data.centavos > 0) {
+        data.letrasCentavos = "CON " + (function (){
+            if (data.centavos == 1)
+                return Millones(data.centavos) + " " + data.letrasMonedaCentavoSingular;
+            else
+                return Millones(data.centavos) + " " + data.letrasMonedaCentavoPlural;
+            })();
+    };
+
+    if(data.enteros == 0)
+        return "CERO " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+    if (data.enteros == 1)
+        return Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
+    else
+        return Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+}//NumeroALetras()
+/**************************************************************************************** */
+
 function mayusculas(palabra) {
     const mySentence = palabra;
     const words = mySentence.split(" ");
@@ -67,6 +228,7 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
   
 
     //SAVE IN LOCALSTORAGE  
+    /*
 let todosCampos = [
     unidadResponsable,
     numeroOficio,
@@ -88,6 +250,7 @@ let todosCampos = [
         ]
 let string = JSON.stringify(todosCampos);
 localStorage.setItem("Campos", string);
+*/
     //******************* *********/
 //console.log(fechaDocumento)
 
@@ -177,7 +340,11 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let combustibleDinero = document.getElementById('ShowComb1').value;
     let peajesDinero = document.getElementById('ShowPeajes1').value;
     let pasajesDinero = document.getElementById('ShowPasajes1').value;
+
+  
     let totalDinero = document.getElementById('totalDinero').textContent;
+   let totalLetra = NumeroALetras(( parseFloat(totalDinero)))
+   console.log(totalLetra)
 
     let combustibleDinero2 = document.getElementById('ShowComb2').value;
     let peajesDinero2 = document.getElementById('ShowPeajes2').value;
@@ -197,6 +364,8 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
 
 
     //Envio de informacion al documento 2
+
+
     iframe2.contentWindow.document.getElementById('f2_uRes').innerHTML = unidadResponsable;
     iframe2.contentWindow.document.getElementById("f2_lugarC").innerHTML = lugarComision1;
     iframe2.contentWindow.document.getElementById("f2_cantidadF").innerHTML = "$   "+numeral(resultado5).format('0,0.00');
@@ -250,6 +419,8 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_pasajes2").innerHTML = "$   "+numeral(pasajesDinero2).format('0,0.00');
     iframe2.contentWindow.document.getElementById("f2_total2").innerHTML = "$   "+numeral(totalDinero2).format('0,0.00');
     iframe2.contentWindow.document.getElementById("sumaT").innerHTML = "$   "+numeral(totl3).format('0,0.00');
+
+
 
     iframe2.contentWindow.document.getElementById("f2_viaticosyGas").innerHTML = "$   "+numeral(sumaF).format('0,0.00');
 
@@ -343,7 +514,7 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable
     iframe3.contentWindow.document.getElementById('f3_nombreUr').innerHTML = nombreUr
     iframe3.contentWindow.document.getElementById('f3_cargoUr').innerHTML = cargoUr
-    iframe3.contentWindow.document.getElementById('f3_numOf').innerHTML = numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
+    iframe3.contentWindow.document.getElementById('f3_numOf').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
     iframe3.contentWindow.document.getElementById("f3_fechaD").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
     iframe3.contentWindow.document.getElementById("f3_lugarC").innerHTML = lugarComision1;
     iframe3.contentWindow.document.getElementById("f3_detalles").innerHTML = descripcionDetalles;
@@ -395,6 +566,9 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let wspFrame = document.getElementById('frame3').contentWindow;
     wspFrame.focus();
     wspFrame.print();
+
+
+    
 })
 
 

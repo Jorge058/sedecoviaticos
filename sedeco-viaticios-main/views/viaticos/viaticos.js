@@ -131,11 +131,13 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "none";
 
     //LocalStorage BUTTON
+    /*
     if (localStorage.getItem('Campos') !== null) {
       document.getElementById("loadCookiesBtn").style.display = "inline";
     } else {
       document.getElementById("loadCookiesBtn").style.display = "none";
     }
+    */
 
     //Button "Crear nuevo" shows
     document.getElementById("loadDataBtn").style.display = "inline";
