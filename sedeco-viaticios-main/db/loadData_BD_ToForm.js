@@ -11,15 +11,15 @@ function loadViaticos() {
 console.log(allData[this.id])
 
 
-document.getElementById('idUnidadAdministrativa').value =       allData[this.id].persona_unidadresonsable ;
+document.getElementById('idUnidadAdministrativa').value =       allData[this.id].persona_unidadresponsable ;
 document.getElementById('numOficio').value =                    allData[this.id].oficio_numero;
 document.getElementById('documentDate').value=                  allData[this.id].oficio_fecha;
 document.getElementById('nombrecargoUr').value=                 allData[this.id].titular_nombre;
 document.getElementById('cargoUr').value=                       allData[this.id].titular_cargo;
 document.getElementById('ShowCiudad1').textContent =            allData[this.id].oficio_lugar_comision;
-document.getElementById('ShowCiudad2').textContent =            allData[this.id].oficio_lugar_comision2;
+document.getElementById('ShowCiudad2').textContent =            allData[this.id].oficio_lugar_comision_2;
 document.getElementById('ShowAlimentacion1').value=             allData[this.id].recibo_alimentacion;
-document.getElementById('ShowAlimentacion2').value=             allData[this.id].recibo_alimentacion2;
+document.getElementById('ShowAlimentacion2').value=             allData[this.id].recibo_alimentacion_2;
 document.getElementById('ShowHospedaje1').value=                allData[this.id].recibo_hospedaje;
 document.getElementById('ShowHospedaje2').value=                allData[this.id].recibo_hospedaje_2;
 document.getElementById("ShowTotal3").textContent=              allData[this.id].recibo_total;
@@ -28,13 +28,14 @@ document.getElementById('nombreUsuario').value=                 allData[this.id]
 document.getElementById('cargoUsuario').value=                  allData[this.id].persona_cargo;
 
 document.getElementById('descripcionDetalles').value =  allData[this.id].persona_descripcion_actividades;
+document.getElementById('fechaInicio').value =          allData[this.id].oficio_fecha_inicial;
 document.getElementById('fechaFinal').value =           allData[this.id].oficio_fecha_final;
   
 document.getElementById('vehicleInput').value = allData[this.id].auto_tipo;
 document.getElementById('marcaVehiculo').value = allData[this.id].auto_marca;
 document.getElementById('modeloAuto').value = allData[this.id].auto_modelo;
 document.getElementById('modeloAnio').value = allData[this.id].auto_año;
-document.getElementById('placasInput').value = allData[this.id].placasVehiculo;
+document.getElementById('placasInput').value = allData[this.id].auto_placa;
 
 document.getElementById('ShowComb1').value = allData[this.id].recibo_combustible;
 document.getElementById('ShowPeajes1').value = allData[this.id].recibo_peajes;

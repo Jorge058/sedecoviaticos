@@ -34,6 +34,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
   let cargoUsuario = document.getElementById('cargoUsuario').value;
 
   let descripcionDetalles = document.getElementById('descripcionDetalles').value;
+  let fechaInicio1 = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   
   let tipoVehiculo = document.getElementById('vehicleInput').value;
@@ -74,7 +75,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     oficio_fecha: fechaDocumento,
     oficio_fecha_final: fechaFinal,
     oficio_fecha_final_2: "",
-    oficio_fecha_inicial: "" ,
+    oficio_fecha_inicial: fechaInicio1 ,
     oficio_fecha_inicial_2: "",
     oficio_lugar_comision: lugarComision1,
     oficio_lugar_comision_2: lugarComision2,
