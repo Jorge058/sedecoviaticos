@@ -49,7 +49,7 @@ const firebaseConfig = {
           
         <td class="text-center"> <div class="btn-group">
         <button class="btn btn-sm btn-warning w-50 BtnCargarData" type="button" 
-          id=${cont-1} ">
+          id=${cont-1} >
           <i class="fa fa-folder-open" aria-hidden="true"></i>
         </button>
         
