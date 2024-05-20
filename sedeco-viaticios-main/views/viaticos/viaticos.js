@@ -916,10 +916,6 @@ function sumaDif(){
   document.getElementById('sumaTotal').textContent = suma
 }
 
-
-
-
-
 function resetFormulario () {
   let formToReset = document.getElementById('regForm');
   let loadDataBtn = document.getElementById('loadDataBtn')

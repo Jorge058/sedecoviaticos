@@ -3,15 +3,15 @@ function Unidades(num){
 
     switch(num)
     {
-        case 1: return "UN";
-        case 2: return "DOS";
-        case 3: return "TRES";
-        case 4: return "CUATRO";
-        case 5: return "CINCO";
-        case 6: return "SEIS";
-        case 7: return "SIETE";
-        case 8: return "OCHO";
-        case 9: return "NUEVE";
+        case 1: return "Un";
+        case 2: return "Dos";
+        case 3: return "Tres";
+        case 4: return "Cuatro";
+        case 5: return "Cinco";
+        case 6: return "Seis";
+        case 7: return "Siete";
+        case 8: return "Ocho";
+        case 9: return "Nueve";
     }
 
     return "";
@@ -27,27 +27,27 @@ function Decenas(num){
         case 1:
             switch(unidad)
             {
-                case 0: return "DIEZ";
-                case 1: return "ONCE";
-                case 2: return "DOCE";
-                case 3: return "TRECE";
-                case 4: return "CATORCE";
-                case 5: return "QUINCE";
-                default: return "DIECI" + Unidades(unidad);
+                case 0: return "Diez";
+                case 1: return "Once";
+                case 2: return "Doce";
+                case 3: return "Trece";
+                case 4: return "Catorce";
+                case 5: return "Quince";
+                default: return "Dieci" + Unidades(unidad);
             }
         case 2:
             switch(unidad)
             {
-                case 0: return "VEINTE";
-                default: return "VEINTI" + Unidades(unidad);
+                case 0: return "Veinte";
+                default: return "Veinti" + Unidades(unidad);
             }
-        case 3: return DecenasY("TREINTA", unidad);
-        case 4: return DecenasY("CUARENTA", unidad);
-        case 5: return DecenasY("CINCUENTA", unidad);
-        case 6: return DecenasY("SESENTA", unidad);
-        case 7: return DecenasY("SETENTA", unidad);
-        case 8: return DecenasY("OCHENTA", unidad);
-        case 9: return DecenasY("NOVENTA", unidad);
+        case 3: return DecenasY("Treinta", unidad);
+        case 4: return DecenasY("Cuarenta", unidad);
+        case 5: return DecenasY("Cincuenta", unidad);
+        case 6: return DecenasY("Sesenta", unidad);
+        case 7: return DecenasY("Setenta", unidad);
+        case 8: return DecenasY("Ochenta", unidad);
+        case 9: return DecenasY("Noventa", unidad);
         case 0: return Unidades(unidad);
     }
 }//Unidades()
@@ -67,16 +67,16 @@ function Centenas(num) {
     {
         case 1:
             if (decenas > 0)
-                return "CIENTO " + Decenas(decenas);
-            return "CIEN";
-        case 2: return "DOSCIENTOS " + Decenas(decenas);
-        case 3: return "TRESCIENTOS " + Decenas(decenas);
-        case 4: return "CUATROCIENTOS " + Decenas(decenas);
-        case 5: return "QUINIENTOS " + Decenas(decenas);
-        case 6: return "SEISCIENTOS " + Decenas(decenas);
-        case 7: return "SETECIENTOS " + Decenas(decenas);
-        case 8: return "OCHOCIENTOS " + Decenas(decenas);
-        case 9: return "NOVECIENTOS " + Decenas(decenas);
+                return "Ciento " + Decenas(decenas);
+            return "Cien";
+        case 2: return "Doscientos " + Decenas(decenas);
+        case 3: return "Trescientos " + Decenas(decenas);
+        case 4: return "Cuatrocientos " + Decenas(decenas);
+        case 5: return "Quinientos " + Decenas(decenas);
+        case 6: return "Seiscientos " + Decenas(decenas);
+        case 7: return "Setecientos " + Decenas(decenas);
+        case 8: return "Ochocientos " + Decenas(decenas);
+        case 9: return "Novecientos " + Decenas(decenas);
     }
 
     return Decenas(decenas);
@@ -105,7 +105,7 @@ function Miles(num) {
     let cientos = Math.floor(num / divisor)
     let resto = num - (cientos * divisor)
 
-    let strMiles = Seccion(num, divisor, "UN MIL", "MIL");
+    let strMiles = Seccion(num, divisor, "Un Mil", "Mil");
     let strCentenas = Centenas(resto);
 
     if(strMiles == "")
@@ -119,7 +119,7 @@ function Millones(num) {
     let cientos = Math.floor(num / divisor)
     let resto = num - (cientos * divisor)
 
-    let strMillones = Seccion(num, divisor, "UN MILLON DE", "MILLONES DE");
+    let strMillones = Seccion(num, divisor, "Un Millon De", "Millones De");
     let strMiles = Miles(resto);
 
     if(strMillones == "")
@@ -134,15 +134,15 @@ function NumeroALetras(num) {
         enteros: Math.floor(num),
         centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
         letrasCentavos: "",
-        letrasMonedaPlural: 'MX',//"PESOS", 'Dólares', 'Bolívares', 'etcs'
-        letrasMonedaSingular: 'MX', //"PESO", 'Dólar', 'Bolivar', 'etc'
+        letrasMonedaPlural: 'Pesos',//"PESOS", 'Dólares', 'Bolívares', 'etcs'
+        letrasMonedaSingular: 'Peso', //"PESO", 'Dólar', 'Bolivar', 'etc'
 
-        letrasMonedaCentavoPlural: "CENTAVOS",
-        letrasMonedaCentavoSingular: "CENTAVO"
+        letrasMonedaCentavoPlural: "Centavos",
+        letrasMonedaCentavoSingular: "Centavo"
     };
 
     if (data.centavos > 0) {
-        data.letrasCentavos = "CON " + (function (){
+        data.letrasCentavos = "Con " + (function (){
             if (data.centavos == 1)
                 return Millones(data.centavos) + " " + data.letrasMonedaCentavoSingular;
             else
@@ -151,7 +151,7 @@ function NumeroALetras(num) {
     };
 
     if(data.enteros == 0)
-        return "CERO " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+        return "Cero " + data.letrasMonedaPlural + " " + data.letrasCentavos;
     if (data.enteros == 1)
         return Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
     else
@@ -340,11 +340,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let combustibleDinero = document.getElementById('ShowComb1').value;
     let peajesDinero = document.getElementById('ShowPeajes1').value;
     let pasajesDinero = document.getElementById('ShowPasajes1').value;
-
-  
     let totalDinero = document.getElementById('totalDinero').textContent;
-   let totalLetra = NumeroALetras(( parseFloat(totalDinero)))
-   console.log(totalLetra)
 
     let combustibleDinero2 = document.getElementById('ShowComb2').value;
     let peajesDinero2 = document.getElementById('ShowPeajes2').value;
@@ -353,6 +349,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
 
     let totl3 = document.getElementById('tot3').textContent;
     let sumaF= parseFloat(document.getElementById('tot3').textContent) + parseFloat(document.getElementById("ShowTotal3").textContent);
+
 
 
     //let alimentacionDinero = document.getElementById('alimentacionDinero').value;
@@ -419,6 +416,10 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_pasajes2").innerHTML = "$   "+numeral(pasajesDinero2).format('0,0.00');
     iframe2.contentWindow.document.getElementById("f2_total2").innerHTML = "$   "+numeral(totalDinero2).format('0,0.00');
     iframe2.contentWindow.document.getElementById("sumaT").innerHTML = "$   "+numeral(totl3).format('0,0.00');
+
+    iframe2.contentWindow.document.getElementById("f2_cantidadFLetra").innerHTML = "("+ NumeroALetras(resultado5) +" 00/100 M.N)";
+    iframe2.contentWindow.document.getElementById("f2_cantidadF2Letra").innerHTML = "("+ NumeroALetras(totl3) +" 00/100 M.N)";
+
 
 
 
@@ -553,7 +554,13 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3_otrosdif").innerHTML = "$   "+numeral(otrosdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_sumdif").innerHTML = "$   "+numeral(sumdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_total").innerHTML = "$   "+numeral(sumdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_sumafinalLetra").innerHTML = "("+ NumeroALetras(sumdif) +" 00/100 M.N)";
 
+    if (document.getElementById('nombrecargoUr').value == "Dra. Mariana Gudiño Paredes") {
+        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "de la/ a la "+document.getElementById('nombrecargoUr').value +", "+document.getElementById('cargoUr').value+", la cantidad de:";
+    } else {
+        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "del / al "+document.getElementById('nombrecargoUr').value +", "+document.getElementById('cargoUr').value+", la cantidad de:"
+    }
     iframe3.contentWindow.document.getElementById("f3_nombreUrf").innerHTML=nombreUr;
     iframe3.contentWindow.document.getElementById("f3_cargoUrf").innerHTML=cargoUr;
 
