@@ -25,7 +25,8 @@ const firebaseConfig = {
   //*********************************************** */
   // GET ALL
   //const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc")
-  const q = query(collection(db, "oficios"), where("persona_area", "==", 'financieros'), );
+  const areaTrabajo = document.getElementById("areaTrabajo").textContent
+  const q = query(collection(db, "oficios"), where("persona_area", "==", areaTrabajo), );
 
   const querySnapshot = await getDocs(q);
   //console.log(querySnapshot)

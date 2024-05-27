@@ -148,7 +148,7 @@ function showTab(n) {
     document.getElementById("loadDataBtn").style.display = "none";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Terminar";
   } else {
     document.getElementById("nextBtn").innerHTML = "Siguiente";
   }
@@ -169,7 +169,8 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("regForm").submit();
+    //document.getElementById("regForm").submit();
+    document.getElementById("regForm").reload();
     return false;
   }
   // Otherwise, display the correct tab:
@@ -926,7 +927,26 @@ function resetFormulario () {
   nextPrev(1);
 }
 
+  // Función para sincronizar select2 con select1 CARGO TITULAR
+document.addEventListener('DOMContentLoaded', function() {
+  const select1 = document.getElementById('nombrecargoUr');
+  const select2 = document.getElementById('cargoUr');
 
+
+  function syncSelects() {
+    const selectedIndex = select1.selectedIndex;
+
+    if (selectedIndex === 1) {
+        select2.value = 'Delegada administrativa';
+    } else if (selectedIndex === 2) {
+        select2.value = 'Secretario de Desarrollo Económico';
+    } else {
+        //result.textContent = 'Please select an option.';
+    }
+}
+  // Agregar evento 'change' a select1
+  select1.addEventListener('change', syncSelects);
+});
 
 
 
