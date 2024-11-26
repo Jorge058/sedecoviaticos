@@ -36,6 +36,21 @@ x\:* {behavior:url(#default#VML);}
 		font-weight: normal;  
 		font-style: normal;   
 	}
+
+	#f1-DuracionDias{
+  display: inline-block; /* Hacer que el párrafo se comporte como un bloque en línea */
+  position: relative;    /* Necesario para posicionar la línea */
+}
+
+#f1-DuracionDias::after {
+  content: '';              /* Necesario para crear un pseudo-elemento */
+  position: absolute;       /* Posicionamos la línea con respecto al texto */
+  left: -45px;                  /* Alinea la línea a la izquierda */
+  bottom: 1px;             /* Ajusta la distancia de la línea respecto al texto */
+  width: 80%;              /* Alarga la línea, por ejemplo, un 120% del ancho del texto */
+  border-bottom: 1px solid black; /* El grosor y color de la línea */
+}
+
 <!--table
 	{mso-displayed-decimal-separator:"\.";
 	mso-displayed-thousand-separator:"\,";}
@@ -2504,7 +2519,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  <tr class=xl6730405 height=25 style='mso-height-source:userset;height:18.75pt'>
   <td height=25 class=xl7030405 style='height:18.75pt'>U.R.:<span
   style='mso-spacerun:yes'> </span></td>
-  <td colspan=7 class=xl11030405 width=896 style='width:672pt' id="f1-UnidadResponsable">Delegación
+  <td colspan=7 class=xl11030405 width=896 style='width:672pt; color: red;' id="f1-UnidadResponsable">Delegación
   Administrativa</td>
   <td class=xl6730405></td>
  </tr>
@@ -2543,7 +2558,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td class=xl6630405></td>
   <td class=xl6630405></td>
   <td class=xl7130405>Oficio número:</td>
-  <td class=xl7630405 id="f1-NumeroOficio">785/2023</td>
+  <td class=xl7630405 style="color: red;" id="f1-NumeroOficio">785/2023</td>
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=24 style='height:18.0pt'>
@@ -2552,7 +2567,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td class=xl6630405></td>
   <td class=xl6630405></td>
   <td class=xl6630405 colspan=2>Morelia, Michoacán; a</td>
-  <td colspan=2 class=xl11230405 id="f1-FechaOficio">12 de septiembre del 2023</td>
+  <td colspan=2 class=xl11230405 style="color: red;" id="f1-FechaOficio">12 de septiembre del 2023</td>
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=16 style='mso-height-source:userset;height:12.0pt'>
@@ -2567,7 +2582,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=24 style='height:18.0pt'>
-  <td colspan=4 height=24 class=xl9930405 style='height:18.0pt' id="f1-NombreUsuario">C. Darwing
+  <td colspan=4 height=24 class=xl9930405 style='height:18.0pt; color: red;' id="f1-NombreUsuario">C. Darwing
   Valdovinos Abarca</td>
   <td class=xl6630405></td>
   <td class=xl6630405></td>
@@ -2576,7 +2591,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=24 style='height:18.0pt'>
-  <td colspan=5 height=24 class=xl9930405 style='height:18.0pt' id="f1-CargoUsuario">Analista
+  <td colspan=5 height=24 class=xl9930405 style='height:18.0pt; color: red;' id="f1-CargoUsuario">Analista
   Profesional</td>
   <td class=xl6630405></td>
   <td class=xl6630405></td>
@@ -2612,15 +2627,15 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  </tr>
  <tr class=xl6730405 height=46 style='mso-height-source:userset;height:34.2pt'>
   <td height=46 class=xl6930405 style='height:34.2pt'>Trasladarse durante:</td>
-  <td class=xl7730405 width=128 style='width:96pt' id="f1-DuracionDias">2</td>
-  <td class=xl7830405 width=128 style='width:96pt'id="f1-DuracionDiasLetra">dos días</td>
+  <td class=xl7930405 width=128 style='width:96pt; text-decoration:underline; color: red;' id="f1-DuracionDias">2</td>
+  <td class=xl6930405 width=128 style='width:96pt; color: red;'id="f1-DuracionDiasLetra">dos días</td>
   <td colspan=5 class=xl10030405 width=640 style='width:480pt'>a el (los) lugar
   (es) que enseguida se indica (n) y desarrollar actividades de:</td>
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=42 style='mso-height-source:userset;height:31.8pt'>
   <td colspan=8 rowspan=2 height=66 class=xl7930405 width=1097
-  style='height:49.8pt;width:823pt' id="f1-DescripcionDetalles">Transladarse al municipio de Uruapan.</td>
+  style='height:49.8pt;width:823pt; color: red; ' id="f1-DescripcionDetalles">Transladarse al municipio de Uruapan.</td>
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=24 style='height:18.0pt'>
@@ -2638,9 +2653,9 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  </tr>
  <tr class=xl6730405 height=85 style='mso-height-source:userset;height:63.75pt'>
   <td height=85 class=xl6630405 style='height:63.75pt'></td>
-  <td colspan=3 class=xl10430405 width=384 style='border-right:.5pt solid black;
+  <td colspan=3 class=xl10430405 width=384 style='border-right:.5pt solid black; color: red;
   width:288pt' id="f1-LugarComision">Uruapan, Michoacán</td>
-  <td colspan=2 class=xl10430405 width=256 style='border-right:.5pt solid black;
+  <td colspan=2 class=xl10430405 width=256 style='border-right:.5pt solid black; color: red;
   border-left:none;width:192pt' id="f1-FechasComision">Del 13 al 14 de septiembre del 2023</td>
   <td class=xl6630405></td>
   <td class=xl6630405></td>
@@ -2648,8 +2663,8 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  </tr>
  <tr class=xl6730405 height=36 style='mso-height-source:userset;height:63.75pt'>
   <td height=36 class=xl8130405 style='height:27.0pt'></td>
-  <td colspan=3 class=xl10730405 width=384 style='width:288pt' id="f1-LugarComision2">&nbsp;</td>
-  <td colspan=2 class=xl10430405 style='border-right:.5pt solid black;
+  <td colspan=3 class=xl10730405 width=384 style='width:288pt; color: red;' id="f1-LugarComision2">&nbsp;</td>
+  <td colspan=2 class=xl10430405 style='border-right:.5pt solid black; color: red;
   border-left:none;width:192pt' id="f1-FechaComision2"></td>
   <td class=xl6630405></td>
   <td class=xl6630405></td>
@@ -2690,7 +2705,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  </tr>
  <tr class=xl6730405 height=17 style='mso-height-source:userset;height:12.75pt'>
   <td colspan=8 rowspan=3 height=56 class=xl7930405 width=1097
-  style='height:42.3pt;width:823pt' id="f1-DescripcionDetalles2">Realizar instalacion de equipo de audio y
+  style='height:42.3pt;width:823pt; color: red;' id="f1-DescripcionDetalles2">Realizar instalacion de equipo de audio y
   video en apoyo a la visita del Secretario de Trabajo y Prevision Social del
   Gobierno de México</td>
   <td class=xl6730405></td>
@@ -2727,7 +2742,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td height=24 class=xl7430405 colspan=3 style='height:18.0pt'>Utilizando como
   medio de transporte:<span style='mso-spacerun:yes'> </span></td>
   <td class=xl7130405>Vehículo:</td>
-  <td class=xl8830405 id="f1-TipoVehiculo">Oficial</td>
+  <td class=xl8830405 style="color: red;" id="f1-TipoVehiculo">&nbsp;Oficial</td>
   <td class=xl7130405></td>
   <td class=xl7030405></td>
   <td class=xl8330405></td>
@@ -2756,13 +2771,13 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  <tr class=xl6730405 height=24 style='height:18.0pt'>
   <td height=24 class=xl7130405 style='height:18.0pt'>Marca:<span
   style='mso-spacerun:yes'> </span></td>
-  <td class=xl8730405 id="f1-MarcaVehiculo">Dodge<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl8730405 id="f1-MarcaVehiculo" style="color: red;">&nbsp;Dodge<span style='mso-spacerun:yes'> </span></td>
   <td class=xl7130405>Tipo:</td>
-  <td class=xl8830405 id="f1-ModeloVehiculo">Express_Van</td>
+  <td class=xl8830405 id="f1-ModeloVehiculo" style="color: red;">&nbsp;Express_Van</td>
   <td class=xl7130405>Modelo:</td>
-  <td class=xl8830405 id="f1-AnioVehiculo">2008</td>
+  <td class=xl8830405 id="f1-AnioVehiculo" style="color: red;">&nbsp;2008</td>
   <td class=xl7130405>Placas:</td>
-  <td class=xl8830405 id="f1-PlacasVehiculo">PHR-116-C</td>
+  <td class=xl8830405 id="f1-PlacasVehiculo" style="color: red;">&nbsp;PHR-116-C</td>
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -2808,7 +2823,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  <tr class=xl6730405 height=25 style='mso-height-source:userset;height:18.75pt'>
   <td height=25 class=xl7230405 width=201 style='height:18.75pt;width:151pt'></td>
   <td class=xl7230405 width=128 style='width:96pt'></td>
-  <td colspan=4 class=xl9130405 width=512 style='width:384pt' id="f1-NombreUsuario2">C. Darwing
+  <td colspan=4 class=xl9130405 width=512 style='width:384pt; color: red;' id="f1-NombreUsuario2">C. Darwing
   Valdovinos Abarca</td>
   <td class=xl8530405></td>
   <td class=xl8530405></td>
@@ -2817,7 +2832,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  <tr class=xl6730405 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl7230405 width=201 style='height:15.75pt;width:151pt'></td>
   <td class=xl7230405 width=128 style='width:96pt'></td>
-  <td colspan=4 class=xl9230405 width=512 style='width:384pt' id="f1-CargoUsuario2">Analista
+  <td colspan=4 class=xl9230405 width=512 style='width:384pt; color: red;' id="f1-CargoUsuario2">Analista
   Profesional</td>
   <td class=xl8630405 width=128 style='width:96pt'></td>
   <td class=xl6630405></td>
@@ -2865,7 +2880,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
   <td class=xl6730405></td>
  </tr>
  <tr class=xl6730405 height=22 style='mso-height-source:userset;height:16.5pt'>
-  <td id="f1_nombreUr" colspan=3 height=22 class=xl8930405 style='height:16.5pt'></td>
+  <td id="f1_nombreUr" colspan=3 height=22 class=xl8930405 style='height:16.5pt; color: red;'></td>
   <td class=xl6630405></td>
   <td class=xl7830405 width=128 style='width:96pt'></td>
   <td colspan=3 class=xl9030405 width=384 style='width:288pt'>Dra. Mariana
@@ -2874,7 +2889,7 @@ ZG93bnJldi54bWxQSwUGAAAAAAQABAD1AAAAiwUAAAAA
  </tr>
  <tr class=xl6730405 height=18 style='mso-height-source:userset;height:13.5pt'>
   <td id="f1_cargoUr" colspan=3 height=18 class=xl9130405 width=457 style='height:13.5pt;
-  width:343pt'></td>
+  width:343pt; color: red;'></td>
   <td class=xl6630405></td>
   <td class=xl7830405 width=128 style='width:96pt'></td>
   <td colspan=3 rowspan=2 class=xl9230405 width=384 style='width:288pt'>Delegada
