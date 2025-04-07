@@ -422,9 +422,6 @@ nextPrev(camposArray[16])
 /* Dinero */
  // document.getElementById('alimentacionDinero').value;
  // document.getElementById('hotelDinero').value;
-
-
-
 }
 
 
@@ -454,8 +451,6 @@ let submodeloVehiculo = document.getElementById('submodeloVehiculo').value;
 let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
 let placasVehiculo = document.getElementById('placasInput').value;
 
-
-
 // Variable para autosumas
 /* let inputs1 = document.querySelectorAll('.suma1')
 let inputs2 = document.querySelectorAll('.suma2') */
@@ -465,9 +460,6 @@ const btnComisionsi = document.querySelector('.btnComisionsi')
 const btnComisionno = document.querySelector('.btnComisionno') */
 
 //Sumas variables
-
-
-
 
 /* //Evento para la suma
 inputs1.forEach(input => {
@@ -514,21 +506,15 @@ function sumaGastos() {
     document.getElementById('totalDinero1').value = 0
   })
 
-
-
 /************************************************** */
 // Bloquear calendario picker 2 - no pueda seleccionar fechas antes de inicio
 document.getElementById("fechaInicio").addEventListener("input", function(){
-  let today = new Date().toISOString().split('T')[0]
-  document.getElementById("fechaFinal").setAttribute('min',  document.getElementById("fechaInicio").value)
+  let today = new Date().toISOString().split('T')[0];
+  document.getElementById("fechaFinal").setAttribute('min',  document.getElementById("fechaInicio").value);
 });
-
-
-  // TABLA COMISION
 
   //Button ADD
 document.querySelector('#BtnAgregarComision').addEventListener('click', function () {
-
   let fechaInicio = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   let lugarComision = document.getElementById('inputCiudades').value;
@@ -537,31 +523,22 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
       document.getElementById('sC1').innerHTML = lugarComision;
-
-
-    //Blank
-      /* document.getElementById('fechaInicio').value ='';
-      document.getElementById('fechaFinal').value='';
-      document.getElementById('inputCiudades').value=''; */
-  
+    
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
-      
+  
       document.getElementById('ShowFecha1').innerHTML = 
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
       new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
 
     document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
-    }
-
-    else {
+    } else {
       document.getElementById('ShowFecha1').innerHTML = 
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-        new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+        new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
 
-    document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
-
+      document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
     }
 
 } else if(document.getElementById('ShowCiudad1').innerHTML != '' && document.getElementById('ShowFecha1').innerHTML != ''){
@@ -572,8 +549,6 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   document.getElementById('BtnAgregarComision').disabled = true;
   document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
-
-
   
   if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
       
@@ -582,19 +557,18 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
     + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
     new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
 
-    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML
+    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
   }
 
   else {
     document.getElementById('ShowFecha2').innerHTML = 
     "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
     + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
 
-    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML
-
+    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
+    }
   }
-}
 })
 
 /*Funcion para limpiar los espacios */

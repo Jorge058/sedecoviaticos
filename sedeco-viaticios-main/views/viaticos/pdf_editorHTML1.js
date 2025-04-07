@@ -580,8 +580,6 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     wspFrame.focus();
     wspFrame.print();
 
-
-    
 })
 
 
