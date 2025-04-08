@@ -114,9 +114,7 @@ const ciudadesMich = [
   "José Sixto Verduzco"
 ];
 
-
 //******************************************************************* */
-
 
 //FORM controller
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -231,10 +229,8 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-
 //*************************************************************************** */
 //Autocomplete
-
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -336,8 +332,6 @@ document.addEventListener("click", function (e) {
 
 autocomplete(document.getElementById("inputCiudades"), ciudadesMich);
 
-
-
 //*************************************** */
 
 /*   HIDE SELECTS ON OFICIAL VEHICLE     */
@@ -362,7 +356,6 @@ function hideSelectsVehicle(selectValue) {
     }
   })
 }
-
 
 /***************************************** */
 // VALIDATE DATES - SUBSTRACT DAYS
@@ -392,7 +385,6 @@ let retString = localStorage.getItem("Campos")
 // Retrieved array
 let camposArray = JSON.parse(retString)
 console.log(camposArray)
-
 
 // Go to page n with nextPrev(n)
 nextPrev(camposArray[16])
@@ -424,8 +416,6 @@ nextPrev(camposArray[16])
  // document.getElementById('hotelDinero').value;
 }
 
-
-
 /********************************************* */
 /******************    VALUES FORM */
 
@@ -443,6 +433,11 @@ let duracionDias = document.getElementById('duracionDias').value;        //Durac
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
 let fechaInicio = document.getElementById('fechaInicio').value;
 let fechaFinal = document.getElementById('fechaFinal').value;
+
+let fechaInicio1 = null;
+let fechaFinal1 = null;
+let fechaInicio2 = null;
+let fechaFinal2 = null;
 
 /*  Vehiculo  */
 let tipoVehiculo = document.getElementById('vehicleInput').value;
@@ -524,6 +519,11 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
       document.getElementById('sC1').innerHTML = lugarComision;
     
+      fechaInicio1 = new Date(fechaInicio);
+      fechaFinal1 = new Date(fechaFinal);
+
+      document.getElementById('duracionDias').value = calcularDiferencia();
+
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
   
       document.getElementById('ShowFecha1').innerHTML = 
@@ -549,26 +549,31 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   document.getElementById('BtnAgregarComision').disabled = true;
   document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
-  
-  if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
-      
-    document.getElementById('ShowFecha2').innerHTML = 
-    "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
-    + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-    new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
 
-    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
-  }
+  fechaInicio2 = new Date(fechaInicio);
+  fechaFinal2 = new Date(fechaFinal);
 
-  else {
-    document.getElementById('ShowFecha2').innerHTML = 
-    "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
-    + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
+  document.getElementById('duracionDias').value = calcularDiferencia();
 
-    document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
+    if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
+        
+      document.getElementById('ShowFecha2').innerHTML = 
+      "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
+      + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
+
+      document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
     }
-  }
+
+    else {
+      document.getElementById('ShowFecha2').innerHTML = 
+      "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
+      + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
+        new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
+
+      document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
+      }
+    }
 })
 
 /*Funcion para limpiar los espacios */
@@ -586,6 +591,28 @@ document.querySelector('#btnLimpiarC').addEventListener('click',function () {
     document.getElementById('BtnAgregarComision').style.cursor = "pointer"
   } 
 })
+
+  //? Funcion para calcular la diferencia de dias entre la fecha de inicio y la fecha final
+function calcularDiferencia() {
+  let dias = null;
+
+  // Si solo hay datos del primer renglón
+  if (fechaInicio1 && fechaFinal1 && !fechaFinal2) {
+    const diferenciaMs = fechaFinal1 - fechaInicio1;
+    dias = diferenciaMs / (1000 * 60 * 60 * 24);
+  }
+
+  // Si también está lleno el segundo renglón
+  else if (fechaInicio1 && fechaFinal2) {
+    const diferenciaMs = fechaFinal2 - fechaInicio1;
+    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+1;
+  }
+  
+  return duracionDias = dias;
+}
+
+
+// todo /////////////////////////////////////////////////////////////////////////////////////
 
 /*Funcion para realizar la autosuma de todos los campos al hacer click */
 //Primera fila
