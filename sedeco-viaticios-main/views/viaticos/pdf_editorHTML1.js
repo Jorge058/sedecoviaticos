@@ -17,7 +17,6 @@ function Unidades(num){
 }//Unidades()
 
 function Decenas(num){
-
     let decena = Math.floor(num/10);
     let unidad = num - (decena * 10);
 
@@ -174,8 +173,8 @@ function nLetra(numero){
 }
 
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
-    
-        /* Documento */
+
+    /* Documento */
         let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
         let numeroOficio = document.getElementById('numOficio').value;
         let fechaDocumento = document.getElementById('documentDate').value;
@@ -299,6 +298,11 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let objetivosComision = document.getElementById('objetivosComision').value;
     let fechaInicio = document.getElementById('fechaInicio').value;
     let fechaFinal = document.getElementById('fechaFinal').value;
+
+    let fechaInicio1 = fechaInicio1;
+    let fechaInicio2 = fechaInicio2;
+    let fechaFinal1 = fechaFinal1;
+    let fechaFinal2 = fechaFinal2;
     
     /*  Vehiculo  */
     let tipoVehiculo = document.getElementById('vehicleInput').value;
@@ -372,7 +376,6 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_resultado5").innerHTML = "$   "+numeral(resultado5).format('0,0.00');
     
     //Recibo de anticipo de gastos
-
     iframe2.contentWindow.document.getElementById("f2_cantidadFG").innerHTML ="$   "+ numeral(totl3).format('0,0.00');
 
     iframe2.contentWindow.document.getElementById("f2_nombre").innerHTML=nombreUsuario;
@@ -397,12 +400,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_cantidadFLetra").innerHTML = "("+ NumeroALetras(resultado5) +" 00/100 M.N)";
     iframe2.contentWindow.document.getElementById("f2_cantidadF2Letra").innerHTML = "("+ NumeroALetras(totl3) +" 00/100 M.N)";
 
-
-
-
     iframe2.contentWindow.document.getElementById("f2_viaticosyGas").innerHTML = "$   "+numeral(sumaF).format('0,0.00');
-
-
     iframe2.contentWindow.document.getElementById("f2_fechaDF").innerHTML = " " + new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
 
     let wspFrame = document.getElementById('frame2').contentWindow;
@@ -437,7 +435,6 @@ localStorage.setItem("Campos", string);
 })
 
 document.querySelector('#generadorPDF3').addEventListener('click', function () {
-
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
     let nombreUr = document.getElementById('nombrecargoUr').value;
     let cargoUr = document.getElementById('cargoUr').value;
@@ -485,7 +482,6 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
 
-
     const iframe3 = document.getElementById("frame3");
 
     iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable
@@ -504,7 +500,6 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
-
     //vehiculo
     iframe3.contentWindow.document.getElementById("f3_duracionD").innerHTML = duracionDias;
     iframe3.contentWindow.document.getElementById("f3_tipoVehiculo").innerHTML = "&nbsp;&nbsp;"+"&nbsp;Vehículo "+ tipoVehiculo;
@@ -514,7 +509,6 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3-PlacasVehiculo").innerHTML = placasVehiculo;
 
     //Gastos de cmision
-
     iframe3.contentWindow.document.getElementById("f3_alAnt").innerHTML = "$   "+numeral(alAnt).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_hosAnt").innerHTML = "$   "+numeral(hosAnt).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_peaAnt").innerHTML = "$   "+numeral(peaAnt).format('0,0.00');
@@ -555,13 +549,8 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3_cargoUsuario").innerHTML=cargoUsuario;
     iframe3.contentWindow.document.getElementById("f3_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
-
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame3').contentWindow;
     wspFrame.focus();
     wspFrame.print();
-
 })
-
-
-

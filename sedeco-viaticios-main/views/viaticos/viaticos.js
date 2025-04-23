@@ -526,12 +526,20 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
   
+      if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"})) {
+        document.getElementById('ShowFecha1').innerHTML = 
+        "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',month:"long", day:"numeric"})+" de "+
+        new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',year:"numeric"});
+        document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
+        return;
+      }
+
       document.getElementById('ShowFecha1').innerHTML = 
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
-      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"})
-
-    document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
+      new Date(fechaFinal).toLocaleDateString('es-mx', { year:"numeric"});
+      document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
+      
     } else {
       document.getElementById('ShowFecha1').innerHTML = 
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" al "
@@ -557,6 +565,14 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
         
+      if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"})) {
+        document.getElementById('ShowFecha2').innerHTML = 
+        "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"long", day:"numeric"})+" de "+
+        new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',year:"numeric"})
+        document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
+        return;
+      }
+
       document.getElementById('ShowFecha2').innerHTML = 
       "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) +" al "
       + new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"long", day:"numeric"}) +" de "+
@@ -599,7 +615,7 @@ function calcularDiferencia() {
   // Si solo hay datos del primer renglón
   if (fechaInicio1 && fechaFinal1 && !fechaFinal2) {
     const diferenciaMs = fechaFinal1 - fechaInicio1;
-    dias = diferenciaMs / (1000 * 60 * 60 * 24);
+    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+1;
   }
 
   // Si también está lleno el segundo renglón

@@ -45,31 +45,31 @@ a :hover {
 
 /* Curved  */
 
-  .curved-div {
-    position:inherit;
-    /* background: #fff ;  */
-    color: #FFF;
-    text-align: center;
-    overflow: hidden;
-    /* background-image: url('https://michoacan.gob.mx/slider/2022-11-23_ndg2K.jpg');   */
-    
-  }
-  .curved-div svg {
-    display: block;
-  }
-  .curved-div.upper {
-     background: #4A001F;
-  }
-  .curved-div h1 {
-    font-size: 6rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-top:0rem;
-  }
-  .curved-div p {
-    font-size: 1rem;
-    margin:0 5rem 0rem 5rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+.curved-div {
+position:inherit;
+/* background: #fff ;  */
+color: #FFF;
+text-align: center;
+overflow: hidden;
+/* background-image: url('https://michoacan.gob.mx/slider/2022-11-23_ndg2K.jpg');   */
+
+}
+.curved-div svg {
+display: block;
+}
+.curved-div.upper {
+    background: #4A001F;
+}
+.curved-div h1 {
+font-size: 6rem;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+margin-top:0rem;
+}
+.curved-div p {
+font-size: 1rem;
+margin:0 5rem 0rem 5rem;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 
 /* HEADER */
@@ -212,207 +212,191 @@ a.homeBtn{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-   }
-   a.homeBtn span{
-    display: block;
-    background-size: contain;
-   }
-   a.homeBtn:hover{
-    color: #FFF;
-    background: linear-gradient(to right,#600c0c ,#430909);
-    background-color: #600c0c;
-    transform: scale(1.05);
-   }
-   a.homeBtn:active{
-    transform: scale(0.95);
-   }
+}
+a.homeBtn span{
+display: block;
+background-size: contain;
+}
+a.homeBtn:hover{
+color: #FFF;
+background: linear-gradient(to right,#600c0c ,#430909);
+background-color: #600c0c;
+transform: scale(1.05);
+}
+a.homeBtn:active{
+transform: scale(0.95);
+}
 
 /* FOOTER  */
 
-  @font-face { 
-    font-family:"Font Awesome 5 Brands";
-    font-style:normal;
-    font-weight:400;
-    font-display:block;
-    src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.eot);
-    src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.woff) format("woff"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.ttf) format("truetype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.svg#fontawesome) format("svg");
-  } 
-  
-  
-  :root { 
-      --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; 
-      --bs-body-font-family: var(--bs-font-sans-serif); 
-      --bs-body-font-size: 1rem; 
-      --bs-body-font-weight: 400; 
-      --bs-body-line-height: 1.5; 
-      --bs-body-color: #212529; 
-      --bs-body-bg: #fff; 
-      --bs-link-color: #0d6efd; 
-      --bs-link-hover-color: #0a58ca; 
-  } 
-    
-  
-  
-  @media (min-width: 576px){ 
-    .footerContainer { 
-      max-width: 540px;
-    } 
-  }     
-  
-  @media (min-width: 768px){ 
-    .footerContainer { 
-      max-width: 720px;
-    } 
-  }     
-  
-  @media (min-width: 992px){ 
-    .footerContainer { 
-      max-width: 960px;
-    } 
-  }     
-  
-  @media (min-width: 1200px){ 
-    .footerContainer { 
-      max-width: 1140px;
-    } 
-  }     
-  
-  @media (min-width: 1400px){ 
-    .footerContainer { 
-      max-width: 1320px;
-    } 
-  }     
-  
-  .footer-main { 
-      padding: 50px 0; 
-      background-color: red; 
-  } 
-  
-  
-  .footer-pleca { 
-      background-color: #6A0F49; 
-      background-image: url(https://michoacan.gob.mx/cdn/img/pleca.svg); 
-      background-repeat: repeat-x; 
-      background-repeat-x: repeat; 
-      background-repeat-y: no-repeat;
-  } 
-  
-  .row { 
-      --bs-gutter-x: 1.5rem; 
-      --bs-gutter-y: 0; 
-      display: flex; 
-      flex-wrap: wrap; 
-      margin-top: calc(-1 * var(--bs-gutter-y)); 
-      margin-right: calc(-.5 * var(--bs-gutter-x)); 
-      margin-left: calc(-.5 * var(--bs-gutter-x));
-  } 
-  
-  
-  
-  @media (min-width: 992px){ 
-    .col-lg-4 { 
-      flex: 0 0 auto; 
-      width: 33.33333333%;
-    } 
-  }     
-  
-  
-  .col-12 { 
-      flex: 0 0 auto; 
-      width: 100%;
-  } 
-  
-  .col { 
-      flex: 1 0 0%;
-  } 
-  
-  
-  footer-main a { 
-      text-decoration: none !important;
-      font-size: 14px; 
-      letter-spacing: 0; 
-      line-height: 22px; 
-      color: white; 
-      margin-bottom: 0;
-  } 
-  
-  .textoGuinda { 
-      color: #4A001F;
-  } 
-  
-  footer-main a:hover { 
-      color: var(--bs-link-hover-color);
-  } 
-  
-  footer-main a:hover { 
-      color: #FFC3D0; 
-      text-decoration: none;
-  } 
-  
-  footer-main h4 { 
-      margin-top: 0; 
-      margin-bottom: .5rem; 
-      font-weight: 500; 
-      line-height: 1.2;
-  } 
-  
-  footer-main h4 { 
-      font-size: calc(1.275rem + .3vw);
-  } 
-  
-  @media (min-width: 1200px){ 
-    footer-main h4 { 
-      font-size: 1.5rem;
-    } 
-  }     
-  
-  
-  
-  .textoGris { 
-      color: #6D807F;
-  } 
-  
-  
-  .logoFooter { 
-      max-height: 75px;
-  } 
-  
-  
-  .social-icons a  { 
-      color: #4A001F !important;
-  } 
-  
-  .social-icons a:hover { 
-      color: #FFC3D0 !important;
-  } 
-  
-  .fa-2x { 
-      font-size: 2em;
-  } 
-  
-  
-  .fa-twitter:before { 
-      content: "\f099";
-  } 
-  
-  .fa-facebook:before { 
-      content: "\f09a";
-  } 
-  
-  .fa-instagram:before { 
-      content: "\f16d";
-  } 
-  
-  .fa-telegram-plane:before { 
-      content: "\f3fe";
-  } 
-  
-  .fa-spotify:before { 
-      content: "\f1bc";
-  } 
-  
-  
-  
+@font-face { 
+font-family:"Font Awesome 5 Brands";
+font-style:normal;
+font-weight:400;
+font-display:block;
+src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.eot);
+src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.woff) format("woff"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.ttf) format("truetype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.svg#fontawesome) format("svg");
+} 
+
+:root { 
+    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; 
+    --bs-body-font-family: var(--bs-font-sans-serif); 
+    --bs-body-font-size: 1rem; 
+    --bs-body-font-weight: 400; 
+    --bs-body-line-height: 1.5; 
+    --bs-body-color: #212529; 
+    --bs-body-bg: #fff; 
+    --bs-link-color: #0d6efd; 
+    --bs-link-hover-color: #0a58ca; 
+} 
+
+@media (min-width: 576px){ 
+.footerContainer { 
+    max-width: 540px;
+} 
+}     
+
+@media (min-width: 768px){ 
+.footerContainer { 
+    max-width: 720px;
+} 
+}     
+
+@media (min-width: 992px){ 
+.footerContainer { 
+    max-width: 960px;
+} 
+}     
+
+@media (min-width: 1200px){ 
+.footerContainer { 
+    max-width: 1140px;
+} 
+}     
+
+@media (min-width: 1400px){ 
+.footerContainer { 
+    max-width: 1320px;
+} 
+}     
+
+.footer-main { 
+    padding: 50px 0; 
+    background-color: red; 
+} 
+
+.footer-pleca { 
+    background-color: #6A0F49; 
+    background-image: url(https://michoacan.gob.mx/cdn/img/pleca.svg); 
+    background-repeat: repeat-x; 
+    background-repeat-x: repeat; 
+    background-repeat-y: no-repeat;
+} 
+
+.row { 
+    --bs-gutter-x: 1.5rem; 
+    --bs-gutter-y: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    margin-top: calc(-1 * var(--bs-gutter-y)); 
+    margin-right: calc(-.5 * var(--bs-gutter-x)); 
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+} 
+
+@media (min-width: 992px){ 
+.col-lg-4 { 
+    flex: 0 0 auto; 
+    width: 33.33333333%;
+} 
+}     
+
+.col-12 { 
+    flex: 0 0 auto; 
+    width: 100%;
+} 
+
+.col { 
+    flex: 1 0 0%;
+} 
+
+footer-main a { 
+    text-decoration: none !important;
+    font-size: 14px; 
+    letter-spacing: 0; 
+    line-height: 22px; 
+    color: white; 
+    margin-bottom: 0;
+} 
+
+.textoGuinda { 
+    color: #4A001F;
+} 
+
+footer-main a:hover { 
+    color: var(--bs-link-hover-color);
+} 
+
+footer-main a:hover { 
+    color: #FFC3D0; 
+    text-decoration: none;
+} 
+
+footer-main h4 { 
+    margin-top: 0; 
+    margin-bottom: .5rem; 
+    font-weight: 500; 
+    line-height: 1.2;
+} 
+
+footer-main h4 { 
+    font-size: calc(1.275rem + .3vw);
+} 
+
+@media (min-width: 1200px){ 
+footer-main h4 { 
+    font-size: 1.5rem;
+} 
+}     
+
+.textoGris { 
+    color: #6D807F;
+} 
+
+.logoFooter { 
+    max-height: 75px;
+} 
+
+.social-icons a  { 
+    color: #4A001F !important;
+} 
+
+.social-icons a:hover { 
+    color: #FFC3D0 !important;
+} 
+
+.fa-2x { 
+    font-size: 2em;
+} 
+
+.fa-twitter:before { 
+    content: "\f099";
+} 
+
+.fa-facebook:before { 
+    content: "\f09a";
+} 
+
+.fa-instagram:before { 
+    content: "\f16d";
+} 
+
+.fa-telegram-plane:before { 
+    content: "\f3fe";
+} 
+
+.fa-spotify:before { 
+content: "\f1bc";
+} 
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
