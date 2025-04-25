@@ -523,6 +523,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       fechaFinal1 = new Date(fechaFinal);
 
       document.getElementById('duracionDias').value = calcularDiferencia();
+      document.getElementById('fechaI1').value = fechaInicio1;
+      document.getElementById('fechaF1').value = fechaFinal1;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
   
@@ -562,6 +564,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   fechaFinal2 = new Date(fechaFinal);
 
   document.getElementById('duracionDias').value = calcularDiferencia();
+  document.getElementById('fechaI2').value = fechaInicio2;
+  document.getElementById('fechaF2').value = fechaFinal2;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
         
@@ -964,10 +968,3 @@ document.addEventListener('DOMContentLoaded', function() {
   // Agregar evento 'change' a select1
   select1.addEventListener('change', syncSelects);
 });
-
-
-
-
-
-
-

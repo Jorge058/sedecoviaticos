@@ -1,3 +1,4 @@
+
 function Unidades(num){
 
     switch(num)
@@ -299,11 +300,11 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let fechaInicio = document.getElementById('fechaInicio').value;
     let fechaFinal = document.getElementById('fechaFinal').value;
 
-    let fechaInicio1 = fechaInicio1;
-    let fechaInicio2 = fechaInicio2;
-    let fechaFinal1 = fechaFinal1;
-    let fechaFinal2 = fechaFinal2;
-    
+    let fechaInicio1 = document.getElementById('fechaI1').value;
+    let fechaFinal1 = document.getElementById('fechaF1').value;
+    let fechaInicio2 = document.getElementById('fechaI2').value;
+    let fechaFinal2 = document.getElementById('fechaF2').value;
+
     /*  Vehiculo  */
     let tipoVehiculo = document.getElementById('vehicleInput').value;
     let marcaVehiculo = document.getElementById('marcaVehiculo').value;
@@ -325,18 +326,10 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let totl3 = document.getElementById('tot3').textContent;
     let sumaF= parseFloat(document.getElementById('tot3').textContent) + parseFloat(document.getElementById("ShowTotal3").textContent);
 
-
-
-    //let alimentacionDinero = document.getElementById('alimentacionDinero').value;
-    //let hotelDinero = document.getElementById('hotelDinero').value;
-
     //Obtenemos el iframe para mandarle los datos
     const iframe2 = document.getElementById("frame2");
 
-
-
     //Envio de informacion al documento 2
-
 
     iframe2.contentWindow.document.getElementById('f2_uRes').innerHTML = unidadResponsable;
     iframe2.contentWindow.document.getElementById("f2_lugarC").innerHTML = lugarComision1;
@@ -356,9 +349,14 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_nombreUr").innerHTML = nombreUr2;
     iframe2.contentWindow.document.getElementById("f2_cargoUr").innerHTML = cargoUr2;
 
-    iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-    iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    if (fechaInicio2 && fechaFinal2 == " ") {
+        iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+        iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
+    }else{
+        iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+        iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    } 
     //Recibo anticipo de viaticos
     iframe2.contentWindow.document.getElementById("f2_fecha1").innerHTML = Fecha1;
     iframe2.contentWindow.document.getElementById("f2_lugar1").innerHTML = lugarComision1;
@@ -448,6 +446,11 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let fechaInicio = document.getElementById('fechaInicio').value;
     let fechaFinal = document.getElementById('fechaFinal').value;
 
+    let fechaInicio1 = document.getElementById('fechaI1').value;
+    let fechaFinal1 = document.getElementById('fechaF1').value;
+    let fechaInicio2 = document.getElementById('fechaI2').value;
+    let fechaFinal2 = document.getElementById('fechaF2').value;
+
     let tipoVehiculo = document.getElementById('vehicleInput').value;
     let marcaVehiculo = document.getElementById('marcaVehiculo').value;
     let modeloVehiculo = document.getElementById('modeloAuto').value;
@@ -492,14 +495,20 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3_lugarC").innerHTML = lugarComision1;
     iframe3.contentWindow.document.getElementById("f3_detalles").innerHTML = descripcionDetalles;
 
+    if (fechaInicio2 && fechaFinal2 == " ") {
+        iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+        iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+
+    }else{
+        iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+        iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    } 
+
     if (duracionDias == 1) {
         iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" día";
     }else{
         iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" días";
     }
-    iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-    iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-
     //vehiculo
     iframe3.contentWindow.document.getElementById("f3_duracionD").innerHTML = duracionDias;
     iframe3.contentWindow.document.getElementById("f3_tipoVehiculo").innerHTML = "&nbsp;&nbsp;"+"&nbsp;Vehículo "+ tipoVehiculo;
