@@ -439,12 +439,19 @@ let fechaFinal1 = null;
 let fechaInicio2 = null;
 let fechaFinal2 = null;
 
+let lugarComision1 = null;
+let lugarComision2 = null;
+
 /*  Vehiculo  */
 let tipoVehiculo = document.getElementById('vehicleInput').value;
 let marcaVehiculo = document.getElementById('marcaVehiculo').value;
 let submodeloVehiculo = document.getElementById('submodeloVehiculo').value;
 let modeloAnioVehiculo = document.getElementById('modeloAnio').value;
 let placasVehiculo = document.getElementById('placasInput').value;
+
+/* Comrpobacion */
+let estadoLiquidacion = document.getElementById('liquidacionC');
+
 
 // Variable para autosumas
 /* let inputs1 = document.querySelectorAll('.suma1')
@@ -521,6 +528,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
     
       fechaInicio1 = new Date(fechaInicio);
       fechaFinal1 = new Date(fechaFinal);
+      lugarComision1 = lugarComision;
 
       document.getElementById('duracionDias').value = calcularDiferencia();
       document.getElementById('fechaI1').value = fechaInicio1;
@@ -562,6 +570,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
   fechaInicio2 = new Date(fechaInicio);
   fechaFinal2 = new Date(fechaFinal);
+  lugarComision2 = lugarComision;
 
   document.getElementById('duracionDias').value = calcularDiferencia();
   document.getElementById('fechaI2').value = fechaInicio2;
@@ -968,3 +977,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Agregar evento 'change' a select1
   select1.addEventListener('change', syncSelects);
 });
+

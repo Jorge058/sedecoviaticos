@@ -125,10 +125,10 @@
                     <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
                     <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
                         <option value="" disabled selected hidden>Unidad Responsable</option>              
-                        <option value="Dirección de Inversiones"> Dirección de Inversiones                         </option>
+                        <option value="Dirección de Inversiones"> Dirección de Inversiones</option>
                         <option value="Dirección de Desarrollo Empresarial y Economía Social"> Dirección de Desarrollo Empresarial y Economía Social           </option>
-                        <option value="Dirección de Mejora Regulatoria"> Dirección de Mejora Regulatoria           </option>
-                        <option value="Dirección de Comercialización"> Dirección de Comercialización               </option>
+                        <option value="Dirección de Mejora Regulatoria"> Dirección de Mejora Regulatoria</option>
+                        <option value="Dirección de Comercialización"> Dirección de Comercialización</option>
                         <option value="Dirección de Empleo Digno"> Dirección de Empleo Digno                       </option>
                         <option value="Dirección de Gestión de Fondos y Proyectos"> Dirección de Gestión de Fondos y Proyectos  </option>
                         <option value="Dirección de Previsión Social"> Dirección de Previsión Social    </option>
@@ -171,13 +171,13 @@
                             <p class="middleInputWidth" > Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
                             <p hidden ><input type="number" placeholder="Duracion Dias" disabled="false" id="duracionDias"></p>
 
-                            <p><input type="text" disabled="false" id="fechaI1" value=" "></p>
-                            <p><input type="text" disabled="false" id="fechaF1" value=" "></p>
-                            <p><input type="text" disabled="false" id="fechaI2" value=" "></p>
-                            <p><input type="text" disabled="false" id="fechaF2" value=" "></p>
+                            <p hidden><input type="text" disabled="false" id="fechaI1" value=" "></p>
+                            <p hidden><input type="text" disabled="false" id="fechaF1" value=" "></p>
+                            <p hidden><input type="text" disabled="false" id="fechaI2" value=" "></p>
+                            <p hidden><input type="text" disabled="false" id="fechaF2" value=" "></p>
                         </div>
                         <br>
-                        <input placeholder="Lugar de la comision" id="inputCiudades" type="text"  name="inputCiudades" >
+                        <input placeholder="Lugar de la comision" id="inputCiudades" type="text" name="inputCiudades">
                         <br>
                         <button class="btnAgregar" type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
                     </div>
@@ -222,11 +222,12 @@
                 </div>
                     
                     <div class="tab">Vehiculo
-                        <p><select id="vehicleInput" placeholder="VehiculoInput" oninput="this.className = ''">
-                            <option value="Oficial">Oficial</option>
-                            <option value="Particular">Particular</option>
-                            <option value="Autobús">Autobús</option>
-                            <option value="Otro">Otro</option>
+                        <p>
+                            <select id="vehicleInput" placeholder="VehiculoInput" oninput="this.className = ''">
+                                <option value="Autobús">Autobús</option>
+                                <option value="Oficial">Oficial</option>
+                                <option value="Particular">Particular</option>
+                                <option value="Otro">Otro</option>
                             </select>
                         </p>
                         
@@ -430,6 +431,13 @@
                                 </tr> 
                             </tbody>
                         </table>
+                        <br>
+                        <select id="liquidacionC" name="liquidacionC" required>    
+                            <option value="Recibí/Entregué" disabled selected hidden>Seleccione Recibí/Entregué</option>   
+                            <option value="Recibí">Recibí</option>
+                            <option value="Entregué">Entregué</option>
+                        </select>
+
                     </div>
 
                     <div class="tab">
