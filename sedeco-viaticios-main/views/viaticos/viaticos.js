@@ -538,7 +538,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   
       if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"})) {
         document.getElementById('ShowFecha1').innerHTML = 
-        "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',month:"long", day:"numeric"})+" de "+
+        ""+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC',month:"long", day:"numeric"})+" de "+
         new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',year:"numeric"});
         document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
         return;
@@ -580,7 +580,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
         
       if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"})) {
         document.getElementById('ShowFecha2').innerHTML = 
-        "Del "+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"long", day:"numeric"})+" de "+
+        ""+ new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"long", day:"numeric"})+" de "+
         new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC',year:"numeric"})
         document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
         return;

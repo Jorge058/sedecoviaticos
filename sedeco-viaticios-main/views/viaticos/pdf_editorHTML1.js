@@ -543,29 +543,29 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3-PlacasVehiculo").innerHTML = placasVehiculo;
 
     //Gastos de cmision
-    iframe3.contentWindow.document.getElementById("f3_alAnt").innerHTML = "$   "+numeral(alAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_hosAnt").innerHTML = "$   "+numeral(hosAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_peaAnt").innerHTML = "$   "+numeral(peaAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_comAnt").innerHTML = "$   "+numeral(comAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_pasAnt").innerHTML = "$   "+numeral(pasAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_otrosAnt").innerHTML = "$   "+numeral(otrosAnt).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_sumAnt").innerHTML = "$   "+numeral(sumAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_alAnt").innerHTML = alAnt == 0 ? "$ -" :  "$   "+numeral(alAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_hosAnt").innerHTML = hosAnt == 0 ? "$ -" :  "$   "+numeral(hosAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_peaAnt").innerHTML = peaAnt == 0 ? "$ -" :  "$   "+numeral(peaAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_comAnt").innerHTML = comAnt == 0 ? "$ -" :  "$   "+numeral(comAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_pasAnt").innerHTML = pasAnt == 0 ? "$ -" :  "$   "+numeral(pasAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_otrosAnt").innerHTML = otrosAnt == 0 ? "$ -" :  "$   "+numeral(otrosAnt).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_sumAnt").innerHTML = sumAnt == 0 ? "$ -" :  "$   "+numeral(sumAnt).format('0,0.00');
 
-    iframe3.contentWindow.document.getElementById("f3_aldev").innerHTML = "$   "+numeral(aldev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_hosdev").innerHTML = "$   "+numeral(hosdev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_peadev").innerHTML = "$   "+numeral(peadev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_comdev").innerHTML = "$   "+numeral(comdev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_pasdev").innerHTML = "$   "+numeral(pasdev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_otrosdev").innerHTML = "$   "+numeral(otrosdev).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_sumdev").innerHTML = "$   "+numeral(sumdev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_aldev").innerHTML = aldev == 0 ? "$ -" :  "$   "+numeral(aldev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_hosdev").innerHTML = hosdev == 0 ? "$ -" :  "$   "+numeral(hosdev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_peadev").innerHTML = peadev == 0 ? "$ -" :  "$   "+numeral(peadev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_comdev").innerHTML = comdev == 0 ? "$ -" :  "$   "+numeral(comdev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_pasdev").innerHTML = pasdev == 0 ? "$ -" :  "$   "+numeral(pasdev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_otrosdev").innerHTML = otrosdev == 0 ? "$ -" :  "$   "+numeral(otrosdev).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_sumdev").innerHTML = sumdev == 0 ? "$ -" :  "$   "+numeral(sumdev).format('0,0.00');
 
-    iframe3.contentWindow.document.getElementById("f3_aldif").innerHTML = "$   "+numeral(aldif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_hosdif").innerHTML = "$   "+numeral(hosdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_peadif").innerHTML = "$   "+numeral(peadif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_comdif").innerHTML = "$   "+numeral(comdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_pasdif").innerHTML = "$   "+numeral(pasdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_otrosdif").innerHTML = "$   "+numeral(otrosdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_sumdif").innerHTML = "$   "+numeral(sumdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_aldif").innerHTML = aldif == 0 ? "$ -" :  "$   "+numeral(aldif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_hosdif").innerHTML = hosdif == 0 ? "$ -" :  "$   "+numeral(hosdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_peadif").innerHTML = peadif == 0 ? "$ -" :  "$   "+numeral(peadif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_comdif").innerHTML = comdif == 0 ? "$ -" :  "$   "+numeral(comdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_pasdif").innerHTML = pasdif == 0 ? "$ -" :  "$   "+numeral(pasdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_otrosdif").innerHTML = otrosdif == 0 ? "$ -" :  "$   "+numeral(otrosdif).format('0,0.00');
+    iframe3.contentWindow.document.getElementById("f3_sumdif").innerHTML = sumdif == 0 ? "$ -" :  "$   "+numeral(sumdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_total").innerHTML = "$   "+numeral(sumdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_sumafinalLetra").innerHTML = "("+ NumeroALetras(sumdif) +" 00/100 M.N)";
 
@@ -580,7 +580,6 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
             break;
             default:
                 break;
-
     }
 
     if (document.getElementById('nombrecargoUr').value == "Dra. Mariana Gudiño Paredes") {
@@ -600,3 +599,60 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     wspFrame.focus();
     wspFrame.print();
 })
+
+/*Generar documento de gastos rurales*/
+document.querySelector('#generadorPDF4').addEventListener('click', function () {
+    const iframe4 = document.getElementById("frame4");
+
+    let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
+    let nombreUr = document.getElementById('nombrecargoUr').value;
+    let cargoUr = document.getElementById('cargoUr').value;
+    let numeroOficio = document.getElementById('numOficio').value;
+    let fechaDocumento = document.getElementById('documentDate').value;
+    let lugarComision1 = document.getElementById('ShowCiudad1').textContent;
+    let lugarComision2 = document.getElementById('ShowCiudad2').textContent;
+
+    let fechaInicio1 = document.getElementById('fechaI1').value;
+    let fechaFinal1 = document.getElementById('fechaF1').value;
+    let fechaInicio2 = document.getElementById('fechaI2').value;
+    let fechaFinal2 = document.getElementById('fechaF2').value;
+
+    let nombreUsuario = document.getElementById('nombreUsuario').value;
+    let cargoUsuario = document.getElementById('cargoUsuario').value;
+
+    iframe4.contentWindow.document.getElementById('f4_uRes').innerHTML = unidadResponsable
+    iframe4.contentWindow.document.getElementById('f4_nombreUr').innerHTML = nombreUr
+    iframe4.contentWindow.document.getElementById('f4_cargoUr').innerHTML = cargoUr
+    iframe4.contentWindow.document.getElementById('f4_numOf').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
+    iframe4.contentWindow.document.getElementById("f4_fechaD").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+    if (lugarComision2 != "") {
+        iframe4.contentWindow.document.getElementById("f4_lugarC").innerHTML = lugarComision1 + '&nbsp; y &nbsp; '+ lugarComision2;
+    } else {
+        iframe4.contentWindow.document.getElementById("f4_lugarC").innerHTML = lugarComision1;
+    }
+
+    if (fechaInicio2 && fechaFinal2 == " ") {
+        iframe4.contentWindow.document.getElementById("f4_fechaConsumo").innerHTML = 
+        new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) + " al " +
+        new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+
+    }else{
+        iframe4.contentWindow.document.getElementById("f4_fechaConsumo").innerHTML =
+        new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) + " al " +
+        new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    } 
+
+    iframe4.contentWindow.document.getElementById("f4_nombreUrf").innerHTML=nombreUr;
+    iframe4.contentWindow.document.getElementById("f4_cargoUrf").innerHTML=cargoUr;
+    iframe4.contentWindow.document.getElementById("f4_nombreUsuario").innerHTML=nombreUsuario;
+    iframe4.contentWindow.document.getElementById("f4_cargoUsuario").innerHTML=cargoUsuario;
+    iframe4.contentWindow.document.getElementById("f4_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+
+
+
+
+    //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
+    let wspFrame = document.getElementById('frame4').contentWindow;
+    wspFrame.focus();
+    wspFrame.print();
+});

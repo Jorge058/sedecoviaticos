@@ -432,13 +432,17 @@
                             </tbody>
                         </table>
                         <br>
+                        <br>
+                        <hr>
+                        <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Como resultado de la liquidacion anterior:</p>
                         <select id="liquidacionC" name="liquidacionC" required>    
-                            <option value="Recibí/Entregué" disabled selected hidden>Seleccione Recibí/Entregué</option>   
+                            <option value="Recibí/Entregué" disabled selected>Recibí/Entregué</option>   
                             <option value="Recibí">Recibí</option>
                             <option value="Entregué">Entregué</option>
                         </select>
-
                     </div>
+
+                    
 
                     <div class="tab">
                         COMPROBACIÓN
@@ -452,6 +456,21 @@
                                 <i title="pdf"></i>
                             </div>
                             <p><button type="button" class="buttonPDFGenerator" id="generadorPDF3" onclick="">Descargar comprobación</button></p>
+                        </div>
+                    </div>
+
+                    <div class="tab">
+                        COMPROBACIÓN
+                        <iframe
+                            id="frame4"
+                            style=""
+                            src="../viaticos/Gastos_rurales.html"
+                        ></iframe>
+                        <div class="icons">
+                            <div class="icon icon--pdf">
+                                <i title="pdf"></i>
+                            </div>
+                            <p><button type="button" class="buttonPDFGenerator" id="generadorPDF4" onclick="">Descargar datos rurales</button></p>
                         </div>
                     </div>
 
