@@ -121,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="tab ">Detalles del oficio
+                    <div class="tab ">DATOS DEL OFICIO
                     <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
                     <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
                         <option value="" disabled selected hidden>Unidad Responsable</option>              
@@ -133,31 +133,22 @@
                         <option value="Dirección de Gestión de Fondos y Proyectos"> Dirección de Gestión de Fondos y Proyectos  </option>
                         <option value="Dirección de Previsión Social"> Dirección de Previsión Social    </option>
                         <option value="Delegación Administrativa"> Delegación Administrativa           </option>
-                        <option value="Tecnica">Tecnica</option>
+                        <option value="Técnica">Tecnica</option>
                         <option value="Oficina del Secretario"> Oficina del Secretario</option>
                         </select>
                     </p>
-
                     <p>
-                        <select id="nombrecargoUr"  name="nombrecargoUr" required="">    
-                            <option value="" disabled selected hidden>Nombre del titular de la UR</option>              
-                            <option value="Dra. Mariana Gudiño Paredes">Dra. Mariana Gudiño Paredes</option>
-                            <option value="Lic. Claudio Méndez Fernández">Lic. Claudio Méndez Fernández</option>
-                        </select>
+                        <input name="nombrecargoUr" placeholder="Nombre de el/la titular de la UR" type="text" id="nombrecargoUr" style="text-transform: capitalize;" oninput="this.className = ''" required>
                     </p>
-
-                    <p >
-                        <select id="cargoUr" class="" name="cargoUr" disabled>    
-                            <option value="" disabled selected hidden>Cargo del titular de la UR</option>              
-                            <option value="Delegada administrativa">Delegada Administrativa</option>
-                            <option value="Secretario de Desarrollo Económico">Secretario de Desarrollo Económico</option>
-                        </select>
+                    <p>
+                        <p><input id="cargoUr" placeholder="Cargo de el/la titular de la UR" style="text-transform: capitalize;" required></p>
                     </p>
+                    <hr></hr>
                     <p><input placeholder="Numero de Oficio" type="number" id="numOficio" oninput="this.className = ''"></p>
                     <p><input placeholder="Fecha del Oficio" type="text" id="documentDate" onfocus="(this.type='date')"></p>
                 </div>
                     
-                <div class="tab">Usuario
+                <div class="tab"> DATOS DEL USUARIO
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
                     <p><input placeholder="Cargo" id="cargoUsuario" style="text-transform: capitalize;"></p>
                     <p><textarea placeholder="Descripcion detallada actividades relevantes a desarrollar" id="descripcionDetalles" class="bigText" oninput="this.className = ''"></textarea></p>
