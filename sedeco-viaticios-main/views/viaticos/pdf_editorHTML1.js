@@ -181,6 +181,9 @@ document.querySelector('#btn-GenerarPDF1').addEventListener('click', function ()
         let fechaDocumento = document.getElementById('documentDate').value;
         let nombreUr = document.getElementById('nombrecargoUr').value;
         let cargoUr = document.getElementById('cargoUr').value;
+        let autorizaNombre = document.getElementById('autorizaNombre').value;
+        let autorizaCargo = document.getElementById('autorizaCargo').value;
+
         let objetivosComision = document.getElementById('objetivosComision').value;
 
         /* COMISION */
@@ -222,6 +225,11 @@ iframe.contentWindow.document.getElementById("f1_nombreUr").innerHTML = nombreUr
 iframe.contentWindow.document.getElementById("f1_cargoUr").innerHTML = cargoUr
 iframe.contentWindow.document.getElementById("f1-NombreUsuario").innerHTML = mayusculas(nombreUsuario);
 iframe.contentWindow.document.getElementById("f1-CargoUsuario").innerHTML = mayusculas(cargoUsuario);
+
+iframe.contentWindow.document.getElementById("f1_autorizaNombre").innerHTML = mayusculas(autorizaNombre);
+iframe.contentWindow.document.getElementById("f1_autorizaCargo").innerHTML = mayusculas(autorizaCargo);
+
+
 iframe.contentWindow.document.getElementById("f1-DuracionDias").innerHTML = duracionDias;
 if (duracionDias == 1) {
     iframe.contentWindow.document.getElementById("f1-DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" día";
@@ -265,6 +273,8 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let fechaDocumento = document.getElementById('documentDate').value;
     let nombreUr2 = document.getElementById('nombrecargoUr').value;
     let cargoUr2 = document.getElementById('cargoUr').value;
+    let autorizaNombre = document.getElementById('autorizaNombre').value;
+    let autorizaCargo = document.getElementById('autorizaCargo').value;
 
     let Fecha1 = document.getElementById('ShowFecha1').textContent;
     let Fecha2 = document.getElementById('ShowFecha2').textContent;
@@ -328,8 +338,9 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
         iframe2.contentWindow.document.getElementById("f2_lugarC").innerHTML = lugarComision1;
     }
     iframe2.contentWindow.document.getElementById("f2_cantidadF").innerHTML = "$   "+numeral(resultado5).format('0,0.00');
-    iframe2.contentWindow.document.getElementById("f2_nombreUr").innerHTML = nombreUr2
-    iframe2.contentWindow.document.getElementById("f2_cargoUr").innerHTML = cargoUr2
+    iframe2.contentWindow.document.getElementById("f2_autorizaNombre").innerHTML = mayusculas(autorizaNombre);
+    iframe2.contentWindow.document.getElementById("f2_autorizaCargo").innerHTML = mayusculas(autorizaCargo);
+
     iframe2.contentWindow.document.getElementById("f2_detalles").innerHTML = descripcionDetalles;
     iframe2.contentWindow.document.getElementById("f2_objetivosComision").innerHTML = objetivosComision;
     iframe2.contentWindow.document.getElementById("f2_nOficio").innerHTML = numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
@@ -340,8 +351,6 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     }else{
         iframe2.contentWindow.document.getElementById("f2_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" días";
     }
-    iframe2.contentWindow.document.getElementById("f2_nombreUr").innerHTML = nombreUr2;
-    iframe2.contentWindow.document.getElementById("f2_cargoUr").innerHTML = cargoUr2;
 
     if (fechaInicio2 && fechaFinal2 == " ") {
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
