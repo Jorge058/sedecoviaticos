@@ -467,6 +467,8 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let cargoUr = document.getElementById('cargoUr').value;
     let numeroOficio = document.getElementById('numOficio').value;
     let fechaDocumento = document.getElementById('documentDate').value;
+    let autorizaNombre = document.getElementById('autorizaNombre').value;
+    let autorizaCargo = document.getElementById('autorizaCargo').value;
 
     let lugarComision1 = document.getElementById('ShowCiudad1').textContent;
     let lugarComision2 = document.getElementById('ShowCiudad2').textContent;
@@ -517,9 +519,10 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 
     const iframe3 = document.getElementById("frame3");
 
-    iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable
-    iframe3.contentWindow.document.getElementById('f3_nombreUr').innerHTML = nombreUr
-    iframe3.contentWindow.document.getElementById('f3_cargoUr').innerHTML = cargoUr
+    iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable;
+    iframe3.contentWindow.document.getElementById('f3_nombreUsuario').innerHTML = nombreUsuario;
+    iframe3.contentWindow.document.getElementById('f3_cargoUsuario').innerHTML = cargoUsuario;
+
     iframe3.contentWindow.document.getElementById('f3_numOf').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
     iframe3.contentWindow.document.getElementById("f3_fechaD").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
     if (lugarComision2 != "") {
@@ -587,20 +590,21 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
             iframe3.contentWindow.document.getElementById("f3_entregado").innerHTML="X";
             iframe3.contentWindow.document.getElementById("f3_recibido").innerHTML="";
             break;
-            default:
-                break;
+        default:
+            break;
     }
 
-    if (document.getElementById('nombrecargoUr').value == "Dra. Mariana Gudiño Paredes") {
-        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "de la/ a la "+document.getElementById('nombrecargoUr').value +", "+document.getElementById('cargoUr').value+", la cantidad de:";
+    if (autorizaNombre == "Dra. Mariana Gudiño Paredes") {
+        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "de la/ a la "+autorizaNombre+", "+autorizaCargo+", la cantidad de:";
     } else {
-        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "del / al "+document.getElementById('nombrecargoUr').value +", "+document.getElementById('cargoUr').value+", la cantidad de:"
+        iframe3.contentWindow.document.getElementById("f3_textoDependeUr").innerHTML = "del / al "+autorizaNombre+", "+autorizaCargo+", la cantidad de:"
     }
+
     iframe3.contentWindow.document.getElementById("f3_nombreUrf").innerHTML=nombreUr;
     iframe3.contentWindow.document.getElementById("f3_cargoUrf").innerHTML=cargoUr;
 
-    iframe3.contentWindow.document.getElementById("f3_nombreUsuario").innerHTML=nombreUsuario;
-    iframe3.contentWindow.document.getElementById("f3_cargoUsuario").innerHTML=cargoUsuario;
+    iframe3.contentWindow.document.getElementById("f3_nombreUsuarioR").innerHTML=nombreUsuario;
+    iframe3.contentWindow.document.getElementById("f3_cargoUsuarioR").innerHTML=cargoUsuario;
     iframe3.contentWindow.document.getElementById("f3_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
@@ -628,6 +632,8 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
 
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
+
+    let gastosRurales = document.getElementById('gastosRurales').value;
 
     iframe4.contentWindow.document.getElementById('f4_uRes').innerHTML = unidadResponsable
     iframe4.contentWindow.document.getElementById('f4_nombreUr').innerHTML = nombreUr
@@ -657,8 +663,8 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     iframe4.contentWindow.document.getElementById("f4_cargoUsuario").innerHTML=cargoUsuario;
     iframe4.contentWindow.document.getElementById("f4_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
-
-
+    iframe4.contentWindow.document.getElementById("f4_gastoR").innerHTML= gastosRurales == 0 ? "$ -" :  "$   "+numeral(gastosRurales).format('0,0.00');
+    iframe4.contentWindow.document.getElementById("f4_gastoRnumero").innerHTML= "("+ NumeroALetras(gastosRurales) +" 00/100 M.N)";
 
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame4').contentWindow;

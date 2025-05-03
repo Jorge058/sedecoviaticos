@@ -121,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="tab ">DATOS DEL OFICIO
+                    <div class="tab ">DATOS GENERALES DEL OFICIO
                     <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
                     <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
                         <option value="" disabled selected hidden>Unidad Responsable</option>              
@@ -143,6 +143,7 @@
                     <p>
                         <input id="cargoUr" placeholder="Cargo de el/la titular de la UR" style="text-transform: capitalize;" required>
                     </p>
+                    <hr></hr>
                     <p>
                         <input id="autorizaNombre" type="text" value="Dra. Mariana Gudiño Paredes" placeholder="Nombre de quien autoriza los gastos" style="text-transform: capitalize;" required disabled>
                     </p>
@@ -439,8 +440,6 @@
                         </select>
                     </div>
 
-                    
-
                     <div class="tab">
                         COMPROBACIÓN
                         <iframe
@@ -457,7 +456,12 @@
                     </div>
 
                     <div class="tab">
-                        COMPROBACIÓN
+                        GASTOS RURALES
+                        <p id="signo" style="align-items: center; display: flex; justify-content: center;"><span class="input-icon" style="background-color: white;"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="gastosRurales"  style="background: transparent; border: none; width: 50%; height: 44px; font-size: small;" value=0></input></p>
+                    </div>
+
+                    <div class="tab">
+                        GASTOS RURALES
                         <iframe
                             id="frame4"
                             style=""
@@ -467,7 +471,7 @@
                             <div class="icon icon--pdf">
                                 <i title="pdf"></i>
                             </div>
-                            <p><button type="button" class="buttonPDFGenerator" id="generadorPDF4" onclick="">Descargar datos rurales</button></p>
+                            <p><button type="button" class="buttonPDFGenerator" id="generadorPDF4" onclick="">Descargar gastos rurales</button></p>
                         </div>
                     </div>
 
@@ -483,6 +487,7 @@
                     <div style="text-align:center;margin-top:40px;">
                         <span class="step"></span>
                         <span class="step"></span>    
+                        <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
