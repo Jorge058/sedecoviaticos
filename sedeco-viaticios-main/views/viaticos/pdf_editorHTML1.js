@@ -516,12 +516,13 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
+    let fecha_Dcomprobacion = document.getElementById('fecha_Dcomprobacion').value;
 
     const iframe3 = document.getElementById("frame3");
 
     iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable;
-    iframe3.contentWindow.document.getElementById('f3_nombreUsuario').innerHTML = nombreUsuario;
-    iframe3.contentWindow.document.getElementById('f3_cargoUsuario').innerHTML = cargoUsuario;
+    iframe3.contentWindow.document.getElementById('f3_nombreCargoUr').innerHTML = nombreUr;
+    iframe3.contentWindow.document.getElementById('f3_cargoUr').innerHTML = cargoUr;
 
     iframe3.contentWindow.document.getElementById('f3_numOf').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
     iframe3.contentWindow.document.getElementById("f3_fechaD").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
@@ -578,8 +579,14 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     iframe3.contentWindow.document.getElementById("f3_pasdif").innerHTML = pasdif == 0 ? "$ -" :  "$   "+numeral(pasdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_otrosdif").innerHTML = otrosdif == 0 ? "$ -" :  "$   "+numeral(otrosdif).format('0,0.00');
     iframe3.contentWindow.document.getElementById("f3_sumdif").innerHTML = sumdif == 0 ? "$ -" :  "$   "+numeral(sumdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_total").innerHTML = "$   "+numeral(sumdif).format('0,0.00');
-    iframe3.contentWindow.document.getElementById("f3_sumafinalLetra").innerHTML = "("+ NumeroALetras(sumdif) +" 00/100 M.N)";
+    iframe3.contentWindow.document.getElementById("f3_total").innerHTML = "$   "+numeral((sumdif)).format('0,0.00');
+    console.log(sumdif*(-1));
+
+    if (sumdif>0 || sumdif == 0) {
+        iframe3.contentWindow.document.getElementById("f3_sumafinalLetra").innerHTML = "("+ NumeroALetras(sumdif) +" 00/100 M.N)";
+    }else{
+        iframe3.contentWindow.document.getElementById("f3_sumafinalLetra").innerHTML = "("+ NumeroALetras(sumdif*(-1)) +" 00/100 M.N)";
+    }
 
     switch (estadoLiquidacion.selectedIndex) {
         case 1:
@@ -605,7 +612,7 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 
     iframe3.contentWindow.document.getElementById("f3_nombreUsuarioR").innerHTML=nombreUsuario;
     iframe3.contentWindow.document.getElementById("f3_cargoUsuarioR").innerHTML=cargoUsuario;
-    iframe3.contentWindow.document.getElementById("f3_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    iframe3.contentWindow.document.getElementById("f3_fechaf").innerHTML=new Date(fecha_Dcomprobacion).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame3').contentWindow;
@@ -634,6 +641,7 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     let cargoUsuario = document.getElementById('cargoUsuario').value;
 
     let gastosRurales = document.getElementById('gastosRurales').value;
+    let fecha_Dcomprobacion = document.getElementById('fecha_Dcomprobacion').value;
 
     iframe4.contentWindow.document.getElementById('f4_uRes').innerHTML = unidadResponsable
     iframe4.contentWindow.document.getElementById('f4_nombreUr').innerHTML = nombreUr
@@ -661,7 +669,7 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     iframe4.contentWindow.document.getElementById("f4_cargoUrf").innerHTML=cargoUr;
     iframe4.contentWindow.document.getElementById("f4_nombreUsuario").innerHTML=nombreUsuario;
     iframe4.contentWindow.document.getElementById("f4_cargoUsuario").innerHTML=cargoUsuario;
-    iframe4.contentWindow.document.getElementById("f4_fechaf").innerHTML=new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    iframe4.contentWindow.document.getElementById("f4_fechaDrural").innerHTML=new Date(fecha_Dcomprobacion).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
     iframe4.contentWindow.document.getElementById("f4_gastoR").innerHTML= gastosRurales == 0 ? "$ -" :  "$   "+numeral(gastosRurales).format('0,0.00');
     iframe4.contentWindow.document.getElementById("f4_gastoRnumero").innerHTML= "("+ NumeroALetras(gastosRurales) +" 00/100 M.N)";

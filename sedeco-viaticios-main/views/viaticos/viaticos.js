@@ -677,6 +677,7 @@ campo3.addEventListener('input',sumaToltal)
 campo4.addEventListener('input',sumaToltal)
 
 
+
 function calcularSuma() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
   var valor2 = parseFloat(campo2.value) || 0;
@@ -733,10 +734,6 @@ let peaj2  = document.getElementById("ShowPeajes2");
 let pas2  = document.getElementById("ShowPasajes2");
 let tot2  = document.getElementById("totalDinero2");
 
-
-com1.addEventListener("input", calSuma);
-peaj1.addEventListener("input", calSuma);
-pas1.addEventListener("input", calSuma);
 
 function calSuma() {
   var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
