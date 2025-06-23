@@ -271,8 +271,6 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
     let numeroOficio = document.getElementById('numOficio').value;
     let fechaDocumento = document.getElementById('documentDate').value;
-    let nombreUr2 = document.getElementById('nombrecargoUr').value;
-    let cargoUr2 = document.getElementById('cargoUr').value;
     let autorizaNombre = document.getElementById('autorizaNombre').value;
     let autorizaCargo = document.getElementById('autorizaCargo').value;
 
@@ -476,10 +474,9 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let descripcionDetalles = document.getElementById('descripcionDetalles').value;
 
     let duracionDias = document.getElementById('duracionDias').value; 
-    let fechaInicio1 = document.getElementById('fechaI1').value;
-    let fechaFinal1 = document.getElementById('fechaF1').value;
-    let fechaInicio2 = document.getElementById('fechaI2').value;
-    let fechaFinal2 = document.getElementById('fechaF2').value;
+
+    let fechaRsalida = document.getElementById('fechaRSalida').value;
+    let fechaRRetorno = document.getElementById('fechaRRetorno').value;
 
     let tipoVehiculo = document.getElementById('vehicleInput').value;
     let marcaVehiculo = document.getElementById('marcaVehiculo').value;
@@ -517,7 +514,7 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
     let fecha_Dcomprobacion = document.getElementById('fecha_Dcomprobacion').value;
-
+    let duraciondiasC = document.getElementById('duracion_Comprobacion').value;
     const iframe3 = document.getElementById("frame3");
 
     iframe3.contentWindow.document.getElementById('f3_uRes').innerHTML = unidadResponsable;
@@ -532,23 +529,16 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
         iframe3.contentWindow.document.getElementById("f3_lugarC").innerHTML = lugarComision1;
     }
     iframe3.contentWindow.document.getElementById("f3_detalles").innerHTML = descripcionDetalles;
+    iframe3.contentWindow.document.getElementById("f3_fechaRSalida").innerHTML = new Date(fechaRsalida).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    iframe3.contentWindow.document.getElementById("f3_fechaRRetorno").innerHTML = new Date(fechaRRetorno).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
 
-    if (fechaInicio2 && fechaFinal2 == " ") {
-        iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-        iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-
+    if (duraciondiasC == 1) {
+        iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duraciondiasC) +" día";
     }else{
-        iframe3.contentWindow.document.getElementById("f3_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-        iframe3.contentWindow.document.getElementById("f3_fechaF").innerHTML = new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
-    } 
-
-    if (duracionDias == 1) {
-        iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" día";
-    }else{
-        iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" días";
+        iframe3.contentWindow.document.getElementById("f3_DuracionDiasLetra").innerHTML = nLetra(duraciondiasC) +" días";
     }
     //vehiculo
-    iframe3.contentWindow.document.getElementById("f3_duracionD").innerHTML = duracionDias;
+    iframe3.contentWindow.document.getElementById("f3_duracionD").innerHTML = duraciondiasC;
     iframe3.contentWindow.document.getElementById("f3_tipoVehiculo").innerHTML = "&nbsp;&nbsp;"+"&nbsp;Vehículo "+ tipoVehiculo;
     iframe3.contentWindow.document.getElementById("f3-MarcaVehiculo").innerHTML = marcaVehiculo;
     iframe3.contentWindow.document.getElementById("f3-ModeloVehiculo").innerHTML = modeloVehiculo;

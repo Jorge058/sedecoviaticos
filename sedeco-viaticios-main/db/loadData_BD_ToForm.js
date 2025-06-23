@@ -2,60 +2,96 @@ import { allData } from "./GetAllOficios.js";
 
 const collectionBtnLoad = document.querySelectorAll(".BtnCargarData");
 
-collectionBtnLoad.forEach(button => {
-  button.addEventListener('click', loadViaticos);
+collectionBtnLoad.forEach((button) => {
+  button.addEventListener("click", loadViaticos);
 });
 
 function loadViaticos() {
-  
-console.log(allData[this.id])
+  console.log(allData[this.id]);
 
+  document.getElementById("idUnidadAdministrativa").value =
+    allData[this.id].persona_unidadresponsable;
+  document.getElementById("nombrecargoUr").value =
+    allData[this.id].titular_nombre;
+  document.getElementById("cargoUr").value = allData[this.id].titular_cargo;
+  document.getElementById("numOficio").value = allData[this.id].oficio_numero;
+  document.getElementById("documentDate").value = allData[this.id].oficio_fecha;
+  document.getElementById("nombreUsuario").value =
+    allData[this.id].persona_nombre;
+  document.getElementById("cargoUsuario").value =
+    allData[this.id].persona_cargo;
+  document.getElementById("descripcionDetalles").value =
+    allData[this.id].persona_descripcion_actividades;
+  document.getElementById("objetivosComision").value =
+    allData[this.id].persona_objetivos;
+  document.getElementById("fechaInicio").value =
+    allData[this.id].oficio_fecha_inicial;
+  document.getElementById("fechaFinal").value =
+    allData[this.id].oficio_fecha_final;
+  document.getElementById("inputCiudades").value =
+    allData[this.id].oficio_ciudad;
+  document.getElementById("ShowCiudad1").textContent =
+    allData[this.id].oficio_lugar_comision;
+  document.getElementById("ShowFecha1").textContent =
+    allData[this.id].oficio_showfecha1;
+  document.getElementById("ShowCiudad2").textContent =
+    allData[this.id].oficio_lugar_comision_2;
+  document.getElementById("ShowFecha2").textContent =
+    allData[this.id].oficio_showfecha2;
+  document.getElementById("ShowAlimentacion1").value =
+    allData[this.id].recibo_alimentacion;
+  document.getElementById("ShowAlimentacion2").value =
+    allData[this.id].recibo_alimentacion_2;
+  document.getElementById("ShowHospedaje1").value =
+    allData[this.id].recibo_hospedaje;
+  document.getElementById("ShowHospedaje2").value =
+    allData[this.id].recibo_hospedaje_2;
+  document.getElementById("ShowTotal3").textContent =
+    allData[this.id].recibo_total;
 
-document.getElementById('idUnidadAdministrativa').value =       allData[this.id].persona_unidadresponsable ;
-document.getElementById('numOficio').value =                    allData[this.id].oficio_numero;
-document.getElementById('documentDate').value=                  allData[this.id].oficio_fecha;
-document.getElementById('nombrecargoUr').value=                 allData[this.id].titular_nombre;
-document.getElementById('cargoUr').value=                       allData[this.id].titular_cargo;
-document.getElementById('ShowCiudad1').textContent =            allData[this.id].oficio_lugar_comision;
-document.getElementById('ShowCiudad2').textContent =            allData[this.id].oficio_lugar_comision_2;
-document.getElementById('ShowAlimentacion1').value=             allData[this.id].recibo_alimentacion;
-document.getElementById('ShowAlimentacion2').value=             allData[this.id].recibo_alimentacion_2;
-document.getElementById('ShowHospedaje1').value=                allData[this.id].recibo_hospedaje;
-document.getElementById('ShowHospedaje2').value=                allData[this.id].recibo_hospedaje_2;
-document.getElementById("ShowTotal3").textContent=              allData[this.id].recibo_total;
+  document.getElementById("vehicleInput").value = allData[this.id].auto_tipo;
+  document.getElementById("marcaVehiculo").value = allData[this.id].auto_marca;
+  document.getElementById("modeloAuto").value = allData[this.id].auto_modelo;
+  document.getElementById("modeloAnio").value = allData[this.id].auto_año;
+  document.getElementById("placasInput").value = allData[this.id].auto_placa;
 
-document.getElementById('nombreUsuario').value=                 allData[this.id].persona_nombre;
-document.getElementById('cargoUsuario').value=                  allData[this.id].persona_cargo;
+  document.getElementById("sC1").textContent =
+    allData[this.id].oficio_lugar_comision;
+  document.getElementById("sF1").textContent =
+    allData[this.id].oficio_showfecha1;
+  document.getElementById("sC2").textContent =
+    allData[this.id].oficio_lugar_comision_2;
+  document.getElementById("sF2").textContent =
+    allData[this.id].oficio_showfecha2;
+  document.getElementById("ShowComb1").value =
+    allData[this.id].recibo_combustible;
+  document.getElementById("ShowPeajes1").value = allData[this.id].recibo_peajes;
+  document.getElementById("ShowPasajes1").value =
+    allData[this.id].recibo_pasajes;
+  document.getElementById("ShowComb2").value =
+    allData[this.id].recibo_combustible_2;
+  document.getElementById("ShowPeajes2").value =
+    allData[this.id].recibo_peajes_2;
+  document.getElementById("ShowPasajes2").value =
+    allData[this.id].recibo_pasajes_2;
 
-document.getElementById('descripcionDetalles').value =  allData[this.id].persona_descripcion_actividades;
-document.getElementById('fechaInicio').value =          allData[this.id].oficio_fecha_inicial;
-document.getElementById('fechaFinal').value =           allData[this.id].oficio_fecha_final;
-  
-document.getElementById('vehicleInput').value = allData[this.id].auto_tipo;
-document.getElementById('marcaVehiculo').value = allData[this.id].auto_marca;
-document.getElementById('modeloAuto').value = allData[this.id].auto_modelo;
-document.getElementById('modeloAnio').value = allData[this.id].auto_año;
-document.getElementById('placasInput').value = allData[this.id].auto_placa;
+  document.getElementById("aldev").value =
+    allData[this.id].devengado_alimentacion;
+  document.getElementById("hdev").value = allData[this.id].devengado_hospedaje;
+  document.getElementById("pedev").value = allData[this.id].devengado_peajes;
+  document.getElementById("comdev").value =
+    allData[this.id].devengado_combustible;
+  document.getElementById("padev").value = allData[this.id].devengado_pasajes;
+  document.getElementById("otrodev").value = allData[this.id].devengado_otros;
+  document.getElementById("sumadev").textContent =
+    allData[this.id].devengado_total;
+  document.getElementById("fecha_Dcomprobacion").value =
+    allData[this.id].comprobacion_fecha;
+  document.getElementById("liquidacionC").value = allData[this.id].liquidacion;
+  document.getElementById("gastosRurales").value = allData[this.id].gastosR;
 
-document.getElementById('ShowComb1').value = allData[this.id].recibo_combustible;
-document.getElementById('ShowPeajes1').value = allData[this.id].recibo_peajes;
-document.getElementById('ShowPasajes1').value = allData[this.id].recibo_pasajes;
-
-document.getElementById('ShowComb2').value = allData[this.id].recibo_combustible_2;
-document.getElementById('ShowPeajes2').value = allData[this.id].recibo_peajes_2;
-document.getElementById('ShowPasajes2').value = allData[this.id].recibo_pasajes_2;
-
-document.getElementById('aldev').value = allData[this.id].devengado_alimentacion;
-document.getElementById('hdev').value = allData[this.id].devengado_hospedaje;
-document.getElementById('pedev').value = allData[this.id].devengado_peajes;
-document.getElementById('comdev').value = allData[this.id].devengado_combustible;
-document.getElementById('padev').value = allData[this.id].devengado_pasajes;
-document.getElementById('otrodev').value = allData[this.id].devengado_otros;
-document.getElementById('sumadev').textContent = allData[this.id].devengado_total;
-
-
-nextPrev(1)
-/*
+  nextPrev(1);
+  /*
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
 let fechaFinal = document.getElementById('fechaFinal').value;
 
@@ -83,7 +119,7 @@ let sumdev = document.getElementById('sumadev').textContent;
 
 */
 }
- /*
+/*
   // Go to page n with nextPrev(n)
   nextPrev(camposArray[16])
   
@@ -110,4 +146,3 @@ let sumdev = document.getElementById('sumadev').textContent;
 
 
  */
-  

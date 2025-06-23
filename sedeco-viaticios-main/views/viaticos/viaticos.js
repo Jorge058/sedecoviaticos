@@ -394,13 +394,13 @@ nextPrev(camposArray[16])
   document.getElementById('numOficio').value = camposArray[1] ;
   document.getElementById('documentDate').value = camposArray[2];
   document.getElementById('inputCiudades').value = camposArray[8];
+  document.getElementById('descripcionDetalles').value = camposArray[7];
 
 /* USUARIO */
   document.getElementById('nombreUsuario').value = camposArray[3];
   document.getElementById('cargoUsuario').value = camposArray[4];
 
   document.getElementById('duracionDias').value = camposArray[5];        //Duracion dias
-  document.getElementById('descripcionDetalles').value = camposArray[7];
   document.getElementById('fechaInicio').value = camposArray[9];
   document.getElementById('fechaFinal').value = camposArray[10];
 
@@ -411,9 +411,6 @@ nextPrev(camposArray[16])
   document.getElementById('modeloAnio').value = camposArray[14];
   document.getElementById('placasInput').value = camposArray[15];
 
-/* Dinero */
- // document.getElementById('alimentacionDinero').value;
- // document.getElementById('hotelDinero').value;
 }
 
 /********************************************* */
@@ -451,6 +448,10 @@ let placasVehiculo = document.getElementById('placasInput').value;
 
 /* Comrpobacion */
 let estadoLiquidacion = document.getElementById('liquidacionC');
+
+let fechaRSalida = document.getElementById('fechaRSalida').value;
+let fechaRRetorno = document.getElementById('fechaRRetorno').value;
+let duracionComprobacion = document.getElementById('duracion_Comprobacion').value;
 
 
 // Variable para autosumas
@@ -639,6 +640,17 @@ function calcularDiferencia() {
   
   return duracionDias = dias;
 }
+var fecha2Comprobacion = document.getElementById('fechaRRetorno');
+fecha2Comprobacion.addEventListener('input',calcularDiferenciaDias);
+
+function calcularDiferenciaDias() {
+  let dias = null;
+
+    const diferenciaMs = fechaRRetorno - fechaRSalida;
+    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+1;
+    document.getElementById('duracion_Comprobacion').value = dias;
+}
+
 
 
 // todo /////////////////////////////////////////////////////////////////////////////////////

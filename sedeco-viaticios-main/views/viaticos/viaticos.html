@@ -357,6 +357,8 @@
                                 <i title="pdf"></i>
                             </div>
                             <p><button type="button" class="buttonPDFGenerator" id="btn-GenerarPDF1" onclick="">Descargar Oficio</button></p>
+                            <hr>
+                            <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
                         </div>
                         <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
                     </div>
@@ -372,9 +374,26 @@
                             <i title="pdf"></i>
                         </div>
                         <p><button type="button" class="buttonPDFGenerator" id="generadorPDF2" onclick="">Descargar Recibo</button></p>
+                        <hr>
+                        <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
+
                     </div>
 
                     <div class="tab gastosC ">"GASTOS DE COMISION"
+
+                        <div class="datos">
+                        <div class="fechas">
+                            <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha real de salida <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaRSalida"></p>
+                            <p class="middleInputWidth" > Fecha real de retorno <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaRRetorno"></p>
+                            <p><input type="number" placeholder="Duracion Dias" disabled="false" id="duracion_Comprobacion"></p>
+
+                        </div>
+                        <br>
+                    </div>
+
+                        <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Fecha de comprobación:</p>
+                        <input id="fecha_Dcomprobacion" type="date" placeholder="Fecha de comprobación" required>
+                        <hr>
                         <table class="table-fill">
                             <thead>
                                 <tr>
@@ -430,9 +449,6 @@
                             </tbody>
                         </table>
                         <br>
-                        <br>
-                        <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Fecha de comprobación:</p>
-                        <input id="fecha_Dcomprobacion" type="date" placeholder="Fecha de comprobación" required>
                         <hr>
                         <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Como resultado de la liquidacion anterior:</p>
                         <select id="liquidacionC" name="liquidacionC" required>    
@@ -454,6 +470,8 @@
                                 <i title="pdf"></i>
                             </div>
                             <p><button type="button" class="buttonPDFGenerator" id="generadorPDF3" onclick="">Descargar comprobación</button></p>
+                            <hr>
+                            <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
                         </div>
                     </div>
 
@@ -474,6 +492,8 @@
                                 <i title="pdf"></i>
                             </div>
                             <p><button type="button" class="buttonPDFGenerator" id="generadorPDF4" onclick="">Descargar gastos rurales</button></p>
+                            <hr>
+                            <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
                         </div>
                     </div>
 
