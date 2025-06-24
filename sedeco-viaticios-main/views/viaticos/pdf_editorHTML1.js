@@ -669,3 +669,53 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     wspFrame.focus();
     wspFrame.print();
 });
+
+document.querySelector('#generadorPDF5').addEventListener('click', function () {
+    const iframe5 = document.getElementById("frame5");
+
+    let nombreUr = document.getElementById('nombrecargoUr').value;
+    let cargoUr = document.getElementById('cargoUr').value;
+    let numeroOficio = document.getElementById('numOficio').value;
+    let fechaDocumento = document.getElementById('documentDate').value;
+
+    let fechaInicio1 = document.getElementById('fechaI1').value;
+    let fechaFinal1 = document.getElementById('fechaF1').value;
+    let fechaInicio2 = document.getElementById('fechaI2').value;
+    let fechaFinal2 = document.getElementById('fechaF2').value;
+    
+    let descripcion = document.getElementById('DescripcionI').value;
+    let nombreUsuario = document.getElementById('nombreUsuario').value;
+    let cargoUsuario = document.getElementById('cargoUsuario').value;
+
+    iframe5.contentWindow.document.getElementById("f5_fechaComp").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+    iframe5.contentWindow.document.getElementById('f5_urResponsable').innerHTML = nombreUr;
+    iframe5.contentWindow.document.getElementById('f5_urCargo').innerHTML = cargoUr;
+    iframe5.contentWindow.document.getElementById('f5_numeroC').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
+    iframe5.contentWindow.document.getElementById('f5_descripcionI').innerHTML = descripcion;
+    iframe5.contentWindow.document.getElementById('f5_usuarioNombre').innerHTML = nombreUsuario;
+    iframe5.contentWindow.document.getElementById('f5_usuarioCargo').innerHTML = cargoUsuario;
+
+
+    /* if (lugarComision2 != "") {
+        iframe4.contentWindow.document.getElementById("f4_lugarC").innerHTML = lugarComision1 + '&nbsp; y &nbsp; '+ lugarComision2;
+    } else {
+        iframe4.contentWindow.document.getElementById("f4_lugarC").innerHTML = lugarComision1;
+    }
+
+    if (fechaInicio2 && fechaFinal2 == " ") {
+        iframe4.contentWindow.document.getElementById("f4_fechaConsumo").innerHTML = 
+        new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) + " al " +
+        new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+
+    }else{
+        iframe4.contentWindow.document.getElementById("f4_fechaConsumo").innerHTML =
+        new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC', day:"numeric"}) + " al " +
+        new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
+    }  */
+
+
+    //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
+    let wspFrame = document.getElementById('frame4').contentWindow;
+    wspFrame.focus();
+    wspFrame.print();
+})

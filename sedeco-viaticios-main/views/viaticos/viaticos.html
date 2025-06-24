@@ -385,7 +385,7 @@
                         <div class="fechas">
                             <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha real de salida <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaRSalida"></p>
                             <p class="middleInputWidth" > Fecha real de retorno <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaRRetorno"></p>
-                            <p><input type="number" placeholder="Duracion Dias" disabled="false" id="duracion_Comprobacion"></p>
+                            <p hidden><input type="number" placeholder="Duracion Dias" disabled="false" id="duracion_Comprobacion"></p>
 
                         </div>
                         <br>
@@ -497,6 +497,30 @@
                         </div>
                     </div>
 
+                    <div class="tab">
+                        TARJETA INFORMATIVA
+                        <p>
+                            <textarea name="DescripcionI" placeholder="Descripción de las actividades" type="text" id="DescripcionI" required></textarea>
+                        </p>
+                    </div>
+
+                    <div class="tab">
+                        TARJETA INFORMÁTIVA
+                        <iframe
+                            id="frame5"
+                            style=""
+                            src="../viaticos/Tarjeta-Informativa.html"
+                        ></iframe>
+                        <div class="icons">
+                            <div class="icon icon--pdf">
+                                <i title="pdf"></i>
+                            </div>
+                            <p><button type="button" class="buttonPDFGenerator" id="generadorPDF5" onclick="">Descargar tarjeta informátiva</button></p>
+                            <hr>
+                            <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
+                        </div>
+                    </div>
+
                     <div style="overflow:auto; padding-top: 0.5rem;">
                         <div style="float:right;">
                             <button class="loadCookiesBtn" style="display:none;"  type="button" id="loadCookiesBtn" onclick="loadCookies()" >Rellenar Campos</button>
@@ -509,6 +533,8 @@
                     <div style="text-align:center;margin-top:40px;">
                         <span class="step"></span>
                         <span class="step"></span>    
+                        <span class="step"></span>
+                        <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
