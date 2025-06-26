@@ -460,6 +460,7 @@ localStorage.setItem("Campos", string);
 })
 
 document.querySelector('#generadorPDF3').addEventListener('click', function () {
+
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
     let nombreUr = document.getElementById('nombrecargoUr').value;
     let cargoUr = document.getElementById('cargoUr').value;
@@ -617,6 +618,7 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
     let nombreUr = document.getElementById('nombrecargoUr').value;
     let cargoUr = document.getElementById('cargoUr').value;
+
     let numeroOficio = document.getElementById('numOficio').value;
     let fechaDocumento = document.getElementById('documentDate').value;
     let lugarComision1 = document.getElementById('ShowCiudad1').textContent;
@@ -687,7 +689,7 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
 
-    iframe5.contentWindow.document.getElementById("f5_fechaComp").innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+    iframe5.contentWindow.document.getElementById('f5_fechaComp').innerHTML =  new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
     iframe5.contentWindow.document.getElementById('f5_urResponsable').innerHTML = nombreUr;
     iframe5.contentWindow.document.getElementById('f5_urCargo').innerHTML = cargoUr;
     iframe5.contentWindow.document.getElementById('f5_numeroC').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"+numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
@@ -715,7 +717,7 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
 
 
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
-    let wspFrame = document.getElementById('frame4').contentWindow;
+    let wspFrame = document.getElementById('frame5').contentWindow;
     wspFrame.focus();
     wspFrame.print();
 })
