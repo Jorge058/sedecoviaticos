@@ -55,8 +55,6 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let modeloAnioVehiculo = document.getElementById("modeloAnio").value;
   let placasVehiculo = document.getElementById("placasInput").value;
 
-  /* 
-  todo: mandar las ciudades y las fechas para no declarar variables */
   let combustibleDinero = document.getElementById("ShowComb1").value;
   let peajesDinero = document.getElementById("ShowPeajes1").value;
   let pasajesDinero = document.getElementById("ShowPasajes1").value;
@@ -64,6 +62,10 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let peajesDinero2 = document.getElementById("ShowPeajes2").value;
   let pasajesDinero2 = document.getElementById("ShowPasajes2").value;
 
+
+  let fechaRSalida = document.getElementById("fechaRSalida").value;
+  let fechaRRetorno = document.getElementById("fechaRRetorno").value;
+  let fecha_Dcomprobacion = document.getElementById("fecha_Dcomprobacion").value;
   let aldev = document.getElementById("aldev").value;
   let hosdev = document.getElementById("hdev").value;
   let peadev = document.getElementById("pedev").value;
@@ -71,11 +73,9 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let pasdev = document.getElementById("padev").value;
   let otrosdev = document.getElementById("otrodev").value;
   let sumdev = document.getElementById("sumadev").textContent;
-  let fecha_Dcomprobacion = document.getElementById(
-    "fecha_Dcomprobacion"
-  ).value;
   let liquidacionC = document.getElementById("liquidacionC").value;
   let gastosRurales = document.getElementById('gastosRurales').value;
+  let descripcionInfo = document.getElementById("DescripcionI").value;
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -110,6 +110,9 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     recibo_peajes_2: peajesDinero2,
     recibo_pasajes: pasajesDinero,
     recibo_pasajes_2: pasajesDinero2,
+    fechaReal_salida: fechaRSalida,
+    fechaReal_retorno: fechaRRetorno,
+    comprobacion_fecha: fecha_Dcomprobacion,
     devengado_alimentacion: aldev,
     devengado_combustible: comdev,
     devengado_hospedaje: hosdev,
@@ -117,15 +120,15 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     devengado_pasajes: pasdev,
     devengado_peajes: peadev,
     devengado_total: sumdev,
-    comprobacion_fecha: fecha_Dcomprobacion,
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
+    descripcion_informativa: descripcionInfo,
     persona_area: "financieros"
   };
   addDocumentAsync(data, numeroOficio);
 });
 
-document.querySelector("#generadorPDF3").addEventListener("click", function () {
+document.querySelector("#generadorPDF5").addEventListener("click", function () {
   let unidadResponsable = document.getElementById(
     "idUnidadAdministrativa"
   ).value;
@@ -161,8 +164,6 @@ document.querySelector("#generadorPDF3").addEventListener("click", function () {
   let modeloAnioVehiculo = document.getElementById("modeloAnio").value;
   let placasVehiculo = document.getElementById("placasInput").value;
 
-  /* 
-  todo: mandar las ciudades y las fechas para no declarar variables */
   let combustibleDinero = document.getElementById("ShowComb1").value;
   let peajesDinero = document.getElementById("ShowPeajes1").value;
   let pasajesDinero = document.getElementById("ShowPasajes1").value;
@@ -170,6 +171,10 @@ document.querySelector("#generadorPDF3").addEventListener("click", function () {
   let peajesDinero2 = document.getElementById("ShowPeajes2").value;
   let pasajesDinero2 = document.getElementById("ShowPasajes2").value;
 
+
+  let fechaRSalida = document.getElementById("fechaRSalida").value;
+  let fechaRRetorno = document.getElementById("fechaRRetorno").value;
+  let fecha_Dcomprobacion = document.getElementById("fecha_Dcomprobacion").value;
   let aldev = document.getElementById("aldev").value;
   let hosdev = document.getElementById("hdev").value;
   let peadev = document.getElementById("pedev").value;
@@ -177,11 +182,9 @@ document.querySelector("#generadorPDF3").addEventListener("click", function () {
   let pasdev = document.getElementById("padev").value;
   let otrosdev = document.getElementById("otrodev").value;
   let sumdev = document.getElementById("sumadev").textContent;
-  let fecha_Dcomprobacion = document.getElementById(
-    "fecha_Dcomprobacion"
-  ).value;
   let liquidacionC = document.getElementById("liquidacionC").value;
   let gastosRurales = document.getElementById('gastosRurales').value;
+  let descripcionInfo = document.getElementById("DescripcionI").value;
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -216,6 +219,9 @@ document.querySelector("#generadorPDF3").addEventListener("click", function () {
     recibo_peajes_2: peajesDinero2,
     recibo_pasajes: pasajesDinero,
     recibo_pasajes_2: pasajesDinero2,
+    fechaReal_salida: fechaRSalida,
+    fechaReal_retorno: fechaRRetorno,
+    comprobacion_fecha: fecha_Dcomprobacion,
     devengado_alimentacion: aldev,
     devengado_combustible: comdev,
     devengado_hospedaje: hosdev,
@@ -223,14 +229,16 @@ document.querySelector("#generadorPDF3").addEventListener("click", function () {
     devengado_pasajes: pasdev,
     devengado_peajes: peadev,
     devengado_total: sumdev,
-    comprobacion_fecha: fecha_Dcomprobacion,
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
+    descripcion_informativa: descripcionInfo,
     persona_area: "financieros"
   };
 
   addDocumentAsync(data, numeroOficio);
 });
+
+
 
 async function addDocumentAsync(data, numeroOficio) {
   try {

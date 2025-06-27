@@ -75,6 +75,8 @@ function loadViaticos() {
   document.getElementById("ShowPasajes2").value =
     allData[this.id].recibo_pasajes_2;
 
+  document.getElementById("fechaRSalida").value = allData[this.id].fechaReal_salida;
+  document.getElementById("fechaRRetorno").value = allData[this.id].fechaReal_retorno;
   document.getElementById("aldev").value =
     allData[this.id].devengado_alimentacion;
   document.getElementById("hdev").value = allData[this.id].devengado_hospedaje;
@@ -89,7 +91,7 @@ function loadViaticos() {
     allData[this.id].comprobacion_fecha;
   document.getElementById("liquidacionC").value = allData[this.id].liquidacion;
   document.getElementById("gastosRurales").value = allData[this.id].gastosR;
-
+  document.getElementById("DescripcionI").value = allData[this.id].descripcion_informativa;
   nextPrev(1);
   /*
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
