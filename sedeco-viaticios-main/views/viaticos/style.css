@@ -14,7 +14,7 @@ section#hero{
   }
 
 #regForm h1{
-    color: cadetblue !important;
+    color: #4A001F !important;
     font-size: 3rem;
 }
   
@@ -103,6 +103,15 @@ section#hero{
   }
 
 
+
+  .BtnCargarData:hover{
+    opacity: 0.5;
+  }
+
+  .BtnBorrar:hover{
+    opacity: 0.5;
+  }
+
   /*    BUTTONS PREVIOUS & NEXT */
   #nextBtn {
     background-color: #4A001F;
@@ -149,10 +158,10 @@ section#hero{
 
 
 .loadCookiesBtn {
-  background-color: #0697B8;
-  color: #fff !important;
+  background-color: white;
+  border-color: #4A001F !important;
+  color: #4A001F !important;
   padding: 0.5rem 1rem;   
-  border: none;
   outline: none;
   border-radius: 10px;
   font-size:  1rem;
@@ -162,11 +171,23 @@ section#hero{
 .loadCookiesBtn:hover {
   /* scale: 1.05; */
   color: #fff;
-  background-color: #0583a0; 
+  opacity: 0.5;
 }
 
 .loadCookiesBtn:active {
   scale: 0.95;
+}
+
+#saveLeave{
+background-color: #4A001F;
+    color: #fff !important;
+    padding: 0.5rem 1rem;   
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size:  1rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 
   /************************************** */

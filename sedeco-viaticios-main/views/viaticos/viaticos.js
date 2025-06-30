@@ -147,8 +147,12 @@ function showTab(n) {
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Terminar";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("saveLeave").style.display = "";
   } else {
     document.getElementById("nextBtn").innerHTML = "Siguiente";
+    document.getElementById("nextBtn").style.display = "";
+    document.getElementById("saveLeave").style.display = "none";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
@@ -413,6 +417,8 @@ nextPrev(camposArray[16])
 
 }
 
+
+
 /********************************************* */
 /******************    VALUES FORM */
 
@@ -647,7 +653,7 @@ function calcularDiferenciaDias() {
   let dias = null;
 
     const diferenciaMs = fechaRRetorno - fechaRSalida;
-    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+1;
+    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+2;
     document.getElementById('duracion_Comprobacion').value = dias;
 }
 

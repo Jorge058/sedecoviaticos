@@ -1,69 +1,81 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
-import { query, orderBy ,where } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import {
+  query,
+  orderBy,
+  where,
+} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
-    authDomain: "viaticos-4cc2c.firebaseapp.com",
-    projectId: "viaticos-4cc2c",
-    storageBucket: "viaticos-4cc2c.appspot.com",
-    messagingSenderId: "287524196206",
-    appId: "1:287524196206:web:fb4eac753e073f72babb7f"
-  };
+  apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
+  authDomain: "viaticos-4cc2c.firebaseapp.com",
+  projectId: "viaticos-4cc2c",
+  storageBucket: "viaticos-4cc2c.appspot.com",
+  messagingSenderId: "287524196206",
+  appId: "1:287524196206:web:fb4eac753e073f72babb7f",
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
+//HTML
+const tabladriver = document.getElementById("tabla-driver");
+// Print Table
+tabladriver.innerHTML = "";
 
-  //HTML
-  const tabladriver= document.getElementById('tabla-driver');
-  // Print Table
-  tabladriver.innerHTML = '';
+//*********************************************** */
+// GET ALL
+//const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc")
+const areaTrabajo = document.getElementById("areaTrabajo").textContent;
+const q = query(
+  collection(db, "oficios"),
+  where("persona_area", "==", areaTrabajo)
+);
 
+const querySnapshot = await getDocs(q);
+//console.log(querySnapshot)
+export let allData = [];
+let cont = 1;
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
 
-  //*********************************************** */
-  // GET ALL
-  //const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc")
-  const areaTrabajo = document.getElementById("areaTrabajo").textContent
-  const q = query(collection(db, "oficios"), where("persona_area", "==", areaTrabajo), );
+  //save into object locally
+  allData.push(doc.data());
+  // doc.data() is never undefined for query doc snapshots
 
-  const querySnapshot = await getDocs(q);
-  //console.log(querySnapshot)
-  export let allData = []
-  let cont = 1;
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-
-     //save into object locally
-      allData.push(doc.data());
-        // doc.data() is never undefined for query doc snapshots
-    
-        tabladriver.innerHTML += ` <tr>
+  tabladriver.innerHTML += ` <tr>
         <th scope="row" class="text-center">${cont}</th>
         <td class="text-center">${doc.data().oficio_numero}</td>
         <td >${doc.data().persona_nombre}</td>
         <td class="text-center">${doc.data().oficio_fecha}</td>
         <td class="text-center">${doc.data().oficio_lugar_comision}</td>
         
-          
         <td class="text-center"> <div class="btn-group">
-        <button class="btn btn-sm btn-warning w-50 BtnCargarData" type="button" 
-          id=${cont-1} >
-          <i class="fa fa-folder-open" aria-hidden="true"></i>
+        <button style="background-color: white; border-color: #4A001F;" 
+          class="btn btn-sm w-50 BtnCargarData" type="button" 
+          id=${cont - 1}>
+          <i class="fa fa-folder-open" style="color:#4A001F" aria-hidden="true"></i>
+        </button>
+        <button style="background-color: #4A001F; border-color: #4A001F;" 
+          class="btn btn-sm w-50 BtnBorrar" type="button" 
+          id=${cont - 1}>
+          <i class="fa fa-trash" style="color:white;" aria-hidden="true"></i>
         </button>
         
       </div> </td>
-      </tr>`
+      </tr>`;
 
-      //52 onclick="loadViaticos('${cont-1}')">
-   
-      cont++;
-  });
+  //52 onclick="loadViaticos('${cont-1}')">
 
-  console.log(allData)
+  cont++;
+});
 
+console.log(allData);
 
 /************************************************** */
 

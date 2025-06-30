@@ -128,7 +128,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   addDocumentAsync(data, numeroOficio);
 });
 
-document.querySelector("#generadorPDF5").addEventListener("click", function () {
+document.querySelector("#saveLeave").addEventListener("click", function () {
   let unidadResponsable = document.getElementById(
     "idUnidadAdministrativa"
   ).value;
@@ -236,6 +236,7 @@ document.querySelector("#generadorPDF5").addEventListener("click", function () {
   };
 
   addDocumentAsync(data, numeroOficio);
+  window.location.href = "viaticos.html";
 });
 
 

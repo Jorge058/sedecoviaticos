@@ -696,7 +696,7 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
     let nombreUsuario = document.getElementById('nombreUsuario').value;
     let cargoUsuario = document.getElementById('cargoUsuario').value;
 
-    iframe5.contentWindow.document.getElementById("f5_fechaDoc").innerHTML = "Morelia, Mich,. a "+new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
+    iframe5.contentWindow.document.getElementById("f5_fechaDoc").innerHTML = "Morelia, Mich. a "+new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
     iframe5.contentWindow.document.getElementById('f5_urNombre').innerHTML = nombreUr+"<br>"+cargoUr;
     iframe5.contentWindow.document.getElementById("f5_numeroOficio").innerHTML = numeroOficio +"/"+ new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric"});
 
