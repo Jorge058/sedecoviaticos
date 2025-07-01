@@ -190,6 +190,59 @@ background-color: #4A001F;
     cursor: pointer;
 }
 
+/* Estilos de las alertas */
+.alerta {
+    border-radius: 15px;
+    background-color: white;
+    color: #000 !important;
+    border: 2px solid;
+    border-color: #4A001F;
+}
+
+.titulo {
+    color: black;
+    font-size: 18px;
+}
+
+.boton-confirmar {
+    background-color: #4A001F !important;
+    color: white;
+    border-radius: 10px;
+}
+
+.boton-cancelar {
+    background-color: white !important;
+    color: #4A001F !important;
+    border-color:#4A001F !important;
+    border-radius: 10px;
+    border: 2px solid;
+}
+
+.iconalert{
+    color: #4A001F !important;
+    border-color: #4A001F !important;
+}
+
+/* //////////////// */ 
+.alertaDone {
+    border-radius: 15px;
+    background-color: white;
+    color: #000 !important;
+    border: 2px solid;
+    border-color: #4A001F;
+}
+
+.tituloDone {
+    color: black;
+    font-size: 18px;
+}
+
+.iconalertDone{
+  color: #4A001F !important;
+  border-color: #4A001F !important;
+}
+
+
   /************************************** */
   /* Autocomplete Items   */
 

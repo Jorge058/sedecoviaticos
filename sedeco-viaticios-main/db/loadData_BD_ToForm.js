@@ -28,6 +28,8 @@ function loadViaticos() {
     allData[this.id].oficio_fecha_inicial;
   document.getElementById("fechaFinal").value =
     allData[this.id].oficio_fecha_final;
+  document.getElementById("duracionDias").value = 
+    allData[this.id].oficio_duracion_dias;
   document.getElementById("inputCiudades").value =
     allData[this.id].oficio_ciudad;
   document.getElementById("ShowCiudad1").textContent =
@@ -42,10 +44,18 @@ function loadViaticos() {
     allData[this.id].recibo_alimentacion;
   document.getElementById("ShowAlimentacion2").value =
     allData[this.id].recibo_alimentacion_2;
+  document.getElementById("alimentosT").textContent =
+    allData[this.id].recibo_alimentacion_total;
   document.getElementById("ShowHospedaje1").value =
     allData[this.id].recibo_hospedaje;
   document.getElementById("ShowHospedaje2").value =
     allData[this.id].recibo_hospedaje_2;
+  document.getElementById("hospedajeT").textContent =
+    allData[this.id].recibo_hospedaje_total;
+  document.getElementById("ShowTotal1").textContent =
+    allData[this.id].recibo_total1 ;
+  document.getElementById("ShowTotal2").textContent =
+    allData[this.id].recibo_total2;
   document.getElementById("ShowTotal3").textContent =
     allData[this.id].recibo_total;
 
@@ -65,18 +75,38 @@ function loadViaticos() {
     allData[this.id].oficio_showfecha2;
   document.getElementById("ShowComb1").value =
     allData[this.id].recibo_combustible;
-  document.getElementById("ShowPeajes1").value = allData[this.id].recibo_peajes;
+  document.getElementById("ShowPeajes1").value = 
+  allData[this.id].recibo_peajes;
   document.getElementById("ShowPasajes1").value =
     allData[this.id].recibo_pasajes;
+  document.getElementById("totalDinero").textContent =
+    allData[this.id].recibo_totalDinero;
   document.getElementById("ShowComb2").value =
     allData[this.id].recibo_combustible_2;
   document.getElementById("ShowPeajes2").value =
     allData[this.id].recibo_peajes_2;
   document.getElementById("ShowPasajes2").value =
     allData[this.id].recibo_pasajes_2;
+  document.getElementById("totalDinero2").textContent =
+    allData[this.id].recibo_totalDinero2;
+  document.getElementById("tot3").textContent =
+    allData[this.id].recibo_tot3;
 
   document.getElementById("fechaRSalida").value = allData[this.id].fechaReal_salida;
   document.getElementById("fechaRRetorno").value = allData[this.id].fechaReal_retorno;
+  document.getElementById("duracion_Comprobacion").value = allData[this.id].comprobacion_duracion_real;
+  document.getElementById("alS").textContent =
+    allData[this.id].comprobacion_alS;
+  document.getElementById("hS").textContent =
+    allData[this.id].comprobacion_hS;
+  document.getElementById("peS").textContent =
+    allData[this.id].comprobacion_peS;
+  document.getElementById("comS").textContent =
+    allData[this.id].comprobacion_comS;
+  document.getElementById("paS").textContent =
+    allData[this.id].comprobacion_paS;
+  document.getElementById("sumaS").textContent =
+    allData[this.id].comprobacion_sumaS;
   document.getElementById("aldev").value =
     allData[this.id].devengado_alimentacion;
   document.getElementById("hdev").value = allData[this.id].devengado_hospedaje;
@@ -87,6 +117,20 @@ function loadViaticos() {
   document.getElementById("otrodev").value = allData[this.id].devengado_otros;
   document.getElementById("sumadev").textContent =
     allData[this.id].devengado_total;
+  document.getElementById("aldif").textContent =
+    allData[this.id].comprobacion_aldif;
+  document.getElementById("hdif").textContent =
+    allData[this.id].comprobacion_hdif;
+  document.getElementById("pedif").textContent =
+    allData[this.id].comprobacion_pedif;
+  document.getElementById("comdif").textContent =
+    allData[this.id].comprobacion_comdif;
+  document.getElementById("padif").textContent =
+    allData[this.id].comprobacion_padif;
+  document.getElementById("otrodif").textContent =
+    allData[this.id].comprobacion_otrodif;
+  document.getElementById("sumaTotal").textContent =
+    allData[this.id].comprobacion_sumaTotal;  
   document.getElementById("fecha_Dcomprobacion").value =
     allData[this.id].comprobacion_fecha;
   document.getElementById("liquidacionC").value = allData[this.id].liquidacion;
