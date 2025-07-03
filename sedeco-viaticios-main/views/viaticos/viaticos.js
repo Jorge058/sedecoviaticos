@@ -342,17 +342,36 @@ autocomplete(document.getElementById("inputCiudades"), ciudadesMich);
 hideSelectsVehicle(document.getElementById("vehicleInput"));
 
 function hideSelectsVehicle(selectValue) {
+  const modelo = document.getElementById("modeloAuto")
+  const anio = document.getElementById("modeloAnio")
+  const placas = document.getElementById("placasInput")
 
   selectValue.addEventListener("change", function(e) {
 
     let disableNode = document.querySelectorAll(".disableOption");
     console.log(disableNode)
 
-    if (selectValue.options[selectValue.selectedIndex].value !== "Oficial"){
+    if (selectValue.options[selectValue.selectedIndex].value == "Oficial"){
+      modelo.disabled=true
+      anio.disabled=true
+      placas.disabled=true
+
       for (let i = 0; i < disableNode.length; i++) {
         disableNode[i].disabled=true;
       }
+
     }
+
+    if (selectValue.options[selectValue.selectedIndex].value == "Particular"){
+      for (let i = 0; i < disableNode.length; i++) {
+        //disableNode[i].disabled=false;
+       modelo.disabled=false
+       anio.disabled=false
+       placas.disabled=false
+      }
+      console.log("cambie particular")
+    }
+
     else {
       for (let i = 0; i < disableNode.length; i++) {
         disableNode[i].disabled=false;
