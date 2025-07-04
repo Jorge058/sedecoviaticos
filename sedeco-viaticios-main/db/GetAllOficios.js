@@ -11,14 +11,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
-  authDomain: "viaticos-4cc2c.firebaseapp.com",
-  projectId: "viaticos-4cc2c",
-  storageBucket: "viaticos-4cc2c.appspot.com",
-  messagingSenderId: "287524196206",
-  appId: "1:287524196206:web:fb4eac753e073f72babb7f",
-};
+//Import Firebase configuration
+import firebaseConfig from './firebase_config.js';
+
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -64,7 +60,7 @@ querySnapshot.forEach((doc) => {
         </button>
         <button style="background-color: #4A001F; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnBorrar" type="button" 
-          id=${cont - 1}>
+          id=${doc.id} ">
           <i class="fa fa-trash" style="color:white;" aria-hidden="true"></i>
         </button>
         

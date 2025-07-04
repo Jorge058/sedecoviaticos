@@ -123,4 +123,6 @@ export { query, orderBy, limit, where, onSnapshot };
         
     }
 
+    export default firebaseConfig
+
 
