@@ -4,12 +4,6 @@
     font-weight: normal;
 }
 
-/*
-#4A001F
-#FFC3D0
-
-*/
-
 /*  MAIN  */
 
 main {
@@ -25,23 +19,6 @@ body {
     background-size: cover;
     background-position: center;
 }
-
-/*
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: #4A001F !important;
-    font-size: 1rem;
-}
-
-a :hover {
-    color: #9c0041;
-}
-*/
-
 
 /* Curved  */
 
