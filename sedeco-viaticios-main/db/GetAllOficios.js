@@ -10,6 +10,7 @@ import {
   where,
 } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
   authDomain: "viaticos-4cc2c.firebaseapp.com",
@@ -29,7 +30,7 @@ tabladriver.innerHTML = "";
 
 //*********************************************** */
 // GET ALL
-//const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc")
+//const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc");
 const areaTrabajo = document.getElementById("areaTrabajo").textContent;
 const q = query(
   collection(db, "oficios"),
@@ -69,12 +70,9 @@ querySnapshot.forEach((doc) => {
         
       </div> </td>
       </tr>`;
-
   //52 onclick="loadViaticos('${cont-1}')">
-
   cont++;
 });
-
 console.log(allData);
 
 /************************************************** */

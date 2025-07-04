@@ -13,12 +13,9 @@ const firebaseConfig = {
     appId: "1:287524196206:web:fb4eac753e073f72babb7f"
   };
 
-
   initializeApp(firebaseConfig);
 
   const db = getFirestore();
-
-
 
   const colRef = collection(db, "autos");
 

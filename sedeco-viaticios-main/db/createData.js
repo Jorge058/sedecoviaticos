@@ -367,7 +367,7 @@ async function addDocumentAsync(data, numeroOficio) {
         });
 
         setTimeout(() => {
-          window.location.href = "viaticos.html";
+          window.location.href = "../index.html";
         }, 4000);
 
         }else{
@@ -414,7 +414,7 @@ async function addDocumentAsync(data, numeroOficio) {
         });
 
         setTimeout(() => {
-          window.location.href = "viaticos.html";
+          window.location.href = "../index.html";
         }, 4000);
 
     }

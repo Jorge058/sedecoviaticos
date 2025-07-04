@@ -21,8 +21,8 @@
     <meta property="og:description" content="INTRANET" />
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./views/viaticos/style.css">
     <link rel="stylesheet" href="https://michoacan.gob.mx/cdn/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://michoacan.gob.mx/cdn/css/estilos.css">
     
@@ -59,7 +59,7 @@
     <!-- Libreria para transforma de numero a letras -->
 
     <!-- https://michoacan.gob.mx/slider/ -->
-    <title>SEDECO</title>
+    <title>Viaticos Sedeco</title>
 </head>
     <body>
         <header>
@@ -291,32 +291,13 @@
                                 </tr> 
                             </tbody>
                         </table>
-                        <!--
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero" class="input-with-icon suma1" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero" class="input-with-icon" oninput="this.className = ''" disabled></p>
-                        <br>
-                        Gastos 2
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Alimentacion Total" id="alimentacionDinero2" class="input-with-icon suma1" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Hospedaje Total" id="hotelDinero2" class="input-with-icon suma1" oninput="this.className = ''"></p>
-                        <p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span> <input type="number" placeholder="Total" id="totalDinero2" class="input-with-icon" oninput="this.className = ''" disabled></p>
-                        
-
-                        <br>
-                        <h4>Agregar gastos de traslado</h4>
-                        <div class="botones">
-                            <p><button type="button" class="btnComisionsi">Si</button></p>
-                            <p><button type="button" class="btnComisionno">No</button></p>
-                        </div>
-                        -->
-                        
                     </div>
 
                     <div class="tab">OFICIO
                         <iframe
                             id="frame1"
                             style=""
-                            src="Formato Viaticos 1.htm"
+                            src="./views/viaticos/Formato Viaticos 1.htm"
                         ></iframe>
                         <div class="icons">
                             <div class="icon icon--pdf">
@@ -326,7 +307,6 @@
                             <hr>
                             <p style="color: black; font-weight: bold;">Nota: IMPRIMIR A BLANCO Y NEGRO</p>
                         </div>
-                        <!-- <embed src="Oficios/OFICIO COMISIÓN LZC (1).pdf" type="application/pdf" width="400px" height="640px">   -->
                     </div>
 
                     <div class="tab">RECIBO
@@ -334,7 +314,7 @@
                         <iframe
                             id="frame2"
                             style=""
-                            src="../viaticos/Solo Recibo html.html"
+                            src="./views/viaticos/Solo Recibo html.html"
                         ></iframe>
                         <div class="icon icon--pdf">
                             <i title="pdf"></i>
@@ -429,7 +409,7 @@
                         <iframe
                             id="frame3"
                             style=""
-                            src="../viaticos/Comprobacion.html"
+                            src="./views/viaticos/Comprobacion.html"
                         ></iframe>
                         <div class="icons">
                             <div class="icon icon--pdf">
@@ -451,7 +431,7 @@
                         <iframe
                             id="frame4"
                             style=""
-                            src="../viaticos/Gastos_rurales.html"
+                            src="./views/viaticos/Gastos_rurales.html"
                         ></iframe>
                         <div class="icons">
                             <div class="icon icon--pdf">
@@ -475,7 +455,7 @@
                         <iframe
                             id="frame5"
                             style=""
-                            src="..//viaticos/Tarjeta-Informativa.html"
+                            src="./views/viaticos/Tarjeta-Informativa.html"
                         ></iframe>
                         <div class="icons">
                             <div class="icon icon--pdf">
@@ -583,10 +563,8 @@
         <script src="https://www.michoacan.gob.mx/cdn/js/bootstrap.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <!--<script src="https://unpkg.com/pdf-lib@1.4.0"></script>
-        <script src="https://unpkg.com/downloadjs@1.4.7"></script> -->
-        <script src="../../js/index.js"></script>
-        <script src="viaticos.js"></script>
+        <script src="./js/index.js"></script>
+        <script src="./views/viaticos/viaticos.js"></script>
 
         <script type="module" src="/db/firebase_config.js"></script>
         <script type="module" src="../../db/firebase_config.js"></script>
@@ -600,9 +578,7 @@
         <script type="module" src="/db/loadData_BD_ToForm.js"></script>
         <script type="module" src="../../db/loadData_BD_ToForm.js"></script>
         <!--<script src="pdf_editor.js"></script> -->
-        <script type="module" src="pdf_editorHTML1.js"></script>
+        <script type="module" src="./views/viaticos/pdf_editorHTML1.js"></script>
         
-        <!--<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script> -->
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
     </body>
 </html>
