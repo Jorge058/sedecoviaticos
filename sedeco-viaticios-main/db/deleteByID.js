@@ -36,11 +36,10 @@ document.addEventListener("click", function (e) {
 // Corre sweet alert de confirmación
 function deleteViaticos(id) {
   const documentId = id; // El ID del documento se obtiene directamente del botón
-  console.log("ID del documento a eliminar:", documentId);
   const collectionName = "oficios";
 
   Swal.fire({
-    title: '¿Borrar oficio?',
+    title: `¿Borrar oficio número ${id}?`,
     text: "No se podrá deshacer esta acción.",
     icon: 'warning',
     showCancelButton: true,

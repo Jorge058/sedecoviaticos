@@ -49,7 +49,7 @@ querySnapshot.forEach((doc) => {
         <th scope="row" class="text-center">${cont}</th>
         <td class="text-center">${doc.data().oficio_numero}</td>
         <td >${doc.data().persona_nombre}</td>
-        <td class="text-center">${doc.data().oficio_fecha}</td>
+        <td class="text-center">${ new Date(doc.data().oficio_fecha).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"numeric", day:"2-digit", year:"numeric"})}</td>
         <td class="text-center">${doc.data().oficio_lugar_comision}</td>
         
         <td class="text-center"> <div class="btn-group">
