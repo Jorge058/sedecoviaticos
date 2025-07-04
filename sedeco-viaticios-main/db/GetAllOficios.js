@@ -58,9 +58,10 @@ querySnapshot.forEach((doc) => {
           id=${cont - 1}>
           <i class="fa fa-folder-open" style="color:#4A001F" aria-hidden="true"></i>
         </button>
+
         <button style="background-color: #4A001F; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnBorrar" type="button" 
-          id=${doc.id} ">
+          id="${doc.id}">
           <i class="fa fa-trash" style="color:white;" aria-hidden="true"></i>
         </button>
         

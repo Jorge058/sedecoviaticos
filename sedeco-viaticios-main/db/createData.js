@@ -378,20 +378,6 @@ async function addDocumentAsync(data, numeroOficio) {
         });
         }
       });
-
-      /* let confirmAlert = confirm(
-        `El oficio con numero ${docSnap.id} ya existe, creado por${
-          docSnap.data().persona_nombre
-        } , Desea editarlo?`,
-      );
-      if (confirmAlert == true) {
-        await setDoc(doc(db, "oficios", "Oficio_" + `${numeroOficio}`), data);
-        console.log("Documento editado con éxito");
-        window.location.href = "viaticos.html";
-
-      } else {
-        console.log("Documento no ha sido editado");
-      } */
     } else {
       await setDoc(doc(db, "oficios", "Oficio_" + `${numeroOficio}`), data);
 

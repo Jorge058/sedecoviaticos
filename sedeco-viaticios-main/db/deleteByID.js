@@ -17,15 +17,21 @@ const db = getFirestore(app);
 console.log("Firebase Firestore inicializado correctamente.");
 
 // Selecciona todos los botones de eliminar
-const deleteBtn = document.querySelectorAll(".BtnBorrar");
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".BtnBorrar")) {
+    const documentId = e.target.closest(".BtnBorrar").id;
+    deleteViaticos(documentId);
+  }
+});
 
 // Asigna el evento a cada botón
-deleteBtn.forEach((button) => {
-  button.addEventListener("click", function () {
-    const documentId = this.id; // Obtén el ID del documento desde el atributo id del botón
-    deleteViaticos(documentId); // Llama a la función deleteViaticos con el ID
-  });
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".BtnBorrar")) {
+    const documentId = e.target.closest(".BtnBorrar").id;
+    deleteViaticos(documentId);
+  }
 });
+
 
 // Corre sweet alert de confirmación
 function deleteViaticos(id) {
@@ -34,16 +40,23 @@ function deleteViaticos(id) {
   const collectionName = "oficios";
 
   Swal.fire({
-    title: '¿Estás seguro?',
+    title: '¿Borrar oficio?',
     text: "No se podrá deshacer esta acción.",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Sí, eliminarlo'
+    customClass: {
+          popup: 'alerta',
+          title: 'titulo',
+          icon: 'iconalert',
+          confirmButton: 'boton-confirmar',
+          cancelButton: 'boton-cancelar'
+        }
   }).then((result) => {
     if (result.isConfirmed) {
       deleteDocumentById(collectionName, documentId);
+      setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 4000);
     }
   });
 }
@@ -53,12 +66,19 @@ async function deleteDocumentById(collectionName, documentId) {
   try {
     const docRef = doc(db, collectionName, documentId);
     await deleteDoc(docRef);
-    console.log(`Documento con ID ${documentId} eliminado exitosamente de la colección ${collectionName}.`);
 
-    Swal.fire(
-      `Documento con ID ${documentId} eliminado exitosamente de la colección ${collectionName}.`,
-      'success'
-    );
+    Swal.fire({
+      text: `Documento con ID ${documentId} eliminado exitosamente de la colección ${collectionName}.`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 3000, 
+      customClass: {
+        popup: 'alerta',
+        title: 'titulo',
+        icon: 'iconalert',
+      } 
+    }
+  );
   } catch (error) {
     console.error("Error al eliminar el documento:", error);
   }
