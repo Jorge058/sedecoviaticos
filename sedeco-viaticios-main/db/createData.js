@@ -162,7 +162,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: "financieros"
+    persona_area: "Informática"
   };
   addDocumentAsync(data, numeroOficio);
 });
@@ -317,7 +317,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: "financieros"
+    persona_area: "Informática"
   };
 
   addDocumentAsync(data, numeroOficio);
