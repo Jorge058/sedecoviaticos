@@ -17,21 +17,12 @@ const db = getFirestore(app);
 console.log("Firebase Firestore inicializado correctamente.");
 
 // Selecciona todos los botones de eliminar
-document.addEventListener("click", function (e) {
+/* document.addEventListener("click", function (e) {
   if (e.target.closest(".BtnBorrar")) {
     const documentId = e.target.closest(".BtnBorrar").id;
     deleteViaticos(documentId);
   }
-});
-
-// Asigna el evento a cada botón
-document.addEventListener("click", function (e) {
-  if (e.target.closest(".BtnBorrar")) {
-    const documentId = e.target.closest(".BtnBorrar").id;
-    deleteViaticos(documentId);
-  }
-});
-
+}); */
 
 // Corre sweet alert de confirmación
 function deleteViaticos(id) {

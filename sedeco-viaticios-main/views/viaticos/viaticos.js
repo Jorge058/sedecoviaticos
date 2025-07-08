@@ -365,9 +365,9 @@ function hideSelectsVehicle(selectValue) {
     if (selectValue.options[selectValue.selectedIndex].value == "Particular"){
       for (let i = 0; i < disableNode.length; i++) {
         //disableNode[i].disabled=false;
-       modelo.disabled=false
-       anio.disabled=false
-       placas.disabled=false
+       modelo.value = " "
+       anio.value = " "
+       placas.value = " "
       }
       console.log("cambie particular")
     }

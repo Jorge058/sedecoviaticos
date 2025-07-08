@@ -588,6 +588,9 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
             iframe3.contentWindow.document.getElementById("f3_entregado").innerHTML="X";
             iframe3.contentWindow.document.getElementById("f3_recibido").innerHTML="";
             break;
+        case 3:
+            iframe3.contentWindow.document.getElementById("f3_entregado").innerHTML="";
+            iframe3.contentWindow.document.getElementById("f3_recibido").innerHTML="";
         default:
             break;
     }
