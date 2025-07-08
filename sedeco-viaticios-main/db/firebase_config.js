@@ -100,11 +100,13 @@ export { query, orderBy, limit, where, onSnapshot };
             document.getElementById("submodeloVehiculo").addEventListener("click", function(e) {
               //Sacar los ultimos 7 digitos de la placa y volver a buscar en la variable filteredBrands
               var tipoSelect = document.getElementById("submodeloVehiculo");
-              let placaSeleccionada = tipoSelect.value.slice(-7);
-              console.log(tipoSelect.value.slice(-7))
+             
+              let placaSeleccionada = tipoSelect.value.slice(-9);
+              console.log(tipoSelect.value.slice(-9))
               let filteredPlaca = filteredBrands.filter(auto => auto.placa == placaSeleccionada);
 
               console.log(filteredPlaca)
+        
               
               //PUT INFO IN 3 INPUT MODEL PLACA AÑO
               var modeloInput = document.getElementById("modeloAuto");
