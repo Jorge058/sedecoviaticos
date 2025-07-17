@@ -993,6 +993,41 @@ function resetFormulario () {
  });
   nextPrev(1);
 }
+//Funcion para seleccionar UR y actualizar responsable de la ur
+document.getElementById('idUnidadAdministrativa').addEventListener('change', function(){
+  switch (this.selectedIndex) {
+    case 1:
+      document.getElementById('nombrecargoUr').value = 'Lic.Claudio Méndez Fernández';
+      break;
+    case 2:
+      document.getElementById('nombrecargoUr').value = 'Dra.Mariana Gudiño Paredes';
+      break;
+    case 3:
+      document.getElementById('nombrecargoUr').value = 'C.Eduardo Norberto Ramírez Canals';
+      break;
+    case 4:
+      document.getElementById('nombrecargoUr').value = 'Lic.Guadalupe Morelia Fuentes Peña';
+      break;
+    case 5:
+      document.getElementById('nombrecargoUr').value = 'Ing.José Carrillo García';
+      break;
+    case 6:
+      document.getElementById('nombrecargoUr').value = 'Lic.Laura Yunuen Mejía Bejar';
+      break;
+    case 7:
+      document.getElementById('nombrecargoUr').value = 'Dra.Gloría María Huerta Ramírez	';
+      break;
+    case 8:
+      document.getElementById('nombrecargoUr').value = 'Lic.Blanca Eugenia Rodríguez Morelos';
+      break;
+    case 9:
+      document.getElementById('nombrecargoUr').value = 'Lic.Sofía Beltrán Pacheco';
+      break;
+    case 10:
+      document.getElementById('nombrecargoUr').value = 'Mtro.Ruggiero Zepeda Maldonado';
+      break;
+  }
+})
 
   // Función para sincronizar select2 con select1 CARGO TITULAR
 document.addEventListener('DOMContentLoaded', function() {

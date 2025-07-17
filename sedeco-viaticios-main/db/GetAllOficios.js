@@ -64,7 +64,7 @@ querySnapshot.forEach((doc) => {
         <td class="text-center"> <div class="btn-group">
         <button style="background-color: white; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnCargarData" type="button" 
-          id=${cont - 1}>
+          id=${cont-1}>
           <i class="fa fa-folder-open" style="color:#4A001F" aria-hidden="true"></i>
         </button>
 

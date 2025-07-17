@@ -1,141 +1,148 @@
 import { allData } from "./GetAllOficios.js";
 
-const collectionBtnLoad = document.querySelectorAll(".BtnCargarData");
-
-collectionBtnLoad.forEach((button) => {
-  button.addEventListener("click", loadViaticos);
+/* const collectionBtnLoad = document.querySelectorAll(".BtnCargarData");
+ */
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".BtnCargarData")) {
+    const documentId = e.target.closest(".BtnCargarData").id;
+    loadViaticos(documentId);
+  }
 });
 
-function loadViaticos() {
-  console.log(allData[this.id]);
+/* collectionBtnLoad.forEach((button) => {
+  button.addEventListener("click", loadViaticos);
+}); */
+
+function loadViaticos(id) {
+  console.log(allData.id);
 
   document.getElementById("idUnidadAdministrativa").value =
-    allData[this.id].persona_unidadresponsable;
+    allData[id].persona_unidadresponsable;
   document.getElementById("nombrecargoUr").value =
-    allData[this.id].titular_nombre;
-  document.getElementById("cargoUr").value = allData[this.id].titular_cargo;
-  document.getElementById("numOficio").value = allData[this.id].oficio_numero;
-  document.getElementById("documentDate").value = allData[this.id].oficio_fecha;
+    allData[id].titular_nombre;
+  document.getElementById("cargoUr").value = allData[id].titular_cargo;
+  document.getElementById("numOficio").value = allData[id].oficio_numero;
+  document.getElementById("documentDate").value = allData[id].oficio_fecha;
   document.getElementById("nombreUsuario").value =
-    allData[this.id].persona_nombre;
+    allData[id].persona_nombre;
   document.getElementById("cargoUsuario").value =
-    allData[this.id].persona_cargo;
+    allData[id].persona_cargo;
   document.getElementById("descripcionDetalles").value =
-    allData[this.id].persona_descripcion_actividades;
+    allData[id].persona_descripcion_actividades;
   document.getElementById("objetivosComision").value =
-    allData[this.id].persona_objetivos;
+    allData[id].persona_objetivos;
   document.getElementById("fechaInicio").value =
-    allData[this.id].oficio_fecha_inicial;
+    allData[id].oficio_fecha_inicial;
   document.getElementById("fechaFinal").value =
-    allData[this.id].oficio_fecha_final;
+    allData[id].oficio_fecha_final;
   document.getElementById("duracionDias").value = 
-    allData[this.id].oficio_duracion_dias;
+    allData[id].oficio_duracion_dias;
   document.getElementById("inputCiudades").value =
-    allData[this.id].oficio_ciudad;
+    allData[id].oficio_ciudad;
   document.getElementById("ShowCiudad1").textContent =
-    allData[this.id].oficio_lugar_comision;
+    allData[id].oficio_lugar_comision;
   document.getElementById("ShowFecha1").textContent =
-    allData[this.id].oficio_showfecha1;
+    allData[id].oficio_showfecha1;
   document.getElementById("ShowCiudad2").textContent =
-    allData[this.id].oficio_lugar_comision_2;
+    allData[id].oficio_lugar_comision_2;
   document.getElementById("ShowFecha2").textContent =
-    allData[this.id].oficio_showfecha2;
+    allData[id].oficio_showfecha2;
   document.getElementById("ShowAlimentacion1").value =
-    allData[this.id].recibo_alimentacion;
+    allData[id].recibo_alimentacion;
   document.getElementById("ShowAlimentacion2").value =
-    allData[this.id].recibo_alimentacion_2;
+    allData[id].recibo_alimentacion_2;
   document.getElementById("alimentosT").textContent =
-    allData[this.id].recibo_alimentacion_total;
+    allData[id].recibo_alimentacion_total;
   document.getElementById("ShowHospedaje1").value =
-    allData[this.id].recibo_hospedaje;
+    allData[id].recibo_hospedaje;
   document.getElementById("ShowHospedaje2").value =
-    allData[this.id].recibo_hospedaje_2;
+    allData[id].recibo_hospedaje_2;
   document.getElementById("hospedajeT").textContent =
-    allData[this.id].recibo_hospedaje_total;
+    allData[id].recibo_hospedaje_total;
   document.getElementById("ShowTotal1").textContent =
-    allData[this.id].recibo_total1 ;
+    allData[id].recibo_total1 ;
   document.getElementById("ShowTotal2").textContent =
-    allData[this.id].recibo_total2;
+    allData[id].recibo_total2;
   document.getElementById("ShowTotal3").textContent =
-    allData[this.id].recibo_total;
+    allData[id].recibo_total;
 
-  document.getElementById("vehicleInput").value = allData[this.id].auto_tipo;
-  document.getElementById("marcaVehiculo").value = allData[this.id].auto_marca;
-  document.getElementById("modeloAuto").value = allData[this.id].auto_modelo;
-  document.getElementById("modeloAnio").value = allData[this.id].auto_año;
-  document.getElementById("placasInput").value = allData[this.id].auto_placa;
+  document.getElementById("vehicleInput").value = allData[id].auto_tipo;
+  document.getElementById("marcaVehiculo").value = allData[id].auto_marca;
+  document.getElementById("modeloAuto").value = allData[id].auto_modelo;
+  document.getElementById("modeloAnio").value = allData[id].auto_año;
+  document.getElementById("placasInput").value = allData[id].auto_placa;
 
   document.getElementById("sC1").textContent =
-    allData[this.id].oficio_lugar_comision;
+    allData[id].oficio_lugar_comision;
   document.getElementById("sF1").textContent =
-    allData[this.id].oficio_showfecha1;
+    allData[id].oficio_showfecha1;
   document.getElementById("sC2").textContent =
-    allData[this.id].oficio_lugar_comision_2;
+    allData[id].oficio_lugar_comision_2;
   document.getElementById("sF2").textContent =
-    allData[this.id].oficio_showfecha2;
+    allData[id].oficio_showfecha2;
   document.getElementById("ShowComb1").value =
-    allData[this.id].recibo_combustible;
+    allData[id].recibo_combustible;
   document.getElementById("ShowPeajes1").value = 
-  allData[this.id].recibo_peajes;
+  allData[id].recibo_peajes;
   document.getElementById("ShowPasajes1").value =
-    allData[this.id].recibo_pasajes;
+    allData[id].recibo_pasajes;
   document.getElementById("totalDinero").textContent =
-    allData[this.id].recibo_totalDinero;
+    allData[id].recibo_totalDinero;
   document.getElementById("ShowComb2").value =
-    allData[this.id].recibo_combustible_2;
+    allData[id].recibo_combustible_2;
   document.getElementById("ShowPeajes2").value =
-    allData[this.id].recibo_peajes_2;
+    allData[id].recibo_peajes_2;
   document.getElementById("ShowPasajes2").value =
-    allData[this.id].recibo_pasajes_2;
+    allData[id].recibo_pasajes_2;
   document.getElementById("totalDinero2").textContent =
-    allData[this.id].recibo_totalDinero2;
+    allData[id].recibo_totalDinero2;
   document.getElementById("tot3").textContent =
-    allData[this.id].recibo_tot3;
+    allData[id].recibo_tot3;
 
-  document.getElementById("fechaRSalida").value = allData[this.id].fechaReal_salida;
-  document.getElementById("fechaRRetorno").value = allData[this.id].fechaReal_retorno;
-  document.getElementById("duracion_Comprobacion").value = allData[this.id].comprobacion_duracion_real;
+  document.getElementById("fechaRSalida").value = allData[id].fechaReal_salida;
+  document.getElementById("fechaRRetorno").value = allData[id].fechaReal_retorno;
+  document.getElementById("duracion_Comprobacion").value = allData[id].comprobacion_duracion_real;
   document.getElementById("alS").textContent =
-    allData[this.id].comprobacion_alS;
+    allData[id].comprobacion_alS;
   document.getElementById("hS").textContent =
-    allData[this.id].comprobacion_hS;
+    allData[id].comprobacion_hS;
   document.getElementById("peS").textContent =
-    allData[this.id].comprobacion_peS;
+    allData[id].comprobacion_peS;
   document.getElementById("comS").textContent =
-    allData[this.id].comprobacion_comS;
+    allData[id].comprobacion_comS;
   document.getElementById("paS").textContent =
-    allData[this.id].comprobacion_paS;
+    allData[id].comprobacion_paS;
   document.getElementById("sumaS").textContent =
-    allData[this.id].comprobacion_sumaS;
+    allData[id].comprobacion_sumaS;
   document.getElementById("aldev").value =
-    allData[this.id].devengado_alimentacion;
-  document.getElementById("hdev").value = allData[this.id].devengado_hospedaje;
-  document.getElementById("pedev").value = allData[this.id].devengado_peajes;
+    allData[id].devengado_alimentacion;
+  document.getElementById("hdev").value = allData[id].devengado_hospedaje;
+  document.getElementById("pedev").value = allData[id].devengado_peajes;
   document.getElementById("comdev").value =
-    allData[this.id].devengado_combustible;
-  document.getElementById("padev").value = allData[this.id].devengado_pasajes;
-  document.getElementById("otrodev").value = allData[this.id].devengado_otros;
+    allData[id].devengado_combustible;
+  document.getElementById("padev").value = allData[id].devengado_pasajes;
+  document.getElementById("otrodev").value = allData[id].devengado_otros;
   document.getElementById("sumadev").textContent =
-    allData[this.id].devengado_total;
+    allData[id].devengado_total;
   document.getElementById("aldif").textContent =
-    allData[this.id].comprobacion_aldif;
+    allData[id].comprobacion_aldif;
   document.getElementById("hdif").textContent =
-    allData[this.id].comprobacion_hdif;
+    allData[id].comprobacion_hdif;
   document.getElementById("pedif").textContent =
-    allData[this.id].comprobacion_pedif;
+    allData[id].comprobacion_pedif;
   document.getElementById("comdif").textContent =
-    allData[this.id].comprobacion_comdif;
+    allData[id].comprobacion_comdif;
   document.getElementById("padif").textContent =
-    allData[this.id].comprobacion_padif;
+    allData[id].comprobacion_padif;
   document.getElementById("otrodif").textContent =
-    allData[this.id].comprobacion_otrodif;
+    allData[id].comprobacion_otrodif;
   document.getElementById("sumaTotal").textContent =
-    allData[this.id].comprobacion_sumaTotal;  
+    allData[id].comprobacion_sumaTotal;  
   document.getElementById("fecha_Dcomprobacion").value =
-    allData[this.id].comprobacion_fecha;
-  document.getElementById("liquidacionC").value = allData[this.id].liquidacion;
-  document.getElementById("gastosRurales").value = allData[this.id].gastosR;
-  document.getElementById("DescripcionI").value = allData[this.id].descripcion_informativa;
+    allData[id].comprobacion_fecha;
+  document.getElementById("liquidacionC").value = allData[id].liquidacion;
+  document.getElementById("gastosRurales").value = allData[id].gastosR;
+  document.getElementById("DescripcionI").value = allData[id].descripcion_informativa;
   nextPrev(1);
   /*
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
