@@ -93,6 +93,8 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let liquidacionC = document.getElementById("liquidacionC").value;
   let gastosRurales = document.getElementById('gastosRurales').value;
   let descripcionInfo = document.getElementById("DescripcionI").value;
+  let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
+
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -162,7 +164,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: "financieros"
+    persona_area: 'financieros'
   };
   addDocumentAsync(data, numeroOficio);
 });
@@ -247,6 +249,8 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let liquidacionC = document.getElementById("liquidacionC").value;
   let gastosRurales = document.getElementById('gastosRurales').value;
   let descripcionInfo = document.getElementById("DescripcionI").value;
+  let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
+
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -317,7 +321,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: "financieros"
+    persona_area: 'financieros'
   };
 
   addDocumentAsync(data, numeroOficio);
