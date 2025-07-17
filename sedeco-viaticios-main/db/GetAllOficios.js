@@ -17,22 +17,34 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 //HTML
+
+
+
 const tabladriver = document.getElementById("tabla-driver");
 // Print Table
 tabladriver.innerHTML = "";
 
 //*********************************************** */
 // GET ALL
-//const q = db.collection("oficios").where("persona_area", "==", 'financieros').order_by("oficio_numero", "desc");
-const areaTrabajo = document.getElementById("areaTrabajo").textContent;
+
+export let allData = [];
+
+let DepartamentoOficio = document.getElementById("DepartamentoOficio").addEventListener('change', async function(){
+  let areaTrabajo = document.getElementById("areaTrabajo").innerText = this.value;
+  document.getElementById("areaTrabajo").innerText = this.value;
+  document.getElementById("showArea").innerText = this.value;
+
+
 const q = query(
   collection(db, "oficios"),
   where("persona_area", "==", areaTrabajo)
 );
 
+
+tabladriver.innerHTML = ''
+
 const querySnapshot = await getDocs(q);
 //console.log(querySnapshot)
-export let allData = [];
 let cont = 1;
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
@@ -67,4 +79,6 @@ querySnapshot.forEach((doc) => {
   //52 onclick="loadViaticos('${cont-1}')">
   cont++;
 });
+});
+
 console.log(allData);
