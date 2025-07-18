@@ -998,33 +998,43 @@ document.getElementById('idUnidadAdministrativa').addEventListener('change', fun
   switch (this.selectedIndex) {
     case 1:
       document.getElementById('nombrecargoUr').value = 'Lic.Claudio Méndez Fernández';
+      document.getElementById('cargoUr').value = 'Secretario';
       break;
     case 2:
       document.getElementById('nombrecargoUr').value = 'Dra.Mariana Gudiño Paredes';
+      document.getElementById('cargoUr').value = 'Delegada Administrativa';
       break;
     case 3:
       document.getElementById('nombrecargoUr').value = 'C.Eduardo Norberto Ramírez Canals';
+      document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
       break;
     case 4:
       document.getElementById('nombrecargoUr').value = 'Lic.Guadalupe Morelia Fuentes Peña';
+      document.getElementById('cargoUr').value = 'Directora de Comercialización';
       break;
     case 5:
       document.getElementById('nombrecargoUr').value = 'Ing.José Carrillo García';
+      document.getElementById('cargoUr').value = 'Director de Inversiones';
       break;
     case 6:
       document.getElementById('nombrecargoUr').value = 'Lic.Laura Yunuen Mejía Bejar';
+      document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
       break;
     case 7:
-      document.getElementById('nombrecargoUr').value = 'Dra.Gloría María Huerta Ramírez	';
+      document.getElementById('nombrecargoUr').value = 'Dra.Gloría María Huerta Ramírez';
+      document.getElementById('cargoUr').value = 'Directora de Previsión Social y Fomento al Empleo';
       break;
     case 8:
       document.getElementById('nombrecargoUr').value = 'Lic.Blanca Eugenia Rodríguez Morelos';
+      document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
       break;
     case 9:
       document.getElementById('nombrecargoUr').value = 'Lic.Sofía Beltrán Pacheco';
+      document.getElementById('cargoUr').value = 'Directora de Mejora Regulatoria';
       break;
     case 10:
       document.getElementById('nombrecargoUr').value = 'Mtro.Ruggiero Zepeda Maldonado';
+      document.getElementById('cargoUr').value = 'Director de Desarrollo de Proyectos Industriales';
       break;
   }
 })
