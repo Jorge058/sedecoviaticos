@@ -31,17 +31,15 @@ export let allData = [];
 
 let DepartamentoOficio = document.getElementById("DepartamentoOficio").addEventListener('change', async function(){
   let areaTrabajo = document.getElementById("areaTrabajo").innerText = this.value;
-  document.getElementById("areaTrabajo").innerText = this.value;
   document.getElementById("showArea").innerText = this.value;
-
 
 const q = query(
   collection(db, "oficios"),
   where("persona_area", "==", areaTrabajo)
 );
 
-
-tabladriver.innerHTML = ''
+tabladriver.innerHTML = '';
+allData = [];
 
 const querySnapshot = await getDocs(q);
 //console.log(querySnapshot)
@@ -60,7 +58,6 @@ querySnapshot.forEach((doc) => {
         <td >${doc.data().persona_nombre}</td>
         <td class="text-center">${ new Date(doc.data().oficio_fecha).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"numeric", day:"2-digit", year:"numeric"})}</td>
         <td class="text-center">${doc.data().oficio_lugar_comision}</td>
-        
         <td class="text-center"> <div class="btn-group">
         <button style="background-color: white; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnCargarData" type="button" 
@@ -78,6 +75,7 @@ querySnapshot.forEach((doc) => {
       </tr>`;
   //52 onclick="loadViaticos('${cont-1}')">
   cont++;
+    console.log(cont);
 });
 });
 

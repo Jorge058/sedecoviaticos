@@ -14,7 +14,6 @@ document.addEventListener("click", function (e) {
 }); */
 
 function loadViaticos(id) {
-  console.log(allData.id);
 
   document.getElementById("idUnidadAdministrativa").value =
     allData[id].persona_unidadresponsable;

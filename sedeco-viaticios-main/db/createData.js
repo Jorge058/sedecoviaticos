@@ -13,7 +13,7 @@ import firebaseConfig from './firebase_config.js';
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.querySelector("#generadorPDF2").addEventListener("click", function () {
+document.querySelector("#saveProgressLeave").addEventListener("click", function () {
   let unidadResponsable = document.getElementById(
     "idUnidadAdministrativa"
   ).value;
@@ -95,7 +95,6 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let descripcionInfo = document.getElementById("DescripcionI").value;
   let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
 
-
   const data = {
     persona_unidadresponsable: unidadResponsable,
     titular_nombre: nombreUr,
@@ -164,7 +163,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: DepartamentoOficio
+    persona_area: DepartamentoOficio,
   };
   addDocumentAsync(data, numeroOficio);
 });
@@ -251,7 +250,6 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let descripcionInfo = document.getElementById("DescripcionI").value;
   let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
 
-
   const data = {
     persona_unidadresponsable: unidadResponsable,
     titular_nombre: nombreUr,
@@ -321,7 +319,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: DepartamentoOficio
+    persona_area: DepartamentoOficio,
   };
 
   addDocumentAsync(data, numeroOficio);
@@ -399,7 +397,7 @@ async function addDocumentAsync(data, numeroOficio) {
 
         setTimeout(() => {
           window.location.href = "../index.html";
-        }, 4000);
+        }, 3000);
 
     }
   } catch (e) {
