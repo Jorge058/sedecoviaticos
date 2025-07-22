@@ -177,10 +177,20 @@ section#hero{
 .loadCookiesBtn:active {
   scale: 0.95;
 }
+#loadDataBtn{
+  background-color: #4A001F;
+  color: #fff !important;
+  padding: 0.5rem 1rem;   
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size:  1rem;
+  font-weight: bold;
+}
 
 #saveLeave{
-background-color: #4A001F;
-    color: #fff !important;
+  background-color: #4A001F;
+    color: #fff ;
     padding: 0.5rem 1rem;   
     border: none;
     outline: none;

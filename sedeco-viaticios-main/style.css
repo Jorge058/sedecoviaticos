@@ -179,7 +179,8 @@ section#hero{
     padding-left: 15vw;
 } 
 
-#DepartamentoOficioLabel{
+#DepartamentoOficiotxt{
+    color: #4A001F;
     font-size: larger;
     font-weight: 500;
     font: bold;

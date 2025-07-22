@@ -127,32 +127,37 @@ function showTab(n) {
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-
-    //LocalStorage BUTTON
-    /*
-    if (localStorage.getItem('Campos') !== null) {
-      document.getElementById("loadCookiesBtn").style.display = "inline";
-    } else {
-      document.getElementById("loadCookiesBtn").style.display = "none";
-    }
-    */
-
     //Button "Crear nuevo" shows
-    document.getElementById("loadDataBtn").style.display = "inline";
+    document.getElementById("loadDataBtn").style.display = "none";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("saveLeave").style.display = "none";
+    document.getElementById("txt").style.display = "none";
+    document.getElementById("txt2").style.display = "none";
+    document.getElementById("showArea").style.display = "none";
  
-  } else {
+  } else if(n==1) {
+    document.getElementById("btnArea").style.display= "flex";
+    document.getElementById("btnArea").style.flexDirection = "row-reverse"
     document.getElementById("prevBtn").style.display = "inline";
     document.getElementById("loadCookiesBtn").style.display = "none"; 
-    document.getElementById("loadDataBtn").style.display = "none";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Terminar";
+    document.getElementById("loadDataBtn").style.display = "";
     document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("saveLeave").style.display = "";
+    document.getElementById("txt").style.display = "none";
+    document.getElementById("txt2").style.display = "";
+    document.getElementById("showArea").style.display = "";
+  }
+  else if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("saveLeave").style.display = ""; 
   } else {
+    document.getElementById("btnArea").style.display= "flex";
+    document.getElementById("btnArea").style.flexDirection = "row"
+    document.getElementById("loadDataBtn").style.display = "none";
     document.getElementById("nextBtn").innerHTML = "Siguiente";
     document.getElementById("nextBtn").style.display = "";
-    document.getElementById("saveLeave").style.display = "none";
+    document.getElementById("saveLeave").style.display = "none"; 
+    document.getElementById("txt").style.display = "";
+    document.getElementById("txt2").style.display = "none";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
@@ -665,18 +670,23 @@ function calcularDiferencia() {
   
   return duracionDias = dias;
 }
-var fecha2Comprobacion = document.getElementById('fechaRRetorno');
-fecha2Comprobacion.addEventListener('input',calcularDiferenciaDias);
 
-function calcularDiferenciaDias() {
-  let dias = null;
+realDate(document.getElementById("fechaRSalida"), document.getElementById("fechaRRetorno"));
+function realDate(inicioDate, finalDate) {
+  
+  finalDate.addEventListener("change", function(e) {
+    console.log(inicioDate.value, finalDate.value)
 
-    const diferenciaMs = fechaRRetorno - fechaRSalida;
-    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+2;
-    document.getElementById('duracion_Comprobacion').value = dias;
+    let date1 = new Date(inicioDate.value);
+    let date2 = new Date(finalDate.value);
+    let diffTime = Math.abs(date2 - date1);
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    diffDays = diffDays +1;
+    console.log(diffDays)
+    document.getElementById('duracion_Comprobacion').value = diffDays
+  })
 }
-
-
 
 // todo /////////////////////////////////////////////////////////////////////////////////////
 

@@ -344,7 +344,8 @@ async function addDocumentAsync(data, numeroOficio) {
           icon: 'iconalert',
           confirmButton: 'boton-confirmar',
           cancelButton: 'boton-cancelar'
-        }
+        },
+        allowOutsideClick: false,
       }).then(async (result) => {
         if (result.isConfirmed) {
           // lógica para editar
@@ -359,7 +360,8 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alerta',
             title: 'titulo',
             icon: 'iconalert',
-        } 
+        },
+        allowOutsideClick: false,
         });
 
         setTimeout(() => {
@@ -376,7 +378,11 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alerta',
             title: 'titulo',
             icon: 'iconalert',
-        } 
+        },
+        allowOutsideClick: false,
+        }).then(()=> {
+          document.body.style.overflowX = 'unset';
+          document.body.style.paddingRight = 'initial';
         });
         }
       });
@@ -392,11 +398,12 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alertaDone',
             title: 'tituloDone',
             icon: 'iconalertDone',
-        } 
+        },
+      allowOutsideClick:false
         });
 
         setTimeout(() => {
-          window.location.href = "../index.html";
+          window.location.href = "../..//index.html";
         }, 3000);
 
     }

@@ -22,7 +22,6 @@ const db = getFirestore(app);
 
 const tabladriver = document.getElementById("tabla-driver");
 // Print Table
-tabladriver.innerHTML = "";
 
 //*********************************************** */
 // GET ALL
@@ -32,6 +31,7 @@ export let allData = [];
 let DepartamentoOficio = document.getElementById("DepartamentoOficio").addEventListener('change', async function(){
   let areaTrabajo = document.getElementById("areaTrabajo").innerText = this.value;
   document.getElementById("showArea").innerText = this.value;
+  nextPrev(1);
 
 const q = query(
   collection(db, "oficios"),
@@ -51,7 +51,7 @@ querySnapshot.forEach((doc) => {
   //save into object locally
   allData.push(doc.data());
   // doc.data() is never undefined for query doc snapshots
-
+  
   tabladriver.innerHTML += ` <tr>
         <th scope="row" class="text-center">${cont}</th>
         <td class="text-center">${doc.data().oficio_numero}</td>
@@ -75,7 +75,6 @@ querySnapshot.forEach((doc) => {
       </tr>`;
   //52 onclick="loadViaticos('${cont-1}')">
   cont++;
-    console.log(cont);
 });
 });
 
