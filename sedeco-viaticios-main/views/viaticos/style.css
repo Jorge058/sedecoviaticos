@@ -705,3 +705,78 @@ td.text-right {
   text-align: right;
 }
 
+
+
+
+/* Mantener la estructura interna de la card siempre igual */
+.car-card {
+    height: 100%; /* asegura que la tarjeta ocupe toda la altura del contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.car-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.car-card .card-title {
+    min-height: 1.5rem; /* asegura altura fija del título */
+}
+
+.car-card .text-muted {
+    min-height: 1.2rem; /* asegura altura fija para las placas */
+}
+
+.car-card button.btn {
+    margin-top: auto; /* lo empuja hacia el final de la card-body */
+}
+
+.card-body .text-muted {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    display: block;
+    width: 100%;
+}
+
+.card-title {
+  text-align: left !important;
+  min-height: 2.5rem; /* Establece altura mínima para 1 o 2 líneas */
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: normal; /* Permite varias líneas */
+  margin-bottom: 0.5rem;
+}
+
+
+.card-body .d-flex > div {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.card-body .text-muted {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+
+#selectedVehicleTitle {
+  padding-left: 8px;
+  margin: 0;
+  text-align: left;
+}
+
+#selectedVehicleDetails,
+.selected-vehicle-details, /* en caso de que tenga clase adicional */
+.text-muted.mb-0 {
+  padding-left: 12px !important;
+  margin: 0 !important;
+  text-align: left;
+}
+

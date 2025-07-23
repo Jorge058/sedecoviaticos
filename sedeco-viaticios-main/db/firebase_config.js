@@ -23,6 +23,25 @@ const firebaseConfig = {
 
   const colRef = collection(db, "autos");
 
+
+
+  /***************************************************** */
+  /**
+   * Obtiene todos los autos de la colección "autos" Para exportarla en el nuevo visualizador de autos
+   * @returns {Promise<Array>} - Retorna una promesa que resuelve con un array de autos
+   */
+export async function getAllAutos() {
+  const snapshot = await getDocs(colRef);
+  const autosArr = [];
+
+  snapshot.docs.forEach((doc) => {
+    autosArr.push({ ...doc.data(), id: doc.id });
+  });
+
+  return autosArr;
+}
+//******************************************************* */
+
    //*********************************************** */
   // GET ALL
   let autosArr = [];
@@ -51,6 +70,7 @@ const firebaseConfig = {
         console.log(err.message)
     })
 
+ 
 export { app, db, collection, getDocs, Timestamp, addDoc };
 export { query, orderBy, limit, where, onSnapshot };
 

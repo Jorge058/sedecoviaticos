@@ -191,6 +191,8 @@ function validateForm() {
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
+    // Excepción para el input de búsqueda *****************************************************
+    if (y[i].id === "searchInput") continue;
     // If a field is empty...
     if (y[i].value == "") {
       // add an "invalid" class to the field:
@@ -203,23 +205,11 @@ function validateForm() {
   //textarea
   textAreaCheck = x[currentTab].getElementsByTagName("textarea");
   for (i = 0; i < textAreaCheck.length; i++) {
-    // If a field is empty...
     if (textAreaCheck[i].value == "") {
       textAreaCheck[i].className += " invalid";
       valid = false;
     }
   }
-
-  /*
-  selectCheck = x[currentTab].getElementsByTagName("select");
-  for (i = 0; i < selectCheck.length; i++) {
-    // If a field is empty...
-    if (selectCheck[i].value == "") {
-      selectCheck[i].className += " invalid";
-      valid = false;
-    }
-  }
-*/
 
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
@@ -347,41 +337,45 @@ autocomplete(document.getElementById("inputCiudades"), ciudadesMich);
 hideSelectsVehicle(document.getElementById("vehicleInput"));
 
 function hideSelectsVehicle(selectValue) {
-  const modelo = document.getElementById("modeloAuto")
-  const anio = document.getElementById("modeloAnio")
-  const placas = document.getElementById("placasInput")
+  //const modelo = document.getElementById("modeloAuto")
+  //const anio = document.getElementById("modeloAnio")
+  //const placas = document.getElementById("placasInput")
+  const card = document.querySelector('div.card.shadow');
 
   selectValue.addEventListener("change", function(e) {
 
-    let disableNode = document.querySelectorAll(".disableOption");
-    console.log(disableNode)
+    // let disableNode = document.querySelectorAll(".disableOption");
+    //console.log(disableNode)
 
     if (selectValue.options[selectValue.selectedIndex].value == "Oficial"){
-      modelo.disabled=true
-      anio.disabled=true
-      placas.disabled=true
+      card.hidden = false;
 
-      for (let i = 0; i < disableNode.length; i++) {
-        disableNode[i].disabled=true;
-      }
+      //modelo.disabled=true
+      //anio.disabled=true
+      //placas.disabled=true
+
+      //for (let i = 0; i < disableNode.length; i++) {
+      //  disableNode[i].disabled=true;
+      //}
 
     }
 
-    if (selectValue.options[selectValue.selectedIndex].value == "Particular"){
-      for (let i = 0; i < disableNode.length; i++) {
+    if (selectValue.options[selectValue.selectedIndex].value !== "Oficial"){
+      card.hidden = true;
+      //for (let i = 0; i < disableNode.length; i++) {
         //disableNode[i].disabled=false;
-       modelo.value = " "
-       anio.value = " "
-       placas.value = " "
-      }
-      console.log("cambie particular")
+       //modelo.value = " "
+       //anio.value = " "
+      // placas.value = " "
+      //}
+      //console.log("cambie particular")
     }
 
-    else {
-      for (let i = 0; i < disableNode.length; i++) {
-        disableNode[i].disabled=false;
-      }
-    }
+    //else {
+    //  for (let i = 0; i < disableNode.length; i++) {
+    //    disableNode[i].disabled=false;
+    //  }
+    //}
   })
 }
 
@@ -727,7 +721,7 @@ campo4.addEventListener('input',sumaToltal)
 
 function calcularSuma() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo2.value) || 0;
+  var valor2 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
 
@@ -737,7 +731,7 @@ function calcularSuma() {
 
 function calcularSuma2() {
   var valor1 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo4.value) || 0;
+  var valor2 = parseFloat(campo4.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado2.textContent = suma;
 }
@@ -745,7 +739,7 @@ function calcularSuma2() {
 
 function calcularSuma3() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo3.value) || 0;
+  var valor2 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado3.textContent = suma;
   //enviamos la suma al tercer documento
@@ -754,7 +748,7 @@ function calcularSuma3() {
 
 function calcularSuma4() {
   var valor1 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo4.value) || 0;
+  var valor2 = parseFloat(campo4.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado4.textContent = suma;
   document.getElementById('hS').textContent = suma;
@@ -787,8 +781,8 @@ pas1.addEventListener("input", calSuma);
 
 function calSuma() {
   var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj1.value) || 0;
-  var valor3 = parseFloat(pas1.value) || 0;
+  var valor2 = parseFloat(peaj1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor3 = parseFloat(pas1.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2 + valor3;
 
@@ -801,8 +795,8 @@ pas2.addEventListener("input", calSuma2);
 
 function calSuma2() {
   var valor1 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj2.value) || 0;
-  var valor3 = parseFloat(pas2.value) || 0;
+  var valor2 = parseFloat(peaj2.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor3 = parseFloat(pas2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2 + valor3;
 
@@ -815,7 +809,7 @@ com2.addEventListener("input", sumaComb);
 
 function sumaComb() {
   var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(com2.value) || 0;
+  var valor2 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('comS').textContent = suma
@@ -827,7 +821,7 @@ peaj2.addEventListener("input", sumaPeaj);
 
 function sumaPeaj() {
   var valor1 = parseFloat(peaj1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj2.value) || 0;
+  var valor2 = parseFloat(peaj2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('peS').textContent = suma
@@ -839,7 +833,7 @@ pas2.addEventListener("input", sumaPas);
 
 function sumaPas() {
   var valor1 = parseFloat(pas1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(pas2.value) || 0;
+  var valor2 = parseFloat(pas2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('paS').textContent = suma
