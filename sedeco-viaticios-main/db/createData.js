@@ -50,6 +50,7 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
 
   let tipoVehiculo = document.getElementById("vehicleInput").value;
   let marcaVehiculo = document.getElementById("marcaVehiculo").value;
+  let idVehiculo = document.getElementById("idVehiculo").value;
   let modeloVehiculo = document.getElementById("modeloAuto").value;
   let modeloAnioVehiculo = document.getElementById("modeloAnio").value;
   let placasVehiculo = document.getElementById("placasInput").value;
@@ -123,6 +124,7 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
     recibo_total2:showTotal2,
     recibo_total: resultado5,
     auto_tipo: tipoVehiculo,
+    auto_id: idVehiculo,
     auto_marca: marcaVehiculo,
     auto_modelo: modeloVehiculo,
     auto_año: modeloAnioVehiculo,

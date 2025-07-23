@@ -66,6 +66,7 @@ function loadViaticos(id) {
     allData[id].recibo_total;
 
   document.getElementById("vehicleInput").value = allData[id].auto_tipo;
+  document.getElementById("idVehiculo").value = allData[id].auto_id || "";
   document.getElementById("marcaVehiculo").value = allData[id].auto_marca;
   document.getElementById("modeloAuto").value = allData[id].auto_modelo;
   document.getElementById("modeloAnio").value = allData[id].auto_año;
