@@ -349,26 +349,16 @@ function hideSelectsVehicle(selectValue) {
 
     if (selectValue.options[selectValue.selectedIndex].value == "Oficial"){
       card.hidden = false;
-
-      //modelo.disabled=true
-      //anio.disabled=true
-      //placas.disabled=true
-
-      //for (let i = 0; i < disableNode.length; i++) {
-      //  disableNode[i].disabled=true;
-      //}
-
     }
 
     if (selectValue.options[selectValue.selectedIndex].value !== "Oficial"){
       card.hidden = true;
-      //for (let i = 0; i < disableNode.length; i++) {
-        //disableNode[i].disabled=false;
-       //modelo.value = " "
-       //anio.value = " "
-      // placas.value = " "
-      //}
-      //console.log("cambie particular")
+     
+            document.getElementById('marcaVehiculo').value = ' ';
+            document.getElementById('modeloAuto').value = ' ';
+            document.getElementById('modeloAnio').value = ' ';
+            document.getElementById('placasInput').value = ' ';
+            document.getElementById('idVehiculo').value = ' ';
     }
 
     //else {
