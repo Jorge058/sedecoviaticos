@@ -98,6 +98,8 @@
                 <form id="regForm" action="" autocomplete="off">
                     <h1 id="txt">Oficio de Comisión</h1>
                     <h2 id="txt2">Mostrando oficios de: <h3 id="showArea" style="color: #4A001F;"></h3></h2>
+
+                 
                     <!-- One "tab" for each step in the form: -->
                     
                     <div class="tab ">
@@ -125,7 +127,7 @@
                             </p>
                     </div>
 
-                    <div class="tab ">
+                    <div class="tab " >
                         <div class="container table-responsive py-6"> 
                             <table class="table table-striped table-hover table-bordered">
                                 <thead class="thead-dark">
@@ -150,7 +152,10 @@
                         </div>
                     </div>
 
-                    <div class="tab ">DATOS GENERALES DEL OFICIO
+                       <!-- Carga de menu on load data-->
+                     <div id="MenuOnLoad"></div>
+
+                    <div class="tab" id="PestanaOficio">DATOS GENERALES DEL OFICIO
                     <!-- <p><input placeholder="Unidad Responsable" oninput="this.className = ''"></p> -->
                     <p><select id="idUnidadAdministrativa" class="" name="unidadAdministrativa" required="">    
                             <option value="" disabled selected hidden>Unidad Responsable</option>         
@@ -183,6 +188,8 @@
                     <p><input placeholder="Numero de Oficio" type="number" id="numOficio" oninput="this.className = ''"></p>
                     <p><input placeholder="Fecha del Oficio" type="text" id="documentDate" onfocus="(this.type='date')"></p>
                 </div>
+
+                
                     
                 <div class="tab"> DATOS DEL USUARIO
                     <p><input placeholder="Nombre Completo" id="nombreUsuario" style="text-transform: capitalize;"></p>
@@ -191,7 +198,7 @@
                     <p><textarea placeholder="Lo anterior, describir el objetivo a alcanzar en el desarrollo de acitivades" id="objetivosComision" class="bigText" oninput="this.className = ''"></textarea></p>
                 </div >
 
-                <div class="tab autocomplete ">DATOS DE LA COMISIÓN
+                <div class="tab autocomplete" id="PestanaRecibo">DATOS DE LA COMISIÓN
                     <div class="datos">
                         <div class="fechas">
                             <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
@@ -466,7 +473,7 @@
 
                     </div>
 
-                    <div class="tab gastosC ">"GASTOS DE COMISIÓN"
+                    <div class="tab gastosC" id="PestanaComprobacion">"GASTOS DE COMISIÓN"
 
                         <div class="datos">
                         <div class="fechas">
@@ -563,7 +570,7 @@
                         </div>
                     </div>
 
-                    <div class="tab">
+                    <div class="tab" id="PestanaRurales">
                         GASTOS RURALES
                         <p id="signo" style="align-items: center; display: flex; justify-content: center;"><span class="input-icon" style="background-color: white;"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="gastosRurales"  style="background: transparent; border: none; width: 50%; height: 44px; font-size: small;" value=0></input></p>
                     </div>
@@ -585,7 +592,7 @@
                         </div>
                     </div>
 
-                    <div class="tab">
+                    <div class="tab" id="PestanaTarjetaInformativa">
                         TARJETA INFORMATIVA
                         <p>
                             <textarea maxlength="2005" name="DescripcionI" placeholder="Descripción de las actividades" type="text" id="DescripcionI" required></textarea>

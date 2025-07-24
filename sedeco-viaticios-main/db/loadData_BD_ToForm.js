@@ -6,6 +6,7 @@ document.addEventListener("click", function (e) {
   if (e.target.closest(".BtnCargarData")) {
     const documentId = e.target.closest(".BtnCargarData").id;
     loadViaticos(documentId);
+    loadMenu();
   }
 });
 
@@ -199,3 +200,21 @@ let sumdev = document.getElementById('sumadev').textContent;
 
 
  */
+
+
+/*
+  function loadMenu() {
+    const menu = document.getElementById("MenuOnLoad");
+    if (menu) {
+      menu.innerHTML = `
+        <ul>
+          <li><a href="#PestanaOficios">Oficios</a></li>
+          <li><a href="#PestanaRecibo">Recibo</a></li>
+          <li><a href="#PestanaComprobacion">Comprobación</a></li>
+          <li><a href="#PestanaRurales">Gastos Rurales</a></li>
+          <li><a href="#PestanaTarjetaInformativa">Tarjeta Informativa</a></li>
+        </ul>`;
+    }
+  }
+
+  */
