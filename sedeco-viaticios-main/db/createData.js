@@ -264,7 +264,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     persona_cargo: cargoUsuario,
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
-    oficio_status: "Terminado",
+    oficio_status: "Completado",
     oficio_fecha_inicial: fechaInicio1,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
