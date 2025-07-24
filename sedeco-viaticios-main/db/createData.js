@@ -106,6 +106,7 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
     persona_cargo: cargoUsuario,
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
+     oficio_status: "En proceso",
     oficio_fecha_inicial: fechaInicio1,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
@@ -251,6 +252,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let gastosRurales = document.getElementById('gastosRurales').value;
   let descripcionInfo = document.getElementById("DescripcionI").value;
   let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
+  
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -262,6 +264,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     persona_cargo: cargoUsuario,
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
+    oficio_status: "Terminado",
     oficio_fecha_inicial: fechaInicio1,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
@@ -411,5 +414,51 @@ async function addDocumentAsync(data, numeroOficio) {
     }
   } catch (e) {
     console.error("Error adding document: ", e);
+  }
+
+
+
+  //Function to send data to Google Sheets
+  await sendToGoogleSheets(data);
+
+}
+
+
+
+
+
+async function sendToGoogleSheets(data) {
+  const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbycirtEaYWhrikCIDO3mzUa-LAl0uR7mH7dzYwzL35KVf-Rj7gXIqlhaJVNpSAaEqI3/exec"; // URL web app de Google Sheets
+
+  // Limita los campos a enviar (solo los que nos interesan)
+  const filteredData = {
+    oficio_numero: data.oficio_numero,
+    oficio_status: data.oficio_status,
+    persona_nombre: data.persona_nombre,
+    persona_objetivos: data.persona_objetivos,
+    oficio_fecha: data.oficio_fecha,
+    oficio_lugar_comision: data.oficio_lugar_comision,
+    oficio_fecha_inicial: data.oficio_fecha_inicial,
+    oficio_fecha_final: data.oficio_fecha_final,
+    recibo_alimentacion_total: data.recibo_alimentacion_total,
+    recibo_hospedaje_total: data.recibo_hospedaje_total,
+    recibo_combustible: data.recibo_combustible,
+    recibo_pasajes: data.recibo_pasajes,
+    recibo_peajes: data.recibo_peajes,
+    recibo_total: data.recibo_total
+  };
+
+  try {
+    const response = await fetch(SHEETS_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors", // ⚠️ No tendrás acceso a la respuesta
+      body: JSON.stringify(filteredData),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const result = await response.text();
+    console.log("Google Sheets response:", result);
+  } catch (err) {
+    console.error("Error al enviar a Google Sheets:", err);
   }
 }
