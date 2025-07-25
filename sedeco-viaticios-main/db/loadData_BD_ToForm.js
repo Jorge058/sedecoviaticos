@@ -202,19 +202,205 @@ let sumdev = document.getElementById('sumadev').textContent;
  */
 
 
-/*
-  function loadMenu() {
-    const menu = document.getElementById("MenuOnLoad");
-    if (menu) {
-      menu.innerHTML = `
-        <ul>
-          <li><a href="#PestanaOficios">Oficios</a></li>
-          <li><a href="#PestanaRecibo">Recibo</a></li>
-          <li><a href="#PestanaComprobacion">Comprobación</a></li>
-          <li><a href="#PestanaRurales">Gastos Rurales</a></li>
-          <li><a href="#PestanaTarjetaInformativa">Tarjeta Informativa</a></li>
-        </ul>`;
+
+  // Función para crear el menú de navegación horizontal
+function loadMenu() {
+  const menu = document.getElementById("MenuOnLoad");
+  if (menu) {
+    menu.innerHTML = `
+      <div class="navigation-menu">
+        <ul class="nav-tabs">
+          <li><a href="javascript:void(0)" onclick="navigateToTab('PestanaOficio')" class="nav-link">Oficio</a></li>
+          <li><a href="javascript:void(0)" onclick="navigateToTab('PestanaRecibo')" class="nav-link">Recibo</a></li>
+          <li><a href="javascript:void(0)" onclick="navigateToTab('PestanaComprobacion')" class="nav-link">Comprobación</a></li>
+          <li><a href="javascript:void(0)" onclick="navigateToTab('PestanaRurales')" class="nav-link">Zonas Rurales</a></li>
+          <li><a href="javascript:void(0)" onclick="navigateToTab('PestanaTarjetaInformativa')" class="nav-link">Tarjeta Informativa</a></li>
+        </ul>
+      </div>
+    `;
+
+    addMenuStyles();
+
+    // 🕐 Esperar un pequeño tiempo antes de verificar visibilidad
+    setTimeout(() => {
+      updateMenuVisibility();
+    }, 50);
+  }
+}
+
+
+// Función para controlar la visibilidad del menú según la pestaña activa
+function updateMenuVisibility() {
+  const menu = document.getElementById("MenuOnLoad");
+  const tab1 = document.getElementById("Tab1");
+  const tab2 = document.getElementById("Tab2");
+
+  // Si Tab1 o Tab2 están visibles, ocultar el menú
+  if ((tab1 && tab1.style.display === "block") || (tab2 && tab2.style.display === "block")) {
+    if (menu) menu.style.display = "none";
+  } else {
+    if (menu) menu.style.display = "block";
+  }
+}
+
+
+
+
+
+// Función para agregar estilos CSS al menú
+// Función para agregar estilos CSS al menú
+function addMenuStyles() {
+  if (!document.getElementById('menuStyles')) {
+    const style = document.createElement('style');
+    style.id = 'menuStyles';
+    style.textContent = `
+      .navigation-menu {
+        margin: 20px 0;
+        border-bottom: 2px solid #4A001F;
+        width: 100%;
+      }
+      
+      .nav-tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #f8f9fa;
+        border-radius: 8px 8px 0 0;
+        width: 100%;
+      }
+      
+      .nav-tabs li {
+        margin: 0;
+        border-right: 1px solid #dee2e6;
+        flex: 1;
+        min-width: 0;
+      }
+      
+      .nav-tabs li:last-child {
+        border-right: none;
+      }
+      
+      .nav-link {
+        display: block;
+        padding: 16px 12px;
+        text-decoration: none;
+        color: #4A001F;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      
+      .nav-link:hover {
+        background-color: #4A001F;
+        color: white;
+        text-decoration: none;
+      }
+      
+      .nav-link.active {
+        background-color: #4A001F;
+        color: white;
+      }
+      
+      @media (max-width: 768px) {
+        .nav-tabs {
+          flex-direction: column;
+        }
+        
+        .nav-tabs li {
+          border-right: none;
+          border-bottom: 1px solid #dee2e6;
+          flex: none;
+        }
+        
+        .nav-tabs li:last-child {
+          border-bottom: none;
+        }
+        
+        .nav-link {
+          padding: 14px 12px;
+          font-size: 16px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .nav-link {
+          font-size: 12px;
+          padding: 12px 8px;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+// Función para navegar a una pestaña específica
+window.navigateToTab = function(targetTabId) {
+  const tabs = document.getElementsByClassName("tab");
+  let targetIndex = -1;
+  
+  // Encontrar el índice de la pestaña objetivo
+  for (let i = 0; i < tabs.length; i++) {
+    if (tabs[i].id === targetTabId) {
+      targetIndex = i;
+      break;
     }
   }
+  
+  if (targetIndex !== -1) {
+    // Calcular la diferencia entre la pestaña actual y la objetivo
+    const difference = targetIndex - currentTab;
+    
+    // Usar nextPrev para navegar
+    if (difference !== 0) {
+      // Ocultar la pestaña actual
+      tabs[currentTab].style.display = "none";
+      
+      // Actualizar currentTab
+      currentTab = targetIndex;
+      
+      // Mostrar la pestaña objetivo
+      showTab(currentTab);
+      
+      // Actualizar enlaces activos
+      updateActiveNavLink(targetTabId);
 
-  */
+         // Actualizar visibilidad del menú después de cambiar de pestaña
+      updateMenuVisibility();
+    }
+  }
+};
+
+// Función para actualizar el enlace activo en el menú
+function updateActiveNavLink(activeTabId) {
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  // Mapear IDs de pestañas a texto de enlaces
+  const tabMap = {
+    'PestanaOficio': 'Oficio',
+    'PestanaRecibo': 'Recibo', 
+    'PestanaComprobacion': 'Comprobación',
+    'PestanaRurales': 'Zonas Rurales',
+    'PestanaTarjetaInformativa': 'Tarjeta Informativa'
+  };
+  
+  const activeText = tabMap[activeTabId];
+  if (activeText) {
+    navLinks.forEach(link => {
+      if (link.textContent === activeText) {
+        link.classList.add('active');
+      }
+    });
+  }
+}

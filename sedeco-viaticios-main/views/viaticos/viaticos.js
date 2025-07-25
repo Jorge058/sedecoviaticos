@@ -120,10 +120,29 @@ const ciudadesMich = [
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
+// Agregar esta función al archivo viaticos.js existente
+// Para mantener sincronizado el menú con la navegación normal
+
+// Función original showTab modificada para actualizar el menú
 function showTab(n) {
   // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
+  const x = document.getElementsByClassName("tab");
+
+   // Ocultar todas las pestañas primero
+  for (let i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
   x[n].style.display = "block";
+  
+  // Actualizar el menú de navegación si existe
+  updateMenuHighlight(n);
+
+  // Actualizar visibilidad del menú DESPUÉS de cambiar la visibilidad de las pestañas
+  setTimeout(() => {
+    updateMenuVisibility();
+  }, 10); // Pequeño delay para asegurar que el DOM se actualice
+  
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
@@ -160,8 +179,76 @@ function showTab(n) {
     document.getElementById("txt2").style.display = "none";
   }
   // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
+  fixStepIndicator(n);
+
+  if (typeof window.onTabChange === 'function') {
+    window.onTabChange();
+  }
+
 }
+
+// Nueva función para actualizar el resaltado del menú
+function updateMenuHighlight(tabIndex) {
+  const tabs = document.getElementsByClassName("tab");
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  if (navLinks.length === 0) return; // No hay menú cargado
+  
+  // Mapear índices de pestañas a IDs
+  const tabIdMap = {
+    2: 'Oficio',           // PestanaOficio
+    4: 'Recibo',           // PestanaRecibo  
+    9: 'Comprobación',     // PestanaComprobacion
+    10: 'Zonas Rurales',   // PestanaRurales
+    12: 'Tarjeta Informativa' // PestanaTarjetaInformativa
+  };
+  
+  // Remover clase active de todos los enlaces
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  // Agregar clase active al enlace correspondiente
+  const activeText = tabIdMap[tabIndex];
+  if (activeText) {
+    navLinks.forEach(link => {
+      if (link.textContent === activeText) {
+        link.classList.add('active');
+      }
+    });
+  }
+}
+
+// Función para obtener el índice de pestaña por ID
+function getTabIndexById(tabId) {
+  const tabs = document.getElementsByClassName("tab");
+  const tabIndexMap = {
+    'PestanaOficio': 2,
+    'PestanaRecibo': 4, 
+    'PestanaComprobacion': 9,
+    'PestanaRurales': 10,
+    'PestanaTarjetaInformativa': 12
+  };
+  
+  return tabIndexMap[tabId] || -1;
+}
+
+// Función global para navegar a una pestaña específica (usada por el menú)
+window.navigateToTab = function(targetTabId) {
+  const targetIndex = getTabIndexById(targetTabId);
+  
+  if (targetIndex !== -1 && targetIndex !== currentTab) {
+    // Ocultar la pestaña actual
+    const tabs = document.getElementsByClassName("tab");
+    tabs[currentTab].style.display = "none";
+    
+    // Actualizar currentTab
+    currentTab = targetIndex;
+    
+    // Mostrar la pestaña objetivo
+    showTab(currentTab);
+  }
+};
 
 function nextPrev(n) {
   // This function will figure out which tab to display
@@ -182,6 +269,29 @@ function nextPrev(n) {
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
+
+  if (typeof window.onTabChange === 'function') {
+    window.onTabChange();
+  }
+
+  setTimeout(() => {
+  updateMenuVisibility();
+}, 50);
+
+}
+
+// Función para controlar la visibilidad del menú según la pestaña activa
+function updateMenuVisibility() {
+  const menu = document.getElementById("MenuOnLoad");
+  const tab1 = document.getElementById("Tab1");
+  const tab2 = document.getElementById("Tab2");
+
+  // Si Tab1 o Tab2 están visibles, ocultar el menú
+  if ((tab1 && tab1.style.display === "block") || (tab2 && tab2.style.display === "block")) {
+    if (menu) menu.style.display = "none";
+  } else {
+    if (menu) menu.style.display = "block";
+  }
 }
 
 function validateForm() {
