@@ -157,6 +157,8 @@ section#hero{
   scale: 0.95;
 }
 
+/* Estilos para la tabla de coches */
+
 
 .loadCookiesBtn {
   background-color: white;
@@ -342,7 +344,6 @@ section#hero{
 
   /* Estilo para la seccion de recibos */
   .tab.recibo div{
-    display: flex;
     justify-content: center;
     align-items: center;
   } 
@@ -413,10 +414,11 @@ section#hero{
 
 /*Estilos para la comision*/
 .fechas{
-  align-items: center;
-  justify-content: space-between;
+  align-items:center;
+  justify-content: space-around;
   display: flex;
 }
+
 
 .btnAgregar{
   color: white;
@@ -706,15 +708,13 @@ td.text-right {
   text-align: right;
 }
 
-
-
-
 /* Mantener la estructura interna de la card siempre igual */
 .car-card {
     height: 100%; /* asegura que la tarjeta ocupe toda la altura del contenedor */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-color: #4A001F !important;
 }
 
 .car-card .card-body {
@@ -732,8 +732,57 @@ td.text-right {
     min-height: 1.2rem; /* asegura altura fija para las placas */
 }
 
+.car-card #carIcon{
+  color: #4A001F;
+}
+
 .car-card button.btn {
     margin-top: auto; /* lo empuja hacia el final de la card-body */
+    color: #4A001F;
+    border-color: #4A001F;
+}
+
+.car-card button.btn:hover{
+background-color: #4A001F;
+color: white;
+}
+
+.car-card.selected button.btn{
+  color: white;
+  background-color: #4A001F;
+}
+
+#selectedVehicleCard i{
+  color: #4A001F;
+}
+
+#selectedVehicleCard button{
+  color: white !important;
+  background-color: #4A001F;
+
+  i{
+    color: white;
+  }
+}
+
+.page-link{
+  color: white !important;
+  background-color: #4A001F !important;
+}
+
+.page-link span{
+  color: white !important;
+  background-color: #4A001F !important;
+}
+
+.page-item.active a{
+  color: #4A001F !important;
+  background-color: white !important;
+  border-color: #4A001F;
+}
+
+.page-item.active a:hover{
+  opacity: 0.5;
 }
 
 .card-body .text-muted {

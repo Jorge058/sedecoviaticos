@@ -216,7 +216,8 @@
                         <button class="btnAgregar" type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
                     </div>
                     <hr>
-                    <table class="table-fill">
+                    <div class="container table-responsive">
+                        <table class="table-fill">
                         <thead>
                             <tr>
                             <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
@@ -230,32 +231,34 @@
                             <tr>
                                 <td id="ShowCiudad1"></td>
                                 <td class="text-left"><a href="#" id="ShowFecha1" onclick=""></a></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''>  </a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''>  </a></p></td> 
                             </tr> 
                             <tr>
                                 <td id="ShowCiudad2"></td>
                                 <td class="text-left"><a href="#" id="ShowFecha2" onclick=""></a></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
                             </tr> 
                             <tr>
                                 <td id=""></td>
                                 <td>SUMAS</td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alimentosT" name="fecha" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></p></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hospedajeT" name="alimentos" style=" color: black;background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></p></td>  
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alimentosT" name="fecha" style="color: black; background: transparent; border: none; width:  100px; font-size: small;" disabled value=''></a></p></td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hospedajeT" name="alimentos" style=" color: black;background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td>  
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
                             </tr> 
                         </tbody>
                     </table>
+                    </div>
+                    
 
                 <button class="btnLimpiarC" id="btnLimpiarC">Limpiar campos</button>
                 <hr>
                 </div>
                     
-                    <div class="tab"><h5 class="mb-3 text-start"> Tipo de Vehiculo</h5>
+                <div class="tab"><h5 class="mb-3 text-start"> Tipo de Vehiculo</h5>
                         <p >
                             <select id="vehicleInput" placeholder="VehiculoInput" oninput="this.className = ''">
                                 <option value="Autobús">Autobús</option>
@@ -287,157 +290,151 @@
                         
                         <p hidden><input placeholder="Placas" type="text" id="placasInput" disabled required></p>
                         </p>
-
-
                         
                             <!-- Sección de vehículos -->
-        
-       
             
-                <div class="card shadow">
-                  
-                    <div class="card-body">
-                        <div class="mb-4">
-                            <h5 class="mb-3"><i class="bi bi-search me-2"></i> Buscar Auto</h5>
-                            <div class="search-container mb-3">
-                                <i class="bi bi-search"></i>
-                                <input type="text" id="searchInput" class="form-control search-input" placeholder="Buscar por marca, modelo, año o placa...">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h5 class="mb-3"><i class="bi bi-search me-2"></i> Buscar Auto</h5>
+                                <div class="search-container mb-3">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" id="searchInput" class="form-control search-input" placeholder="Buscar por marca, modelo, año o placa...">
+                                </div>
+                                
+                                <!--
+                                <div class="alert alert-info d-flex align-items-center">
+                                    <i class="bi bi-info-circle-fill me-2"></i>
+                                    Selecciona un auto de la lista para asignarlo a tu viático.
+                                </div>
+                                -->
                             </div>
                             
-                            <!--
-                            <div class="alert alert-info d-flex align-items-center">
-                                <i class="bi bi-info-circle-fill me-2"></i>
-                                Selecciona un auto de la lista para asignarlo a tu viático.
+                            <div id="carList" class="row g-3 mb-4">
+                                <!-- Los autos se cargarán aquí -->
                             </div>
-                            -->
-                        </div>
-                        
-                        <div id="carList" class="row g-3 mb-4">
-                            <!-- Los autos se cargarán aquí -->
-                        </div>
 
-                        <div id="selectedVehicleCard" class="card mb-4" style="display: none;">
-    <div class="card-body">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-                <!-- <i class="fas fa-car fa-2x text-primary me-3"></i>-->
-                <i class="fas fa-check-circle text-success fa-2x"></i>
-                <div>
-                    <h5 class="mb-0" id="selectedVehicleTitle"></h5>
-                    <p class="text-muted mb-0" id="selectedVehicleDetails"></p>
-                </div>
-            </div>
-            <!-- Botón para ocultar el card -->
-            <button type="button" class="btn btn-outline-danger btn-sm ms-2" onclick="deselectCar('${selectedCar.id}', event)">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-</div>
-                        
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center" id="pagination">
-                                <!-- La paginación se generará aquí -->
-                            </ul>
-                        </nav>
-                        
-                        
-                        <div class="d-flex justify-content-between mt-4" hidden>
-                            <!--
-                            <button class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left me-2"></i>Regresar
-                            </button>
-                            <button id="confirmBtn" class="btn btn-primary" disabled>
-                                Confirmar Selección<i class="bi bi-check2 ms-2"></i>
-                            </button>
-                                    -->
+                            <div id="selectedVehicleCard" class="card mb-4" style="display: none;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <!-- <i class="fas fa-car fa-2x text-primary me-3"></i>-->
+                                            <i class="fas fa-check-circle fa-2x"></i>
+                                            <div>
+                                                <h5 class="mb-0" id="selectedVehicleTitle"></h5>
+                                                <p class="text-muted mb-0" id="selectedVehicleDetails"></p>
+                                            </div>
+                                        </div>
+                                        <!-- Botón para ocultar el card -->
+                                        <button type="button" class="btn btn-outline-danger btn-sm ms-2" onclick="deselectCar('${selectedCar.id}', event)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center" id="pagination">
+                                    <!-- La paginación se generará aquí -->
+                                </ul>
+                            </nav>
+                            
+                            <div class="d-flex justify-content-between mt-4" hidden>
+                                <!--
+                                <button class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left me-2"></i>Regresar
+                                </button>
+                                <button id="confirmBtn" class="btn btn-primary" disabled>
+                                    Confirmar Selección<i class="bi bi-check2 ms-2"></i>
+                                </button>
+                                        -->
+                            </div>
                         </div>
                     </div>
-                </div>
-         
-       
- 
 
-    <!-- Modal con detalles del auto seleccionado -->
-    <div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Confirmar Auto Seleccionado</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col-4 fw-bold">Marca:</div>
-                        <div class="col-8" id="modalMarca"></div>
+                <!-- Modal con detalles del auto seleccionado -->
+                    <div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary text-white">
+                                    <h5 class="modal-title">Confirmar Auto Seleccionado</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col-4 fw-bold">Marca:</div>
+                                        <div class="col-8" id="modalMarca"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4 fw-bold">Modelo:</div>
+                                        <div class="col-8" id="modalModelo"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4 fw-bold">Año:</div>
+                                        <div class="col-8" id="modalAnio"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4 fw-bold">Placa:</div>
+                                        <div class="col-8" id="modalPlaca"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer" hidden>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" id="finalConfirm">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-4 fw-bold">Modelo:</div>
-                        <div class="col-8" id="modalModelo"></div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-4 fw-bold">Año:</div>
-                        <div class="col-8" id="modalAnio"></div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-4 fw-bold">Placa:</div>
-                        <div class="col-8" id="modalPlaca"></div>
-                    </div>
-                </div>
-                <div class="modal-footer" hidden>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="finalConfirm">Confirmar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
                 <!--fin -->
-                    </div>
+                </div>
 
+                
                     <div class="tab recibo">GASTOS DE GAS, PEAJES, ETC
-                        <table class="table-fill">
-                            <thead>
-                                <tr>
-                                <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
-                                <th class="text-left">FECHA (S)</th>
-                                <th class="text-left">COMBUSTIBLE</th>
-                                <th class="text-left">PEAJES</th>
-                                <th class="text-left">PASAJES</th>
-                                <th class="text-left">TOTAL</th>
-                                </tr>
-                            </thead>
+                        <div class="container table-responsive">
+                            <table class="table-fill">
+                                <thead>
+                                    <tr>
+                                    <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
+                                    <th class="text-left">FECHA (S)</th>
+                                    <th class="text-left">COMBUSTIBLE</th>
+                                    <th class="text-left">PEAJES</th>
+                                    <th class="text-left">PASAJES</th>
+                                    <th class="text-left">TOTAL</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody class="table-hover" id="tabla-main"> 
-                            
-                                <tr>
-                                    <td id="sC1"></td>
-                                    <td class="text-left"><a href="#" id="sF1" onclick=""></a></td>
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowComb1" name="comb1" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPeajes1" name="peajes1" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPasajes1" name="pasajes1" style="color: black;  background: transparent; border: none; width: 100%; height: 44px; font-size:small;"  value=0></input></p></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero" name="tot1" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
+                                <tbody class="table-hover" id="tabla-main"> 
+                                
+                                    <tr>
+                                        <td id="sC1"></td>
+                                        <td class="text-left"><a href="#" id="sF1" onclick=""></a></td>
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowComb1" name="comb1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPeajes1" name="peajes1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma1" type="number" onblur="" id="ShowPasajes1" name="pasajes1" style="color: black;  background: transparent; border: none; width:  100px; height: 44px; font-size:small;"  value=0></input></p></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero" name="tot1" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
 
-                                <tr>
-                                    <td id="sC2"></td>
-                                    <td class="text-left"><a href="#" id="sF2" onclick=""></a></td>
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowComb2" name="comb2" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPeajes2" name="peajes2" style=" color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPasajes2" name="pasajes2" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;"  value=0></input></p></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero2" name="tot2" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
+                                    <tr>
+                                        <td id="sC2"></td>
+                                        <td class="text-left"><a href="#" id="sF2" onclick=""></a></td>
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowComb2" name="comb2" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPeajes2" name="peajes2" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="ShowPasajes2" name="pasajes2" style="color: black; background: transparent; border: none; width:  100px; height: 44px; font-size:small;"  value=0></input></p></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="totalDinero2" name="tot2" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
 
-                                <tr>
-                                    <td id=""></td>
-                                    <td></td>
-                                    <td class="text-center"><a type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>
-                                    <td class="text-center"><a type="number" onblur="" id="hospedajeT" name="alimentos" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" disabled value=''></a></td>  
-                                    <td class="text-center"><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''>SUMAS</a></td> 
-                                    <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="tot3" name="tot3" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td id=""></td>
+                                        <td></td>
+                                        <td class="text-center"><a type="number" onblur="" id="alimentosT" name="fecha" style="background: transparent; border: none; width:  100px; height: 44px; font-size: small;" disabled value=''></a></td>
+                                        <td class="text-center"><a type="number" onblur="" id="hospedajeT" name="alimentos" style="color: black; background: transparent; border: none; width:  100px; font-size: small;" disabled value=''></a></td>  
+                                        <td class="text-center"><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none; width:  100px; height: 44px; font-size:small;" disabled value=''>SUMAS</a></td> 
+                                        <td class="text-center"><p><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="tot3" name="tot3" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <div class="tab">OFICIO
@@ -474,74 +471,74 @@
                     </div>
 
                     <div class="tab gastosC" id="PestanaComprobacion">"GASTOS DE COMISIÓN"
-
                         <div class="datos">
-                        <div class="fechas">
-                            <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha real de salida <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaRSalida"></p>
-                            <p class="middleInputWidth" > Fecha real de retorno <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaRRetorno"></p>
-                            <p hidden><input type="number" placeholder="Duracion Dias" disabled="false" id="duracion_Comprobacion"></p>
-
+                            <div class="fechas">
+                                <p class="middleInputWidth" style="padding-left: 0 !important;"> Fecha real de salida <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaRSalida"></p>
+                                <p class="middleInputWidth" > Fecha real de retorno <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaRRetorno"></p>
+                                <p hidden><input type="number" placeholder="Duracion Dias" disabled="false" id="duracion_Comprobacion"></p>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
                         <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Fecha de comprobación:</p>
                         <input id="fecha_Dcomprobacion" type="date" placeholder="Fecha de comprobación" required>
                         <hr>
-                        <table class="table-fill">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">CONCEPTO</th>
-                                    <th class="text-center">ANTICIPADO</th>
-                                    <th class="text-center">DEVENGADO</th>
-                                    <th class="text-center">DIFRENCIAS</th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-hover" id="tabla-main"> 
-                                <tr>
-                                    <td>ALIMENTACION</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="" type="number" onblur="" id="aldev" name="comb1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="aldif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                                <tr>
-                                    <td>HOSPEDAJE</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="hdev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hdif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                                <tr>
-                                    <td>PEAJES</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="peS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="pedev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="pedif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                                <tr>
-                                    <td>COMBUSTIBLE</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="comdev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comdif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                                <tr>
-                                    <td>PASAJES</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="paS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="padev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="padif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
+                        <div class="container table-responsive">
+                            <table class="table-fill">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">CONCEPTO</th>
+                                        <th class="text-center">ANTICIPADO</th>
+                                        <th class="text-center">DEVENGADO</th>
+                                        <th class="text-center">DIFRENCIAS</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-hover" id="tabla-main"> 
+                                    <tr>
+                                        <td>ALIMENTACION</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="" type="number" onblur="" id="aldev" name="comb1" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="aldif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
                                     </tr> 
-                                <tr>
-                                    <td>OTROS</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otroS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="otrodev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otrodif" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                                <tr>
-                                    <td>SUMA</td>
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaS" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a class="suma2" type="number" onblur="" id="sumadev" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></a></P></td> 
-                                    <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaTotal" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size:small;" disabled value=''></a></p></td> 
-                                </tr> 
-                            </tbody>
+                                    <tr>
+                                        <td>HOSPEDAJE</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="hdev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hdif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                    <tr>
+                                        <td>PEAJES</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="peS" name="" style="color: black; background: transparent; border: none; width: 100%;  font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="pedev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="pedif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                    <tr>
+                                        <td>COMBUSTIBLE</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="comdev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="comdif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                    <tr>
+                                        <td>PASAJES</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="paS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="padev" name="comb2" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="padif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        </tr> 
+                                    <tr>
+                                        <td>OTROS</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otroS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input class="suma2" type="number" onblur="" id="otrodev" name="" style="background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></input></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="otrodif" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                    <tr>
+                                        <td>SUMA</td>
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaS" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a class="suma2" type="number" onblur="" id="sumadev" name="" style="color: black; background: transparent; border: none; width: 100%; height: 44px; font-size: small;" value=0></a></P></td> 
+                                        <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="sumaTotal" name="" style="color: black; background: transparent; border: none; width: 100%; font-size:small;" disabled value=''></a></p></td> 
+                                    </tr> 
+                                </tbody>
                         </table>
+                        </div>
                         <br>
                         <hr>
                         <p class="middleInputWidth" style="margin-left:0%; padding-left: 0;">Como resultado de la liquidacion anterior:</p>
