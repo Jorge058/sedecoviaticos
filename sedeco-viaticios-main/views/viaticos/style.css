@@ -417,8 +417,19 @@ section#hero{
   align-items:center;
   justify-content: space-around;
   display: flex;
+  gap: 15px;
 }
 
+.fechas p{
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .fechas {
+    flex-direction: column;
+    width:100% ;
+  }
+}
 
 .btnAgregar{
   color: white;
