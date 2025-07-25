@@ -221,27 +221,12 @@ function loadMenu() {
 
     addMenuStyles();
 
-    // 🕐 Esperar un pequeño tiempo antes de verificar visibilidad
-    setTimeout(() => {
-      updateMenuVisibility();
-    }, 50);
+   
   }
 }
 
 
-// Función para controlar la visibilidad del menú según la pestaña activa
-function updateMenuVisibility() {
-  const menu = document.getElementById("MenuOnLoad");
-  const tab1 = document.getElementById("Tab1");
-  const tab2 = document.getElementById("Tab2");
 
-  // Si Tab1 o Tab2 están visibles, ocultar el menú
-  if ((tab1 && tab1.style.display === "block") || (tab2 && tab2.style.display === "block")) {
-    if (menu) menu.style.display = "none";
-  } else {
-    if (menu) menu.style.display = "block";
-  }
-}
 
 
 
@@ -373,8 +358,7 @@ window.navigateToTab = function(targetTabId) {
       // Actualizar enlaces activos
       updateActiveNavLink(targetTabId);
 
-         // Actualizar visibilidad del menú después de cambiar de pestaña
-      updateMenuVisibility();
+    
     }
   }
 };
