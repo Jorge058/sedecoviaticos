@@ -301,7 +301,7 @@ section#hero{
     border: 1px solid #d4d4d4;
     border-bottom: none;
     border-top: none;
-    z-index: 99;
+    z-index: 9999;
     /*position the autocomplete items to be the same width as the container:*/
     /*top: 100%;*/
     left: 0;
@@ -415,7 +415,7 @@ section#hero{
 /*Estilos para la comision*/
 .fechas{
   align-items:center;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   gap: 15px;
 }
@@ -735,14 +735,8 @@ td.text-right {
     height: 100%;
 }
 
-.car-card .card-title {
-    min-height: 1.5rem; /* asegura altura fija del título */
-}
 
-.car-card .text-muted {
-    min-height: 1.2rem; /* asegura altura fija para las placas */
-}
-
+/* CAmbios */
 .car-card #carIcon{
   color: #4A001F;
 }
@@ -758,23 +752,29 @@ background-color: #4A001F;
 color: white;
 }
 
-.car-card.selected button.btn{
-  color: white;
-  background-color: #4A001F;
+.car-card .card-title {
+    min-height: 1.5rem; /* asegura altura fija del título */
 }
 
-#selectedVehicleCard i{
-  color: #4A001F;
+.car-card .text-muted {
+    min-height: 1.2rem; /* asegura altura fija para las placas */
 }
 
-#selectedVehicleCard button{
+/* Botón: icono rojo normalmente, blanco al hacer hover */
+.btn.btn-outline-danger.btn-sm.ms-2 i {
+  /*color: #dc3545 !important;  */
   color: white !important;
-  background-color: #4A001F;
-
-  i{
-    color: white;
-  }
+  transition: color 0.2s;
 }
+
+/* Asegúrate de que el hover sobrescriba el color del icono */
+.btn.btn-outline-danger.btn-sm.ms-2:hover i {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+}
+
+
+
 
 .page-link{
   color: white !important;

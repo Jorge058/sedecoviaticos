@@ -31,6 +31,8 @@ function loadViaticos(id) {
     allData[id].persona_descripcion_actividades;
   document.getElementById("objetivosComision").value =
     allData[id].persona_objetivos;
+
+    //HOJA 2
   document.getElementById("fechaInicio").value =
     allData[id].oficio_fecha_inicial;
   document.getElementById("fechaFinal").value =
@@ -66,6 +68,17 @@ function loadViaticos(id) {
   document.getElementById("ShowTotal3").textContent =
     allData[id].recibo_total;
 
+    document.getElementById('montoAlimentacion').value=allData[id].recibo_alimentacion_2;
+    document.getElementById('montoHospedaje').value=allData[id].recibo_hospedaje_2;
+
+    //update
+    document.getElementById("fechaI1").textContent = allData[id].fechaInicio_Comision1;
+    document.getElementById("fechaF1").textContent = allData[id].fechaFinal_Comision1;
+    document.getElementById("fechaI2").textContent = allData[id].fechaInicio_Comision2;
+    document.getElementById("fechaF2").textContent = allData[id].fechaFinal_Comision2;
+
+
+    //HOJA 3
   document.getElementById("vehicleInput").value = allData[id].auto_tipo;
   document.getElementById("idVehiculo").value = allData[id].auto_id || "";
   document.getElementById("marcaVehiculo").value = allData[id].auto_marca;

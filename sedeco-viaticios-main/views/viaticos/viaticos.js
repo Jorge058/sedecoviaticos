@@ -481,22 +481,37 @@ function hideSelectsVehicle(selectValue) {
 
 /***************************************** */
 // VALIDATE DATES - SUBSTRACT DAYS
-checksMayDate(document.getElementById("fechaInicio"), document.getElementById("fechaFinal"));
-function checksMayDate(inicioDate, finalDate) {
+//checksMayDate(document.getElementById("fechaI1"), document.getElementById("fechaF2"));
+
+  // Escuchar ambos inputs
+
+document.getElementById("fechaI1").addEventListener("change", function() {
+  checksDiffDays(
+    document.getElementById("fechaI1"),
+    document.getElementById("fechaF1")
+  );
+});
+document.getElementById("fechaI2").addEventListener("change", function() {
+  checksDiffDays(
+    document.getElementById("fechaI1"),
+    document.getElementById("fechaF2")
+  );
+});
+
+
+function checksDiffDays(inicioDate, finalDate) {
   
-  finalDate.addEventListener("change", function(e) {
-    console.log(inicioDate.value, finalDate.value)
-
-
+  if (inicioDate && finalDate) {
     let date1 = new Date(inicioDate.value);
     let date2 = new Date(finalDate.value);
     let diffTime = Math.abs(date2 - date1);
     let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     diffDays = diffDays +1;
-    console.log(diffDays)
+    //console.log(diffDays)
     document.getElementById('duracionDias').value = diffDays
-  })
+  }
+
 }
 
 //BTN CARGAR COOKIES FORMULARIO
@@ -645,19 +660,33 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   let fechaInicio = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   let lugarComision = document.getElementById('inputCiudades').value;
+  let montoAlimentos = document.getElementById('montoAlimentacion').value;
+  let montoHospedaje = document.getElementById('montoHospedaje').value;
+
+      const alimentacion1 = document.getElementById('ShowAlimentacion1')
+      const hospedaje1 = document.getElementById('ShowHospedaje1')
+
+      const alimentacion2 = document.getElementById('ShowAlimentacion2')
+      const hospedaje2 = document.getElementById('ShowHospedaje2')
 
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+
       document.getElementById('sC1').innerHTML = lugarComision;
     
-      fechaInicio1 = new Date(fechaInicio);
-      fechaFinal1 = new Date(fechaFinal);
+      //fechaInicio1 = new Date(fechaInicio);
+      //fechaFinal1 = new Date(fechaFinal);
       lugarComision1 = lugarComision;
 
-      document.getElementById('duracionDias').value = calcularDiferencia();
-      document.getElementById('fechaI1').value = fechaInicio1;
-      document.getElementById('fechaF1').value = fechaFinal1;
+      //document.getElementById('duracionDias').value = calcularDiferencia();
+      document.getElementById('fechaI1').value = fechaInicio;
+      document.getElementById('fechaF1').value = fechaFinal;
+      document.getElementById('fechaI1').dispatchEvent(new Event('change'));
+
+       // Mostrar los montos de alimentacion y hospedaje
+    alimentacion1.value = montoAlimentos;
+    hospedaje1.value = montoHospedaje;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
   
@@ -684,6 +713,10 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
     }
 
+   
+
+
+    // Agregar los valores en la segunda casilla 2 en la tabla
 } else if(document.getElementById('ShowCiudad1').innerHTML != '' && document.getElementById('ShowFecha1').innerHTML != ''){
 
   document.getElementById('ShowCiudad2').innerHTML = lugarComision;
@@ -693,13 +726,16 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
 
-  fechaInicio2 = new Date(fechaInicio);
-  fechaFinal2 = new Date(fechaFinal);
   lugarComision2 = lugarComision;
 
-  document.getElementById('duracionDias').value = calcularDiferencia();
-  document.getElementById('fechaI2').value = fechaInicio2;
-  document.getElementById('fechaF2').value = fechaFinal2;
+  //document.getElementById('duracionDias').value = calcularDiferencia();
+  document.getElementById('fechaI2').value = fechaInicio;
+  document.getElementById('fechaF2').value = fechaFinal;
+  document.getElementById('fechaI2').dispatchEvent(new Event('change'));
+
+  // Mostrar los montos de alimentacion y hospedaje
+    alimentacion2.value = montoAlimentos;
+    hospedaje2.value = montoHospedaje;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
         
@@ -727,6 +763,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
       document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
       }
+
+      
     }
 })
 
@@ -738,6 +776,16 @@ document.querySelector('#btnLimpiarC').addEventListener('click',function () {
   document.getElementById('ShowCiudad2').innerHTML = ''
   document.getElementById('ShowFecha2').innerHTML = ''
 
+  document.getElementById('ShowAlimentacion1').value = ''
+  document.getElementById('ShowHospedaje1').value = ''
+  document.getElementById('ShowAlimentacion2').value = '' 
+  document.getElementById('ShowHospedaje2').value = ''
+
+  document.getElementById('fechaI1').value = '';
+  document.getElementById('fechaF1').value = '';
+  document.getElementById('fechaI2').value = '';
+  document.getElementById('fechaF2').value = '';  
+
   /*Comprobamos que los espacios esten en blanco para volver a activar el boton */
   if (document.getElementById('ShowCiudad1').innerHTML === '' ) {
     document.getElementById('BtnAgregarComision').disabled = false
@@ -747,6 +795,7 @@ document.querySelector('#btnLimpiarC').addEventListener('click',function () {
 })
 
   //? Funcion para calcular la diferencia de dias entre la fecha de inicio y la fecha final
+  /*
 function calcularDiferencia() {
   let dias = null;
 
@@ -764,6 +813,7 @@ function calcularDiferencia() {
   
   return duracionDias = dias;
 }
+*/
 
 realDate(document.getElementById("fechaRSalida"), document.getElementById("fechaRRetorno"));
 function realDate(inicioDate, finalDate) {
@@ -812,10 +862,53 @@ campo3.addEventListener("input", calcularSuma3);
 campo2.addEventListener("input", calcularSuma4);
 campo4.addEventListener("input", calcularSuma4);
 
-campo1.addEventListener('input',sumaToltal)
-campo2.addEventListener('input',sumaToltal)
-campo3.addEventListener('input',sumaToltal)
-campo4.addEventListener('input',sumaToltal)
+campo1.addEventListener('input',sumaTotal)
+campo2.addEventListener('input',sumaTotal)
+campo3.addEventListener('input',sumaTotal)
+campo4.addEventListener('input',sumaTotal)
+
+
+const descriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+
+Object.defineProperty(campo1, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma(); // llama la función cuando el valor cambia desde JS
+    calcularSuma3();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo2, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma(); // llama la función cuando el valor cambia desde JS
+    calcularSuma4();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo3, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma2(); // llama la función cuando el valor cambia desde JS
+    calcularSuma3();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo4, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma2(); // llama la función cuando el valor cambia desde JS
+    calcularSuma4();
+    sumaTotal();
+  }
+});
 
 
 
@@ -855,7 +948,7 @@ function calcularSuma4() {
 
 }
 
-function sumaToltal(){
+function sumaTotal(){
   let total1 = parseFloat(document.getElementById('ShowTotal1').textContent || 0)
   let total2 = parseFloat(document.getElementById('ShowTotal2').textContent || 0)
 
@@ -1164,3 +1257,15 @@ document.addEventListener('DOMContentLoaded', function() {
   select1.addEventListener('change', syncSelects);
 });
 
+
+/*
+function formatearFecha(fecha) {
+  fecha= new Date(fecha).toLocaleDateString('es-mx', {timeZone: 'UTC'})
+  const anio = fecha.getFullYear();
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses: 0–11
+  const dia = String(fecha.getDate()).padStart(2, '0');      // Días: 1–31
+
+  return `${anio}-${mes}-${dia}`;
+}
+
+*/

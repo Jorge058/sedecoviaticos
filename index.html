@@ -198,21 +198,78 @@
                     <p><textarea placeholder="Lo anterior, describir el objetivo a alcanzar en el desarrollo de acitivades" id="objetivosComision" class="bigText" oninput="this.className = ''"></textarea></p>
                 </div >
 
-                <div class="tab autocomplete" id="PestanaRecibo">DATOS DE LA COMISIÓN
+                <div class="tab autocomplete" id="PestanaRecibo">
                     <div class="datos">
-                        <div class="fechas">
-                            <p style="padding-left: 0 !important;"> Fecha de inicio <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')" id="fechaInicio"></p>
-                            <p> Fecha de termino <input placeholder="Fecha(s) de la comision" onfocus="(this.type='date')"  id="fechaFinal"></p>
-                            <p hidden ><input type="number" placeholder="Duracion Dias" disabled="false" id="duracionDias"></p>
+                        <div class="fechasDiv">
+                          
+
+
+                            <div class="row ">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="fechaInicio" class="form-label required-field text-dark">Fecha de inicio</label>
+                                    <input type="date" class="form-control" id="fechaInicio" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fechaSalida" class="form-label required-field text-dark">Fecha de salida</label>
+                                    <input type="date" class="form-control" id="fechaFinal" required>
+                                </div>
+
+                                    <p hidden ><input type="number" placeholder="Duracion Dias" disabled="false" id="duracionDias"></p>
+                            </div>
+
 
                             <p hidden><input type="text" disabled="false" id="fechaI1" value=" "></p>
                             <p hidden><input type="text" disabled="false" id="fechaF1" value=" "></p>
                             <p hidden><input type="text" disabled="false" id="fechaI2" value=" "></p>
                             <p hidden><input type="text" disabled="false" id="fechaF2" value=" "></p>
                         </div>
+
+                        <div>
+                        
+                        
+
+                        </div>
                         <br>
-                        <input placeholder="Lugar de la comision" id="inputCiudades" type="text" name="inputCiudades">
+                        
+                        <div for="inputCiudades">
+                            <label for="montoHospedaje" class="form-label required-field text-dark">Lugar</label>
+                            <input placeholder="Lugar de la comision" id="inputCiudades" type="text" name="inputCiudades">
+                        </div>
+
                         <br>
+                        <hr>
+                        <br>
+
+                          <div class="gastos">
+                            
+                            <h5 class="mb-3 text-dark"><i class="bi bi-cash-stack fas-fa "></i>Gastos</h5>
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="montoAlimentacion" class="form-label required-field text-dark">Alimentación</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control mt-0" id="montoAlimentacion" min="0" step="0.01" placeholder="0.00" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="montoHospedaje" class="form-label required-field text-dark">Hospedaje</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control mt-0" id="montoHospedaje" min="0" step="0.01" placeholder="0.00" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--
+                            <p class="text-center">Gastos de la comisión</p>
+                            <p class="text-center">Alimentación</p>
+                            <input type="number" id="inputAlimentacion" placeholder="Alimentación" onblur="" value=0>
+                            <p class="text-center">Hospedaje</p>
+                            <input type="number" id="inputHospedaje" placeholder="Hospedaje" onblur="" value=0>
+                            -->
+
+                          </div>
                         <button class="btnAgregar" type="button" id="BtnAgregarComision" style="margin-top: 2vh;" onclick="">Agregar</button>
                     </div>
                     <hr>
@@ -220,8 +277,8 @@
                         <table class="table-fill">
                         <thead>
                             <tr>
-                            <th class="text-left" width="40%">LUGAR (ES) DE LA COMISIÓN</th>
-                            <th class="text-left">FECHA (S)</th>
+                            <th class="text-left" width="35%">LUGAR</th>
+                            <th class="text-left">FECHA</th>
                             <th class="text-left">ALIMENTACIÓN</th>
                             <th class="text-left">HOSPEDAJE</th>
                             <th class="text-left">TOTAL</th>
@@ -231,23 +288,23 @@
                             <tr>
                                 <td id="ShowCiudad1"></td>
                                 <td class="text-left"><a href="#" id="ShowFecha1" onclick=""></a></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style=" color: black; background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''>  </a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion1" name="fecha1" style=" color: black; background: transparent; border: none !important; width:  100px; height: 44px; font-size: medium;" disabled value=0></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje1" name="alimentacion1" style=" color: black; background: transparent; border: none !important; width:  100px; height: 44px; font-size: medium;" disabled value=0></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal1" name="hospedaje1" style="color: black; background: transparent; border: none; width:  100px;  font-size: medium;" disabled value=''>  </a></p></td> 
                             </tr> 
                             <tr>
                                 <td id="ShowCiudad2"></td>
                                 <td class="text-left"><a href="#" id="ShowFecha2" onclick=""></a></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none; width:  100px; height: 44px; font-size: small;" value=0></input></p></td> 
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowAlimentacion2" name="reparaciones1" style="background: transparent; border: none !important; width:  100px; font-size: medium ;"disabled value=0></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><input type="number" onblur="" id="ShowHospedaje2" name="reparaciones1" style="background: transparent; border: none !important; width:  100px; font-size: medium;" disabled value=0></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal2" name="observaciones1" style="color: black; background: transparent; border: none; width:  100px;  font-size: medium;" disabled value=''></a></p></td> 
                             </tr> 
                             <tr>
                                 <td id=""></td>
                                 <td>SUMAS</td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alimentosT" name="fecha" style="color: black; background: transparent; border: none; width:  100px; font-size: small;" disabled value=''></a></p></td>
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hospedajeT" name="alimentos" style=" color: black;background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td>  
-                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none; width:  100px; font-size:small;" disabled value=''></a></p></td> 
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="alimentosT" name="fecha" style="color: black; background: transparent; border: none !important; width:  100px;  font-size: medium;" disabled value=''></a></p></td>
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="hospedajeT" name="alimentos" style=" color: black;background: transparent; border: none !important; width:  100px;  font-size: medium;" disabled value=''></a></p></td>  
+                                <td class="text-center"><p id="signo"><span class="input-icon"><span class="fa-solid fa-dollar-sign" style="color: black;"></span></span><a type="number" onblur="" id="ShowTotal3" name="hospedaje" style="color: black; background: transparent; border: none !important; width:  100px;  font-size: medium;" disabled value=''></a></p></td> 
                             </tr> 
                         </tbody>
                     </table>
@@ -319,16 +376,18 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <!-- <i class="fas fa-car fa-2x text-primary me-3"></i>-->
-                                            <i class="fas fa-check-circle fa-2x"></i>
+                                            <i class="fas fa-check-circle text-success fa-2x"></i>
                                             <div>
                                                 <h5 class="mb-0" id="selectedVehicleTitle"></h5>
                                                 <p class="text-muted mb-0" id="selectedVehicleDetails"></p>
                                             </div>
                                         </div>
                                         <!-- Botón para ocultar el card -->
-                                        <button type="button" class="btn btn-outline-danger btn-sm ms-2" onclick="deselectCar('${selectedCar.id}', event)">
-                                            <i class="fas fa-times"></i>
-                                        </button>
+                                           <!-- Botón para ocultar el card -->
+            <button type="button" class="btn btn-outline-danger btn-sm ms-2" onclick="deselectCar('${selectedCar.id}', event)">
+                <i class="fas fa-times"></i>
+            </button>
+
                                     </div>
                                 </div>
                             </div>

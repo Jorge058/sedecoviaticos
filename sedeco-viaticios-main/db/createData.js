@@ -29,7 +29,7 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
   ).value;
   let objetivosComision = document.getElementById("objetivosComision").value;
 
-  let fechaInicio1 = document.getElementById("fechaInicio").value;
+  let fechaInicio = document.getElementById("fechaInicio").value;
   let fechaFinal = document.getElementById("fechaFinal").value;
   let duracionDias = document.getElementById("duracionDias").value;
   let inputCiudades = document.getElementById("inputCiudades").value;
@@ -37,6 +37,11 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
   let lugarComision2 = document.getElementById("ShowCiudad2").textContent || "";
   let fechaComision1 = document.getElementById("ShowFecha1").textContent || "";
   let fechaComision2 = document.getElementById("ShowFecha2").textContent || "";
+  //update
+  let fechaInicio_Comision1 = document.getElementById("fechaI1").value;
+  let fechaFinal_Comision1 = document.getElementById("fechaF1").value;
+  let fechaInicio_Comision2 = document.getElementById("fechaI2").value;
+  let fechaFinal_Comision2 = document.getElementById("fechaF2").value;
 
   let ShowAlimentacion1 = document.getElementById("ShowAlimentacion1").value;
   let ShowAlimentacion2 = document.getElementById("ShowAlimentacion2").value;
@@ -107,7 +112,7 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
      oficio_status: "En proceso",
-    oficio_fecha_inicial: fechaInicio1,
+    oficio_fecha_inicial: fechaInicio,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
     oficio_ciudad: inputCiudades,
@@ -115,6 +120,10 @@ document.querySelector("#saveProgressLeave").addEventListener("click", function 
     oficio_lugar_comision_2: lugarComision2,
     oficio_showfecha1: fechaComision1,
     oficio_showfecha2:fechaComision2,
+    fechaInicio_Comision1: fechaInicio_Comision1,
+    fechaFinal_Comision1: fechaFinal_Comision1,
+    fechaInicio_Comision2: fechaInicio_Comision2,
+    fechaFinal_Comision2: fechaFinal_Comision2,
     recibo_alimentacion: parseInt(ShowAlimentacion1),
     recibo_alimentacion_2: ShowAlimentacion2,
     recibo_alimentacion_total:alimentosT,
@@ -187,7 +196,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   ).value;
   let objetivosComision = document.getElementById("objetivosComision").value;
 
-  let fechaInicio1 = document.getElementById("fechaInicio").value;
+  let fechaInicio = document.getElementById("fechaInicio").value;
   let fechaFinal = document.getElementById("fechaFinal").value;
   let duracionDias = document.getElementById("duracionDias").value;
   let inputCiudades = document.getElementById("inputCiudades").value;
@@ -195,6 +204,11 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let lugarComision2 = document.getElementById("ShowCiudad2").textContent || "";
   let fechaComision1 = document.getElementById("ShowFecha1").textContent || "";
   let fechaComision2 = document.getElementById("ShowFecha2").textContent || "";
+//update
+  let fechaInicio_Comision1 = document.getElementById("fechaI1").value;
+  let fechaFinal_Comision1 = document.getElementById("fechaF1").value;
+  let fechaInicio_Comision2 = document.getElementById("fechaI2").value;
+  let fechaFinal_Comision2 = document.getElementById("fechaF2").value;
 
   let ShowAlimentacion1 = document.getElementById("ShowAlimentacion1").value;
   let ShowAlimentacion2 = document.getElementById("ShowAlimentacion2").value;
@@ -265,7 +279,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
     oficio_status: "Completado",
-    oficio_fecha_inicial: fechaInicio1,
+    oficio_fecha_inicial: fechaInicio,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
     oficio_ciudad: inputCiudades,
@@ -273,6 +287,10 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     oficio_lugar_comision_2: lugarComision2,
     oficio_showfecha1: fechaComision1,
     oficio_showfecha2:fechaComision2,
+    fechaInicio_Comision1: fechaInicio_Comision1,
+    fechaFinal_Comision1: fechaFinal_Comision1,
+    fechaInicio_Comision2: fechaInicio_Comision2,
+    fechaFinal_Comision2: fechaFinal_Comision2,
     recibo_alimentacion: parseInt(ShowAlimentacion1),
     recibo_alimentacion_2: ShowAlimentacion2,
     recibo_alimentacion_total:alimentosT,
