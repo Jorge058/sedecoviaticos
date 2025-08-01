@@ -351,9 +351,14 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     }
 
     if (fechaInicio2 && fechaFinal2 == " ") {
+
+        console.log(" LOGGER 1 IF")
+            console.log(fechaInicio2, fechaFinal2)
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
         iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     }else{
+         console.log(" LOGGER 2 ELSE")
+            console.log(fechaInicio2, fechaFinal2)
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
         iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     } 
