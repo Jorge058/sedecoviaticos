@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro con Nombre de Usuario</title>
+  <!-- Firebase v9 compat para scripts tradicionales -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+  <style>
+    body { font-family: Arial; max-width: 400px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    h2 { margin-top: 30px; }
+    input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+    #user-info { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Registro con Nombre de Usuario</h1>
+
+  <h2>Registrarse</h2>
+  <!-- Nuevo campo para el nombre de usuario -->
+  <input id="username" type="text" placeholder="Nombre de usuario">
+  <input id="emailRegister" type="email" placeholder="Correo">
+  <input id="passwordRegister" type="password" placeholder="Contraseña">
+  <button onclick="register()">Registrar</button>
+
+  <h2>Iniciar Sesión</h2>
+
+  <!-- 
+  <input id="emailLogin" type="email" placeholder="Correo">
+    -->
+
+    <p id="areaTrabajo" hidden></p>
+                        <p id="DepartamentoOficioP">
+                            <h1 id="DepartamentoOficiotxt">Bienvenido(a) Selecciona la dirección, departamento o área para mostrar sus respectivos oficios</h1>
+                                <select id="emailLogin" required="">    
+                                    <option value="" disabled selected hidden>Dirección o departamento</option>         
+                                    <option value="tecnica@sedeco.gob.mx"> Técnica</option>
+                                    <option value="delegacion@sedeco.gob.mx"> Delegación Administrativa</option>
+                                    <option value="informatica@sedeco.gob.mx"> Departamento de Informática</option>
+                                    <option value="humanos@sedeco.gob.mx"> Departamento de Recursos Humanos</option>
+                                    <option value="financieros@sedeco.gob.mx"> Departamento de Recursos Financieros</option>
+                                    <option value="materiales@sedeco.gob.mx"> Departamento de Recursos Materiales</option>
+                                    <option value="microempresa@sedeco.gob.mx"> Departamento de Capacitación y Desarrollo a la Microempresa</option>
+                                    <option value="temec@sedeco.gob.mx"> Subsecretaría de Comercio Internacional(TEMEC)</option>
+                                    <option value="comercializacion@sedeco.gob.mx"> Dirección de Comercialización</option>
+                                    <option value="inversiones@sedeco.gob.mx"> Dirección de Inversiones</option>
+                                    <option value="prevision@sedeco.gob.mx"> Subsecretaría de Trabajo y Previsión Social</option>
+                                    <option value="empleo@sedeco.gob.mx"> Dirección de Previsión Social y Fomento al Empleo</option>
+                                    <option value="ddees@sedeco.gob.mx"> Dirección de Desarrollo Empresarial y Economía Social</option>
+                                    <option value="mejoraregulatoria@sedeco.gob.mx"> Dirección de Mejora Regulatoria</option>
+                                    <option value="industriales@sedeco.gob.mx"> Dirección de Desarrollo de Proyectos Industriales</option>
+                                </select>
+                            </p>
+
+  <input id="passwordLogin" type="password" placeholder="Contraseña">
+  <button onclick="login()">Iniciar sesión</button>
+
+  <button onclick="logout()">Cerrar sesión</button>
+
+  <p id="user-info">Verificando sesión...</p>
+
+  <script>
+    // Reemplaza con tu configuración real de Firebase
+    const firebaseConfig = {
+apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
+  authDomain: "viaticos-4cc2c.firebaseapp.com",
+  projectId: "viaticos-4cc2c",
+  storageBucket: "viaticos-4cc2c.appspot.com",
+  messagingSenderId: "287524196206",
+  appId: "1:287524196206:web:fb4eac753e073f72babb7f",
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function register() {
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          // Actualiza el displayName del usuario
+          return user.updateProfile({ displayName: username });
+        })
+        .then(() => {
+          alert('Usuario registrado y nombre actualizado');
+        })
+        .catch(error => alert(error.message));
+    }
+
+    function login() {
+      const email = document.getElementById('emailLogin').value;
+      const password = document.getElementById('passwordLogin').value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => alert('Sesión iniciada'))
+        .catch(error => alert(error.message));
+    }
+
+    function logout() {
+      auth.signOut().then(() => alert('Sesión cerrada'));
+    }
+
+    auth.onAuthStateChanged(user => {
+      const userInfo = document.getElementById('user-info');
+      if (user) {
+        // Si actualizaste el displayName en el registro, se mostrará
+        userInfo.textContent = user.displayName 
+          ? `Conectado como: ${user.displayName} (${user.email})`
+          : `Conectado: ${user.email}`;
+      } else {
+        userInfo.textContent = 'No hay sesión activa';
+      }
+    });
+  </script>
+
+</body>
+</html>
