@@ -388,7 +388,9 @@ async function addDocumentAsync(data, numeroOficio) {
         });
 
         setTimeout(() => {
-          window.location.href = "../index.html";
+          window.location.href = "../../index.html";
+          //window.location.href = window.location.href + '?t=' + new Date().getTime();
+          hardReload();
         }, 4000);
 
         }else{
@@ -426,7 +428,7 @@ async function addDocumentAsync(data, numeroOficio) {
         });
 
         setTimeout(() => {
-          window.location.href = "../..//index.html";
+          window.location.href = "../../index.html";
         }, 3000);
 
     }
@@ -479,4 +481,41 @@ async function sendToGoogleSheets(data) {
   } catch (err) {
     console.error("Error al enviar a Google Sheets:", err);
   }
+}
+
+
+
+
+function hardReload() {
+try {
+        // 1. Limpiar variables globales específicas
+        delete window.userData;
+        delete window.appConfig;
+        delete window.tempData;
+        
+        // 2. Limpiar storages
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // 3. Limpiar caché del navegador usando Service Worker si existe
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                });
+            });
+        }
+        
+        // 4. Recarga forzada con timestamp único
+        const timestamp = new Date().getTime();
+        const separator = window.location.search ? '&' : '?';
+        const newUrl = window.location.href.split('?')[0] + '?_t=' + timestamp;
+        
+        window.location.replace(newUrl);
+        
+    } catch (error) {
+        console.error('Error durante la recarga:', error);
+        // Fallback más agresivo
+        window.location.href = window.location.protocol + '/' + window.location.host + window.location.pathname + '?_force=' + Date.now();
+    }
 }
