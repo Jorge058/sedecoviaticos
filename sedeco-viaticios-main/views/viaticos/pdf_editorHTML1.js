@@ -259,8 +259,10 @@ iframe.contentWindow.document.getElementById("f1-CargoUsuario2").innerHTML = may
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame1').contentWindow;
+    document.getElementById('titleHome').textContent = "Oficio " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
-    wspFrame.print();
+    wspFrame.print();   
+
 
 });
 
@@ -434,6 +436,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_fechaDF").innerHTML = " " + new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
 
     let wspFrame = document.getElementById('frame2').contentWindow;
+    document.getElementById('titleHome').textContent = "Recibo " + numeroOficio + " " + lugarComision1;
         wspFrame.focus();
         wspFrame.print();
 
@@ -615,6 +618,7 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame3').contentWindow;
+    document.getElementById('titleHome').textContent = "Comprobación " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 })
@@ -683,6 +687,7 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
 
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame4').contentWindow;
+    document.getElementById('titleHome').textContent = "Gastos Rurales " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 });
@@ -740,6 +745,7 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
         
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame5').contentWindow;
+    document.getElementById('titleHome').textContent = "Tarjeta Informativa " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 }); 
