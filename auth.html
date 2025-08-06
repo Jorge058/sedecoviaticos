@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- METAS -->
+    <meta name="description" content="Portal Secretaria de Desarrollo Economico">
+    <meta name="keywords" content="gobierno, michoacan, portal, sitio web, dependencia
+        michoacan, cgcs, desarrollo economico">
+    <meta name="author" content="Secretaria de Desarrollo Economico">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Michoacán">
+    <meta name="twitter:card" value="summary">
+    <meta property="og:title" content="SEDECO" />
+    <meta property="og:image" content="https://michoacan.gob.mx/images/michog.jpg"/>
+    <meta property="og:description" content="INTRANET" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./sedeco-viaticios-main/style.css">
+    <link rel="stylesheet" href="./sedeco-viaticios-main/views/viaticos/style.css">
+    <link rel="stylesheet" href="https://michoacan.gob.mx/cdn/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://michoacan.gob.mx/cdn/css/estilos.css">
+    
+
+    <!-- CACHE PREVENTION-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="https://michoacan.gob.mx/cdn/img/favicon/favicon.ico"
+        type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://michoacan.gob.mx/cdn/img/favicon/appletouch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://michoacan.gob.mx/cdn/img/favicon/apple-touch-icon-180x180.png" />
+
+        <!-- Font awesome Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Extension para convertir numeros con formatos buenos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/languages/es-MX.min.js"></script>
+
+    <!-- Libreria para transforma de numero a letras -->
+
+    <!-- Taildwind -->
+     <!--
+     <script src="https://cdn.tailwindcss.com"></script>
+        -->
+    <!-- https://michoacan.gob.mx/slider/ -->
+    <title id="titleHome">Viaticos Sedeco</title>
+</head>
+
+ <style>
+     
+     .container{
+        padding: 2rem;
+     } 
+
+        .login-container {
+            max-width: 26rem;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-header i {
+            font-size: 50px;
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+        .form-floating {
+            margin-bottom: 20px;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            font-weight: 600;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .divider-text {
+            padding: 0 10px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .text-black{
+            color: black !important;
+        }
+
+
+    </style>
+
+ <body>
+        <header>
+            <div class="navbar ">
+                <div class="logo"><a href="https://michoacan.gob.mx/"><img src="https://michoacan.gob.mx/cdn/img/logo.svg" height="85px;" alt="logo"></a></div>
+                <ul class="links">
+                    <li><a href="">Inicio</a></li>
+                    <li><a href="https://sedeco.michoacan.gob.mx/categoria/noticias/">Noticias</a></li>
+                    <li><a href="https://sedeco.michoacan.gob.mx/#contacto">Contacto</a></li>
+                </ul>
+
+                <a href="https://sedeco.michoacan.gob.mx/" class="action_btn">Secretaria de Desarrollo Economico</a>
+
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="dropdown_menu">
+                <li> <a href="">Inicio</a> </li>
+                <li> <a href="">Intranet</a> </li>
+                <li> <a href="">Noticias</a> </li>
+                <li> <a href="">Salir</a> </li>
+                <li><a href="#" class="action_btn">Secretaria de Desarrollo Economico</a></li>
+            </div>
+            <hr>
+        </header>
+
+        <main>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header text-black">
+                <i class="fas fa-user-circle"></i>
+                <h2>Iniciar Sesión</h2>
+                <p class="text-muted">Ingresa tus credenciales para acceder</p>
+            </div>
+            
+            <form>
+                <div class="form-floating ">
+                    <input type="email" class="form-control text-black" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="text-black">Correo electrónico</label>
+                    <div class="invalid-feedback text-black">
+                        Por favor ingresa un correo electrónico válido
+                    </div>
+                </div>
+                
+                <div class="form-floating ">
+                    <input type="password" class="form-control text-black" id="floatingPassword" placeholder="Contraseña">
+                    <label for="floatingPassword" class="text-black">Contraseña</label>
+                </div>
+                
+                <div class="form-check mb-3 text-black">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" style="margin-top: 0 !important;">
+                    <label class="form-check-label text-black" for="rememberMe">
+                        Recordar mis datos
+                    </label>
+                </div>
+                
+                <button class="btn btn-primary btn-login" type="submit">
+                    <i class="fas fa-sign-in-alt me-2"></i> Acceder
+                </button>
+                
+                <div class="forgot-password">
+                    <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <div class="divider">
+                    <span class="divider-text">O</span>
+                </div>
+                
+                <div class="text-center">
+                    <p class="mb-0">¿No tienes una cuenta? <a href="#" class="text-decoration-none">Regístrate</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+        </main>
+
+
+         </body>
+         <footer>
+            <div class="container footer-main" style="border-top-style: ridge;">
+                <div class="row">
+                    <div class="col-lg-4 text-center">
+                        <div class="footer-logo">
+                        <img src="https://michoacan.gob.mx/images/logo-gris.png" class="logoFooter"
+                            alt="footer-logo">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <!-- Social Icons -->
+                        <ul class="social-icons list-inline">
+                            <li class="list-inline-item">
+                                <br>
+                                <a href="https://twitter.com/GobMichoacan" target="_blank"><i class="fab fa-2x fatwitter"></i></a>&nbsp;&nbsp;
+                            </li>
+                            <li class="list-inline-item">
+                                <br>
+                                <a href="https://www.facebook.com/gobmichoacan/" target="_blank"><i
+                                class="fab fa-2x fa-facebook"></i></a>&nbsp;&nbsp;
+                            </li>
+                            <li class="list-inline-item">
+                                <br>
+                                <a href="https://www.instagram.com/gobmichoacan/?hl=es" target="_blank"><i
+                                class="fab fa-2x fa-instagram"></i></a>&nbsp;&nbsp;
+                            </li>
+                            <li class="list-inline-item">
+                                <br>
+                                <a href="https://t.me/GobiernodeMichoacan" target="_blank"><i class="fab fa-2x fatelegram-plane"></i></a>&nbsp;&nbsp;
+                            </li>
+                            <li class="list-inline-item">
+                                <br>
+                                <a href="https://open.spotify.com/user/rr3zgtpveoxmy02i5t9bj9l7z"
+                                target="_blank"><i class="fab fa-2x fa-spotify"></i></a>&nbsp;&nbsp;
+                            </li>
+                        </ul>
+                        <!-- Footer Links -->
+                        <p>Correo institucional </p>
+                        <a href="#">Informatica.sedeco@gmail.com</a><br>
+                        <a href="https://wa.me/7581008128">¿Ayuda? Comunicate</a> <br>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <br>
+                        <h4 class="texto-gris">#HonestidadyTrabajo</h4>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                    <div class="col-12 text-center">
+                        © Desarrollado por el Departamento de Informatica SEDECO
+                        <div id="gobFooterTag"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid footer-pleca">
+                <div class="row">
+                    <div class="col">
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        
+
+
+        <!-- Scripts Sedeco.Michoacan.Gob.Mx-->
+        <script src="https://www.michoacan.gob.mx/cdn/js/jquery3.6.0.min.js"></script>
+        <script src="https://www.michoacan.gob.mx/cdn/js/bootstrap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        
+
+        <!-- Scripts de Firebase-->
+        <script type="module" src="./sedeco-viaticios-main/db/firebase_config.js"></script>
+        <script type="module" src="./sedeco-viaticios-main/db/GetAllOficios.js"></script>
+        <script type="module" src="./sedeco-viaticios-main/db/createData.js"></script>
+        <script type="module" src="/sedeco-viaticios-main/db/loadData_BD_ToForm.js"></script>
+        <script type="module" src="/sedeco-viaticios-main/db/deleteByID.js"></script>
+       
+
+        
+   
+            
+
+</html>
