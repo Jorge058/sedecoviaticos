@@ -59,13 +59,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/languages/es-MX.min.js"></script>
 
-    <!-- Libreria para transforma de numero a letras -->
+        <!-- Scripts de Firebase-->
+         <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
 
-    <!-- Taildwind -->
-     <!--
-     <script src="https://cdn.tailwindcss.com"></script>
-        -->
-    <!-- https://michoacan.gob.mx/slider/ -->
     <title id="titleHome">Viaticos Sedeco</title>
 </head>
 
@@ -124,35 +121,49 @@
             color: black !important;
         }
 
+        .text-red{
+            color: red !important;
+        }
+
 
     </style>
 
  <body>
-        <header>
-            <div class="navbar ">
-                <div class="logo"><a href="https://michoacan.gob.mx/"><img src="https://michoacan.gob.mx/cdn/img/logo.svg" height="85px;" alt="logo"></a></div>
-                <ul class="links">
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="https://sedeco.michoacan.gob.mx/categoria/noticias/">Noticias</a></li>
-                    <li><a href="https://sedeco.michoacan.gob.mx/#contacto">Contacto</a></li>
-                </ul>
+    <header>
+    <div class="navbar">
+        <div class="logo">
+            <a href="https://michoacan.gob.mx/">
+                <img src="https://michoacan.gob.mx/cdn/img/logo.svg" height="85px;" alt="logo">
+            </a>
+        </div>
 
-                <a href="https://sedeco.michoacan.gob.mx/" class="action_btn">Secretaria de Desarrollo Economico</a>
+        <ul class="links">
+            <li><a href="">Inicio</a></li>
+            <li><a href="https://sedeco.michoacan.gob.mx/categoria/noticias/">Noticias</a></li>
+            <li><a href="https://sedeco.michoacan.gob.mx/#contacto">Contacto</a></li>
+            <li id="liLogin"><a href="/auth.html" id="loginNavbar">Ingresar</a></li>
+            <li id="liLogout"><a href="" id="logoutNavbar" onclick="logout()">Salir</a></li>
 
-                <div class="toggle_btn">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </div>
+        </ul>
 
-            <div class="dropdown_menu">
-                <li> <a href="">Inicio</a> </li>
-                <li> <a href="">Intranet</a> </li>
-                <li> <a href="">Noticias</a> </li>
-                <li> <a href="">Salir</a> </li>
-                <li><a href="#" class="action_btn">Secretaria de Desarrollo Economico</a></li>
-            </div>
-            <hr>
-        </header>
+        <a href="https://sedeco.michoacan.gob.mx/" class="action_btn" id="textUser">Secretaria de Desarrollo Economico</a>
+
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="dropdown_menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="https://sedeco.michoacan.gob.mx/">Intranet</a></li>
+         <li><a href="/auth.html" id="loginNavbar">Ingresar</a></li>
+        <li><a href="" id="logoutNavbar" onclick="logout()">Salir</a></li>
+
+        <li><a href="#" class="action_btn">Secretaria de Desarrollo Economico</a></li>
+    </div>
+    <hr>
+</header>
+
 
         <main>
 
@@ -166,15 +177,38 @@
             
             <form>
                 <div class="form-floating ">
+                    <!--
                     <input type="email" class="form-control text-black" id="floatingInput" placeholder="name@example.com">
+             
                     <label for="floatingInput" class="text-black">Correo electrónico</label>
+                       -->
+                    
+                    <select id="emailLogin" required="">    
+                                    <option value="" disabled selected hidden>Dirección o departamento</option>         
+                                    <option value="tecnica@sedeco.gob.mx"> Técnica</option>
+                                    <option value="delegacion@sedeco.gob.mx"> Delegación Administrativa</option>
+                                    <option value="informatica@sedeco.gob.mx"> Departamento de Informática</option>
+                                    <option value="humanos@sedeco.gob.mx"> Departamento de Recursos Humanos</option>
+                                    <option value="financieros@sedeco.gob.mx"> Departamento de Recursos Financieros</option>
+                                    <option value="materiales@sedeco.gob.mx"> Departamento de Recursos Materiales</option>
+                                    <option value="microempresa@sedeco.gob.mx"> Departamento de Capacitación y Desarrollo a la Microempresa</option>
+                                    <option value="temec@sedeco.gob.mx"> Subsecretaría de Comercio Internacional(TEMEC)</option>
+                                    <option value="comercializacion@sedeco.gob.mx"> Dirección de Comercialización</option>
+                                    <option value="inversiones@sedeco.gob.mx"> Dirección de Inversiones</option>
+                                    <option value="prevision@sedeco.gob.mx"> Subsecretaría de Trabajo y Previsión Social</option>
+                                    <option value="empleo@sedeco.gob.mx"> Dirección de Previsión Social y Fomento al Empleo</option>
+                                    <option value="ddees@sedeco.gob.mx"> Dirección de Desarrollo Empresarial y Economía Social</option>
+                                    <option value="mejoraregulatoria@sedeco.gob.mx"> Dirección de Mejora Regulatoria</option>
+                                    <option value="industriales@sedeco.gob.mx"> Dirección de Desarrollo de Proyectos Industriales</option>
+                                </select>
+
                     <div class="invalid-feedback text-black">
                         Por favor ingresa un correo electrónico válido
                     </div>
                 </div>
                 
                 <div class="form-floating ">
-                    <input type="password" class="form-control text-black" id="floatingPassword" placeholder="Contraseña">
+                    <input type="password" class="form-control text-black" id="passwordLogin" placeholder="Contraseña">
                     <label for="floatingPassword" class="text-black">Contraseña</label>
                 </div>
                 
@@ -185,12 +219,12 @@
                     </label>
                 </div>
                 
-                <button class="btn btn-primary btn-login" type="submit">
+                <button class="btn btn-primary btn-login " type="button" onclick="login()">
                     <i class="fas fa-sign-in-alt me-2"></i> Acceder
                 </button>
                 
                 <div class="forgot-password">
-                    <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+                    <a href="https://wa.me/7581008128" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
                 </div>
                 
                 <div class="divider">
@@ -198,8 +232,9 @@
                 </div>
                 
                 <div class="text-center">
-                    <p class="mb-0">¿No tienes una cuenta? <a href="#" class="text-decoration-none">Regístrate</a></p>
+                    <p class="mb-0 text-red" id="loginAlert"> <a href="#" class="text-decoration-none"></a></p>
                 </div>
+            
             </form>
         </div>
     </div>
@@ -270,7 +305,87 @@
             </div>
         </footer>
 
+         <script>
+    // Reemplaza con tu configuración real de Firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyCoQ7GygkFJWl4uOHTQOYmcWQwFrwopMuo",
+    authDomain: "viaticos-4cc2c.firebaseapp.com",
+    projectId: "viaticos-4cc2c",
+    storageBucket: "viaticos-4cc2c.appspot.com",
+    messagingSenderId: "287524196206",
+    appId: "1:287524196206:web:fb4eac753e073f72babb7f",
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+
+    function login() {
+      const email = document.getElementById('emailLogin').value;
+      const password = document.getElementById('passwordLogin').value;
+      const alertArea = document.getElementById('loginAlert');
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => { 
+            Swal.fire({
+          text: `Bienvenido`,
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000, 
+          customClass: {
+            popup: 'alerta',
+            title: 'titulo',
+            icon: 'iconalert',
+        },
+        allowOutsideClick: false,
+        })
+           //set timeout to redirect
+            setTimeout(() => {
+                window.location.href = "/index.html"; 
+            }, 3000); // 5000 ms = 5 seconds
         
+             })
+
+        .catch(error => {
+            console.log(error.message);
+
+            if (error.message == "Firebase: Error (auth/invalid-login-credentials).") {
+                    alertArea.textContent = `Error: Usuario o Contraseña invalidos` 
+            } 
+            else{
+                alertArea.textContent = `Error: ${error.message}`
+            } 
+        }
+        );
+    }
+
+    function logout() {
+      auth.signOut().then(() => alert('Sesión cerrada'));
+    }
+
+    auth.onAuthStateChanged(user => {
+      const userInfo = document.getElementById('textUser');
+      if (user) {
+        // Si actualizaste el displayName en el registro, se mostrará
+       // alert(`Conectado como: ${user.displayName} (${user.email})`);
+
+        userInfo.textContent = user.displayName 
+          ? `${user.displayName}`
+          : `${user.email}`;
+
+        //borrar navbar de login
+        //hiden
+        document.getElementById('liLogin').style.display = 'none';
+        document.getElementById('liLogout').style.display = 'block';
+      } else {
+        userInfo.textContent = 'Secretaria de Desarrollo Economico';
+
+          //borrar navbar de login
+        document.getElementById('liLogin').style.display = 'block';
+        document.getElementById('liLogout').style.display = 'none';
+      }
+    });
+  </script>
 
 
         <!-- Scripts Sedeco.Michoacan.Gob.Mx-->
@@ -280,12 +395,8 @@
 
         
 
-        <!-- Scripts de Firebase-->
-        <script type="module" src="./sedeco-viaticios-main/db/firebase_config.js"></script>
-        <script type="module" src="./sedeco-viaticios-main/db/GetAllOficios.js"></script>
-        <script type="module" src="./sedeco-viaticios-main/db/createData.js"></script>
-        <script type="module" src="/sedeco-viaticios-main/db/loadData_BD_ToForm.js"></script>
-        <script type="module" src="/sedeco-viaticios-main/db/deleteByID.js"></script>
+    
+  
        
 
         
