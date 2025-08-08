@@ -59,6 +59,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/languages/es-MX.min.js"></script>
 
+       <!-- Scripts de Firebase-->
+         <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+
     <!-- Libreria para transforma de numero a letras -->
 
     <!-- Taildwind -->
@@ -70,30 +74,39 @@
 </head>
     <body>
         <header>
-            <div class="navbar ">
-                <div class="logo"><a href="https://michoacan.gob.mx/"><img src="https://michoacan.gob.mx/cdn/img/logo.svg" height="85px;" alt="logo"></a></div>
-                <ul class="links">
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="https://sedeco.michoacan.gob.mx/categoria/noticias/">Noticias</a></li>
-                    <li><a href="https://sedeco.michoacan.gob.mx/#contacto">Contacto</a></li>
-                </ul>
+    <div class="navbar">
+        <div class="logo">
+            <a href="https://michoacan.gob.mx/">
+                <img src="https://michoacan.gob.mx/cdn/img/logo.svg" height="85px;" alt="logo">
+            </a>
+        </div>
 
-                <a href="https://sedeco.michoacan.gob.mx/" class="action_btn">Secretaria de Desarrollo Economico</a>
+        <ul class="links">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="https://sedeco.michoacan.gob.mx/categoria/noticias/">Noticias</a></li>
+            <li><a href="https://sedeco.michoacan.gob.mx/#contacto">Contacto</a></li>
+            <li id="liLogin"><a href="/auth.html" id="loginNavbar">Ingresar</a></li>
+            <li id="liLogout"><a href="" id="logoutNavbar" onclick="logout()">Salir</a></li>
 
-                <div class="toggle_btn">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </div>
+        </ul>
 
-            <div class="dropdown_menu">
-                <li> <a href="">Inicio</a> </li>
-                <li> <a href="">Intranet</a> </li>
-                <li> <a href="">Noticias</a> </li>
-                <li> <a href="">Salir</a> </li>
-                <li><a href="#" class="action_btn">Secretaria de Desarrollo Economico</a></li>
-            </div>
-            <hr>
-        </header>
+        <a href="https://sedeco.michoacan.gob.mx/" class="action_btn" id="textUser">Secretaria de Desarrollo Economico</a>
+
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="dropdown_menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="https://sedeco.michoacan.gob.mx/">Intranet</a></li>
+         <li><a href="/auth.html" id="loginNavbar">Ingresar</a></li>
+        <li><a href="" id="logoutNavbar" onclick="logout()">Salir</a></li>
+
+        <li><a href="#" class="action_btn">Secretaria de Desarrollo Economico</a></li>
+    </div>
+    <hr>
+</header>
 
         <main>
             <!-- Seccion del formulario -->
@@ -789,6 +802,9 @@
         <script type="module" src="./sedeco-viaticios-main/js/Cars_service.js"></script>
         <script src="./sedeco-viaticios-main/js/index.js"></script>
         <script src="./sedeco-viaticios-main/views/viaticos/viaticos.js"></script>
+
+        <!-- Scripts de autenticación -->
+        <script src="./sedeco-viaticios-main/js/auth/auth.js"></script>
         
     </body>
             
