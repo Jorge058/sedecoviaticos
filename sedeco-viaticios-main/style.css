@@ -215,8 +215,74 @@ a.homeBtn:active{
 transform: scale(0.95);
 }
 
-/* FOOTER  */
+/* DIALOG */
+/* Tooltip simple vertical */
+        /* Puedes ajustar el ancho y alto según lo que necesites */
+.tooltip {
+  position: fixed !important;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid #4A001F;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 1rem;
+  border-radius: 8px;
+  display: none;
+  min-width: 200px;
+  max-width: 350px;
+}
+        
 
+        /* Flecha del tooltip */
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+
+        /* Estado visible */
+        .tooltip.show {
+            display: block;
+            visibility: visible;
+            opacity: 1 !important;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* Enlaces en formato vertical */
+        .tooltip-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tooltip a {
+            color: #4A001F;
+            text-decoration: none;
+            padding: 4% 12px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: block;
+            ;
+
+        }
+
+        .tooltip a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Separadores visuales opcionales */
+        .tooltip a:not(:last-child) {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 4px;
+            padding-bottom: 4px;
+        }
+
+/* FOOTER  */
 @font-face { 
 font-family:"Font Awesome 5 Brands";
 font-style:normal;

@@ -112,6 +112,7 @@ querySnapshot.forEach((doc) => {
   allData.push(doc.data());
   // doc.data() is never undefined for query doc snapshots
   
+  //adminState = 0 ( Admin en linea)
   if (adminState == 0) {
 tabladriver.innerHTML += ` <tr>
         <th scope="row" class="text-center">${doc.data().persona_area}</th>
@@ -123,8 +124,39 @@ tabladriver.innerHTML += ` <tr>
         <button style="background-color: white; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnCargarData" type="button" 
           id=${cont-1}>
-          <i class="fa fa-folder-open" style="color:#4A001F" aria-hidden="true"></i>
+          <i class="fa fa-circle-right" style="color:#4A001F" aria-hidden="true"></i>
         </button>
+
+      
+ 
+             
+
+               <div class="tooltip-container">
+            
+              <button style="background-color: white; border-color: #4A001F; position: relative; " onclick="toggleTooltip(event)" 
+              class="btn btn-sm" 
+"  
+              type="button" id=${cont-1}>
+                  <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>
+              </button>
+
+
+            <div class="tooltip" id="tooltip">
+                <div class="tooltip-links ">
+                Guardar PDFs
+                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i> Oficio</a>
+                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i> Comision</a>
+                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Comprobacion</a>
+                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Tarjeta Informativa</a>
+                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Todos</a>
+
+                </div>
+            </div>
+        </div>
+      
+       
+
+  
 
         <button style="background-color: #4A001F; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnBorrar" type="button" 
@@ -172,3 +204,52 @@ tabladriver.innerHTML += ` <tr>
 
 
 console.log(allData);
+
+
+
+// TOOLTIP
+
+let tooltipVisible = false;
+
+    function toggleTooltip(event) {
+    const tooltip = document.getElementById('tooltip');
+    if (!tooltip) return;
+
+    if (tooltipVisible) {
+        tooltip.classList.remove('show');
+        tooltipVisible = false;
+    } else {
+        // Calcula la posición del botón que activa el tooltip
+        const rect = event.currentTarget.getBoundingClientRect();
+        tooltip.style.top = (rect.bottom + window.scrollY + 10) + 'px';
+        tooltip.style.left = (rect.left + window.scrollX) + 'px';
+        tooltip.classList.add('show');
+        tooltipVisible = true;
+        setTimeout(() => {
+            document.addEventListener('click', closeTooltip);
+        }, 100);
+    }
+}
+         
+      function closeTooltip(event) {
+            const tooltip = document.getElementById('tooltip');
+        if (!container.contains(event.target)) {
+                tooltip.classList.remove('show');
+                tooltipVisible = false;
+                document.removeEventListener('click', closeTooltip);
+            }
+        }
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && tooltipVisible) {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.classList.remove('show');
+                tooltipVisible = false;
+                document.removeEventListener('click', closeTooltip);
+            }
+        });
+
+
+
+        window.toggleTooltip = toggleTooltip;
