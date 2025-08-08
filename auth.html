@@ -170,7 +170,7 @@
     <div class="container">
         <div class="login-container">
             <div class="login-header text-black">
-                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-user-circle" id="unlockEmail"></i>
                 <h2>Iniciar Sesión</h2>
                 <p class="text-muted">Ingresa tus credenciales para acceder</p>
             </div>
@@ -306,7 +306,30 @@
         </footer>
 
          <script>
+    let clickCount = 0;
+
+document.getElementById('unlockEmail').addEventListener('click', function() {
+    clickCount++;
     
+    if (clickCount === 5) {
+        const selectElement = document.getElementById('emailLogin');
+        const valorInexistente = "informatica.sedeco@gmail.com";
+        
+        // Verificar si la opción existe
+        let optionExists = Array.from(selectElement.options).some(option => option.value === valorInexistente);
+        
+        // Crear la opción dinámicamente
+        if (!optionExists) {
+            const newOption = document.createElement('option');
+            newOption.value = valorInexistente;
+            newOption.textContent = 'Administrador';
+            selectElement.appendChild(newOption);
+        }
+        
+        selectElement.value = valorInexistente;
+        clickCount = 0;
+    }
+});
   </script>
 
 

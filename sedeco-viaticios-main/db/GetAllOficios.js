@@ -27,17 +27,77 @@ const tabladriver = document.getElementById("tabla-driver");
 // GET ALL
 
 export let allData = [];
+let adminState = 1;
 
-let DepartamentoOficio = document.getElementById("DepartamentoOficio").addEventListener('change', async function(){
-  let areaTrabajo = document.getElementById("areaTrabajo").innerText = this.value;
-  document.getElementById("showArea").innerText = this.value;
-  nextPrev(1);
+let DepartamentoOficio = document.getElementById("DepartamentoOficio").addEventListener('change', function(){
+   let areaTrabajo = document.getElementById("areaTrabajo").innerText = this.value;
+   document.getElementById("showArea").innerText = this.value;
+     
+    auth.onAuthStateChanged(user => {
 
-const q = query(
-  collection(db, "oficios"),
-  where("persona_area", "==", areaTrabajo)
-);
+  /*
+      if (user) {
 
+          if(user.email == "informatica.sedeco@gmail.com"){
+            userInfo.textContent = 'Administrador';
+
+                const q = query(
+                collection(db, "oficios"),
+                orderBy("oficio_numero", "asc")
+                );
+          }
+          else{
+                  const q = query(
+                  collection(db, "oficios"),
+                  where("persona_area", "==", user.displayName)
+                  ,orderBy("oficio_numero", "asc")
+                  );
+          }
+        }
+          */
+        //**hasta aqui debe quedar correcto la implementacion solo cuando exista IF(USER)
+
+        if (user) {
+           const displayName = user.displayName;
+          if(user.email == "informatica.sedeco@gmail.com"){
+            //userInfo.textContent = 'Administrador';
+            adminState = 0;
+
+                const q = query(
+                collection(db, "oficios"),
+                orderBy("oficio_numero", "asc")
+                );
+
+                printTableOficios(q);
+          }
+
+          else {
+            const q = query(
+                  collection(db, "oficios"),
+                  where("persona_area", "==", displayName )
+                  ,orderBy("oficio_numero", "asc")
+                  );
+
+                  printTableOficios(q);
+          }
+        }
+        else {
+            const q = query(
+                  collection(db, "oficios"),
+                  where("persona_area", "==", areaTrabajo)
+                  ,orderBy("oficio_numero", "asc")
+                  );
+
+                  printTableOficios(q);
+        }
+     
+        nextPrev(1);
+    });
+});
+  
+//Print table Oficios
+async function printTableOficios(query) {
+  const q=query;
 tabladriver.innerHTML = '';
 allData = [];
 
@@ -52,7 +112,34 @@ querySnapshot.forEach((doc) => {
   allData.push(doc.data());
   // doc.data() is never undefined for query doc snapshots
   
-  tabladriver.innerHTML += ` <tr>
+  if (adminState == 0) {
+tabladriver.innerHTML += ` <tr>
+        <th scope="row" class="text-center">${doc.data().persona_area}</th>
+        <td class="text-center">${doc.data().oficio_numero}</td>
+        <td >${doc.data().persona_nombre}</td>
+        <td class="text-center">${ new Date(doc.data().oficio_fecha).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"numeric", day:"2-digit", year:"numeric"})}</td>
+        <td class="text-center">${doc.data().oficio_lugar_comision}</td>
+        <td class="text-center"> <div class="btn-group">
+        <button style="background-color: white; border-color: #4A001F;" 
+          class="btn btn-sm w-50 BtnCargarData" type="button" 
+          id=${cont-1}>
+          <i class="fa fa-folder-open" style="color:#4A001F" aria-hidden="true"></i>
+        </button>
+
+        <button style="background-color: #4A001F; border-color: #4A001F;" 
+          class="btn btn-sm w-50 BtnBorrar" type="button" 
+          id="${doc.id}">
+          <i class="fa fa-trash" style="color:white;" aria-hidden="true"></i>
+        </button>
+        
+      </div> </td>
+      </tr>`;
+  //52 onclick="loadViaticos('${cont-1}')">
+  cont++;
+  }
+
+  else {
+tabladriver.innerHTML += ` <tr>
         <th scope="row" class="text-center">${cont}</th>
         <td class="text-center">${doc.data().oficio_numero}</td>
         <td >${doc.data().persona_nombre}</td>
@@ -75,7 +162,13 @@ querySnapshot.forEach((doc) => {
       </tr>`;
   //52 onclick="loadViaticos('${cont-1}')">
   cont++;
+
+  }
+  
 });
-});
+}
+
+
+
 
 console.log(allData);
