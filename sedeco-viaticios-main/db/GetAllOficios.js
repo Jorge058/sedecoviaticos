@@ -121,6 +121,8 @@ tabladriver.innerHTML += ` <tr>
         <td class="text-center">${ new Date(doc.data().oficio_fecha).toLocaleDateString('es-mx', {timeZone: 'UTC',  month:"numeric", day:"2-digit", year:"numeric"})}</td>
         <td class="text-center">${doc.data().oficio_lugar_comision}</td>
         <td class="text-center"> <div class="btn-group">
+
+
         <button style="background-color: white; border-color: #4A001F;" 
           class="btn btn-sm w-50 BtnCargarData" type="button" 
           id=${cont-1}>
@@ -129,30 +131,13 @@ tabladriver.innerHTML += ` <tr>
 
       
  
-             
-
-               <div class="tooltip-container">
-            
-              <button style="background-color: white; border-color: #4A001F; position: relative; " onclick="toggleTooltip(event)" 
-              class="btn btn-sm" 
-"  
-              type="button" id=${cont-1}>
+                 <button style="background-color: white; border-color: #4A001F; " id="BtnPDFGenerators" 
+                  class="btn btn-sm BtnPDFGenerators BtnPDF"  type="button" id=${doc.id} onclick="PDFGeneratorshow('${doc.id}')">
                   <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>
               </button>
 
 
-            <div class="tooltip" id="tooltip">
-                <div class="tooltip-links ">
-                Guardar PDFs
-                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i> Oficio</a>
-                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i> Comision</a>
-                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Comprobacion</a>
-                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Tarjeta Informativa</a>
-                    <a href="#" target="_blank"> <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>Todos</a>
-
-                </div>
-            </div>
-        </div>
+       
       
        
 
@@ -205,51 +190,66 @@ tabladriver.innerHTML += ` <tr>
 
 console.log(allData);
 
+function PDFGeneratorshow(DocumentId){
+    Swal.fire({
+          title: 'Descarga de Documentos <br> <p class="text-black" style="font-size: 12px; font-weight: 100">  Seleccione un archivo de la lista para visualizar</p >',
+          html: `<div class="pdf-tooltip" id="pdfTooltip">
+                    <div class="pdf-links">
+                        <a href="#" class="pdf-link" data-pdf="oficio">
+                            <i class="fa fa-file-pdf"></i>
+                            <span class="text-black">Oficio de Comisión</span>
+                        </a>
+                        <a href="#" class="pdf-link" data-pdf="recibo">
+                            <i class="fa fa-file-pdf"></i>
+                            <span class="text-black">Recibo de Viáticos</span>
+                        </a>
+                        <a href="#" class="pdf-link" data-pdf="comprobacion">
+                            <i class="fa fa-file-pdf"></i>
+                            <span class="text-black">Comprobación</span>
+                        </a>
+                        <a href="#" class="pdf-link" data-pdf="tarjeta">
+                            <i class="fa fa-file-pdf"></i>
+                            <span class="text-black">Tarjeta Informativa</span>
+                        </a>
 
-
-// TOOLTIP
-
-let tooltipVisible = false;
-
-    function toggleTooltip(event) {
-    const tooltip = document.getElementById('tooltip');
-    if (!tooltip) return;
-
-    if (tooltipVisible) {
-        tooltip.classList.remove('show');
-        tooltipVisible = false;
-    } else {
-        // Calcula la posición del botón que activa el tooltip
-        const rect = event.currentTarget.getBoundingClientRect();
-        tooltip.style.top = (rect.bottom + window.scrollY + 10) + 'px';
-        tooltip.style.left = (rect.left + window.scrollX) + 'px';
-        tooltip.classList.add('show');
-        tooltipVisible = true;
-        setTimeout(() => {
-            document.addEventListener('click', closeTooltip);
-        }, 100);
-    }
-}
-         
-      function closeTooltip(event) {
-            const tooltip = document.getElementById('tooltip');
-        if (!container.contains(event.target)) {
-                tooltip.classList.remove('show');
-                tooltipVisible = false;
-                document.removeEventListener('click', closeTooltip);
-            }
+                         <a href="#" class="pdf-link" data-pdf="tarjeta">
+                            <i class="fa fa-file-pdf"></i>
+                            <span class="text-black">Todos</span>
+                        </a>
+                    </div>
+                </div>`,
+          showCancelButton: true,
+          showConfirmButton: false,
+          //confirmButtonText: 'Sí, editar',
+          cancelButtonText: 'Cerrar',
+          customClass: {
+            container: 'containerPDFGenerator',
+            htmlContainer: 'htmlContainerPDFGenerator',
+            popup: 'alertaPDFGenerator',
+            title: 'tituloPDFGenerator',
+            confirmButton: 'boton-confirmarPDFGenerator',
+            cancelButton: 'botonCancelarPDFGenerator',
+            actions: 'accionesPDFGenerator',
+          },
+          allowOutsideClick: false,
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            // lógica para editar
+          console.log("Documento editado con éxito");
+          Swal.fire({
+            text: 'Documento editado y guardado con éxito.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3000, 
+            customClass: {
+              popup: 'alerta',
+              title: 'titulo',
+              icon: 'iconalert',
+          },
+          allowOutsideClick: false,
+          });
         }
+      });
+}
 
-        // Cerrar con Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && tooltipVisible) {
-                const tooltip = document.getElementById('tooltip');
-                tooltip.classList.remove('show');
-                tooltipVisible = false;
-                document.removeEventListener('click', closeTooltip);
-            }
-        });
-
-
-
-        window.toggleTooltip = toggleTooltip;
+        window.PDFGeneratorshow = PDFGeneratorshow;

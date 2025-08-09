@@ -217,69 +217,126 @@ transform: scale(0.95);
 
 /* DIALOG */
 /* Tooltip simple vertical */
-        /* Puedes ajustar el ancho y alto según lo que necesites */
-.tooltip {
-  position: fixed !important;
-  z-index: 9999;
+        /* Estilos del tooltip */
+        /* Estilos para la ventana SweetAlert2 de PDFGeneratorshow */
+
+.alertaPDFGenerator {
   background: #fff;
-  border: 1px solid #4A001F;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  padding: 1rem;
-  border-radius: 8px;
-  display: none;
-  min-width: 200px;
-  max-width: 350px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(74,0,31,0.18);
+  border: none;
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 420px;
+  font-family: 'Segoe UI', 'Gibson', Arial, sans-serif;
 }
-        
 
-        /* Flecha del tooltip */
-        .tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #333 transparent transparent transparent;
-        }
+.tituloPDFGenerator {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding-top: 0;
+}
 
-        /* Estado visible */
-        .tooltip.show {
-            display: block;
-            visibility: visible;
-            opacity: 1 !important;
-            transform: translateX(-50%) translateY(-5px);
-        }
+#pdfTooltip {
+  margin-top: 1.2rem;
+}
 
-        /* Enlaces en formato vertical */
-        .tooltip-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+.pdf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 
-        .tooltip a {
-            color: #4A001F;
-            text-decoration: none;
-            padding: 4% 12px;
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            display: block;
-            ;
+.pdf-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  font-size: 1.08rem;
+  color: #222;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(74,0,31,0.07);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  position: relative;
+}
 
-        }
+.pdf-link:hover {
+  background: #f3f3f3;
+  box-shadow: 0 4px 16px rgba(74,0,31,0.10);
+}
 
-        .tooltip a:hover {
-            background: rgba(255,255,255,0.2);
-        }
+.pdf-link i.fa-file-pdf {
+  font-size: 1.3em;
+  color: #dc3545;
+  margin-right: 0.7em;
+}
 
-        /* Separadores visuales opcionales */
-        .tooltip a:not(:last-child) {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 4px;
-            padding-bottom: 4px;
+.pdf-link span.text-black {
+  font-weight: 500;
+  color: #222;
+  flex: 1;
+}
+
+.pdf-link::after {
+  content: "\f019";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #bdbdbd;
+  font-size: 1.2em;
+  margin-left: 1em;
+  transition: color 0.2s;
+}
+
+.pdf-link:hover::after {
+  color: #4A001F;
+}
+
+
+.botonCancelarPDFGenerator {
+  background: #fff !important;
+  color: #222 !important;
+  border: 1.5px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  margin-top: 1.5rem !important;
+  box-shadow: 0 2px 8px rgba(74,0,31,0.07);
+  transition: background 0.2s, color 0.2s;
+}
+
+.botonCancelarPDFGenerator:hover {
+  background: #f3f3f3 !important;
+  color: #4A001F !important;
+  border-color: #4A001F !important;
+}
+
+.containerPDFGenerator {
+    
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+  background: rgba(74,0,31,0.08);
+}
+
+/* Subtítulo debajo del título */
+.htmlContainerPDFGenerator {
+    padding: 0 !important;
+  color: #6d6d6d;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0;
+  border-bottom: #aaaaaa 0.5px solid;
+}
+
+        .text-black {
+            color: #333 !important;
         }
 
 /* FOOTER  */
