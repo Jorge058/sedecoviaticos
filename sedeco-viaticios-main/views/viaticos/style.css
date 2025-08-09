@@ -103,7 +103,9 @@ section#hero{
     background-color: #4A001F;
   }
 
-
+.BtnPDF:hover{
+    opacity: 0.5;
+  }
 
   .BtnCargarData:hover{
     opacity: 0.5;
