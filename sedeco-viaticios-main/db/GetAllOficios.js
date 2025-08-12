@@ -132,7 +132,7 @@ tabladriver.innerHTML += ` <tr>
       
  
                  <button style="background-color: white; border-color: #4A001F; " id="BtnPDFGenerators" 
-                  class="btn btn-sm BtnPDFGenerators BtnPDF"  type="button" id=${doc.id} onclick="PDFGeneratorshow('${doc.id}')">
+                  class="btn btn-sm BtnPDFGenerators BtnPDF"  type="button" id=${doc.id} onclick="PDFGeneratorshow('${cont-1}')">
                   <i class="fa fa-file-pdf" style="color:#4A001F" aria-hidden="true"></i>
               </button>
 
@@ -191,6 +191,7 @@ tabladriver.innerHTML += ` <tr>
 console.log(allData);
 
 function PDFGeneratorshow(DocumentId){
+  console.log("Generando PDF del documento con ID:", DocumentId);
     Swal.fire({
           title: 'Descarga de Documentos <br> <p class="text-black" style="font-size: 12px; font-weight: 100">  Seleccione un archivo de la lista para visualizar</p >',
           html: `<div class="pdf-tooltip" id="pdfTooltip">
@@ -212,7 +213,7 @@ function PDFGeneratorshow(DocumentId){
                             <span class="text-black">Tarjeta Informativa</span>
                         </a>
 
-                         <a href="#" class="pdf-link" data-pdf="tarjeta">
+                         <a href="#" class="pdf-link" data-pdf="todos" id="ViewerTodosPDF" onclick="mostrarTodosPDFs(${DocumentId})">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Todos</span>
                         </a>

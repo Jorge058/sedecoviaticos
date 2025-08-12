@@ -1,4 +1,5 @@
-
+import { loadViaticos } from '../../db/loadData_BD_ToForm.js';
+import { allData } from '../../db/GetAllOficios.js';
 function Unidades(num){
 
     switch(num)
@@ -173,9 +174,324 @@ function nLetra(numero){
     return wordnumber[numero-1]
 }
 
+// Event listeners refactorizados
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
+    llenarOficio({ imprimir: true });
+});
+document.querySelector('#generadorPDF2').addEventListener('click', function () {
+    llenarRecibo({ imprimir: true });
+});
+document.querySelector('#generadorPDF3').addEventListener('click', function () {
+    llenarComprobacion({ imprimir: true });
+});
+document.querySelector('#generadorPDF4').addEventListener('click', function () {
+    llenarGastosRurales({ imprimir: true });
+});
+document.querySelector('#generadorPDF5').addEventListener('click', function () {
+    llenarTarjetaInformativa({ imprimir: true });
+});
 
-    /* Documento */
+
+/*
+
+// Función refactorizada para mostrar todos los documentos PDF (5 iframes)
+// Función principal para mostrar los 5 iframes juntos
+function mostrarTodosPDFs(id, opciones = {}) {
+    const {
+        actualizarDatos = true,
+        abrirEnNuevaVentana = true,
+        disposicion = 'grid' // 'grid', 'vertical', 'horizontal'
+    } = opciones;
+
+    // Si se requiere actualizar datos, ejecutar todos los llenadores
+    if (actualizarDatos) {
+        console.log("Actualizando datos para todos los iframes con ID:", id);
+        loadViaticos(id, false, allData);
+        llenarTodosLosIframes();
+    }
+
+    // Obtener todos los iframes
+    const iframes = [
+        { id: "frame1", titulo: "Oficio de Comisión" },
+        { id: "frame2", titulo: "Recibo de Viáticos" },
+        { id: "frame3", titulo: "Comprobación de Gastos" },
+        { id: "frame4", titulo: "Gastos Rurales" },
+        { id: "frame5", titulo: "Tarjeta Informativa" }
+    ];
+
+    if (abrirEnNuevaVentana) {
+        abrirVistaConjuntaEnVentana(iframes, disposicion);
+    } else {
+        mostrarVistaConjuntaEnPagina(iframes, disposicion);
+    }
+}
+
+// Función que ejecuta todos los llenadores de datos sin imprimir
+function llenarTodosLosIframes() {
+    console.log("Actualizando datos en todos los iframes...");
+    //loadViaticos('', true, allData);
+    
+    // Llenar iframe 1 - Oficio
+    llenarOficio();
+    
+    // Llenar iframe 2 - Recibo
+    llenarRecibo();
+    
+    // Llenar iframe 3 - Comprobación
+    llenarComprobacion();
+    
+    // Llenar iframe 4 - Gastos Rurales
+    llenarGastosRurales();
+    
+    // Llenar iframe 5 - Tarjeta Informativa
+    llenarTarjetaInformativa();
+}
+
+// Función para abrir vista conjunta en nueva ventana
+function abrirVistaConjuntaEnVentana(iframes, disposicion) {
+    const numeroOficio = document.getElementById('numOficio').value;
+    const lugarComision = document.getElementById('ShowCiudad1').textContent;
+    
+    const win = window.open("", "_blank", "width=1400,height=900,scrollbars=yes,resizable=yes");
+    
+    const estilosCSS = obtenerEstilosVista(disposicion);
+    
+    win.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Documentos de Viáticos - Oficio ${numeroOficio}</title>
+            <style>${estilosCSS}</style>
+        </head>
+        <body>
+            <div class="header-info">
+                <h1>Documentos de Viáticos</h1>
+                <p><strong>Oficio:</strong> ${numeroOficio} | <strong>Lugar:</strong> ${lugarComision}</p>
+                <div class="controls">
+                    <button onclick="window.print()" class="btn-print">🖨️ Imprimir Todo</button>
+                    <button onclick="cambiarDisposicion('grid')" class="btn-layout">📱 Grid</button>
+                    <button onclick="cambiarDisposicion('vertical')" class="btn-layout">📄 Vertical</button>
+                    <button onclick="cambiarDisposicion('horizontal')" class="btn-layout">📜 Horizontal</button>
+                </div>
+            </div>
+            <div class="pdf-container ${disposicion}" id="pdfContainer">
+                ${generarHTMLIframes(iframes)}
+            </div>
+            <script>
+                function cambiarDisposicion(nuevaDisposicion) {
+                    const container = document.getElementById('pdfContainer');
+                    container.className = 'pdf-container ' + nuevaDisposicion;
+                }
+            </script>
+        </body>
+        </html>
+    `);
+    
+    win.document.close();
+    
+    // Esperar a que cargue y luego llenar con datos actualizados
+    setTimeout(() => {
+        actualizarIframesEnVentana(win, iframes);
+    }, 500);
+}
+
+// Función para generar HTML de los iframes
+function generarHTMLIframes(iframes) {
+    return iframes.map(iframe => {
+        const src = document.getElementById(iframe.id).src;
+        return `
+            <div class="pdf-frame">
+                <div class="pdf-title">
+                    ${iframe.titulo}
+                    <button onclick="document.getElementById('${iframe.id}New').contentWindow.print()" class="btn-print-single">🖨️</button>
+                </div>
+                <iframe id="${iframe.id}New" src="${src}" loading="lazy"></iframe>
+            </div>
+        `;
+    }).join('');
+}
+
+// Función para obtener estilos CSS según disposición
+function obtenerEstilosVista(disposicion) {
+    const estilosBase = `
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
+        .header-info {
+            background: #4A001F;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-info h1 { margin-bottom: 10px; }
+        .controls { margin-top: 15px; }
+        .btn-print, .btn-layout, .btn-print-single {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .btn-print:hover, .btn-layout:hover, .btn-print-single:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .pdf-frame {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-title {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: #4A001F;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pdf-frame iframe {
+            width: 100%;
+            flex: 1;
+            border: none;
+            min-height: 400px;
+        }
+        @media print {
+            .header-info { display: none; }
+            .pdf-container { display: block !important; }
+            .pdf-frame { page-break-inside: avoid; margin-bottom: 20px; }
+        }
+    `;
+
+    const disposiciones = {
+        grid: `
+            .pdf-container.grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 20px;
+                padding: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            .pdf-container.grid .pdf-frame {
+                height: 500px;
+            }
+        `,
+        vertical: `
+            .pdf-container.vertical {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            .pdf-container.vertical .pdf-frame {
+                height: 600px;
+            }
+        `,
+        horizontal: `
+            .pdf-container.horizontal {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                padding: 20px;
+                overflow-x: auto;
+            }
+            .pdf-container.horizontal .pdf-frame {
+                min-width: 300px;
+                height: 500px;
+                flex-shrink: 0;
+            }
+        `
+    };
+
+    return estilosBase + (disposiciones[disposicion] || disposiciones.grid);
+}
+
+// Función para actualizar iframes en la ventana nueva
+function actualizarIframesEnVentana(ventana, iframes) {
+    iframes.forEach(iframe => {
+        const iframeOriginal = document.getElementById(iframe.id);
+        const iframeNuevo = ventana.document.getElementById(iframe.id + 'New');
+        
+        if (iframeOriginal && iframeNuevo) {
+            // Copiar el contenido del iframe original al nuevo
+            try {
+                const contenidoOriginal = iframeOriginal.contentDocument.documentElement.innerHTML;
+                iframeNuevo.onload = function() {
+                    iframeNuevo.contentDocument.documentElement.innerHTML = contenidoOriginal;
+                };
+            } catch (e) {
+                console.log('No se pudo copiar contenido del iframe:', iframe.id);
+            }
+        }
+    });
+}
+
+// Función para mostrar vista conjunta en la misma página
+function mostrarVistaConjuntaEnPagina(iframes, disposicion) {
+    // Crear contenedor modal
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 10000;
+        overflow: auto;
+    `;
+
+    const contenido = document.createElement('div');
+    contenido.style.cssText = `
+        position: relative;
+        background: white;
+        margin: 20px;
+        border-radius: 10px;
+        min-height: calc(100vh - 40px);
+    `;
+
+    // Botón cerrar
+    const btnCerrar = document.createElement('button');
+    btnCerrar.textContent = '✕ Cerrar';
+    btnCerrar.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10001;
+        background: #4A001F;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    `;
+    btnCerrar.onclick = () => document.body.removeChild(modal);
+
+    contenido.innerHTML = generarHTMLIframes(iframes);
+    contenido.appendChild(btnCerrar);
+    modal.appendChild(contenido);
+    document.body.appendChild(modal);
+}
+*/
+
+// Funciones individuales de llenado (extraídas del código original)
+function llenarOficio({ imprimir = false } = {}) {
+  
+
+      /* Documento */
         let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
         let numeroOficio = document.getElementById('numOficio').value;
         let fechaDocumento = document.getElementById('documentDate').value;
@@ -260,14 +576,15 @@ iframe.contentWindow.document.getElementById("f1-CargoUsuario2").innerHTML = may
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame1').contentWindow;
     document.getElementById('titleHome').textContent = "Oficio " + numeroOficio + " " + lugarComision1;
-    wspFrame.focus();
-    wspFrame.print();   
+    
+    if (imprimir) {
+        wspFrame.focus();
+        wspFrame.print();
+    }
+}
 
-
-});
-
-//Llenado de oficio 2
-document.querySelector('#generadorPDF2').addEventListener('click', function () {
+function llenarRecibo({ imprimir = false } = {}) {
+  
 
     /* Comision */
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
@@ -437,12 +754,11 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
 
     let wspFrame = document.getElementById('frame2').contentWindow;
     document.getElementById('titleHome').textContent = "Recibo " + numeroOficio + " " + lugarComision1;
-        wspFrame.focus();
-        wspFrame.print();
 
 
 //SAVE IN LOCALSTORAGE  
     
+/*
 let todosCampos = [
     unidadResponsable,
     numeroOficio,
@@ -460,15 +776,21 @@ let todosCampos = [
     modeloVehiculo,
     modeloAnioVehiculo,
     placasVehiculo,
-    pageTab=5
         ]
 let string = JSON.stringify(todosCampos);
 localStorage.setItem("Campos", string);
     //******************* *********/
-})
 
-document.querySelector('#generadorPDF3').addEventListener('click', function () {
+      if (imprimir) {
+        wspFrame.focus();
+        wspFrame.print();
+    }
+}
 
+
+
+function llenarComprobacion({ imprimir = false } = {}) {
+    
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
     let nombreUr = document.getElementById('nombrecargoUr').value;
     let cargoUr = document.getElementById('cargoUr').value;
@@ -619,12 +941,14 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame3').contentWindow;
     document.getElementById('titleHome').textContent = "Comprobación " + numeroOficio + " " + lugarComision1;
-    wspFrame.focus();
-    wspFrame.print();
-})
 
-/*Generar documento de gastos rurales*/
-document.querySelector('#generadorPDF4').addEventListener('click', function () {
+    if (imprimir) {
+        wspFrame.focus();
+        wspFrame.print();
+    }
+}
+
+function llenarGastosRurales({ imprimir = false } = {}) {
     const iframe4 = document.getElementById("frame4");
 
     let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
@@ -688,11 +1012,14 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame4').contentWindow;
     document.getElementById('titleHome').textContent = "Gastos Rurales " + numeroOficio + " " + lugarComision1;
-    wspFrame.focus();
-    wspFrame.print();
-});
 
-document.querySelector('#generadorPDF5').addEventListener('click', function () {
+    if (imprimir) {
+        wspFrame.focus();
+        wspFrame.print();
+    }
+}
+
+function llenarTarjetaInformativa({ imprimir = false } = {}) {
     const iframe5 = document.getElementById("frame5");
 
     let numeroOficio = document.getElementById('numOficio').value;
@@ -746,8 +1073,147 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame5').contentWindow;
     document.getElementById('titleHome').textContent = "Tarjeta Informativa " + numeroOficio + " " + lugarComision1;
-    wspFrame.focus();
-    wspFrame.print();
-}); 
+
+   if (imprimir) {
+        wspFrame.focus();
+        wspFrame.print();
+    }
+}
+
+// Event listeners
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // Reemplazar el event listener existente
+    const btnViewer = document.getElementById('ViewerTodosPDF');
+    if (btnViewer) {
+        btnViewer.addEventListener('click', function() {
+            mostrarTodosPDFs({
+                actualizarDatos: true,
+                abrirEnNuevaVentana: true,
+                disposicion: 'grid'
+            });
+        });
+    }
+});
+*/
+
+/*
+// Event listener para el botón existente
+document.addEventListener('DOMContentLoaded', function() {
+    const btnViewer = document.getElementById('ViewerTodosPDF');
+    if (btnViewer) {
+        btnViewer.addEventListener('click', mostrarTodosPDFsSimple);
+    }
+});
+*/
+
+/**
+ * Función principal que orquesta la impresión de los 5 documentos.
+ * @param {string} id - El ID del documento de viáticos a cargar.
+ */
+function mostrarTodosPDFs(id) {
+    console.log("Iniciando proceso de impresión para todos los documentos con ID:", id);
+    
+    // 1. Carga los datos y rellena los 5 iframes en segundo plano
+    // La función loadViaticos ya debe estar disponible en tu script
+    loadViaticos(id, false, allData); 
+    llenarTodosLosIframes();
+
+    // 2. Prepara la vista de impresión en la página actual y lanza el diálogo
+    prepararYMostrarImpresion();
+}
+
+/**
+ * Ejecuta todas las funciones de llenado de datos sin activar la impresión.
+ * Es un paso necesario para asegurar que los iframes tengan el contenido correcto.
+ */
+function llenarTodosLosIframes() {
+    console.log("Rellenando todos los iframes en segundo plano...");
+    llenarOficio();
+    llenarRecibo();
+    llenarComprobacion();
+    llenarGastosRurales();
+    llenarTarjetaInformativa();
+}
+
+/**
+ * Manipula el DOM para crear una vista de impresión temporal,
+ * llama al diálogo de impresión y luego restaura la página.
+ */
+function prepararYMostrarImpresion() {
+    // Lista de los iframes de origen
+    const iframesInfo = [
+        { id: "frame1" }, { id: "frame2" }, { id: "frame3" },
+        { id: "frame4" }, { id: "frame5" }
+    ];
+
+    // --- Paso 1: Crear el contenedor de impresión y sus estilos ---
+    const printContainer = document.createElement('div');
+    printContainer.id = 'vista-impresion-temporal';
+
+    const printStyles = document.createElement('style');
+    printStyles.id = 'estilos-impresion-temporal';
+    printStyles.innerHTML = `
+        /* Oculta todo en la página EXCEPTO nuestro contenedor cuando se imprime */
+        @media print {
+            body > *:not(#vista-impresion-temporal) {
+                display: none !important;
+            }
+            #vista-impresion-temporal {
+                display: block !important;
+            }
+            .pagina-imprimible {
+                page-break-after: always; /* ¡La clave para separar páginas! */
+                page-break-inside: avoid;
+            }
+            .pagina-imprimible:last-child {
+                page-break-after: auto; /* Evita una página en blanco al final */
+            }
+        }
+    `;
+    
+    // --- Paso 2: Copiar el contenido de cada iframe al contenedor ---
+    iframesInfo.forEach(info => {
+        const iframeOriginal = document.getElementById(info.id);
+        if (iframeOriginal) {
+            const contenidoHTML = iframeOriginal.contentDocument.documentElement.innerHTML;
+            const pagina = document.createElement('div');
+            pagina.className = 'pagina-imprimible';
+            pagina.innerHTML = contenidoHTML;
+            printContainer.appendChild(pagina);
+        }
+    });
+
+    // --- Paso 3: Ocultar la vista principal y mostrar la de impresión ---
+    const mainContent = document.querySelector('main');
+    const headerContent = document.querySelector('header');
+    mainContent.style.display = 'none';
+    headerContent.style.display = 'none';
+
+    document.head.appendChild(printStyles);
+    document.body.appendChild(printContainer);
+
+    // --- Paso 4: Llamar al diálogo de impresión del navegador ---
+    window.print();
+
+    // --- Paso 5: Limpiar y restaurar la vista original ---
+    // Se usa un pequeño retraso para asegurar que el proceso de impresión se haya manejado.
+    setTimeout(() => {
+        if (document.body.contains(printContainer)) {
+            document.body.removeChild(printContainer);
+        }
+        if (document.head.contains(printStyles)) {
+            document.head.removeChild(printStyles);
+        }
+        mainContent.style.display = 'block'; // O 'flex', etc., según tu layout
+        headerContent.style.display = 'block';
+    }, 500);
+}
+
+
+
+
+// Exponer funciones globalmente
+window.mostrarTodosPDFs = mostrarTodosPDFs;
 
 

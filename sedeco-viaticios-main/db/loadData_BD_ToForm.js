@@ -2,10 +2,11 @@ import { allData } from "./GetAllOficios.js";
 
 /* const collectionBtnLoad = document.querySelectorAll(".BtnCargarData");
  */
+
 document.addEventListener("click", function (e) {
   if (e.target.closest(".BtnCargarData")) {
     const documentId = e.target.closest(".BtnCargarData").id;
-    loadViaticos(documentId);
+    loadViaticos(documentId, true, allData);
     loadMenu();
   }
 });
@@ -14,8 +15,9 @@ document.addEventListener("click", function (e) {
   button.addEventListener("click", loadViaticos);
 }); */
 
-function loadViaticos(id) {
+export function loadViaticos(id , avanzar= true, allData) {
 
+console.log("Cargando datos del oficio con ID:", id, allData);
   document.getElementById("idUnidadAdministrativa").value =
     allData[id].persona_unidadresponsable;
   document.getElementById("nombrecargoUr").value =
@@ -157,7 +159,11 @@ function loadViaticos(id) {
   document.getElementById("liquidacionC").value = allData[id].liquidacion;
   document.getElementById("gastosRurales").value = allData[id].gastosR;
   document.getElementById("DescripcionI").value = allData[id].descripcion_informativa;
-  nextPrev(1);
+  
+    if (avanzar) {
+    nextPrev(1);
+  }
+}
   /*
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
 let fechaFinal = document.getElementById('fechaFinal').value;
@@ -185,7 +191,7 @@ let otrosdev = document.getElementById('otrodev').value;
 let sumdev = document.getElementById('sumadev').textContent;
 
 */
-}
+
 /*
   // Go to page n with nextPrev(n)
   nextPrev(camposArray[16])
