@@ -1107,109 +1107,291 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 */
 
-/**
- * Función principal que orquesta la impresión de los 5 documentos.
- * @param {string} id - El ID del documento de viáticos a cargar.
- */
-function mostrarTodosPDFs(id) {
-    console.log("Iniciando proceso de impresión para todos los documentos con ID:", id);
+
+
+// Función mejorada para mostrar todos los PDFs en una sola vista
+function mostrarTodosPDFsNativo() {
+    console.log("Generando vista combinada de todos los documentos...");
     
-    // 1. Carga los datos y rellena los 5 iframes en segundo plano
-    // La función loadViaticos ya debe estar disponible en tu script
-    loadViaticos(id, false, allData); 
-    llenarTodosLosIframes();
+    // Obtener los iframes existentes
+    const iframe1 = document.getElementById("frame1");
+    const iframe2 = document.getElementById("frame2");
+    const iframe3 = document.getElementById("frame3");
+    const iframe4 = document.getElementById("frame4");
+    const iframe5 = document.getElementById("frame5");
 
-    // 2. Prepara la vista de impresión en la página actual y lanza el diálogo
-    prepararYMostrarImpresion();
-}
+    // Crear un iframe temporal para la vista combinada
+    let tempIframe = document.getElementById('tempCombinedFrame');
+    if (!tempIframe) {
+        tempIframe = document.createElement('iframe');
+        tempIframe.id = 'tempCombinedFrame';
+        tempIframe.style.position = 'fixed';
+        tempIframe.style.left = '-9999px';
+        tempIframe.style.top = '-9999px';
+        tempIframe.style.width = '1200px';
+        tempIframe.style.height = '800px';
+        document.body.appendChild(tempIframe);
+    }
 
-/**
- * Ejecuta todas las funciones de llenado de datos sin activar la impresión.
- * Es un paso necesario para asegurar que los iframes tengan el contenido correcto.
- */
-function llenarTodosLosIframes() {
-    console.log("Rellenando todos los iframes en segundo plano...");
-    llenarOficio();
-    llenarRecibo();
-    llenarComprobacion();
-    llenarGastosRurales();
-    llenarTarjetaInformativa();
-}
-
-/**
- * Manipula el DOM para crear una vista de impresión temporal,
- * llama al diálogo de impresión y luego restaura la página.
- */
-function prepararYMostrarImpresion() {
-    // Lista de los iframes de origen
-    const iframesInfo = [
-        { id: "frame1" }, { id: "frame2" }, { id: "frame3" },
-        { id: "frame4" }, { id: "frame5" }
-    ];
-
-    // --- Paso 1: Crear el contenedor de impresión y sus estilos ---
-    const printContainer = document.createElement('div');
-    printContainer.id = 'vista-impresion-temporal';
-
-    const printStyles = document.createElement('style');
-    printStyles.id = 'estilos-impresion-temporal';
-    printStyles.innerHTML = `
-        /* Oculta todo en la página EXCEPTO nuestro contenedor cuando se imprime */
-        @media print {
-            body > *:not(#vista-impresion-temporal) {
-                display: none !important;
-            }
-            #vista-impresion-temporal {
-                display: block !important;
-            }
-            .pagina-imprimible {
-                page-break-after: always; /* ¡La clave para separar páginas! */
-                page-break-inside: avoid;
-            }
-            .pagina-imprimible:last-child {
-                page-break-after: auto; /* Evita una página en blanco al final */
-            }
-        }
+    // Crear el contenido HTML combinado
+    const combinedHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Documentos Completos - Viáticos</title>
+            <style>
+                @page {
+                    size: A4;
+                    margin: 10mm;
+                }
+                
+                body { 
+                    margin: 0; 
+                    padding: 20px;
+                    font-family: Arial, sans-serif;
+                    background: white;
+                    color: black;
+                }
+                
+                .document-section {
+                    page-break-after: always;
+                    margin-bottom: 40px;
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                    background: white;
+                }
+                
+                .document-section:last-child {
+                    page-break-after: auto;
+                }
+                
+                .document-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #4A001F;
+                    text-align: center;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                    border-bottom: 2px solid #4A001F;
+                    background: #f8f6ff;
+                }
+                
+                .document-content {
+                    width: 100%;
+                    min-height: 600px;
+                    border: none;
+                    background: white;
+                }
+                
+                @media print {
+                    body { 
+                        background: white !important;
+                        -webkit-print-color-adjust: exact;
+                        print-color-adjust: exact;
+                    }
+                    
+                    .document-section {
+                        border: none;
+                        box-shadow: none;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    
+                    .document-title {
+                        background: white !important;
+                        border-bottom: 1px solid black !important;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="document-section">
+                <div class="document-title">OFICIO DE COMISIÓN</div>
+                <div class="document-content" id="doc1"></div>
+            </div>
+            
+            <div class="document-section">
+                <div class="document-title">RECIBO DE VIÁTICOS</div>
+                <div class="document-content" id="doc2"></div>
+            </div>
+            
+            <div class="document-section">
+                <div class="document-title">COMPROBACIÓN DE GASTOS</div>
+                <div class="document-content" id="doc3"></div>
+            </div>
+            
+            <div class="document-section">
+                <div class="document-title">GASTOS RURALES</div>
+                <div class="document-content" id="doc4"></div>
+            </div>
+            
+            <div class="document-section">
+                <div class="document-title">TARJETA INFORMATIVA</div>
+                <div class="document-content" id="doc5"></div>
+            </div>
+        </body>
+        </html>
     `;
-    
-    // --- Paso 2: Copiar el contenido de cada iframe al contenedor ---
-    iframesInfo.forEach(info => {
-        const iframeOriginal = document.getElementById(info.id);
-        if (iframeOriginal) {
-            const contenidoHTML = iframeOriginal.contentDocument.documentElement.innerHTML;
-            const pagina = document.createElement('div');
-            pagina.className = 'pagina-imprimible';
-            pagina.innerHTML = contenidoHTML;
-            printContainer.appendChild(pagina);
-        }
-    });
 
-    // --- Paso 3: Ocultar la vista principal y mostrar la de impresión ---
-    const mainContent = document.querySelector('main');
-    const headerContent = document.querySelector('header');
-    mainContent.style.display = 'none';
-    headerContent.style.display = 'none';
+    // Escribir el HTML en el iframe temporal
+    tempIframe.contentDocument.open();
+    tempIframe.contentDocument.write(combinedHTML);
+    tempIframe.contentDocument.close();
 
-    document.head.appendChild(printStyles);
-    document.body.appendChild(printContainer);
-
-    // --- Paso 4: Llamar al diálogo de impresión del navegador ---
-    window.print();
-
-    // --- Paso 5: Limpiar y restaurar la vista original ---
-    // Se usa un pequeño retraso para asegurar que el proceso de impresión se haya manejado.
+    // Esperar a que el iframe cargue y luego copiar el contenido
     setTimeout(() => {
-        if (document.body.contains(printContainer)) {
-            document.body.removeChild(printContainer);
+        try {
+            // Copiar el contenido de cada iframe original
+            const doc1Content = iframe1.contentDocument.body.innerHTML;
+            const doc2Content = iframe2.contentDocument.body.innerHTML;
+            const doc3Content = iframe3.contentDocument.body.innerHTML;
+            const doc4Content = iframe4.contentDocument.body.innerHTML;
+            const doc5Content = iframe5.contentDocument.body.innerHTML;
+
+            // Insertar el contenido en el iframe combinado
+            tempIframe.contentDocument.getElementById('doc1').innerHTML = doc1Content;
+            tempIframe.contentDocument.getElementById('doc2').innerHTML = doc2Content;
+            tempIframe.contentDocument.getElementById('doc3').innerHTML = doc3Content;
+            tempIframe.contentDocument.getElementById('doc4').innerHTML = doc4Content;
+            tempIframe.contentDocument.getElementById('doc5').innerHTML = doc5Content;
+
+            // Copiar los estilos de los documentos originales
+            copyStylesFromIframe(iframe1, tempIframe, 'doc1');
+            copyStylesFromIframe(iframe2, tempIframe, 'doc2');
+            copyStylesFromIframe(iframe3, tempIframe, 'doc3');
+            copyStylesFromIframe(iframe4, tempIframe, 'doc4');
+            copyStylesFromIframe(iframe5, tempIframe, 'doc5');
+
+            // Actualizar el título de la página
+            const numeroOficio = document.getElementById('numOficio').value;
+            const lugarComision = document.getElementById('ShowCiudad1').textContent;
+            document.getElementById('titleHome').textContent = `Documentos Completos ${numeroOficio} ${lugarComision}`;
+
+            // Usar el método nativo del navegador para imprimir
+            const wspFrame = tempIframe.contentWindow;
+            wspFrame.focus();
+            wspFrame.print();
+
+        } catch (error) {
+            console.error('Error al generar la vista combinada:', error);
+            alert('Error al generar la vista combinada de documentos');
         }
-        if (document.head.contains(printStyles)) {
-            document.head.removeChild(printStyles);
-        }
-        mainContent.style.display = 'block'; // O 'flex', etc., según tu layout
-        headerContent.style.display = 'block';
     }, 500);
 }
 
+// Función auxiliar para copiar estilos de un iframe a otro
+function copyStylesFromIframe(sourceIframe, targetIframe, targetElementId) {
+    try {
+        const sourceStyles = sourceIframe.contentDocument.head.innerHTML;
+        const targetDoc = targetIframe.contentDocument;
+        
+        // Crear un contenedor de estilos específico para cada documento
+        let styleContainer = targetDoc.getElementById(`styles-${targetElementId}`);
+        if (!styleContainer) {
+            styleContainer = targetDoc.createElement('div');
+            styleContainer.id = `styles-${targetElementId}`;
+            styleContainer.innerHTML = sourceStyles;
+            targetDoc.head.appendChild(styleContainer);
+        }
+    } catch (error) {
+        console.warn('No se pudieron copiar los estilos:', error);
+    }
+}
+
+// Versión alternativa más simple si la anterior no funciona
+function mostrarTodosPDFsSimple() {
+    console.log("Generando vista simple combinada...");
+    
+    // Crear un iframe temporal más simple
+    let tempIframe = document.getElementById('tempSimpleFrame');
+    if (!tempIframe) {
+        tempIframe = document.createElement('iframe');
+        tempIframe.id = 'tempSimpleFrame';
+        tempIframe.style.position = 'absolute';
+        tempIframe.style.left = '-10000px';
+        tempIframe.style.width = '210mm';
+        tempIframe.style.height = '297mm';
+        document.body.appendChild(tempIframe);
+    }
+
+    // Obtener el contenido de todos los documentos
+    const iframe1 = document.getElementById("frame1");
+    const iframe2 = document.getElementById("frame2");
+    const iframe3 = document.getElementById("frame3");
+    const iframe4 = document.getElementById("frame4");
+    const iframe5 = document.getElementById("frame5");
+
+    // HTML combinado simple
+    const simpleHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Documentos de Viáticos</title>
+            <style>
+                body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+                .page { page-break-after: always; margin-bottom: 50px; }
+                .page:last-child { page-break-after: auto; }
+                .title { text-align: center; font-weight: bold; margin: 20px 0; font-size: 16px; }
+                @page { size: A4; margin: 15mm; }
+            </style>
+        </head>
+        <body>
+            <div class="page">
+                <div class="title">OFICIO DE COMISIÓN</div>
+                ${iframe1.contentDocument.body.innerHTML}
+            </div>
+            <div class="page">
+                <div class="title">RECIBO DE VIÁTICOS</div>
+                ${iframe2.contentDocument.body.innerHTML}
+            </div>
+            <div class="page">
+                <div class="title">COMPROBACIÓN DE GASTOS</div>
+                ${iframe3.contentDocument.body.innerHTML}
+            </div>
+            <div class="page">
+                <div class="title">GASTOS RURALES</div>
+                ${iframe4.contentDocument.body.innerHTML}
+            </div>
+            <div class="page">
+                <div class="title">TARJETA INFORMATIVA</div>
+                ${iframe5.contentDocument.body.innerHTML}
+            </div>
+        </body>
+        </html>
+    `;
+
+    // Escribir contenido y mostrar
+    tempIframe.contentDocument.open();
+    tempIframe.contentDocument.write(simpleHTML);
+    tempIframe.contentDocument.close();
+
+    // Usar método nativo del navegador
+    setTimeout(() => {
+        const numeroOficio = document.getElementById('numOficio').value;
+        const lugarComision = document.getElementById('ShowCiudad1').textContent;
+        document.getElementById('titleHome').textContent = `Expediente Completo ${numeroOficio} ${lugarComision}`;
+        
+        const wspFrame = tempIframe.contentWindow;
+        wspFrame.focus();
+        wspFrame.print();
+    }, 300);
+}
+
+// Función de limpieza para remover iframes temporales
+function limpiarIframesTemporales() {
+    const tempFrames = ['tempCombinedFrame', 'tempSimpleFrame'];
+    tempFrames.forEach(id => {
+        const frame = document.getElementById(id);
+        if (frame) {
+            frame.remove();
+        }
+    });
+}
+
+// Exponer las funciones globalmente
+window.mostrarTodosPDFsNativo = mostrarTodosPDFsNativo;
+window.mostrarTodosPDFsSimple = mostrarTodosPDFsSimple;
+window.limpiarIframesTemporales = limpiarIframesTemporales;
 
 
 

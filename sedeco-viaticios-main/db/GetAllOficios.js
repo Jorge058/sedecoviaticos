@@ -213,7 +213,7 @@ function PDFGeneratorshow(DocumentId){
                             <span class="text-black">Tarjeta Informativa</span>
                         </a>
 
-                         <a href="#" class="pdf-link" data-pdf="todos" id="ViewerTodosPDF" onclick="mostrarTodosPDFs(${DocumentId})">
+                         <a href="#" class="pdf-link" data-pdf="todos" id="ViewerTodosPDF" onclick="mostrarTodosPDFsNativo(${DocumentId})">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Todos</span>
                         </a>
