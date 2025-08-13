@@ -20,8 +20,13 @@ export function loadViaticos(id , avanzar= true, allData) {
 console.log("Cargando datos del oficio con ID:", id, allData);
   document.getElementById("idUnidadAdministrativa").value =
     allData[id].persona_unidadresponsable;
+  const option = document.createElement("option");
+  option.value = allData[id].titular_nombre;
+  option.textContent = allData[id].titular_nombre;
+  document.getElementById("nombrecargoUr").appendChild(option)
   document.getElementById("nombrecargoUr").value =
     allData[id].titular_nombre;
+
   document.getElementById("cargoUr").value = allData[id].titular_cargo;
   document.getElementById("numOficio").value = allData[id].oficio_numero;
   document.getElementById("documentDate").value = allData[id].oficio_fecha;

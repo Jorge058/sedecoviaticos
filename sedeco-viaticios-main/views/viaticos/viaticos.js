@@ -557,6 +557,7 @@ nextPrev(camposArray[16])
 
 /* Comision */
 let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
+let UrCargo = document.getElementById('nombrecargoUr');
 let numeroOficio = document.getElementById('numOficio').value;
 let fechaDocumento = document.getElementById('documentDate').value;
 let lugarComision = document.getElementById('inputCiudades').value;
@@ -1194,50 +1195,161 @@ function resetFormulario () {
 document.getElementById('idUnidadAdministrativa').addEventListener('change', function(){
   switch (this.selectedIndex) {
     case 1:
-      document.getElementById('nombrecargoUr').value = 'Lic.Claudio Méndez Fernández';
-      document.getElementById('cargoUr').value = 'Secretario';
+      agregarOpciones(["Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
       break;
     case 2:
-      document.getElementById('nombrecargoUr').value = 'Dra.Mariana Gudiño Paredes';
+      agregarOpciones(["Dra.Mariana Gudiño Paredes","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Delegada Administrativa';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Delegada Administrativa';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
       break;
     case 3:
-      document.getElementById('nombrecargoUr').value = 'C.Eduardo Norberto Ramírez Canals';
+      agregarOpciones(["C.Eduardo Norberto Ramírez Canals","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
       break;
     case 4:
-      document.getElementById('nombrecargoUr').value = 'Lic.Guadalupe Morelia Fuentes Peña';
+      agregarOpciones(["Lic.Guadalupe Morelia Fuentes Peña","Lic. Claudio Méndez Fernández","C.Eduardo Norberto Ramírez Canals"]);
       document.getElementById('cargoUr').value = 'Directora de Comercialización';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Comercialización';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;  
+        }
+      });
       break;
     case 5:
-      document.getElementById('nombrecargoUr').value = 'Ing.José Carrillo García';
+      agregarOpciones(["Ing.José Carrillo García","Lic. Claudio Méndez Fernández","C.Eduardo Norberto Ramírez Canals"]);
       document.getElementById('cargoUr').value = 'Director de Inversiones';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Director de Inversiones';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;  
+        }
+      });
       break;
     case 6:
-      document.getElementById('nombrecargoUr').value = 'Lic.Laura Yunuen Mejía Bejar';
+      agregarOpciones(["Lic.Laura Yunuen Mejía Bejar","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
       break;
     case 7:
-      document.getElementById('nombrecargoUr').value = 'Dra.Gloría María Huerta Ramírez';
+      agregarOpciones(["Dra.Gloría María Huerta Ramírez","Lic. Claudio Méndez Fernández","Lic.Laura Yunuen Mejía Bejar"]);
       document.getElementById('cargoUr').value = 'Directora de Previsión Social y Fomento al Empleo';
-      break;
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Previsión Social y Fomento al Empleo';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+            break;
+        }
+      });
+    break;
     case 8:
-      document.getElementById('nombrecargoUr').value = 'Lic.Blanca Eugenia Rodríguez Morelos';
+      agregarOpciones(["Lic.Blanca Eugenia Rodríguez Morelos","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
-      break;
+
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+    break;
     case 9:
-      document.getElementById('nombrecargoUr').value = 'Lic.Sofía Beltrán Pacheco';
+      agregarOpciones(["Lic.Sofía Beltrán Pacheco","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Directora de Mejora Regulatoria';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Mejora Regulatoria';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
       break;
     case 10:
-      document.getElementById('nombrecargoUr').value = 'Mtro.Ruggiero Zepeda Maldonado';
+      agregarOpciones(["Mtro.Ruggiero Zepeda Maldonado","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Director de Desarrollo de Proyectos Industriales';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Director de Desarrollo de Proyectos Industriales';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
       break;
   }
-})
+});
+
+  function agregarOpciones(opciones) {
+    UrCargo.innerHTML = '';
+
+    opciones.forEach(function(opcion) {
+      const opt = document.createElement("option");
+      opt.value = opcion;
+      opt.textContent = opcion;
+      UrCargo.appendChild(opt);
+    });
+  }
 
   // Función para sincronizar select2 con select1 CARGO TITULAR
-document.addEventListener('DOMContentLoaded', function() {
+/* document.addEventListener('DOMContentLoaded', function() {
   const select1 = document.getElementById('nombrecargoUr');
   const select2 = document.getElementById('cargoUr');
 
@@ -1255,7 +1367,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   // Agregar evento 'change' a select1
   select1.addEventListener('change', syncSelects);
-});
+}); */
 
 
 /*
