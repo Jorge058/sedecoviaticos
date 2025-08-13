@@ -120,43 +120,135 @@ const ciudadesMich = [
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
+// Agregar esta función al archivo viaticos.js existente
+// Para mantener sincronizado el menú con la navegación normal
+
+// Función original showTab modificada para actualizar el menú
 function showTab(n) {
   // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
+  const x = document.getElementsByClassName("tab");
+
+   // Ocultar todas las pestañas primero
+  for (let i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
   x[n].style.display = "block";
+  
+  // Actualizar el menú de navegación si existe
+  updateMenuHighlight(n);
+
+  // Actualizar visibilidad del menú DESPUÉS de cambiar la visibilidad de las pestañas
+  setTimeout(() => {
+    updateMenuVisibility();
+  }, 10); // Pequeño delay para asegurar que el DOM se actualice
+  
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-
-    //LocalStorage BUTTON
-    /*
-    if (localStorage.getItem('Campos') !== null) {
-      document.getElementById("loadCookiesBtn").style.display = "inline";
-    } else {
-      document.getElementById("loadCookiesBtn").style.display = "none";
-    }
-    */
-
     //Button "Crear nuevo" shows
-    document.getElementById("loadDataBtn").style.display = "inline";
+    document.getElementById("loadDataBtn").style.display = "none";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("saveLeave").style.display = "none";
+    document.getElementById("txt").style.display = "none";
+    document.getElementById("txt2").style.display = "none";
+    document.getElementById("showArea").style.display = "none";
  
-  } else {
+  } else if(n==1) {
+    document.getElementById("btnArea").style.display= "flex";
+    document.getElementById("btnArea").style.flexDirection = "row-reverse"
     document.getElementById("prevBtn").style.display = "inline";
     document.getElementById("loadCookiesBtn").style.display = "none"; 
-    document.getElementById("loadDataBtn").style.display = "none";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Terminar";
+    document.getElementById("loadDataBtn").style.display = "";
     document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("saveLeave").style.display = "";
+    document.getElementById("txt").style.display = "none";
+    document.getElementById("txt2").style.display = "";
+    document.getElementById("showArea").style.display = "";
+  }
+  else if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("saveLeave").style.display = ""; 
   } else {
+    document.getElementById("btnArea").style.display= "flex";
+    document.getElementById("btnArea").style.flexDirection = "row"
+    document.getElementById("loadDataBtn").style.display = "none";
     document.getElementById("nextBtn").innerHTML = "Siguiente";
     document.getElementById("nextBtn").style.display = "";
-    document.getElementById("saveLeave").style.display = "none";
+    document.getElementById("saveLeave").style.display = "none"; 
+    document.getElementById("txt").style.display = "";
+    document.getElementById("txt2").style.display = "none";
   }
   // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
+  fixStepIndicator(n);
+
+  if (typeof window.onTabChange === 'function') {
+    window.onTabChange();
+  }
+
 }
+
+// Nueva función para actualizar el resaltado del menú
+function updateMenuHighlight(tabIndex) {
+  const tabs = document.getElementsByClassName("tab");
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  if (navLinks.length === 0) return; // No hay menú cargado
+  
+  // Mapear índices de pestañas a IDs
+  const tabIdMap = {
+    2: 'Oficio',           // PestanaOficio
+    4: 'Recibo',           // PestanaRecibo  
+    9: 'Comprobación',     // PestanaComprobacion
+    10: 'Zonas Rurales',   // PestanaRurales
+    12: 'Tarjeta Informativa' // PestanaTarjetaInformativa
+  };
+  
+  // Remover clase active de todos los enlaces
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  // Agregar clase active al enlace correspondiente
+  const activeText = tabIdMap[tabIndex];
+  if (activeText) {
+    navLinks.forEach(link => {
+      if (link.textContent === activeText) {
+        link.classList.add('active');
+      }
+    });
+  }
+}
+
+// Función para obtener el índice de pestaña por ID
+function getTabIndexById(tabId) {
+  const tabs = document.getElementsByClassName("tab");
+  const tabIndexMap = {
+    'PestanaOficio': 2,
+    'PestanaRecibo': 4, 
+    'PestanaComprobacion': 9,
+    'PestanaRurales': 10,
+    'PestanaTarjetaInformativa': 12
+  };
+  
+  return tabIndexMap[tabId] || -1;
+}
+
+// Función global para navegar a una pestaña específica (usada por el menú)
+window.navigateToTab = function(targetTabId) {
+  const targetIndex = getTabIndexById(targetTabId);
+  
+  if (targetIndex !== -1 && targetIndex !== currentTab) {
+    // Ocultar la pestaña actual
+    const tabs = document.getElementsByClassName("tab");
+    tabs[currentTab].style.display = "none";
+    
+    // Actualizar currentTab
+    currentTab = targetIndex;
+    
+    // Mostrar la pestaña objetivo
+    showTab(currentTab);
+  }
+};
 
 function nextPrev(n) {
   // This function will figure out which tab to display
@@ -177,6 +269,29 @@ function nextPrev(n) {
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
+
+  if (typeof window.onTabChange === 'function') {
+    window.onTabChange();
+  }
+
+  setTimeout(() => {
+  updateMenuVisibility();
+}, 50);
+
+}
+
+// Función para controlar la visibilidad del menú según la pestaña activa
+function updateMenuVisibility() {
+  const menu = document.getElementById("MenuOnLoad");
+  const tab1 = document.getElementById("Tab1");
+  const tab2 = document.getElementById("Tab2");
+
+  // Si Tab1 o Tab2 están visibles, ocultar el menú
+  if ((tab1 && tab1.style.display === "block") || (tab2 && tab2.style.display === "block")) {
+    if (menu) menu.style.display = "none";
+  } else {
+    if (menu) menu.style.display = "block";
+  }
 }
 
 function validateForm() {
@@ -186,6 +301,8 @@ function validateForm() {
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
+    // Excepción para el input de búsqueda *****************************************************
+    if (y[i].id === "searchInput") continue;
     // If a field is empty...
     if (y[i].value == "") {
       // add an "invalid" class to the field:
@@ -198,23 +315,11 @@ function validateForm() {
   //textarea
   textAreaCheck = x[currentTab].getElementsByTagName("textarea");
   for (i = 0; i < textAreaCheck.length; i++) {
-    // If a field is empty...
     if (textAreaCheck[i].value == "") {
       textAreaCheck[i].className += " invalid";
       valid = false;
     }
   }
-
-  /*
-  selectCheck = x[currentTab].getElementsByTagName("select");
-  for (i = 0; i < selectCheck.length; i++) {
-    // If a field is empty...
-    if (selectCheck[i].value == "") {
-      selectCheck[i].className += " invalid";
-      valid = false;
-    }
-  }
-*/
 
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
@@ -342,62 +447,71 @@ autocomplete(document.getElementById("inputCiudades"), ciudadesMich);
 hideSelectsVehicle(document.getElementById("vehicleInput"));
 
 function hideSelectsVehicle(selectValue) {
-  const modelo = document.getElementById("modeloAuto")
-  const anio = document.getElementById("modeloAnio")
-  const placas = document.getElementById("placasInput")
+  //const modelo = document.getElementById("modeloAuto")
+  //const anio = document.getElementById("modeloAnio")
+  //const placas = document.getElementById("placasInput")
+  const card = document.querySelector('div.card.shadow');
 
   selectValue.addEventListener("change", function(e) {
 
-    let disableNode = document.querySelectorAll(".disableOption");
-    console.log(disableNode)
+    // let disableNode = document.querySelectorAll(".disableOption");
+    //console.log(disableNode)
 
     if (selectValue.options[selectValue.selectedIndex].value == "Oficial"){
-      modelo.disabled=true
-      anio.disabled=true
-      placas.disabled=true
-
-      for (let i = 0; i < disableNode.length; i++) {
-        disableNode[i].disabled=true;
-      }
-
+      card.hidden = false;
     }
 
-    if (selectValue.options[selectValue.selectedIndex].value == "Particular"){
-      for (let i = 0; i < disableNode.length; i++) {
-        //disableNode[i].disabled=false;
-       modelo.value = " "
-       anio.value = " "
-       placas.value = " "
-      }
-      console.log("cambie particular")
+    if (selectValue.options[selectValue.selectedIndex].value !== "Oficial"){
+      card.hidden = true;
+     
+            document.getElementById('marcaVehiculo').value = ' ';
+            document.getElementById('modeloAuto').value = ' ';
+            document.getElementById('modeloAnio').value = ' ';
+            document.getElementById('placasInput').value = ' ';
+            document.getElementById('idVehiculo').value = ' ';
     }
 
-    else {
-      for (let i = 0; i < disableNode.length; i++) {
-        disableNode[i].disabled=false;
-      }
-    }
+    //else {
+    //  for (let i = 0; i < disableNode.length; i++) {
+    //    disableNode[i].disabled=false;
+    //  }
+    //}
   })
 }
 
 /***************************************** */
 // VALIDATE DATES - SUBSTRACT DAYS
-checksMayDate(document.getElementById("fechaInicio"), document.getElementById("fechaFinal"));
-function checksMayDate(inicioDate, finalDate) {
+//checksMayDate(document.getElementById("fechaI1"), document.getElementById("fechaF2"));
+
+  // Escuchar ambos inputs
+
+document.getElementById("fechaI1").addEventListener("change", function() {
+  checksDiffDays(
+    document.getElementById("fechaI1"),
+    document.getElementById("fechaF1")
+  );
+});
+document.getElementById("fechaI2").addEventListener("change", function() {
+  checksDiffDays(
+    document.getElementById("fechaI1"),
+    document.getElementById("fechaF2")
+  );
+});
+
+
+function checksDiffDays(inicioDate, finalDate) {
   
-  finalDate.addEventListener("change", function(e) {
-    console.log(inicioDate.value, finalDate.value)
-
-
+  if (inicioDate && finalDate) {
     let date1 = new Date(inicioDate.value);
     let date2 = new Date(finalDate.value);
     let diffTime = Math.abs(date2 - date1);
     let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     diffDays = diffDays +1;
-    console.log(diffDays)
+    //console.log(diffDays)
     document.getElementById('duracionDias').value = diffDays
-  })
+  }
+
 }
 
 //BTN CARGAR COOKIES FORMULARIO
@@ -443,6 +557,7 @@ nextPrev(camposArray[16])
 
 /* Comision */
 let unidadResponsable = document.getElementById('idUnidadAdministrativa').value;
+let UrCargo = document.getElementById('nombrecargoUr');
 let numeroOficio = document.getElementById('numOficio').value;
 let fechaDocumento = document.getElementById('documentDate').value;
 let lugarComision = document.getElementById('inputCiudades').value;
@@ -546,19 +661,33 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   let fechaInicio = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   let lugarComision = document.getElementById('inputCiudades').value;
+  let montoAlimentos = document.getElementById('montoAlimentacion').value;
+  let montoHospedaje = document.getElementById('montoHospedaje').value;
+
+      const alimentacion1 = document.getElementById('ShowAlimentacion1')
+      const hospedaje1 = document.getElementById('ShowHospedaje1')
+
+      const alimentacion2 = document.getElementById('ShowAlimentacion2')
+      const hospedaje2 = document.getElementById('ShowHospedaje2')
 
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
+
       document.getElementById('sC1').innerHTML = lugarComision;
     
-      fechaInicio1 = new Date(fechaInicio);
-      fechaFinal1 = new Date(fechaFinal);
+      //fechaInicio1 = new Date(fechaInicio);
+      //fechaFinal1 = new Date(fechaFinal);
       lugarComision1 = lugarComision;
 
-      document.getElementById('duracionDias').value = calcularDiferencia();
-      document.getElementById('fechaI1').value = fechaInicio1;
-      document.getElementById('fechaF1').value = fechaFinal1;
+      //document.getElementById('duracionDias').value = calcularDiferencia();
+      document.getElementById('fechaI1').value = fechaInicio;
+      document.getElementById('fechaF1').value = fechaFinal;
+      document.getElementById('fechaI1').dispatchEvent(new Event('change'));
+
+       // Mostrar los montos de alimentacion y hospedaje
+    alimentacion1.value = montoAlimentos;
+    hospedaje1.value = montoHospedaje;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
   
@@ -585,6 +714,10 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
     }
 
+   
+
+
+    // Agregar los valores en la segunda casilla 2 en la tabla
 } else if(document.getElementById('ShowCiudad1').innerHTML != '' && document.getElementById('ShowFecha1').innerHTML != ''){
 
   document.getElementById('ShowCiudad2').innerHTML = lugarComision;
@@ -594,13 +727,16 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
   document.getElementById('BtnAgregarComision').style.backgroundColor = "gray"
   document.getElementById('BtnAgregarComision').style.cursor = "not-allowed"
 
-  fechaInicio2 = new Date(fechaInicio);
-  fechaFinal2 = new Date(fechaFinal);
   lugarComision2 = lugarComision;
 
-  document.getElementById('duracionDias').value = calcularDiferencia();
-  document.getElementById('fechaI2').value = fechaInicio2;
-  document.getElementById('fechaF2').value = fechaFinal2;
+  //document.getElementById('duracionDias').value = calcularDiferencia();
+  document.getElementById('fechaI2').value = fechaInicio;
+  document.getElementById('fechaF2').value = fechaFinal;
+  document.getElementById('fechaI2').dispatchEvent(new Event('change'));
+
+  // Mostrar los montos de alimentacion y hospedaje
+    alimentacion2.value = montoAlimentos;
+    hospedaje2.value = montoHospedaje;
 
     if (new Date(fechaInicio).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) == new Date(fechaFinal).toLocaleDateString('es-mx', {timeZone: 'UTC', month:"numeric"}) ) {
         
@@ -628,6 +764,8 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
 
       document.getElementById('sF2').innerHTML = document.getElementById('ShowFecha2').innerHTML;
       }
+
+      
     }
 })
 
@@ -639,6 +777,16 @@ document.querySelector('#btnLimpiarC').addEventListener('click',function () {
   document.getElementById('ShowCiudad2').innerHTML = ''
   document.getElementById('ShowFecha2').innerHTML = ''
 
+  document.getElementById('ShowAlimentacion1').value = ''
+  document.getElementById('ShowHospedaje1').value = ''
+  document.getElementById('ShowAlimentacion2').value = '' 
+  document.getElementById('ShowHospedaje2').value = ''
+
+  document.getElementById('fechaI1').value = '';
+  document.getElementById('fechaF1').value = '';
+  document.getElementById('fechaI2').value = '';
+  document.getElementById('fechaF2').value = '';  
+
   /*Comprobamos que los espacios esten en blanco para volver a activar el boton */
   if (document.getElementById('ShowCiudad1').innerHTML === '' ) {
     document.getElementById('BtnAgregarComision').disabled = false
@@ -648,6 +796,7 @@ document.querySelector('#btnLimpiarC').addEventListener('click',function () {
 })
 
   //? Funcion para calcular la diferencia de dias entre la fecha de inicio y la fecha final
+  /*
 function calcularDiferencia() {
   let dias = null;
 
@@ -665,18 +814,24 @@ function calcularDiferencia() {
   
   return duracionDias = dias;
 }
-var fecha2Comprobacion = document.getElementById('fechaRRetorno');
-fecha2Comprobacion.addEventListener('input',calcularDiferenciaDias);
+*/
 
-function calcularDiferenciaDias() {
-  let dias = null;
+realDate(document.getElementById("fechaRSalida"), document.getElementById("fechaRRetorno"));
+function realDate(inicioDate, finalDate) {
+  
+  finalDate.addEventListener("change", function(e) {
+    console.log(inicioDate.value, finalDate.value)
 
-    const diferenciaMs = fechaRRetorno - fechaRSalida;
-    dias = (diferenciaMs / (1000 * 60 * 60 * 24))+2;
-    document.getElementById('duracion_Comprobacion').value = dias;
+    let date1 = new Date(inicioDate.value);
+    let date2 = new Date(finalDate.value);
+    let diffTime = Math.abs(date2 - date1);
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    diffDays = diffDays +1;
+    console.log(diffDays)
+    document.getElementById('duracion_Comprobacion').value = diffDays
+  })
 }
-
-
 
 // todo /////////////////////////////////////////////////////////////////////////////////////
 
@@ -708,16 +863,59 @@ campo3.addEventListener("input", calcularSuma3);
 campo2.addEventListener("input", calcularSuma4);
 campo4.addEventListener("input", calcularSuma4);
 
-campo1.addEventListener('input',sumaToltal)
-campo2.addEventListener('input',sumaToltal)
-campo3.addEventListener('input',sumaToltal)
-campo4.addEventListener('input',sumaToltal)
+campo1.addEventListener('input',sumaTotal)
+campo2.addEventListener('input',sumaTotal)
+campo3.addEventListener('input',sumaTotal)
+campo4.addEventListener('input',sumaTotal)
+
+
+const descriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+
+Object.defineProperty(campo1, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma(); // llama la función cuando el valor cambia desde JS
+    calcularSuma3();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo2, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma(); // llama la función cuando el valor cambia desde JS
+    calcularSuma4();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo3, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma2(); // llama la función cuando el valor cambia desde JS
+    calcularSuma3();
+    sumaTotal();
+  }
+});
+
+Object.defineProperty(campo4, 'value', {
+  get: descriptor.get,
+  set: function(val) {
+    descriptor.set.call(this, val);
+    calcularSuma2(); // llama la función cuando el valor cambia desde JS
+    calcularSuma4();
+    sumaTotal();
+  }
+});
 
 
 
 function calcularSuma() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo2.value) || 0;
+  var valor2 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
 
@@ -727,7 +925,7 @@ function calcularSuma() {
 
 function calcularSuma2() {
   var valor1 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo4.value) || 0;
+  var valor2 = parseFloat(campo4.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado2.textContent = suma;
 }
@@ -735,7 +933,7 @@ function calcularSuma2() {
 
 function calcularSuma3() {
   var valor1 = parseFloat(campo1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo3.value) || 0;
+  var valor2 = parseFloat(campo3.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado3.textContent = suma;
   //enviamos la suma al tercer documento
@@ -744,14 +942,14 @@ function calcularSuma3() {
 
 function calcularSuma4() {
   var valor1 = parseFloat(campo2.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(campo4.value) || 0;
+  var valor2 = parseFloat(campo4.value) || 0; // Si no se puede convertir a número, usar 0
   var suma = valor1 + valor2;
   resultado4.textContent = suma;
   document.getElementById('hS').textContent = suma;
 
 }
 
-function sumaToltal(){
+function sumaTotal(){
   let total1 = parseFloat(document.getElementById('ShowTotal1').textContent || 0)
   let total2 = parseFloat(document.getElementById('ShowTotal2').textContent || 0)
 
@@ -777,8 +975,8 @@ pas1.addEventListener("input", calSuma);
 
 function calSuma() {
   var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj1.value) || 0;
-  var valor3 = parseFloat(pas1.value) || 0;
+  var valor2 = parseFloat(peaj1.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor3 = parseFloat(pas1.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2 + valor3;
 
@@ -791,8 +989,8 @@ pas2.addEventListener("input", calSuma2);
 
 function calSuma2() {
   var valor1 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj2.value) || 0;
-  var valor3 = parseFloat(pas2.value) || 0;
+  var valor2 = parseFloat(peaj2.value) || 0; // Si no se puede convertir a número, usar 0
+  var valor3 = parseFloat(pas2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2 + valor3;
 
@@ -805,7 +1003,7 @@ com2.addEventListener("input", sumaComb);
 
 function sumaComb() {
   var valor1 = parseFloat(com1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(com2.value) || 0;
+  var valor2 = parseFloat(com2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('comS').textContent = suma
@@ -817,7 +1015,7 @@ peaj2.addEventListener("input", sumaPeaj);
 
 function sumaPeaj() {
   var valor1 = parseFloat(peaj1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(peaj2.value) || 0;
+  var valor2 = parseFloat(peaj2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('peS').textContent = suma
@@ -829,7 +1027,7 @@ pas2.addEventListener("input", sumaPas);
 
 function sumaPas() {
   var valor1 = parseFloat(pas1.value) || 0; // Si no se puede convertir a número, usar 0
-  var valor2 = parseFloat(pas2.value) || 0;
+  var valor2 = parseFloat(pas2.value) || 0; // Si no se puede convertir a número, usar 0
 
   var suma = valor1 + valor2;
   document.getElementById('paS').textContent = suma
@@ -993,9 +1191,165 @@ function resetFormulario () {
  });
   nextPrev(1);
 }
+//Funcion para seleccionar UR y actualizar responsable de la ur
+document.getElementById('idUnidadAdministrativa').addEventListener('change', function(){
+  switch (this.selectedIndex) {
+    case 1:
+      agregarOpciones(["Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+      break;
+    case 2:
+      agregarOpciones(["Dra.Mariana Gudiño Paredes","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Delegada Administrativa';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Delegada Administrativa';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+      break;
+    case 3:
+      agregarOpciones(["C.Eduardo Norberto Ramírez Canals","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+      break;
+    case 4:
+      agregarOpciones(["Lic.Guadalupe Morelia Fuentes Peña","Lic. Claudio Méndez Fernández","C.Eduardo Norberto Ramírez Canals"]);
+      document.getElementById('cargoUr').value = 'Directora de Comercialización';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Comercialización';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;  
+        }
+      });
+      break;
+    case 5:
+      agregarOpciones(["Ing.José Carrillo García","Lic. Claudio Méndez Fernández","C.Eduardo Norberto Ramírez Canals"]);
+      document.getElementById('cargoUr').value = 'Director de Inversiones';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Director de Inversiones';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretario de Comercio Internacional';
+            break;  
+        }
+      });
+      break;
+    case 6:
+      agregarOpciones(["Lic.Laura Yunuen Mejía Bejar","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+      break;
+    case 7:
+      agregarOpciones(["Dra.Gloría María Huerta Ramírez","Lic. Claudio Méndez Fernández","Lic.Laura Yunuen Mejía Bejar"]);
+      document.getElementById('cargoUr').value = 'Directora de Previsión Social y Fomento al Empleo';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Previsión Social y Fomento al Empleo';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+          case 2:
+            document.getElementById('cargoUr').value = 'Subsecretaria de Trabajo y Previsión Social';
+            break;
+        }
+      });
+    break;
+    case 8:
+      agregarOpciones(["Lic.Blanca Eugenia Rodríguez Morelos","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
+
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+    break;
+    case 9:
+      agregarOpciones(["Lic.Sofía Beltrán Pacheco","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Directora de Mejora Regulatoria';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Directora de Mejora Regulatoria';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+      break;
+    case 10:
+      agregarOpciones(["Mtro.Ruggiero Zepeda Maldonado","Lic. Claudio Méndez Fernández"]);
+      document.getElementById('cargoUr').value = 'Director de Desarrollo de Proyectos Industriales';
+      document.getElementById('nombrecargoUr').addEventListener('change',function(){
+        switch (this.selectedIndex) {
+          case 0:
+            document.getElementById('cargoUr').value = 'Director de Desarrollo de Proyectos Industriales';
+            break;
+          case 1:
+            document.getElementById('cargoUr').value = 'Secretario de Desarrollo Económico';
+            break;
+        }
+      });
+      break;
+  }
+});
+
+  function agregarOpciones(opciones) {
+    UrCargo.innerHTML = '';
+
+    opciones.forEach(function(opcion) {
+      const opt = document.createElement("option");
+      opt.value = opcion;
+      opt.textContent = opcion;
+      UrCargo.appendChild(opt);
+    });
+  }
 
   // Función para sincronizar select2 con select1 CARGO TITULAR
-document.addEventListener('DOMContentLoaded', function() {
+/* document.addEventListener('DOMContentLoaded', function() {
   const select1 = document.getElementById('nombrecargoUr');
   const select2 = document.getElementById('cargoUr');
 
@@ -1013,5 +1367,17 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   // Agregar evento 'change' a select1
   select1.addEventListener('change', syncSelects);
-});
+}); */
 
+
+/*
+function formatearFecha(fecha) {
+  fecha= new Date(fecha).toLocaleDateString('es-mx', {timeZone: 'UTC'})
+  const anio = fecha.getFullYear();
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses: 0–11
+  const dia = String(fecha.getDate()).padStart(2, '0');      // Días: 1–31
+
+  return `${anio}-${mes}-${dia}`;
+}
+
+*/

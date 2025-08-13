@@ -259,8 +259,10 @@ iframe.contentWindow.document.getElementById("f1-CargoUsuario2").innerHTML = may
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame1').contentWindow;
+    document.getElementById('titleHome').textContent = "Oficio " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
-    wspFrame.print();
+    wspFrame.print();   
+
 
 });
 
@@ -351,9 +353,14 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     }
 
     if (fechaInicio2 && fechaFinal2 == " ") {
+
+        console.log(" LOGGER 1 IF")
+            console.log(fechaInicio2, fechaFinal2)
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
         iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     }else{
+         console.log(" LOGGER 2 ELSE")
+            console.log(fechaInicio2, fechaFinal2)
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
         iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal2).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     } 
@@ -429,6 +436,7 @@ document.querySelector('#generadorPDF2').addEventListener('click', function () {
     iframe2.contentWindow.document.getElementById("f2_fechaDF").innerHTML = " " + new Date(fechaDocumento).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"})
 
     let wspFrame = document.getElementById('frame2').contentWindow;
+    document.getElementById('titleHome').textContent = "Recibo " + numeroOficio + " " + lugarComision1;
         wspFrame.focus();
         wspFrame.print();
 
@@ -610,6 +618,7 @@ document.querySelector('#generadorPDF3').addEventListener('click', function () {
 
 //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame3').contentWindow;
+    document.getElementById('titleHome').textContent = "Comprobación " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 })
@@ -678,6 +687,7 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
 
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame4').contentWindow;
+    document.getElementById('titleHome').textContent = "Gastos Rurales " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 });
@@ -735,6 +745,7 @@ document.querySelector('#generadorPDF5').addEventListener('click', function () {
         
     //IMPRIMIR EN PANTALLA PDF VISUALIZADOR DE NAVEGADOR -- PARA GUARDAR O IMPRIMIR
     let wspFrame = document.getElementById('frame5').contentWindow;
+    document.getElementById('titleHome').textContent = "Tarjeta Informativa " + numeroOficio + " " + lugarComision1;
     wspFrame.focus();
     wspFrame.print();
 }); 

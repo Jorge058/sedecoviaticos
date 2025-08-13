@@ -4,6 +4,7 @@ section#hero{
 
 #regForm {
     background-color: #ffffff;
+    /*margin: 25px 100px auto; */
     margin: 100px auto;
     padding: 40px;
     width: 70%;
@@ -156,6 +157,8 @@ section#hero{
   scale: 0.95;
 }
 
+/* Estilos para la tabla de coches */
+
 
 .loadCookiesBtn {
   background-color: white;
@@ -177,10 +180,20 @@ section#hero{
 .loadCookiesBtn:active {
   scale: 0.95;
 }
+#loadDataBtn{
+  background-color: #4A001F;
+  color: #fff !important;
+  padding: 0.5rem 1rem;   
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size:  1rem;
+  font-weight: bold;
+}
 
 #saveLeave{
-background-color: #4A001F;
-    color: #fff !important;
+  background-color: #4A001F;
+    color: #fff ;
     padding: 0.5rem 1rem;   
     border: none;
     outline: none;
@@ -288,7 +301,7 @@ background-color: #4A001F;
     border: 1px solid #d4d4d4;
     border-bottom: none;
     border-top: none;
-    z-index: 99;
+    z-index: 9999;
     /*position the autocomplete items to be the same width as the container:*/
     /*top: 100%;*/
     left: 0;
@@ -331,7 +344,6 @@ background-color: #4A001F;
 
   /* Estilo para la seccion de recibos */
   .tab.recibo div{
-    display: flex;
     justify-content: center;
     align-items: center;
   } 
@@ -402,9 +414,21 @@ background-color: #4A001F;
 
 /*Estilos para la comision*/
 .fechas{
-  align-items: center;
+  align-items:center;
   justify-content: space-between;
   display: flex;
+  gap: 15px;
+}
+
+.fechas p{
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .fechas {
+    flex-direction: column;
+    width:100% ;
+  }
 }
 
 .btnAgregar{
@@ -693,5 +717,127 @@ td.text-center {
 
 td.text-right {
   text-align: right;
+}
+
+/* Mantener la estructura interna de la card siempre igual */
+.car-card {
+    height: 100%; /* asegura que la tarjeta ocupe toda la altura del contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-color: #4A001F !important;
+}
+
+.car-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+/* CAmbios */
+.car-card #carIcon{
+  color: #4A001F;
+}
+
+.car-card button.btn {
+    margin-top: auto; /* lo empuja hacia el final de la card-body */
+    color: #4A001F;
+    border-color: #4A001F;
+}
+
+.car-card button.btn:hover{
+background-color: #4A001F;
+color: white;
+}
+
+.car-card .card-title {
+    min-height: 1.5rem; /* asegura altura fija del título */
+}
+
+.car-card .text-muted {
+    min-height: 1.2rem; /* asegura altura fija para las placas */
+}
+
+/* Botón: icono rojo normalmente, blanco al hacer hover */
+.btn.btn-outline-danger.btn-sm.ms-2 i {
+  /*color: #dc3545 !important;  */
+  color: white !important;
+  transition: color 0.2s;
+}
+
+/* Asegúrate de que el hover sobrescriba el color del icono */
+.btn.btn-outline-danger.btn-sm.ms-2:hover i {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+}
+
+
+
+
+.page-link{
+  color: white !important;
+  background-color: #4A001F !important;
+}
+
+.page-link span{
+  color: white !important;
+  background-color: #4A001F !important;
+}
+
+.page-item.active a{
+  color: #4A001F !important;
+  background-color: white !important;
+  border-color: #4A001F;
+}
+
+.page-item.active a:hover{
+  opacity: 0.5;
+}
+
+.card-body .text-muted {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    display: block;
+    width: 100%;
+}
+
+.card-title {
+  text-align: left !important;
+  min-height: 2.5rem; /* Establece altura mínima para 1 o 2 líneas */
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: normal; /* Permite varias líneas */
+  margin-bottom: 0.5rem;
+}
+
+
+.card-body .d-flex > div {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.card-body .text-muted {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+
+#selectedVehicleTitle {
+  padding-left: 8px;
+  margin: 0;
+  text-align: left;
+}
+
+#selectedVehicleDetails,
+.selected-vehicle-details, /* en caso de que tenga clase adicional */
+.text-muted.mb-0 {
+  padding-left: 12px !important;
+  margin: 0 !important;
+  text-align: left;
 }
 

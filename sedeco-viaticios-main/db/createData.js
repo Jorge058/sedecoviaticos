@@ -13,7 +13,7 @@ import firebaseConfig from './firebase_config.js';
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.querySelector("#generadorPDF2").addEventListener("click", function () {
+document.querySelector("#saveProgressLeave").addEventListener("click", function () {
   let unidadResponsable = document.getElementById(
     "idUnidadAdministrativa"
   ).value;
@@ -29,7 +29,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   ).value;
   let objetivosComision = document.getElementById("objetivosComision").value;
 
-  let fechaInicio1 = document.getElementById("fechaInicio").value;
+  let fechaInicio = document.getElementById("fechaInicio").value;
   let fechaFinal = document.getElementById("fechaFinal").value;
   let duracionDias = document.getElementById("duracionDias").value;
   let inputCiudades = document.getElementById("inputCiudades").value;
@@ -37,6 +37,11 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let lugarComision2 = document.getElementById("ShowCiudad2").textContent || "";
   let fechaComision1 = document.getElementById("ShowFecha1").textContent || "";
   let fechaComision2 = document.getElementById("ShowFecha2").textContent || "";
+  //update
+  let fechaInicio_Comision1 = document.getElementById("fechaI1").value;
+  let fechaFinal_Comision1 = document.getElementById("fechaF1").value;
+  let fechaInicio_Comision2 = document.getElementById("fechaI2").value;
+  let fechaFinal_Comision2 = document.getElementById("fechaF2").value;
 
   let ShowAlimentacion1 = document.getElementById("ShowAlimentacion1").value;
   let ShowAlimentacion2 = document.getElementById("ShowAlimentacion2").value;
@@ -50,6 +55,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
 
   let tipoVehiculo = document.getElementById("vehicleInput").value;
   let marcaVehiculo = document.getElementById("marcaVehiculo").value;
+  let idVehiculo = document.getElementById("idVehiculo").value;
   let modeloVehiculo = document.getElementById("modeloAuto").value;
   let modeloAnioVehiculo = document.getElementById("modeloAnio").value;
   let placasVehiculo = document.getElementById("placasInput").value;
@@ -95,7 +101,6 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
   let descripcionInfo = document.getElementById("DescripcionI").value;
   let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
 
-
   const data = {
     persona_unidadresponsable: unidadResponsable,
     titular_nombre: nombreUr,
@@ -106,7 +111,8 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     persona_cargo: cargoUsuario,
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
-    oficio_fecha_inicial: fechaInicio1,
+     oficio_status: "En proceso",
+    oficio_fecha_inicial: fechaInicio,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
     oficio_ciudad: inputCiudades,
@@ -114,6 +120,10 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     oficio_lugar_comision_2: lugarComision2,
     oficio_showfecha1: fechaComision1,
     oficio_showfecha2:fechaComision2,
+    fechaInicio_Comision1: fechaInicio_Comision1,
+    fechaFinal_Comision1: fechaFinal_Comision1,
+    fechaInicio_Comision2: fechaInicio_Comision2,
+    fechaFinal_Comision2: fechaFinal_Comision2,
     recibo_alimentacion: parseInt(ShowAlimentacion1),
     recibo_alimentacion_2: ShowAlimentacion2,
     recibo_alimentacion_total:alimentosT,
@@ -124,6 +134,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     recibo_total2:showTotal2,
     recibo_total: resultado5,
     auto_tipo: tipoVehiculo,
+    auto_id: idVehiculo,
     auto_marca: marcaVehiculo,
     auto_modelo: modeloVehiculo,
     auto_año: modeloAnioVehiculo,
@@ -164,7 +175,7 @@ document.querySelector("#generadorPDF2").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: 'financieros'
+    persona_area: DepartamentoOficio,
   };
   addDocumentAsync(data, numeroOficio);
 });
@@ -185,7 +196,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   ).value;
   let objetivosComision = document.getElementById("objetivosComision").value;
 
-  let fechaInicio1 = document.getElementById("fechaInicio").value;
+  let fechaInicio = document.getElementById("fechaInicio").value;
   let fechaFinal = document.getElementById("fechaFinal").value;
   let duracionDias = document.getElementById("duracionDias").value;
   let inputCiudades = document.getElementById("inputCiudades").value;
@@ -193,6 +204,11 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let lugarComision2 = document.getElementById("ShowCiudad2").textContent || "";
   let fechaComision1 = document.getElementById("ShowFecha1").textContent || "";
   let fechaComision2 = document.getElementById("ShowFecha2").textContent || "";
+//update
+  let fechaInicio_Comision1 = document.getElementById("fechaI1").value;
+  let fechaFinal_Comision1 = document.getElementById("fechaF1").value;
+  let fechaInicio_Comision2 = document.getElementById("fechaI2").value;
+  let fechaFinal_Comision2 = document.getElementById("fechaF2").value;
 
   let ShowAlimentacion1 = document.getElementById("ShowAlimentacion1").value;
   let ShowAlimentacion2 = document.getElementById("ShowAlimentacion2").value;
@@ -250,7 +266,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
   let gastosRurales = document.getElementById('gastosRurales').value;
   let descripcionInfo = document.getElementById("DescripcionI").value;
   let DepartamentoOficio = document.getElementById("DepartamentoOficio").value;
-
+  
 
   const data = {
     persona_unidadresponsable: unidadResponsable,
@@ -262,7 +278,8 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     persona_cargo: cargoUsuario,
     persona_descripcion_actividades: descripcionDetalles,
     persona_objetivos: objetivosComision,
-    oficio_fecha_inicial: fechaInicio1,
+    oficio_status: "Completado",
+    oficio_fecha_inicial: fechaInicio,
     oficio_fecha_final: fechaFinal,
     oficio_duracion_dias: duracionDias,
     oficio_ciudad: inputCiudades,
@@ -270,6 +287,10 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     oficio_lugar_comision_2: lugarComision2,
     oficio_showfecha1: fechaComision1,
     oficio_showfecha2:fechaComision2,
+    fechaInicio_Comision1: fechaInicio_Comision1,
+    fechaFinal_Comision1: fechaFinal_Comision1,
+    fechaInicio_Comision2: fechaInicio_Comision2,
+    fechaFinal_Comision2: fechaFinal_Comision2,
     recibo_alimentacion: parseInt(ShowAlimentacion1),
     recibo_alimentacion_2: ShowAlimentacion2,
     recibo_alimentacion_total:alimentosT,
@@ -321,7 +342,7 @@ document.querySelector("#saveLeave").addEventListener("click", function () {
     liquidacion: liquidacionC,
     gastosR:gastosRurales,
     descripcion_informativa: descripcionInfo,
-    persona_area: 'financieros'
+    persona_area: DepartamentoOficio,
   };
 
   addDocumentAsync(data, numeroOficio);
@@ -346,7 +367,8 @@ async function addDocumentAsync(data, numeroOficio) {
           icon: 'iconalert',
           confirmButton: 'boton-confirmar',
           cancelButton: 'boton-cancelar'
-        }
+        },
+        allowOutsideClick: false,
       }).then(async (result) => {
         if (result.isConfirmed) {
           // lógica para editar
@@ -361,11 +383,14 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alerta',
             title: 'titulo',
             icon: 'iconalert',
-        } 
+        },
+        allowOutsideClick: false,
         });
 
         setTimeout(() => {
-          window.location.href = "../index.html";
+          window.location.href = "../../index.html";
+          //window.location.href = window.location.href + '?t=' + new Date().getTime();
+          hardReload();
         }, 4000);
 
         }else{
@@ -378,7 +403,11 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alerta',
             title: 'titulo',
             icon: 'iconalert',
-        } 
+        },
+        allowOutsideClick: false,
+        }).then(()=> {
+          document.body.style.overflowX = 'unset';
+          document.body.style.paddingRight = 'initial';
         });
         }
       });
@@ -394,15 +423,99 @@ async function addDocumentAsync(data, numeroOficio) {
             popup: 'alertaDone',
             title: 'tituloDone',
             icon: 'iconalertDone',
-        } 
+        },
+      allowOutsideClick:false
         });
 
         setTimeout(() => {
-          window.location.href = "../index.html";
-        }, 4000);
+          window.location.href = "../../index.html";
+        }, 3000);
 
     }
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+
+
+
+  //Function to send data to Google Sheets
+  await sendToGoogleSheets(data);
+
+}
+
+
+
+
+
+async function sendToGoogleSheets(data) {
+  const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbycirtEaYWhrikCIDO3mzUa-LAl0uR7mH7dzYwzL35KVf-Rj7gXIqlhaJVNpSAaEqI3/exec"; // URL web app de Google Sheets
+
+  // Limita los campos a enviar (solo los que nos interesan)
+  const filteredData = {
+    oficio_numero: data.oficio_numero,
+    oficio_status: data.oficio_status,
+    persona_nombre: data.persona_nombre,
+    persona_objetivos: data.persona_objetivos,
+    oficio_fecha: data.oficio_fecha,
+    oficio_lugar_comision: data.oficio_lugar_comision,
+    oficio_fecha_inicial: data.oficio_fecha_inicial,
+    oficio_fecha_final: data.oficio_fecha_final,
+    recibo_alimentacion_total: data.recibo_alimentacion_total,
+    recibo_hospedaje_total: data.recibo_hospedaje_total,
+    recibo_combustible: data.recibo_combustible,
+    recibo_pasajes: data.recibo_pasajes,
+    recibo_peajes: data.recibo_peajes,
+    recibo_total: data.recibo_total
+  };
+
+  try {
+    const response = await fetch(SHEETS_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors", // ⚠️ No tendrás acceso a la respuesta
+      body: JSON.stringify(filteredData),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const result = await response.text();
+    console.log("Google Sheets response:", result);
+  } catch (err) {
+    console.error("Error al enviar a Google Sheets:", err);
+  }
+}
+
+
+
+
+function hardReload() {
+try {
+        // 1. Limpiar variables globales específicas
+        delete window.userData;
+        delete window.appConfig;
+        delete window.tempData;
+        
+        // 2. Limpiar storages
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // 3. Limpiar caché del navegador usando Service Worker si existe
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                });
+            });
+        }
+        
+        // 4. Recarga forzada con timestamp único
+        const timestamp = new Date().getTime();
+        const separator = window.location.search ? '&' : '?';
+        const newUrl = window.location.href.split('?')[0] + '?_t=' + timestamp;
+        
+        window.location.replace(newUrl);
+        
+    } catch (error) {
+        console.error('Error durante la recarga:', error);
+        // Fallback más agresivo
+        window.location.href = window.location.protocol + '/' + window.location.host + window.location.pathname + '?_force=' + Date.now();
+    }
 }
