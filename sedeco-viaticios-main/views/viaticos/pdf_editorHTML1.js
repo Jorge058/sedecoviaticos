@@ -175,6 +175,34 @@ function nLetra(numero){
 }
 
 // Event listeners refactorizados
+// Event listeners para los botones de vista previa (viewerPDF)
+/*
+document.addEventListener('click', function(e) {
+    // Oficio
+    if (e.target.closest('#viewerPDF1')) {
+        llenarOficio({ imprimir: true });
+    }
+    // Recibo
+    if (e.target.closest('#viewerPDF2')) {
+        llenarRecibo({ imprimir: true });
+    }
+    // Comprobación
+    if (e.target.closest('#viewerPDF3')) {
+        llenarComprobacion({ imprimir: true });
+    }
+    // Gastos Rurales
+    if (e.target.closest('#viewerPDF4')) {
+        llenarGastosRurales({ imprimir: true });
+    }
+    // Tarjeta Informativa
+    if (e.target.closest('#viewerPDF5')) {
+        llenarTarjetaInformativa({ imprimir: true });
+    }
+});
+*/
+
+
+// Event listeners refactorizados
 document.querySelector('#btn-GenerarPDF1').addEventListener('click', function () {
     llenarOficio({ imprimir: true });
 });
@@ -190,7 +218,6 @@ document.querySelector('#generadorPDF4').addEventListener('click', function () {
 document.querySelector('#generadorPDF5').addEventListener('click', function () {
     llenarTarjetaInformativa({ imprimir: true });
 });
-
 
 /*
 
@@ -756,34 +783,11 @@ function llenarRecibo({ imprimir = false } = {}) {
     document.getElementById('titleHome').textContent = "Recibo " + numeroOficio + " " + lugarComision1;
 
 
-//SAVE IN LOCALSTORAGE  
-    
-/*
-let todosCampos = [
-    unidadResponsable,
-    numeroOficio,
-    fechaDocumento,
-    mayusculas(nombreUsuario),
-    mayusculas(cargoUsuario),
-    duracionDias,
-    nLetra(duracionDias),
-    descripcionDetalles,
-    lugarComision1,
-    fechaInicio,
-    fechaFinal,
-    tipoVehiculo.value,
-    marcaVehiculo,
-    modeloVehiculo,
-    modeloAnioVehiculo,
-    placasVehiculo,
-        ]
-let string = JSON.stringify(todosCampos);
-localStorage.setItem("Campos", string);
-    //******************* *********/
+//SAVE IN LOCALSTORAGE********* *********/
 
       if (imprimir) {
         wspFrame.focus();
-        wspFrame.print();
+        wspFrame.print(); 
     }
 }
 
@@ -1107,7 +1111,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 */
 
+//****************************************************** */
+// SHOW MENU PDF //
+function mostrarOficioPDF() {
+    //loadViaticos(id, false, allData);
+            llenarOficio({ imprimir: true });
 
+}
+
+function mostrarReciboPDF(id) {
+    //loadViaticos(id, false, allData);
+    llenarRecibo({ imprimir: true });
+ 
+}
+
+function mostrarComprobacionPDF(id) {
+    //loadViaticos(id, false, allData);
+    llenarComprobacion({ imprimir: true });
+}
+
+function mostrarTarjetaPDF(id) {
+    //loadViaticos(id, false, allData);
+    llenarTarjetaInformativa({ imprimir: true });
+}
 
 // Función mejorada para mostrar todos los PDFs en una sola vista
 function mostrarTodosPDFsNativo() {
@@ -1393,9 +1419,17 @@ window.mostrarTodosPDFsNativo = mostrarTodosPDFsNativo;
 window.mostrarTodosPDFsSimple = mostrarTodosPDFsSimple;
 window.limpiarIframesTemporales = limpiarIframesTemporales;
 
+window.mostrarOficioPDF = mostrarOficioPDF;
+window.mostrarReciboPDF = mostrarReciboPDF;
+window.mostrarComprobacionPDF = mostrarComprobacionPDF;
+window.mostrarTarjetaPDF = mostrarTarjetaPDF;
 
 
 // Exponer funciones globalmente
 window.mostrarTodosPDFs = mostrarTodosPDFs;
+
+window.llenarOficio = llenarOficio;
+window.llenarRecibo = llenarRecibo;
+
 
 

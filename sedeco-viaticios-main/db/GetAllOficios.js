@@ -13,6 +13,9 @@ import {
 //Import Firebase configuration
 import firebaseConfig from './firebase_config.js';
 
+
+import { loadViaticos } from "./loadData_BD_ToForm.js";
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -192,23 +195,25 @@ console.log(allData);
 
 function PDFGeneratorshow(DocumentId){
   console.log("Generando PDF del documento con ID:", DocumentId);
+  loadViaticos(DocumentId, false, allData);
+
     Swal.fire({
           title: 'Descarga de Documentos <br> <p class="text-black" style="font-size: 12px; font-weight: 100">  Seleccione un archivo de la lista para visualizar</p >',
           html: `<div class="pdf-tooltip" id="pdfTooltip">
                     <div class="pdf-links">
-                        <a href="#" class="pdf-link" data-pdf="oficio">
+                        <a href="#" class="pdf-link" data-pdf="oficio" id="viewerPDF1" onclick="mostrarOficioPDF()">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Oficio de Comisión</span>
                         </a>
-                        <a href="#" class="pdf-link" data-pdf="recibo">
+                        <a href="#" class="pdf-link" data-pdf="recibo" id="ViewerReciboPDF" onclick="mostrarReciboPDF(${DocumentId})">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Recibo de Viáticos</span>
                         </a>
-                        <a href="#" class="pdf-link" data-pdf="comprobacion">
+                        <a href="#" class="pdf-link" data-pdf="comprobacion" id="ViewerComprobacionPDF" onclick="mostrarComprobacionPDF(${DocumentId}) ">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Comprobación</span>
                         </a>
-                        <a href="#" class="pdf-link" data-pdf="tarjeta">
+                        <a href="#" class="pdf-link" data-pdf="tarjeta" id="ViewerTarjetaPDF" onclick="mostrarTarjetaPDF(${DocumentId})">
                             <i class="fa fa-file-pdf"></i>
                             <span class="text-black">Tarjeta Informativa</span>
                         </a>
