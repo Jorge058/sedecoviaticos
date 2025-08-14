@@ -689,9 +689,13 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
         if(!montoHospedaje){
           montoHospedaje = 0;
           }
-        if(!montoAlimentos){
-          montoAlimentos.style.classList.add('invalid');
-          }
+        if(!montoAlimentos || montoAlimentos == 0){
+          document.getElementById('montoAlimentacion').classList.add('invalid');
+          return;
+          } 
+        else {
+          document.getElementById('montoAlimentacion').classList.remove('invalid');
+        }
 
 
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
