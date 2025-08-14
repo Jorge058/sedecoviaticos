@@ -301,7 +301,7 @@ function validateForm() {
   y = x[currentTab].getElementsByTagName("input");
 
   //inputs vacios
-  const allowEmpty = ["fechaI2","fechaF2","ShowAlimentacion2","ShowHospedaje2"];
+  const allowEmpty = ["fechaI2","fechaF2","ShowAlimentacion2","ShowHospedaje2","montoAlimentacion","montoHospedaje"];
 
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
@@ -672,6 +672,7 @@ document.getElementById("fechaInicio").addEventListener("input", function(){
 
   //Button ADD
 document.querySelector('#BtnAgregarComision').addEventListener('click', function () {
+
   let fechaInicio = document.getElementById('fechaInicio').value;
   let fechaFinal = document.getElementById('fechaFinal').value;
   let lugarComision = document.getElementById('inputCiudades').value;
@@ -684,7 +685,13 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       const alimentacion2 = document.getElementById('ShowAlimentacion2')
       const hospedaje2 = document.getElementById('ShowHospedaje2')
 
-
+      console.log(montoHospedaje);
+        if(!montoHospedaje){
+          montoHospedaje = 0;
+          }
+        if(!montoAlimentos){
+          montoAlimentos.style.classList.add('invalid');
+          }
 
 
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
