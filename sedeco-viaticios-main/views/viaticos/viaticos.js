@@ -1326,7 +1326,7 @@ document.getElementById('idUnidadAdministrativa').addEventListener('change', fun
       });
     break;
     case 8:
-      agregarOpciones(["Lic.Blanca Eugenia Rodríguez Morelos","Lic. Claudio Méndez Fernández"]);
+      agregarOpciones(["LDI.Blanca Eugenia Rodríguez Morelos","Lic. Claudio Méndez Fernández"]);
       document.getElementById('cargoUr').value = 'Directora de Desarrollo Empresarial y Economía Social';
 
       document.getElementById('nombrecargoUr').addEventListener('change',function(){
