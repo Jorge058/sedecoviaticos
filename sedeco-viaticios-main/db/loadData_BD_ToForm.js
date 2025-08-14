@@ -84,6 +84,11 @@ console.log("Cargando datos del oficio con ID:", id, allData);
     document.getElementById("fechaI2").textContent = allData[id].fechaInicio_Comision2;
     document.getElementById("fechaF2").textContent = allData[id].fechaFinal_Comision2;
 
+    //value
+    document.getElementById("fechaI1").value = allData[id].fechaInicio_Comision1;
+    document.getElementById("fechaF1").value = allData[id].fechaFinal_Comision1;
+    document.getElementById("fechaI2").value = allData[id].fechaInicio_Comision2;
+    document.getElementById("fechaF2").value = allData[id].fechaFinal_Comision2;
 
     //HOJA 3
   document.getElementById("vehicleInput").value = allData[id].auto_tipo;

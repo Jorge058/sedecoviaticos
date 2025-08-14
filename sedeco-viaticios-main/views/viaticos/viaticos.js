@@ -514,7 +514,8 @@ function checksDiffDays(inicioDate, finalDate) {
 
 }
 
-//BTN CARGAR COOKIES FORMULARIO
+//BTN CARGAR COOKIES FORMULARIO (ESTE YA NO SE USA PORQUE NO ES NECESARIO EL LOCAL STORAGE)
+/*
 function loadCookies() {
   // Retrieving the string
 let retString = localStorage.getItem("Campos")
@@ -533,7 +534,7 @@ nextPrev(camposArray[16])
   document.getElementById('inputCiudades').value = camposArray[8];
   document.getElementById('descripcionDetalles').value = camposArray[7];
 
-/* USUARIO */
+
   document.getElementById('nombreUsuario').value = camposArray[3];
   document.getElementById('cargoUsuario').value = camposArray[4];
 
@@ -541,7 +542,7 @@ nextPrev(camposArray[16])
   document.getElementById('fechaInicio').value = camposArray[9];
   document.getElementById('fechaFinal').value = camposArray[10];
 
-/*  Vehiculo  */
+
   document.getElementById('vehicleInput').value = camposArray[11];
   document.getElementById('marcaVehiculo').value = camposArray[12];
   document.getElementById('modeloAuto').value = camposArray[13];
@@ -549,6 +550,8 @@ nextPrev(camposArray[16])
   document.getElementById('placasInput').value = camposArray[15];
 
 }
+
+*/
 
 
 
@@ -568,13 +571,20 @@ let cargoUsuario = document.getElementById('cargoUsuario').value;
 
 let duracionDias = document.getElementById('duracionDias').value;        //Duracion dias
 let descripcionDetalles = document.getElementById('descripcionDetalles').value;
-let fechaInicio = document.getElementById('fechaInicio').value;
-let fechaFinal = document.getElementById('fechaFinal').value;
+let fechaInicio = document.getElementById('fechaInicio');
+let fechaFinal = document.getElementById('fechaFinal');
 
-let fechaInicio1 = null;
-let fechaFinal1 = null;
-let fechaInicio2 = null;
-let fechaFinal2 = null;
+/*
+let fechaInicio1.value = null;
+let fechaFinal1.value = null;
+let fechaInicio2.value = null;
+let fechaFinal2.value = null;
+*/
+
+let fechaInicio1 = document.getElementById('fechaInicio1');
+let fechaFinal1 = document.getElementById('fechaFinal1');
+let fechaInicio2 = document.getElementById('fechaInicio2');
+let fechaFinal2 = document.getElementById('fechaFinal2');
 
 let lugarComision1 = null;
 let lugarComision2 = null;
