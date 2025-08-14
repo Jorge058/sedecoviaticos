@@ -92,7 +92,7 @@ console.log("Cargando datos del oficio con ID:", id, allData);
 
     //HOJA 3
   document.getElementById("vehicleInput").value = allData[id].auto_tipo;
-  document.getElementById("idVehiculo").value = allData[id].auto_id || "";
+  document.getElementById("idVehiculo").value = allData[id].auto_id || "No aisgnado";
   document.getElementById("marcaVehiculo").value = allData[id].auto_marca;
   document.getElementById("modeloAuto").value = allData[id].auto_modelo;
   document.getElementById("modeloAnio").value = allData[id].auto_año;

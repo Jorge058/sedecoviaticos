@@ -700,6 +700,7 @@ function llenarRecibo({ imprimir = false } = {}) {
 
         console.log(" LOGGER 1 IF")
             console.log(fechaInicio2, fechaFinal2)
+            console.log(fechaInicio1, fechaFinal1)
         iframe2.contentWindow.document.getElementById("f2_fechaI").innerHTML = new Date(fechaInicio1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
         iframe2.contentWindow.document.getElementById("f2_fechaF").innerHTML = new Date(fechaFinal1).toLocaleDateString('es-mx', {timeZone: 'UTC',  year:"numeric", month:"long", day:"numeric"});
     }else{
