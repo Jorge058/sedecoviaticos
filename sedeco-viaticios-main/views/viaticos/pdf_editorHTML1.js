@@ -160,6 +160,8 @@ function NumeroALetras(num) {
 /**************************************************************************************** */
 
 function mayusculas(palabra) {
+    palabra = palabra.trim();
+    if (palabra != undefined && palabra != null && palabra !== "" && palabra.length !== 0) {
     const mySentence = palabra;
     const words = mySentence.split(" ");
 
@@ -167,6 +169,7 @@ function mayusculas(palabra) {
         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
         }
     return words.join(" ");
+    }
 }
 
 function nLetra(numero){
@@ -696,7 +699,7 @@ function llenarRecibo({ imprimir = false } = {}) {
         iframe2.contentWindow.document.getElementById("f2_DuracionDiasLetra").innerHTML = nLetra(duracionDias) +" días";
     }
 
-    if (fechaInicio2 && fechaFinal2 == " ") {
+    if (fechaInicio2 && fechaFinal2 == " " || fechaInicio2 && fechaFinal1 == "") {
 
         console.log(" LOGGER 1 IF")
             console.log(fechaInicio2, fechaFinal2)
