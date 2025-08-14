@@ -1426,9 +1426,6 @@ window.mostrarComprobacionPDF = mostrarComprobacionPDF;
 window.mostrarTarjetaPDF = mostrarTarjetaPDF;
 
 
-// Exponer funciones globalmente
-window.mostrarTodosPDFs = mostrarTodosPDFs;
-
 window.llenarOficio = llenarOficio;
 window.llenarRecibo = llenarRecibo;
 

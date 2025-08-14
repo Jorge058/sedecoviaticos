@@ -299,13 +299,17 @@ function validateForm() {
   var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
+
+  //inputs vacios
+  const allowEmpty = ["fechaI2","fechaF2","ShowAlimentacion2","ShowHospedaje2"];
+
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // Excepción para el input de búsqueda *****************************************************
-    if (y[i].id === "searchInput") continue;
+    if (y[i].id === "searchInput" || allowEmpty.includes(y[i].id)) continue;
     // If a field is empty...
     if (y[i].value == "") {
-      // add an "invalid" class to the field:
+      // add an "invalid" class to the field:f
       y[i].className += " invalid";
       // and set the current valid status to false:
       valid = false;
@@ -680,6 +684,9 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       const alimentacion2 = document.getElementById('ShowAlimentacion2')
       const hospedaje2 = document.getElementById('ShowHospedaje2')
 
+
+
+
   //Agregar y ver si el espacio 1 esta ocupado para agregar al espacio 2
   if (document.getElementById('ShowCiudad1').innerHTML === '' && document.getElementById('ShowFecha1').innerHTML === '') {
       document.getElementById('ShowCiudad1').innerHTML = lugarComision;
@@ -724,7 +731,7 @@ document.querySelector('#BtnAgregarComision').addEventListener('click', function
       document.getElementById('sF1').innerHTML = document.getElementById('ShowFecha1').innerHTML
     }
 
-   
+   //Llenar los inputs 
 
 
     // Agregar los valores en la segunda casilla 2 en la tabla
@@ -1195,6 +1202,12 @@ function sumaDif(){
 function resetFormulario () {
   let formToReset = document.getElementById('regForm');
   let loadDataBtn = document.getElementById('loadDataBtn')
+
+  ShowCiudad1.innerHTML = '';
+  ShowFecha1.innerHTML = '';
+  ShowCiudad2.innerHTML = ''; 
+  ShowFecha2.innerHTML = '';    
+
   loadDataBtn.addEventListener('click', (e) => {
     e.preventDefault();
     formToReset.reset();
